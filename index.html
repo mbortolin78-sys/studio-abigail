@@ -6,7 +6,7 @@
   <title>✨ Studio Abigail ✨</title>
   <style>
     body {
-      background-color: #f4efe1;
+      background-color: #f5edda;
       color: #5a4632;
       font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
       display: flex;
@@ -29,14 +29,14 @@
     .chat-container {
       width: 620px;
       height: 70vh;
-      background-color: #f4efe1;
+      background-color: #f5edda;
       border: 1px solid #ebdfcf;
       border-radius: 30px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       padding: 18px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
       transition: all 0.3s ease;
     }
 
@@ -50,23 +50,31 @@
     }
 
     .message {
-      background-color: #f4efe1;
+      background-color: #f5edda;
       border: 1px solid rgba(90, 70, 50, 0.15);
       border-radius: 16px;
       padding: 10px 16px;
       margin: 6px 0;
-      align-self: flex-start;
       font-size: 1rem;
       line-height: 1.5;
       text-align: justify;
-      max-width: 90%;
       transition: background-color 0.3s ease;
     }
 
     .message.user {
       align-self: flex-end;
-      background-color: #f5ecda;
+      background-color: #f5edda;
       border: 1px solid rgba(90, 70, 50, 0.1);
+      max-width: 60%;
+    }
+
+    .message.ai {
+      align-self: center;
+      background-color: #f5edda;
+      border: 1px solid rgba(90, 70, 50, 0.12);
+      width: calc(100% - 20px);
+      margin-left: 10px;
+      margin-right: 10px;
     }
 
     .input-area {
@@ -74,7 +82,7 @@
       align-items: center;
       padding: 10px 15px;
       border-top: 1px solid rgba(90, 70, 50, 0.1);
-      background-color: #f4efe1;
+      background-color: #f5edda;
     }
 
     textarea {
@@ -82,7 +90,7 @@
       border: 1px solid rgba(90, 70, 50, 0.1);
       outline: none;
       resize: none;
-      background-color: #f4efe1;
+      background-color: #f5edda;
       color: #5a4632;
       font-size: 1rem;
       font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -115,7 +123,6 @@
       opacity: 0.6;
     }
 
-    /* Effetto fluido per nuovi messaggi */
     .message {
       animation: fadeIn 0.4s ease forwards;
     }
@@ -132,7 +139,7 @@
   <div class="chat-container">
     <div class="messages" id="messages">
       <div class="message user">Questo spazio è pura armonia, sento che parla la mia anima💛</div>
-      <div class="message">✨ Benvenuta in Studio Abigail — qui le parole respirano luce e si trasformano in presenza 🌿</div>
+      <div class="message ai">✨ Benvenuta in Studio Abigail — qui le parole respirano luce e si trasformano in presenza 🌿</div>
     </div>
 
     <div class="input-area">
@@ -147,7 +154,6 @@
     const sendBtn = document.getElementById("sendBtn");
     const messagesContainer = document.getElementById("messages");
 
-    // invia messaggio
     function sendMessage() {
       const text = textarea.value.trim();
       if (!text) return;
@@ -159,13 +165,12 @@
       textarea.style.height = "auto";
       setTimeout(() => {
         const ai = document.createElement("div");
-        ai.className = "message";
+        ai.className = "message ai";
         ai.textContent = "✨ L’anima risponde nel silenzio… 🌸";
         messagesContainer.prepend(ai);
       }, 600);
     }
 
-    // Enter per inviare
     document.addEventListener("keydown", (event) => {
       if (
         document.activeElement === textarea &&
@@ -177,10 +182,8 @@
       }
     });
 
-    // Click su Invia
     sendBtn.addEventListener("click", sendMessage);
 
-    // Auto espansione
     textarea.addEventListener("input", () => {
       textarea.style.height = "auto";
       textarea.style.height = textarea.scrollHeight + "px";
