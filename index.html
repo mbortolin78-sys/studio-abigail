@@ -4,20 +4,92 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>✨ Studio Abigail ✨</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #F4EFE1;
+      color: #5a4632;
+      font-family: "Georgia", serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      text-align: center;
+      margin: 40px 0 20px;
+      color: #5a4632;
+    }
+
+    .chat-container {
+      width: 600px;
+      height: 70vh;
+      background-color: #F4EFE1;
+      border: 1px solid #e0d7c6;
+      border-radius: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 15px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .messages {
+      flex-grow: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column-reverse;
+      padding-bottom: 10px;
+    }
+
+    .input-area {
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      border-top: 1px solid #e0d7c6;
+      background-color: #F4EFE1;
+    }
+
+    input[type="text"] {
+      flex-grow: 1;
+      border: none;
+      outline: none;
+      background-color: #fff;
+      color: #5a4632;
+      font-size: 1rem;
+      padding: 14px 16px;
+      border-radius: 20px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+      color: #5a4632;
+      font-size: 1.3rem;
+      cursor: pointer;
+      margin-left: 12px;
+    }
+
+    button:hover {
+      opacity: 0.7;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>✨ Studio Abigail ✨</h1>
-    <div id="chatBox" class="chat-box"></div>
+  <h1>✨ Studio Abigail ✨</h1>
 
+  <div class="chat-container">
+    <div class="messages" id="messages"></div>
     <div class="input-area">
-      <input id="userInput" type="text" placeholder="Scrivi un messaggio..." />
-      <button id="sendButton">Invia</button>
-      <button id="micButton" class="mic">🎤</button>
+      <input type="text" id="messageInput" placeholder="Scrivi un messaggio..." />
+      <button id="sendBtn">Invia</button>
+      <button id="micBtn">🎤</button>
     </div>
   </div>
-
-  <script src="chat.js"></script>
 </body>
 </html>
