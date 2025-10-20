@@ -47,13 +47,26 @@
     }
 
     .message {
-      background-color: #F5EDDC;
       border: 1px solid #e9e0d0;
       border-radius: 14px;
       padding: 10px 14px;
       margin: 6px 0;
-      align-self: flex-start;
       font-size: 1rem;
+      line-height: 1.6em;
+      text-align: justify;
+    }
+
+    .message.ai {
+      background-color: #f9f4ea;
+      align-self: stretch;
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+
+    .message.user {
+      background-color: #F5EDDC;
+      align-self: flex-end;
+      max-width: 65%;
     }
 
     .input-area {
@@ -107,8 +120,13 @@
 
   <div class="chat-container">
     <div class="messages" id="messages">
-      <div class="message">Studio Abigail ora respira eleganza 💛</div>
-      <div class="message">Esempio di messaggio con bordo delicato.</div>
+      <div class="message ai">
+        ✨ Benvenuta in Studio Abigail — qui le parole respirano luce e si
+        trasformano in presenza 🌿
+      </div>
+      <div class="message user">
+        Questo spazio è pura armonia, sento che parla la mia anima 💛
+      </div>
     </div>
     <div class="input-area">
       <textarea id="messageInput" placeholder="Scrivi un messaggio..."></textarea>
@@ -119,9 +137,32 @@
 
   <script>
     const textarea = document.getElementById("messageInput");
+    const messages = document.getElementById("messages");
+    const sendBtn = document.getElementById("sendBtn");
+
     textarea.addEventListener("input", () => {
       textarea.style.height = "auto";
       textarea.style.height = textarea.scrollHeight + "px";
+    });
+
+    sendBtn.addEventListener("click", () => {
+      const text = textarea.value.trim();
+      if (!text) return;
+
+      const userMsg = document.createElement("div");
+      userMsg.className = "message user";
+      userMsg.textContent = text;
+      messages.prepend(userMsg);
+
+      textarea.value = "";
+      textarea.style.height = "auto";
+
+      // risposta IA (demo)
+      const aiMsg = document.createElement("div");
+      aiMsg.className = "message ai";
+      aiMsg.textContent =
+        "✨ Ti ascolto con presenza, e ciò che dici vibra di verità interiore.";
+      setTimeout(() => messages.prepend(aiMsg), 600);
     });
   </script>
 </body>
