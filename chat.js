@@ -12,7 +12,7 @@ function createMessage(text, isUser = false) {
   messagesContainer.scrollTop = 0;
 }
 
-// Invia messaggio (click o enter)
+// Funzione per inviare
 function sendMessage() {
   const text = textarea.value.trim();
   if (text === "") return;
@@ -21,18 +21,16 @@ function sendMessage() {
   setTimeout(() => createMessage("Risposta dell’IA… ✨"), 400);
 }
 
+// Cattura Enter in modo universale
+textarea.addEventListener("keyup", (event) => {
+  if (event.key === "Enter" && !event.shiftKey) {
+    event.preventDefault();
+    sendMessage();
+  }
+});
+
 // Click su Invia
 sendBtn.addEventListener("click", sendMessage);
-
-// ENTER compatibile Mac + Safari + Windows
-["keydown", "keypress"].forEach(eventType => {
-  textarea.addEventListener(eventType, (event) => {
-    if (event.key === "Enter" && !event.shiftKey) {
-      event.preventDefault();
-      sendMessage();
-    }
-  });
-});
 
 // Autoespansione campo testo
 textarea.addEventListener("input", () => {
