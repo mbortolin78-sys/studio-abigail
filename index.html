@@ -47,28 +47,19 @@
     }
 
     .message {
-      background-color: #f9f4ea;
-      border: 1px solid rgba(233, 224, 208, 0.5);
+      background-color: #F5EDDC;
+      border: 1px solid #e9e0d0;
       border-radius: 14px;
       padding: 10px 14px;
       margin: 6px 0;
+      align-self: flex-start;
       font-size: 1rem;
-      line-height: 1.6em;
-      text-align: justify;
-      color: #5a4632;
-    }
-
-    .message.ai {
-      align-self: stretch;
-      margin-left: 8px;
-      margin-right: 8px;
     }
 
     .message.user {
-  align-self: flex-end;
-  margin-right: 8px;
-  width: 60%;
-  background-color: #f9f4ea;
+      align-self: flex-end;
+      background-color: #F8F1E7;
+      border: 1px solid #dcccb5;
     }
 
     .input-area {
@@ -98,7 +89,7 @@
     }
 
     textarea::placeholder {
-      color: rgba(90, 70, 50, 0.4);
+      color: rgba(90, 70, 50, 0.5);
     }
 
     button {
@@ -122,16 +113,12 @@
 
   <div class="chat-container">
     <div class="messages" id="messages">
-      <div class="message ai">
-        ✨ Benvenuta in Studio Abigail — qui le parole respirano luce e si
-        trasformano in presenza 🌿
-      </div>
-      <div class="message user">
-        Questo spazio è pura armonia, sento che parla la mia anima 💛
-      </div>
+      <div class="message">Studio Abigail ora respira eleganza 💛</div>
+      <div class="message">Esempio di messaggio con bordo delicato.</div>
     </div>
+
     <div class="input-area">
-      <textarea id="messageInput" placeholder="Scrivi un messaggio..."></textarea>
+      <textarea id="messageInput" placeholder="Scrivi un messaggio..." rows="1"></textarea>
       <button id="sendBtn">INVIA</button>
       <button id="micBtn">🎤</button>
     </div>
@@ -139,31 +126,46 @@
 
   <script>
     const textarea = document.getElementById("messageInput");
-    const messages = document.getElementById("messages");
     const sendBtn = document.getElementById("sendBtn");
+    const messagesContainer = document.getElementById("messages");
 
+    // funzione di invio messaggio
+    function sendMessage() {
+      const text = textarea.value.trim();
+      if (!text) return;
+      const msg = document.createElement("div");
+      msg.className = "message user";
+      msg.textContent = text;
+      messagesContainer.prepend(msg);
+      textarea.value = "";
+      textarea.style.height = "auto";
+      setTimeout(() => {
+        const ai = document.createElement("div");
+        ai.className = "message";
+        ai.textContent = "Risposta dell’IA… ✨";
+        messagesContainer.prepend(ai);
+      }, 500);
+    }
+
+    // Enter per inviare
+    document.addEventListener("keydown", (event) => {
+      if (
+        document.activeElement === textarea &&
+        event.key === "Enter" &&
+        !event.shiftKey
+      ) {
+        event.preventDefault();
+        sendMessage();
+      }
+    });
+
+    // Click su Invia
+    sendBtn.addEventListener("click", sendMessage);
+
+    // Auto espansione
     textarea.addEventListener("input", () => {
       textarea.style.height = "auto";
       textarea.style.height = textarea.scrollHeight + "px";
-    });
-
-    sendBtn.addEventListener("click", () => {
-      const text = textarea.value.trim();
-      if (!text) return;
-
-      const userMsg = document.createElement("div");
-      userMsg.className = "message user";
-      userMsg.textContent = text;
-      messages.prepend(userMsg);
-
-      textarea.value = "";
-      textarea.style.height = "auto";
-
-      const aiMsg = document.createElement("div");
-      aiMsg.className = "message ai";
-      aiMsg.textContent =
-        "✨ Ti ascolto con presenza, e ciò che dici vibra di verità interiore.";
-      setTimeout(() => messages.prepend(aiMsg), 600);
     });
   </script>
 </body>
