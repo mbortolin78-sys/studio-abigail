@@ -1,97 +1,45 @@
-import React, { useState } from "react";
+// chat.js — gestione messaggi utente + risposta simulata IA
 
-export default function ChatAbigail() {
-  const [messages, setMessages] = useState([
-    { sender: "ai", text: "✨ Benvenuta in Studio Abigail — uno spazio dove le parole si trasformano in luce." },
-  ]);
-  const [input, setInput] = useState("");
+document.addEventListener("DOMContentLoaded", () => {
+  const messagesContainer = document.getElementById("messages");
+  const input = document.getElementById("messageInput");
+  const sendBtn = document.getElementById("sendBtn");
 
-  const handleSend = () => {
-    if (!input.trim()) return;
-    setMessages([...messages, { sender: "user", text: input }]);
-    setInput("");
-  };
+  // Funzione per creare una bolla messaggio
+  function createMessage(text, isUser = false) {
+    const message = document.createElement("div");
+    message.classList.add("message");
+    if (isUser) message.classList.add("user");
+    message.textContent = text;
+    messagesContainer.prepend(message);
+  }
 
-  return (
-    <div
-      style={{
-        backgroundColor: "#F4EFE1",
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        fontFamily: "Palatino, serif",
-        padding: "20px",
-      }}
-    >
-      <div style={{ flex: 1, overflowY: "auto", padding: "10px 0" }}>
-        {messages.map((msg, i) => (
-          <div
-            key={i}
-            style={{
-              display: "flex",
-              justifyContent: msg.sender === "user" ? "flex-end" : "flex-start",
-              marginBottom: "10px",
-            }}
-          >
-            <div
-              style={{
-                backgroundColor: msg.sender === "ai" ? "#F7F3E8" : "#F4EFE1",
-                color: "#2C2C2C",
-                padding: "10px 15px",
-                border: "0.5px solid rgba(0,0,0,0.1)",
-                borderRadius: "12px",
-                maxWidth: msg.sender === "ai" ? "96%" : "65%",
-                textAlign: "justify",
-                lineHeight: "1.5em",
-              }}
-            >
-              {msg.text}
-            </div>
-          </div>
-        ))}
-      </div>
+  // Simulazione risposta IA
+  function aiReply(userText) {
+    const replies = [
+      "✨ Sento la tua vibrazione sottile, grazie per questa condivisione.",
+      "🌿 Le tue parole si muovono come luce tra le stanze del cuore.",
+      "💛 Ti ascolto nel silenzio, dove tutto diventa presenza.",
+      "🕊️ Studio Abigail accoglie ogni respiro come gesto sacro.",
+    ];
+    const random = replies[Math.floor(Math.random() * replies.length)];
+    setTimeout(() => createMessage(random, false), 1200);
+  }
 
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          padding: "10px",
-          borderTop: "0.5px solid rgba(0,0,0,0.1)",
-        }}
-      >
-        <textarea
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Scrivi messaggio..."
-          style={{
-            flex: 1,
-            resize: "none",
-            border: "none",
-            backgroundColor: "#F4EFE1",
-            padding: "10px",
-            fontSize: "15px",
-            fontFamily: "Palatino, serif",
-            outline: "none",
-          }}
-          rows={2}
-        />
-        <button
-          onClick={handleSend}
-          style={{
-            marginLeft: "10px",
-            padding: "8px 14px",
-            border: "none",
-            borderRadius: "8px",
-            backgroundColor: "#D8CBBB",
-            color: "#2C2C2C",
-            fontFamily: "Palatino, serif",
-            cursor: "pointer",
-          }}
-        >
-          INVIA
-        </button>
-      </div>
-    </div>
-  );
-}
+  // Gestione invio
+  function handleSend() {
+    const text = input.value.trim();
+    if (text === "") return;
+    createMessage(text, true);
+    input.value = "";
+    aiReply(text);
+  }
+
+  sendBtn.addEventListener("click", handleSend);
+  input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
+  });
+});
