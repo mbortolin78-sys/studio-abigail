@@ -6,7 +6,7 @@
   <title>✨ Studio Abigail ✨</title>
   <style>
     body {
-      background-color: #F2E7D5;
+      background-color: #F5EDDC;
       color: #5a4632;
       font-family: "Georgia", serif;
       display: flex;
@@ -28,8 +28,8 @@
     .chat-container {
       width: 600px;
       height: 70vh;
-      background-color: #F2E7D5;
-      border: 1px solid #e0d7c6;
+      background-color: #F5EDDC;
+      border: 1.5px solid #e0d6c4;
       border-radius: 25px;
       display: flex;
       flex-direction: column;
@@ -50,20 +50,25 @@
       display: flex;
       align-items: center;
       padding: 10px 15px;
-      border-top: 1px solid #e0d7c6;
-      background-color: #F2E7D5;
+      border-top: 1px solid #e8ddcb;
+      background-color: #F5EDDC;
     }
 
-    input[type="text"] {
+    textarea {
       flex-grow: 1;
-      border: none;
+      border: 1px solid #d9cbb5;
       outline: none;
-      background-color: #F2E7D5;
+      resize: none;
+      background-color: #F5EDDC;
       color: #5a4632;
       font-size: 1rem;
       padding: 14px 16px;
-      border-radius: 20px;
+      border-radius: 18px;
       box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+      min-height: 40px;
+      max-height: 120px;
+      overflow-y: auto;
+      transition: all 0.2s ease-in-out;
     }
 
     button {
@@ -86,10 +91,18 @@
   <div class="chat-container">
     <div class="messages" id="messages"></div>
     <div class="input-area">
-      <input type="text" id="messageInput" placeholder="Scrivi un messaggio..." />
+      <textarea id="messageInput" placeholder="Scrivi un messaggio..."></textarea>
       <button id="sendBtn">Invia</button>
       <button id="micBtn">🎤</button>
     </div>
   </div>
+
+  <script>
+    const textarea = document.getElementById("messageInput");
+    textarea.addEventListener("input", () => {
+      textarea.style.height = "auto";
+      textarea.style.height = textarea.scrollHeight + "px";
+    });
+  </script>
 </body>
 </html>
