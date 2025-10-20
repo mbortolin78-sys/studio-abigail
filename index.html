@@ -1,37 +1,23 @@
 <!DOCTYPE html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Studio Abigail</title>
-    <style>
-      body {
-        background-color: #f8f4ec;
-        color: #5a4632;
-        font-family: "Georgia", serif;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-      }
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
-      }
-      p {
-        font-size: 1.2rem;
-        text-align: center;
-        max-width: 600px;
-      }
-    </style>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>✨ Studio Abigail ✨</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
     <h1>✨ Studio Abigail ✨</h1>
-    <p>
-      Interfaccia chat energetica dello Studio Abigail — uno spazio di dialogo
-      consapevole per connettere intuizione e presenza.
-    </p>
-  </body>
+    <div id="chatBox" class="chat-box"></div>
+
+    <div class="input-area">
+      <input id="userInput" type="text" placeholder="Scrivi un messaggio..." />
+      <button id="sendButton">Invia</button>
+      <button id="micButton" class="mic">🎤</button>
+    </div>
+  </div>
+
+  <script src="chat.js"></script>
+</body>
 </html>
