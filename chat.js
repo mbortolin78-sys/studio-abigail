@@ -38,6 +38,14 @@ function createMessage(text, isUser = false) {
     aiReply(text);
   }
 
+  // Invio messaggio con il tasto Invio (Enter)
+textarea.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" && !event.shiftKey) {
+    event.preventDefault();
+    document.getElementById("sendBtn").click();
+  }
+});
+  
   sendBtn.addEventListener("click", handleSend);
   input.addEventListener("keypress", (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
