@@ -2,38 +2,42 @@ const textarea = document.getElementById("messageInput");
 const sendBtn = document.getElementById("sendBtn");
 const messagesContainer = document.getElementById("messages");
 
-// Funzione per creare e mostrare i messaggi
-function createMessage(text, isUser = false) {
-  const message = document.createElement("div");
-  message.classList.add("message");
-  if (isUser) message.classList.add("user");
-  message.textContent = text;
-  messagesContainer.prepend(message);
-  messagesContainer.scrollTop = 0;
-}
-
-// Funzione per inviare
+// funzione invio messaggio
 function sendMessage() {
   const text = textarea.value.trim();
-  if (text === "") return;
-  createMessage(text, true);
+  if (!text) return;
+  const msg = document.createElement("div");
+  msg.className = "message user";
+  msg.textContent = text;
+  messagesContainer.prepend(msg);
   textarea.value = "";
-  setTimeout(() => createMessage("Risposta dell’IA… ✨"), 400);
+  setTimeout(() => {
+    const aiMsg = document.createElement("div");
+    aiMsg.className = "message";
+    aiMsg.textContent = "Risposta dell’IA… ✨";
+    messagesContainer.prepend(aiMsg);
+  }, 400);
 }
 
-// Cattura Enter in modo universale
-textarea.addEventListener("keyup", (event) => {
+// click su bottone
+sendBtn.addEventListener("click", sendMessage);
+
+// invio con Enter su Chrome/Mac
+textarea.addEventListener("keydown", (event) => {
   if (event.key === "Enter" && !event.shiftKey) {
     event.preventDefault();
     sendMessage();
   }
 });
 
-// Click su Invia
-sendBtn.addEventListener("click", sendMessage);
+// compatibilità totale (anche se Chrome blocca keydown)
+textarea.addEventListener("keypress", (event) => {
+  if (event.key === "Enter" && !event.shiftKey) {
+    event.preventDefault();
+    sendMessage();
+  }
+});
 
-// Autoespansione campo testo
+// auto espansione campo
 textarea.addEventListener("input", () => {
   textarea.style.height = "auto";
-  textarea.style.height = textarea.scrollHeight + "px";
-});
