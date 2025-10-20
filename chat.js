@@ -12,21 +12,26 @@ function createMessage(text, isUser = false) {
   messagesContainer.scrollTop = 0;
 }
 
-// Invia messaggio con click
-sendBtn.addEventListener("click", () => {
+// Invia messaggio (click o enter)
+function sendMessage() {
   const text = textarea.value.trim();
   if (text === "") return;
   createMessage(text, true);
   textarea.value = "";
   setTimeout(() => createMessage("Risposta dell’IA… ✨"), 400);
-});
+}
 
-// Invia messaggio con Enter (compatibile Safari/Mac)
-textarea.addEventListener("keydown", (event) => {
-  if (event.key === "Enter" && !event.shiftKey) {
-    event.preventDefault();
-    sendBtn.click();
-  }
+// Click su Invia
+sendBtn.addEventListener("click", sendMessage);
+
+// ENTER compatibile Mac + Safari + Windows
+["keydown", "keypress"].forEach(eventType => {
+  textarea.addEventListener(eventType, (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      sendMessage();
+    }
+  });
 });
 
 // Autoespansione campo testo
