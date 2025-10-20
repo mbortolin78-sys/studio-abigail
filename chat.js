@@ -23,9 +23,14 @@ sendBtn.addEventListener("click", () => {
   setTimeout(() => createMessage("Risposta dell’IA… ✨"), 600);
 });
 
-// Invio messaggio con Enter (senza Shift)
+// Invio con Enter compatibile su Mac e iPhone
 textarea.addEventListener("keydown", (event) => {
-  if (event.key === "Enter" && !event.shiftKey) {
+  const isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+  const enterPressed = event.key === "Enter";
+  const modifier = isMac ? event.metaKey : event.ctrlKey;
+
+  // Enter semplice invia, Shift+Enter o ⌘+Enter va a capo
+  if (enterPressed && !event.shiftKey && !modifier) {
     event.preventDefault();
     sendBtn.click();
   }
