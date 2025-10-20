@@ -5,13 +5,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("messageInput");
   const sendBtn = document.getElementById("sendBtn");
 
-  // Funzione per creare una bolla messaggio
-  function createMessage(text, isUser = false) {
-    const message = document.createElement("div");
-    message.classList.add("message");
-    if (isUser) message.classList.add("user");
-    message.textContent = text;
-    messagesContainer.prepend(message);
+ // Funzione per creare una bolla messaggio con fade-in
+function createMessage(text, isUser = false) {
+  const message = document.createElement("div");
+  message.classList.add("message");
+  if (isUser) message.classList.add("user");
+  message.textContent = text;
+  message.style.opacity = 0;
+  message.style.transition = "opacity 0.6s ease-in-out";
+  messagesContainer.prepend(message);
+  setTimeout(() => (message.style.opacity = 1), 50);
   }
 
   // Simulazione risposta IA
