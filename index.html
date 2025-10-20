@@ -1,71 +1,27 @@
 <!DOCTYPE html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>✨ Studio Abigail ✨</title>
-    <style>
-      body {
-        background-color: #f4efe1;
-        color: #2c2c2c;
-        font-family: "Palatino", serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        min-height: 100vh;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>✨ Studio Abigail ✨</title>
+  <link rel="stylesheet" href="stile.css" />
+</head>
+<body>
+  <h1>✨ Studio Abigail ✨</h1>
 
-      h1 {
-        margin-top: 40px;
-        font-size: 1.8rem;
-      }
+  <div class="chat-container">
+    <div class="messages" id="messages">
+      <div class="bubble ai">Esempio di messaggio con bordo delicato.</div>
+      <div class="bubble ai">Studio Abigail ora respira eleganza💛</div>
+    </div>
 
-      .chat-container {
-        width: 80%;
-        max-width: 700px;
-        background-color: #f4efe1;
-        border-radius: 20px;
-        margin-top: 20px;
-        padding: 20px;
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
+    <div class="input-area">
+      <textarea id="userInput" placeholder="Scrivi un messaggio..."></textarea>
+      <button id="sendBtn">INVIA</button>
+      <span class="mic">🎤</span>
+    </div>
+  </div>
 
-      .messages {
-        flex: 1;
-        overflow-y: auto;
-        padding-bottom: 20px;
-      }
-
-      .bubble {
-        background-color: #f4efe1;
-        border: 0.5px solid rgba(0, 0, 0, 0.08);
-        border-radius: 12px;
-        padding: 10px 15px;
-        margin: 8px 0;
-        max-width: 96%;
-        line-height: 1.6em;
-        text-align: justify;
-      }
-
-      .input-area {
-        display: flex;
-        align-items: center;
-        border-top: 0.5px solid rgba(0, 0, 0, 0.08);
-        padding-top: 10px;
-      }
-
-      textarea {
-        flex: 1;
-        border: none;
-        background-color: #f4efe1;
-        padding: 10px;
-        font-family: "Palatino", serif;
-        font-size: 15px;
-        resize: none;
-        outline: none
+  <script src="chat.js"></script>
+</body>
+</html>
