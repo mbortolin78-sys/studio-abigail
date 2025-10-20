@@ -1,11 +1,8 @@
-// chat.js — gestione messaggi utente + risposta simulata IA
+const textarea = document.getElementById("messageInput");
+const sendBtn = document.getElementById("sendBtn");
+const messagesContainer = document.getElementById("messages");
 
-document.addEventListener("DOMContentLoaded", () => {
-  const messagesContainer = document.getElementById("messages");
-  const input = document.getElementById("messageInput");
-  const sendBtn = document.getElementById("sendBtn");
-
- // Funzione per creare una bolla messaggio con fade-in
+// Crea messaggio con fade-in
 function createMessage(text, isUser = false) {
   const message = document.createElement("div");
   message.classList.add("message");
@@ -15,42 +12,27 @@ function createMessage(text, isUser = false) {
   message.style.transition = "opacity 0.6s ease-in-out";
   messagesContainer.prepend(message);
   setTimeout(() => (message.style.opacity = 1), 50);
-  }
+}
 
-  // Simulazione risposta IA
-  function aiReply(userText) {
-    const replies = [
-      "✨ Sento la tua vibrazione sottile, grazie per questa condivisione.",
-      "🌿 Le tue parole si muovono come luce tra le stanze del cuore.",
-      "💛 Ti ascolto nel silenzio, dove tutto diventa presenza.",
-      "🕊️ Studio Abigail accoglie ogni respiro come gesto sacro.",
-    ];
-    const random = replies[Math.floor(Math.random() * replies.length)];
-    setTimeout(() => createMessage(random, false), 1200);
-  }
+// Invia messaggio
+sendBtn.addEventListener("click", () => {
+  const text = textarea.value.trim();
+  if (text === "") return;
+  createMessage(text, true);
+  textarea.value = "";
+  setTimeout(() => createMessage("Risposta dell’IA… ✨"), 600);
+});
 
-  // Gestione invio
-  function handleSend() {
-    const text = input.value.trim();
-    if (text === "") return;
-    createMessage(text, true);
-    input.value = "";
-    aiReply(text);
-  }
-
-  // Invio messaggio con il tasto Invio (Enter)
+// Invio messaggio con Enter (senza Shift)
 textarea.addEventListener("keydown", (event) => {
   if (event.key === "Enter" && !event.shiftKey) {
     event.preventDefault();
-    document.getElementById("sendBtn").click();
+    sendBtn.click();
   }
 });
-  
-  sendBtn.addEventListener("click", handleSend);
-  input.addEventListener("keypress", (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      handleSend();
-    }
-  });
+
+// Autoespansione del campo testo
+textarea.addEventListener("input", () => {
+  textarea.style.height = "auto";
+  textarea.style.height = textarea.scrollHeight + "px";
 });
