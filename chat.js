@@ -9,11 +9,40 @@ window.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  <div class="input-area">
-  <textarea id="messageInput" placeholder="Scrivi un messaggio..." rows="1"></textarea>
-  <button id="sendBtn">INVIA</button>
-  <button id="micBtn">🎤</button>
-</div>
+  // funzione invio messaggio
+  function sendMessage() {
+    const text = textarea.value.trim();
+    if (!text) return;
+    const msg = document.createElement("div");
+    msg.className = "message user";
+    msg.textContent = text;
+    messagesContainer.prepend(msg);
+    textarea.value = "";
+    textarea.style.height = "auto";
+    setTimeout(() => {
+      const ai = document.createElement("div");
+      ai.className = "message";
+      ai.textContent = "Risposta dell’IA… ✨";
+      messagesContainer.prepend(ai);
+    }, 500);
+  }
+
+  // ENTER compatibile TUTTI browser, anche Chrome su Mac
+  document.addEventListener("keyup", (event) => {
+    const active = document.activeElement;
+    if (
+      active &&
+      (active.tagName === "TEXTAREA" || active.tagName === "INPUT") &&
+      event.key === "Enter" &&
+      !event.shiftKey
+    ) {
+      event.preventDefault();
+      sendMessage();
+    }
+  });
+
+  // click su invia
+  sendBtn.addEventListener("click", sendMessage);
 
   // autoespansione
   textarea.addEventListener("input", () => {
