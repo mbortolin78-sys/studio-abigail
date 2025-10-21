@@ -46,22 +46,28 @@
       overflow-y: auto;
     }
 
+    /* WRAPPER PER I MESSAGGI */
+    .message-wrapper {
+      display: flex;
+      width: 100%;
+      margin: 20px 0;
+    }
+
+    .message-wrapper.bot {
+      justify-content: flex-start;
+    }
+
+    .message-wrapper.user {
+      justify-content: flex-end;
+    }
+
+    /* TESTO DEL MESSAGGIO */
     .message {
       font-size: 1rem;
-      margin: 20px 0;
       line-height: 1.5;
       text-align: justify;
       color: #5a4632;
       width: 60%;
-    }
-
-    .message.bot {
-      align-self: flex-start;
-    }
-
-    .message.user {
-      align-self: flex-end;
-      text-align: justify;
     }
 
     .time {
@@ -155,15 +161,20 @@
   <div class="title-rule"></div>
 
   <div class="chat-container" id="chatContainer">
-    <div class="message bot">
-      <p>Buongiorno Marika, come vuoi procedere oggi con la struttura grafica?</p>
-      <div class="time-line time-left"></div>
-      <div class="time">09:41</div>
+    <div class="message-wrapper bot">
+      <div class="message">
+        <p>Buongiorno Marika, come vuoi procedere oggi con la struttura grafica?</p>
+        <div class="time-line time-left"></div>
+        <div class="time">09:41</div>
+      </div>
     </div>
-    <div class="message user">
-      <p>Vorrei rendere tutto più armonico e pulito, senza bordi visibili.</p>
-      <div class="time-line time-right"></div>
-      <div class="time" style="text-align: right;">09:42</div>
+
+    <div class="message-wrapper user">
+      <div class="message">
+        <p>Vorrei rendere tutto più armonico e pulito, senza bordi visibili.</p>
+        <div class="time-line time-right"></div>
+        <div class="time" style="text-align: right;">09:42</div>
+      </div>
     </div>
   </div>
 
@@ -196,17 +207,18 @@
     sendBtn.addEventListener("click", () => {
       const text = textarea.value.trim();
       if (text) {
-        const msg = document.createElement("div");
-        msg.className = "message user"; // forza allineamento a destra
-        msg.style.alignSelf = "flex-end"; // sicurezza extra
-        msg.innerHTML = `
-          <p>${text}</p>
-          <div class="time-line time-right"></div>
-          <div class="time" style="text-align: right;">
-            ${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+        const wrapper = document.createElement("div");
+        wrapper.className = "message-wrapper user";
+        wrapper.innerHTML = `
+          <div class="message">
+            <p>${text}</p>
+            <div class="time-line time-right"></div>
+            <div class="time" style="text-align: right;">
+              ${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+            </div>
           </div>
         `;
-        chatContainer.appendChild(msg);
+        chatContainer.appendChild(wrapper);
         chatContainer.scrollTop = chatContainer.scrollHeight;
         textarea.value = "";
       }
