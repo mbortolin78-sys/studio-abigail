@@ -43,7 +43,6 @@
       flex-grow: 1;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
       overflow-y: auto;
     }
 
@@ -53,11 +52,15 @@
       line-height: 1.5;
       text-align: justify;
       color: #5a4632;
+      width: 60%;
+    }
+
+    .message.bot {
+      align-self: flex-start;
     }
 
     .message.user {
       align-self: flex-end;
-      width: 60%;
       text-align: justify;
     }
 
@@ -152,7 +155,7 @@
   <div class="title-rule"></div>
 
   <div class="chat-container" id="chatContainer">
-    <div class="message">
+    <div class="message bot">
       <p>Buongiorno Marika, come vuoi procedere oggi con la struttura grafica?</p>
       <div class="time-line time-left"></div>
       <div class="time">09:41</div>
@@ -194,7 +197,8 @@
       const text = textarea.value.trim();
       if (text) {
         const msg = document.createElement("div");
-        msg.className = "message user";
+        msg.className = "message user"; // forza allineamento a destra
+        msg.style.alignSelf = "flex-end"; // sicurezza extra
         msg.innerHTML = `
           <p>${text}</p>
           <div class="time-line time-right"></div>
