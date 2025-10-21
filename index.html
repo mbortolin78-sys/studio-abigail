@@ -21,207 +21,161 @@
     h1 {
       font-size: 1.8rem;
       text-align: center;
-      margin-top: 30px;
+      margin: 40px 0 10px;
       color: #5a4632;
-      position: relative;
     }
 
-    h1::after {
-      content: "";
-      display: block;
+    /* Linea sotto titolo */
+    .title-rule {
       width: 70%;
       height: 1px;
-      margin: 12px auto 0;
-      background: linear-gradient(to right, transparent, #d4b483, transparent);
-      opacity: 0.7;
+      background: linear-gradient(to right,
+        transparent 0%,
+        rgba(208,176,112,0.75) 30%,
+        rgba(208,176,112,0.75) 70%,
+        transparent 100%);
+      margin-bottom: 40px;
+      border-radius: 1px;
     }
 
     .chat-container {
-      width: 600px;
-      height: 70vh;
+      width: 70%;
+      max-width: 900px;
+      flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      margin-top: 20px;
-    }
-
-    .messages {
-      flex-grow: 1;
-      overflow-y: auto;
-      padding: 0 10px;
-      display: flex;
-      flex-direction: column;
     }
 
     .message {
       font-size: 1rem;
-      line-height: 1.6;
-      margin: 10px 0;
+      margin: 20px 0;
+      line-height: 1.5;
       text-align: justify;
-      position: relative;
-      word-wrap: break-word;
     }
 
-    .message.marika {
-      width: 60%;
-      align-self: flex-end;
-      margin-right: 1cm;
+    .message .time {
+      font-size: 0.8rem;
+      opacity: 0.5;
     }
 
-    .message.ai {
-      width: calc(100% - 2cm);
-      align-self: flex-start;
-      margin-left: 1cm;
-    }
-
-    .divider {
-      width: 7%;
+    .time-line {
       height: 1px;
-      background-color: #d4b483;
-      opacity: 0.6;
-      margin-top: 4px;
+      width: 7%;
+      background-color: rgba(208,176,112,0.75);
+      border-radius: 1px;
+      margin-top: 5px;
     }
 
-    .divider.ai {
-      align-self: flex-start;
-      margin-left: 1cm;
+    .time-left {
+      margin-left: 0;
     }
 
-    .divider.marika {
-      align-self: flex-end;
-      margin-right: 1cm;
+    .time-right {
+      margin-left: auto;
     }
 
-    .timestamp {
-      font-size: 0.75rem;
-      color: rgba(90, 70, 50, 0.6);
-      margin-top: 3px;
-    }
-
-    .timestamp.ai {
-      align-self: flex-start;
-      margin-left: 1cm;
-    }
-
-    .timestamp.marika {
-      align-self: flex-end;
-      margin-right: 1cm;
-    }
-
-    .input-section {
-      width: 600px;
-      padding: 0 10px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-      margin-top: 8px;
-    }
-
-    .input-divider {
+    /* Linea sopra campo messaggio */
+    .composer-rule {
       width: 70%;
       height: 1px;
-      background: linear-gradient(to right, transparent, #d4b483, transparent);
-      opacity: 0.7;
-      margin: 10px auto 5px;
+      background: linear-gradient(to right,
+        transparent 0%,
+        rgba(208,176,112,0.75) 30%,
+        rgba(208,176,112,0.75) 70%,
+        transparent 100%);
+      margin: 16px auto 8px;
+      border-radius: 1px;
     }
 
-    .input-left {
+    .composer {
+      width: 70%;
+      max-width: 900px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .side-buttons {
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      align-items: flex-start;
-      justify-content: center;
-      height: 70px;
-    }
-
-    .chat-btn {
-      background: none;
-      border: none;
-      color: #5a4632;
-      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      gap: 5px;
       font-size: 0.9rem;
-      cursor: pointer;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
+      cursor: pointer;
     }
 
-    .chat-btn:hover {
-      opacity: 0.6;
+    .side-buttons div:hover {
+      opacity: 0.7;
     }
 
-    .message-box {
+    .input-box {
       flex-grow: 1;
-      border: 1px solid rgba(212, 180, 131, 0.5);
-      border-radius: 22px;
-      background-color: transparent;
+      border: 1px solid rgba(208,176,112,0.4);
+      border-radius: 20px;
+      padding: 12px 16px;
+      background: transparent;
       font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
       font-size: 1rem;
       color: #5a4632;
-      padding: 12px 16px;
-      resize: none;
       text-align: justify;
-      min-height: 40px;
-      margin: 0 10px;
-      box-shadow: 0 0 3px rgba(212, 180, 131, 0.2) inset;
     }
 
-    .message-box::placeholder {
-      color: #EEDFC7;
+    .input-box::placeholder {
+      color: rgba(90,70,50,0.4);
     }
 
-    .input-right {
+    .right-buttons {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
-      height: 70px;
+      font-size: 0.9rem;
+      gap: 5px;
     }
 
-    .send-btn, .mic-btn {
-      background: none;
-      border: none;
-      color: #5a4632;
-      cursor: pointer;
-      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    .send {
       text-transform: uppercase;
       font-size: 0.9rem;
+      cursor: pointer;
     }
 
-    .send-btn:hover, .mic-btn:hover {
-      opacity: 0.6;
+    .mic {
+      cursor: pointer;
     }
+
   </style>
 </head>
 <body>
   <h1>✨ Studio Abigail ✨</h1>
+  <div class="title-rule"></div>
 
   <div class="chat-container">
-    <div class="messages">
-      <div class="message ai">Buongiorno Marika, come vuoi procedere oggi con la struttura grafica?</div>
-      <div class="divider ai"></div>
-      <div class="timestamp ai">09:41</div>
-
-      <div class="message marika">Vorrei rendere tutto più armonico e pulito, senza bordi visibili.</div>
-      <div class="divider marika"></div>
-      <div class="timestamp marika">09:42</div>
+    <div class="message">
+      <p>Buongiorno Marika, come vuoi procedere oggi con la struttura grafica?</p>
+      <div class="time-line time-left"></div>
+      <div class="time">09:41</div>
     </div>
+    <div class="message" style="align-self: flex-end; width: 60%;">
+      <p>Vorrei rendere tutto più armonico e pulito, senza bordi visibili.</p>
+      <div class="time-line time-right"></div>
+      <div class="time" style="text-align: right;">09:42</div>
+    </div>
+  </div>
 
-    <div class="input-divider"></div>
+  <div class="composer-rule"></div>
 
-    <div class="input-section">
-      <div class="input-left">
-        <button class="chat-btn">MARIKA</button>
-        <button class="chat-btn">CLIENTI</button>
-      </div>
-
-      <textarea class="message-box" placeholder="Scrivi un messaggio..."></textarea>
-
-      <div class="input-right">
-        <button class="send-btn">INVIA</button>
-        <button class="mic-btn">🎤</button>
-      </div>
+  <div class="composer">
+    <div class="side-buttons">
+      <div>MARIKA</div>
+      <div>CLIENTI</div>
+    </div>
+    <textarea class="input-box" placeholder="Scrivi un messaggio..."></textarea>
+    <div class="right-buttons">
+      <div class="send">INVIA</div>
+      <div class="mic">🎤</div>
     </div>
   </div>
 </body>
