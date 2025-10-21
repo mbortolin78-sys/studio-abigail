@@ -4,174 +4,177 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>✨ Studio Abigail ✨</title>
-  <style>
-    body {
-      background-color: #FFEDD3;
-      color: #5a4632;
-      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      height: 100vh;
-      margin: 0;
-      padding: 0;
+<style>
+  body {
+    background-color: #FFEDD3;
+    color: #5a4632;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 40px 0 10px;
+    color: #5a4632;
+  }
+
+  .title-rule {
+    width: 70%;
+    height: 1px;
+    background: linear-gradient(to right,
+      transparent 0%,
+      rgba(208,176,112,0.75) 30%,
+      rgba(208,176,112,0.75) 70%,
+      transparent 100%);
+    margin-bottom: 40px;
+    border-radius: 1px;
+  }
+
+  .chat-container {
+    width: 70%;
+    max-width: 900px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .message {
+    font-size: 1rem;
+    margin: 20px 0;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  .message.user {
+    align-self: flex-end;
+    width: 60%;
+    text-align: justify;
+  }
+
+  .time {
+    font-size: 0.8rem;
+    opacity: 0.5;
+  }
+
+  .time-line {
+    height: 1px;
+    width: 7%;
+    background-color: rgba(208,176,112,0.75);
+    border-radius: 1px;
+    margin-top: 5px;
+  }
+
+  .time-left { margin-left: 0; }
+  .time-right { margin-left: auto; }
+
+  .composer-rule {
+    width: 70%;
+    height: 1px;
+    background: linear-gradient(to right,
+      transparent 0%,
+      rgba(208,176,112,0.75) 30%,
+      rgba(208,176,112,0.75) 70%,
+      transparent 100%);
+    margin: 26px auto 18px;
+    border-radius: 1px;
+  }
+
+  .composer {
+    width: 70%;
+    max-width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .side-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+  }
+
+  .side-buttons div:hover { opacity: 0.7; }
+
+  .input-box {
+    flex-grow: 1;
+    border: 1px solid rgba(208,176,112,0.4);
+    border-radius: 20px;
+    padding: 12px 16px;
+    background: transparent;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 1rem;
+    color: #5a4632;
+    text-align: justify;
+    transition: border-color 0.3s ease;
+  }
+
+  .input-box::placeholder {
+    color: rgba(90,70,50,0.4);
+  }
+
+  .input-box:focus {
+    outline: none;
+    border-color: #8B6B42;
+    box-shadow: 0 0 3px rgba(139, 107, 66, 0.4);
+  }
+
+  .right-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    gap: 5px;
+  }
+
+  .send { text-transform: uppercase; cursor: pointer; }
+  .mic { cursor: pointer; }
+</style>
+
+<script>
+  const textarea = document.getElementById("messageInput");
+  const sendBtn = document.getElementById("sendBtn");
+  const chatContainer = document.getElementById("chatContainer");
+
+  textarea.addEventListener("keydown", function(e) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendBtn.click();
     }
+  });
 
-    h1 {
-      font-size: 1.8rem;
-      text-align: center;
-      margin: 40px 0 10px;
-      color: #5a4632;
+  sendBtn.addEventListener("click", () => {
+    const text = textarea.value.trim();
+    if (text) {
+      const msg = document.createElement("div");
+      msg.className = "message user";
+      msg.innerHTML = `
+        <p>${text}</p>
+        <div class="time-line time-right"></div>
+        <div class="time" style="text-align: right;">
+          ${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+        </div>
+      `;
+      chatContainer.appendChild(msg);
+      chatContainer.scrollTop = chatContainer.scrollHeight; // auto scroll
+      textarea.value = "";
     }
-
-    .title-rule {
-      width: 70%;
-      height: 1px;
-      background: linear-gradient(to right,
-        transparent 0%,
-        rgba(208,176,112,0.75) 30%,
-        rgba(208,176,112,0.75) 70%,
-        transparent 100%);
-      margin-bottom: 40px;
-      border-radius: 1px;
-    }
-
-    .chat-container {
-      width: 70%;
-      max-width: 900px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-
-    .message {
-      font-size: 1rem;
-      margin: 20px 0;
-      line-height: 1.5;
-      text-align: justify;
-    }
-
-    .message .time {
-      font-size: 0.8rem;
-      opacity: 0.5;
-    }
-
-    .time-line {
-      height: 1px;
-      width: 7%;
-      background-color: rgba(208,176,112,0.75);
-      border-radius: 1px;
-      margin-top: 5px;
-    }
-
-    .time-left { margin-left: 0; }
-    .time-right { margin-left: auto; }
-
-    .composer-rule {
-      width: 70%;
-      height: 1px;
-      background: linear-gradient(to right,
-        transparent 0%,
-        rgba(208,176,112,0.75) 30%,
-        rgba(208,176,112,0.75) 70%,
-        transparent 100%);
-      margin: 26px auto 18px;
-      border-radius: 1px;
-    }
-
-    .composer {
-      width: 70%;
-      max-width: 900px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .side-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      cursor: pointer;
-    }
-
-    .side-buttons div:hover { opacity: 0.7; }
-
-    .input-box {
-      flex-grow: 1;
-      border: 1px solid rgba(208,176,112,0.4);
-      border-radius: 20px;
-      padding: 12px 16px;
-      background: transparent;
-      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-      font-size: 1rem;
-      color: #5a4632;
-      text-align: justify;
-      transition: border-color 0.3s ease;
-    }
-
-    .input-box::placeholder {
-      color: rgba(90,70,50,0.4);
-    }
-
-    .input-box:focus {
-      outline: none;
-      border-color: #8B6B42;
-      box-shadow: 0 0 3px rgba(139, 107, 66, 0.4);
-    }
-
-    .right-buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      gap: 5px;
-    }
-
-    .send { text-transform: uppercase; cursor: pointer; }
-    .mic { cursor: pointer; }
-
-  </style>
-</head>
-<body>
-  <h1>✨ Studio Abigail ✨</h1>
-  <div class="title-rule"></div>
-
-  <div class="chat-container" id="chatContainer">
-    <div class="message">
-      <p>Buongiorno Marika, come vuoi procedere oggi con la struttura grafica?</p>
-      <div class="time-line time-left"></div>
-      <div class="time">09:41</div>
-    </div>
-    <div class="message" style="align-self: flex-end; width: 60%;">
-      <p>Vorrei rendere tutto più armonico e pulito, senza bordi visibili.</p>
-      <div class="time-line time-right"></div>
-      <div class="time" style="text-align: right;">09:42</div>
-    </div>
-  </div>
-
-  <div class="composer-rule"></div>
-
-  <div class="composer">
-    <div class="side-buttons">
-      <div>MARIKA</div>
-      <div>CLIENTI</div>
-    </div>
-    <textarea class="input-box" id="messageInput" placeholder="Scrivi un messaggio..."></textarea>
-    <div class="right-buttons">
-      <div class="send" id="sendBtn">INVIA</div>
-      <div class="mic">🎤</div>
-    </div>
-  </div>
-
-  <script>
+  });
+</script>
     const textarea = document.getElementById("messageInput");
     const sendBtn = document.getElementById("sendBtn");
     const chatContainer = document.getElementById("chatContainer");
