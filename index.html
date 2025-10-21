@@ -46,7 +46,6 @@
       overflow-y: auto;
     }
 
-    /* WRAPPER GENERALE DEI MESSAGGI */
     .message-wrapper {
       display: flex;
       width: 100%;
@@ -61,21 +60,21 @@
       justify-content: flex-end;
     }
 
-    /* TESTO DEI MESSAGGI */
     .message {
       font-size: 1rem;
       line-height: 1.5;
-      text-align: justify;
       color: #5a4632;
     }
 
     .message.bot {
-      width: 70%;
+      width: calc(100% - 2cm);
       margin: 0 1cm;
+      text-align: justify;
     }
 
     .message.user {
       width: 60%;
+      text-align: right;
       margin-right: 1cm;
     }
 
