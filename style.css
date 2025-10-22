@@ -16,13 +16,42 @@ header {
 }
 
 .chat-container {
-  width: 98%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 0.5cm;
+  width: 100%;
+  max-width: 900px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+.message {
+  max-width: 80%;
+  line-height: 1.6;
+  margin-block: 0.6em;
+  padding: 0.7em 1em;
+  border-radius: 14px;
+  word-wrap: break-word;
 }
 
-.message {
+.message.assistant {
+  align-self: flex-start;
+  background-color: rgba(255, 255, 255, 0.65);
+  margin-left: 0;
+}
+
+.message.user {
+  align-self: flex-end;
+  background-color: rgba(208, 176, 112, 0.35);
+  margin-right: 0;
+}
+
+@media (max-width: 700px) {
+  .message {
+    max-width: 90%;
+    padding: 0.6em 0.8em;
+  }
+}.message {
   padding: 0.5em;
   margin: 0.5em 0;
   line-height: 1.6;
