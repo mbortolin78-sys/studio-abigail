@@ -373,8 +373,8 @@ b {
   padding: 0 !important;
 }
 .input-box::placeholder {
-  color: rgba(90,70,50,0.7) !important; /* tono più deciso, visibile ma armonico */
+  color: rgba(90,70,50,0.65);
   font-weight: 500;
-  opacity: 0.9;
+  opacity: 0.85;
   transform: translateY(3px);
 }
