@@ -170,8 +170,11 @@ button {
     gap: 3px;
   }
 
-  .mic {
-    font-size: 0.9rem;
+ .mic {
+  font-size: 1.1rem;
+  cursor: pointer;
+  transform: translateY(-1px); /* allineato otticamente a INVIA */
+}
   }
 /* 🔹 Migliora leggibilità e contrasto del testo su iPhone / Chrome */
 body {
