@@ -150,10 +150,21 @@ button {
     gap: 8px;
   }
 
-  .input-box {
-    font-size: 0.95rem;
-    padding: 10px 12px;
-  }
+ .input-box {
+  flex-grow: 1;
+  border: none;
+  border-bottom: 1px solid rgba(163, 105, 21, 0.4);
+  background: transparent;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #3a2a15;
+  padding: 6px 4px;
+  outline: none;
+}
+
+.input-box:focus {
+  border-bottom: 1px solid rgba(163, 105, 21, 0.7);
+}
 
   .message.bot {
     width: calc(100% - 12px);
