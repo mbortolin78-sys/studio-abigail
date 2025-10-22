@@ -283,3 +283,63 @@ h1 {
   margin-right: 3vw;
   margin-top: -2px; /* 🔹 alza leggermente la tua bolla */
 }
+/* 🔹 Schede superiori */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 4px; /* più basse rispetto al titolo */
+  margin-bottom: 4px;
+}
+
+.tab {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  background-color: rgba(222, 195, 150, 0.55); /* caldo e armonico */
+  color: #3a2a15;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.tab.active {
+  background-color: rgba(222, 195, 150, 0.95); /* attiva: tono più deciso */
+  color: #2b1b0e;
+}
+
+/* 🔸 Linea sotto schede */
+.title-rule {
+  width: 72%;
+  height: 1px;
+  margin-top: -2px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(170, 125, 60, 0.7) 30%,
+    rgba(170, 125, 60, 0.7) 70%,
+    transparent 100%
+  );
+}
+
+/* 🔹 Riallineamento INVIA e microfono */
+.right-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px; /* distanza minima tra INVIA e microfono */
+  transform: translate(-10px, -2px); /* li sposta verso il centro e leggermente su */
+}
+
+.send {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2b1b0e;
+  cursor: pointer;
+}
+
+.mic {
+  font-size: 1.1rem;
+  transform: translateY(2px);
+  cursor: pointer;
+}
