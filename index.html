@@ -102,19 +102,24 @@
     }
 
    .message.bot {
-  max-width: 75%;
+  width: calc(100% - 1cm);
   text-align: left;
-  background: rgba(255, 255, 255, 0.6);
+  background: transparent;
   padding: 0.8em 1.2em;
-  border-radius: 14px 14px 14px 4px;
+  margin-left: 0.5cm;
+  margin-right: 0.5cm;
+  border: none;
 }
 
 .message.user {
-  max-width: 75%;
+  width: 60%;
   text-align: right;
-  background: rgba(208, 176, 112, 0.35);
+  background: transparent;
   padding: 0.8em 1.2em;
-  border-radius: 14px 14px 4px 14px;
+  margin-right: 0.5cm;
+  margin-left: auto;
+  border: none;
+}
 }
     .time {
       font-size: 0.8rem;
