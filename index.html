@@ -231,6 +231,43 @@
         textarea.value = "";
       }
     });
-  </script>
+    document.getElementById("sendBtn").addEventListener("click", async () => {
+  const input = document.getElementById("messageInput");
+  const testo = input.value.trim();
+  if (!testo) return;
+
+  aggiungiMessaggio(testo, "user");
+
+  // 🔹 Normalizza testo per evitare errori di maiuscole/minuscole
+  const comando = testo.toLowerCase();
+
+  // 🔹 Elenco comandi riconosciuti
+  const comandi = {
+    ree: "Esecuzione R.E.E. — Reset Energetico Esteso avviato.",
+    res: "Esecuzione R.E.S. — Reset Energetico Sintetico avviato.",
+    rae: "Esecuzione R.A.E. — Lettura Aurica Estesa avviata.",
+    ras: "Esecuzione R.A.S. — Lettura Aurica Sintetica avviata.",
+    rve: "Esecuzione R.V.E. — Visione Vibrazionale Estesa avviata.",
+    rvs: "Esecuzione R.V.S. — Visione Vibrazionale Sintetica avviata.",
+    reteriae: "Esecuzione R.Eteria.E — Lettura Eterica Estesa avviata.",
+    reterias: "Esecuzione R.Eteria.S — Lettura Eterica Sintetica avviata.",
+    rvc: "Esecuzione R.V.C. — Visione Vibrazionale di Connessione avviata.",
+    rva: "Esecuzione R.V.A. — Identikit Vibrazionale Aurico avviato.",
+    rvv: "Esecuzione R.V.V. — Visione Vibrazionale Verticale avviata.",
+    rvet: "Esecuzione R.V.Eteria — Visione Vibrazionale Eterica avviata.",
+    rvi: "Esecuzione R.V.I. — Identità Vibrazionale Interiore avviata."
+  };
+
+  // 🔹 Controlla se il testo corrisponde a un comando
+  let risposta;
+  if (comandi[comando]) {
+    risposta = comandi[comando];
+  } else {
+    risposta = "✨ Comando non riconosciuto. Attendere istruzioni o riprovare.";
+  }
+
+  aggiungiMessaggio(risposta, "assistant");
+  input.value = "";
+});  </script>
 </body>
 </html>
