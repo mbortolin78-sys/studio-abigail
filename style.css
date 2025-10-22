@@ -51,21 +51,34 @@
 
 .message.bot {
   align-self: flex-start;
-  text-align: justify; /* 🔹 allinea il testo ai due margini */
-  text-justify: inter-word; /* distribuisce lo spazio in modo uniforme */
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 1.15rem; /* leggermente più grande e leggibile */
+  line-height: 1.55;
+  color: #2b1b0e; /* tono caldo e più scuro */
+  text-align: justify; /* allinea ai margini */
+  text-justify: inter-word;
+  text-shadow: 0 0 0.4px rgba(0, 0, 0, 0.25); /* contrasto ottico sottile */
+  background: transparent;
+  border: none;
   margin-left: 3vw;
   margin-right: 3vw;
-  width: calc(100% - 6vw); /* mantiene la larghezza armonica */
-  color: #3a2a15; /* per assicurare visibilità e coerenza */
+  width: calc(100% - 6vw); /* bolla piena e bilanciata */
 }
 
-/* User (destra) */
 .message.user {
   align-self: flex-end;
-  text-align: right;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: #2b1b0e; /* stesso colore per armonia */
+  text-align: justify; /* anche la tua bolla giustificata */
+  text-justify: inter-word;
+  text-shadow: 0 0 0.4px rgba(0, 0, 0, 0.25);
+  background: transparent;
+  border: none;
   margin-right: 3vw;
   position: relative;
-  top: -18px; /* 🔹 alza davvero la bolla di circa 1 cm */
+  top: -18px; /* rialza la tua bolla di circa 1 cm */
 }
 
 /* ✨ Barra inferiore */
@@ -82,27 +95,23 @@
   transform: translateY(-4px);
 }
 
-/* 💬 Campo input messaggio */
+/* 📥 Campo di scrittura */
 .input-box {
   flex-grow: 1;
-  max-width: 80%;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #3a2a15;
   background: transparent;
   border: none;
   outline: none;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 1.05rem; /* leggermente più grande e leggibile */
+  color: #2b1b0e; /* stesso colore delle bolle */
   padding: 6px 4px;
-  text-align: center;
-  caret-color: #a36a21;
-}
+  caret-color: #a36a21; /* cursore dorato caldo */
 
+/* 🪶 Placeholder armonico e leggibile */
 .input-box::placeholder {
-  color: rgba(90, 70, 50, 0.65);
-  opacity: 0.85;
+  color: rgba(43, 27, 14, 0.45); /* stesso tono ma più tenue */
   font-weight: 500;
-  transform: translateY(3px);
-  text-align: center;
+  font-size: 1.05rem;
 }
 
 /* 🔘 Pulsanti INVIA + Microfono */
