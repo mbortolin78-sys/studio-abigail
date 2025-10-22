@@ -238,3 +238,43 @@ h1 {
   margin: 2px auto 16px auto; /* 🔹 la avvicina alle schede */
   border-radius: 1px;
 }
+
+/* 💫 Correzioni forzate attive */
+.title-rule {
+  width: 70% !important;
+  height: 1px !important;
+  background: linear-gradient(to right,
+    transparent 0%,
+    rgba(58, 42, 21, 0.3) 30%,
+    rgba(58, 42, 21, 0.3) 70%,
+    transparent 100%) !important;
+  margin: 2px auto 14px auto !important; /* 🔹 linea più giù */
+  border-radius: 1px !important;
+}
+
+.message {
+  max-width: 75% !important;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 500 !important;
+  line-height: 1.45 !important;
+  padding: 4px 10px !important;
+  margin-top: 3px !important;
+  margin-bottom: 3px !important; /* 🔹 bolle più vicine */
+  color: #2d1c0e !important;
+  background: transparent !important;
+  text-align: justify !important;
+  text-justify: inter-word !important;
+  text-shadow: 0 0 0.5px rgba(0, 0, 0, 0.3) !important;
+}
+
+.message.bot {
+  align-self: flex-start !important;
+  margin-left: 4vw !important;
+}
+
+.message.user {
+  align-self: flex-end !important;
+  margin-right: 4vw !important;
+  text-align: right !important;
+}
