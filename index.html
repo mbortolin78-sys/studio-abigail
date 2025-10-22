@@ -205,30 +205,24 @@
       border-color: #8B6B42;
       box-shadow: 0 0 3px rgba(139, 107, 66, 0.4);
     }
+    
 .right-buttons {
   display: flex;
-  flex-direction: column;
-  justify-content: center; /* centrati verticalmente */
-  align-items: flex-end;
-  gap: 3px;
+  flex-direction: row; /* da colonna → riga */
+  align-items: center; /* centratura verticale perfetta */
+  justify-content: flex-end;
+  gap: 0.6em;
   font-size: 0.9rem;
   color: #5a4632;
-  padding-right: 0.8em;
-  height: 100%;
+  padding-right: clamp(1em, 3vw, 2.2em);
 }
     
 @media (max-width: 700px) {
-  .composer {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 10px;
-    max-width: 100%;
+  .right-buttons {
+    gap: 0.5em;
+    font-size: 0.85rem;
   }
-
-  .input-box {
-    font-size: 0.95rem;
-    padding: 8px 12px;
-  }
+}
   
   .send { text-transform: uppercase; cursor: pointer; }
     .mic { cursor: pointer; }
