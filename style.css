@@ -67,10 +67,10 @@ button {
   cursor: pointer;
   margin-left: 10px;
 }
-/* --- ADATTAMENTO RESPONSIVE --- */
+/* --- ADATTAMENTO RESPONSIVE MIGLIORATO --- */
 @media (max-width: 1024px) {
   body {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   h1 {
@@ -78,12 +78,15 @@ button {
   }
 
   .chat-container {
-    width: 95%;
+    width: 100%;
     max-width: 100%;
+    margin: 0;
+    padding: 0 10px;
   }
 
   textarea {
     font-size: 0.95rem;
+    width: 100%;
   }
 }
 
@@ -95,6 +98,7 @@ button {
   .chat-container {
     width: 100%;
     margin: 0;
+    padding: 0;
   }
 
   .message-wrapper {
@@ -104,5 +108,9 @@ button {
   textarea {
     width: 100%;
     font-size: 0.9rem;
+  }
+
+  body {
+    padding: 0.5rem;
   }
 }
