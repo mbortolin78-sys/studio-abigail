@@ -209,7 +209,7 @@
 .right-buttons {
   display: flex;
   flex-direction: column;
-  align-items: center; /* centra orizzontalmente microfono sotto INVIA */
+  align-items: center;
   justify-content: center;
   height: 3.4em; /* stessa altezza della barra */
   padding-right: clamp(1em, 3vw, 2.2em);
@@ -217,18 +217,22 @@
   position: relative;
 }
 
+/* INVIA allineato alla stessa altezza di MARIKA */
 .right-buttons .send {
   text-transform: uppercase;
   cursor: pointer;
   position: relative;
-  top: -0.35em; /* INVIA sale un po', allineato a MARIKA */
+  top: -0.15em; /* alzato leggermente per coincidere con MARIKA */
 }
 
+/* 🎤 centrato sotto INVIA, allineato a CLIENTI */
 .right-buttons .mic {
   cursor: pointer;
   font-size: 1rem;
-  position: relative;
-  top: 0.3em; /* microfono scende, allineato a CLIENTI */
+  position: absolute;
+  top: 1.65em; /* posizionato sotto INVIA */
+  left: 50%;
+  transform: translateX(-50%);
 }
     
 .right-buttons .mic {
