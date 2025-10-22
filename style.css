@@ -140,4 +140,34 @@ button {
   header {
     font-size: 1.3em;
   }
+/* 🔹 Ottimizzazione responsive specifica per iPhone e mobile */
+@media (max-width: 700px) {
+  .composer {
+    width: 95%;
+    gap: 8px;
+  }
+
+  .input-box {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
+
+  .message.bot {
+    width: calc(100% - 12px);
+    margin-left: 6px;
+  }
+
+  .message.user {
+    width: 75%;
+    margin-right: 6px;
+  }
+
+  .right-buttons {
+    font-size: 0.8rem;
+    gap: 3px;
+  }
+
+  .mic {
+    font-size: 0.9rem;
+  }
 }
