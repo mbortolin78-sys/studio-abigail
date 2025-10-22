@@ -170,14 +170,31 @@ button {
   .mic {
     font-size: 0.9rem;
   }
-/* 🔹 Migliora leggibilità testo su iPhone */
+/* 🔹 Migliora leggibilità e contrasto del testo su iPhone / Chrome */
+body {
+  -webkit-text-size-adjust: 110%; /* ingrandisce leggermente i font su Chrome iOS */
+}
+
+/* Testo più leggibile e intenso */
 .message p {
-  font-size: 1.15rem; /* +2 punti ottici */
-  color: #3a2a15; /* più deciso ma resta elegante */
+  font-size: 1.2rem; /* aumento di circa 2 punti ottici */
+  color: #382716; /* marrone più profondo per maggiore contrasto */
+  font-weight: 500;
   line-height: 1.6;
 }
 
 .time {
   font-size: 0.85rem;
   opacity: 0.65;
+}
+
+/* 🔹 Sposta leggermente verso l’alto la barra inferiore e il microfono */
+.composer {
+  padding-bottom: env(safe-area-inset-bottom);
+  margin-bottom: 8px;
+}
+
+/* 🔹 Aggiunge respiro sotto alle bolle */
+.chat-container {
+  padding-bottom: 90px;
 }
