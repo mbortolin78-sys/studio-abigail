@@ -378,3 +378,28 @@ b {
   opacity: 0.85;
   transform: translateY(3px);
 }
+/* 🌿 Correzione visiva generale e armonizzazione */
+.message-wrapper.bot {
+  justify-content: flex-start;
+  padding-left: 3vw;
+}
+
+.message-wrapper.user {
+  justify-content: flex-end;
+  padding-right: 3vw;
+}
+
+.right-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translate(-12px, -2px);
+}
+
+.input-box::placeholder {
+  color: rgba(90,70,50,0.7);
+  font-weight: 500;
+  opacity: 0.85;
+  transform: translateY(4px);
+  text-align: left;
+}
