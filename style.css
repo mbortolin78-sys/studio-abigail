@@ -1,0 +1,153 @@
+/* ——————————————————————————————
+   STUDIO ABIGAIL — STYLE SHEET
+   Versione pulita e armonizzata
+   —————————————————————————————— */
+
+/* 🌿 Layout generale chat */
+.chat-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  background-color: transparent;
+}
+
+/* 💬 Messaggi */
+.message-wrapper {
+  display: flex;
+  margin: 4px 0;
+  width: 100%;
+}
+
+.message-wrapper.bot {
+  justify-content: flex-start;
+  padding-left: 3vw;
+}
+
+.message-wrapper.user {
+  justify-content: flex-end;
+  padding-right: 3vw;
+}
+
+.message {
+  max-width: 75%;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 14px;
+  text-align: justify;
+  text-justify: inter-word;
+  background: transparent;
+  color: #3a2a15;
+}
+
+.message.bot {
+  align-self: flex-start;
+}
+
+.message.user {
+  align-self: flex-end;
+  text-align: right;
+  color: #3a2a15;
+}
+
+/* ✨ Barra inferiore */
+.composer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 18px;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 10px);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  transform: translateY(-4px);
+}
+
+/* 💬 Campo input messaggio */
+.input-box {
+  flex-grow: 1;
+  max-width: 80%;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #3a2a15;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 6px 4px;
+  text-align: center;
+  caret-color: #a36a21;
+}
+
+.input-box::placeholder {
+  color: rgba(90, 70, 50, 0.65);
+  opacity: 0.85;
+  font-weight: 500;
+  transform: translateY(3px);
+  text-align: center;
+}
+
+/* 🔘 Pulsanti INVIA + Microfono */
+.right-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transform: translateX(-26px);
+}
+
+.send {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #3a2a15;
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.mic {
+  font-size: 1.1rem;
+  cursor: pointer;
+  transform: translateX(-4px) translateY(4px); /* allineato sotto la "V" */
+}
+
+/* 🌸 Linea di separazione */
+.composer-rule {
+  width: 70%;
+  height: 1px;
+  background: linear-gradient(to right,
+    transparent 0%,
+    rgba(208,176,112,0.75) 30%,
+    rgba(208,176,112,0.75) 70%,
+    transparent 100%);
+  margin: 4px auto 18px;
+  border-radius: 1px;
+}
+
+/* 📱 Mobile responsive */
+@media (max-width: 700px) {
+  .composer {
+    width: 95%;
+    gap: 8px;
+  }
+
+  .message {
+    font-size: 1rem;
+  }
+
+  .input-box {
+    max-width: 85%;
+    font-size: 1rem;
+  }
+
+  .right-buttons {
+    transform: translateX(-20px);
+  }
+}
