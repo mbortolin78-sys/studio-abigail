@@ -83,8 +83,40 @@ button {
     margin: 0;
     padding: 0 10px;
   }
+/* --- Override responsive per allargare la chat --- */
+.chat-container {
+  width: 95vw !important;       /* allarga quasi a piena larghezza */
+  max-width: 1200px;            /* ma limita su schermi grandi */
+  margin: 0 auto;
+  padding: 0 2vw;
+}
 
-  textarea {
+.message-wrapper {
+  width: 90% !important;        /* allarga le bolle */
+  margin: 10px auto;
+}
+
+textarea {
+  width: 96% !important;        /* allarga il campo di testo */
+  margin: 0 auto;
+}
+
+/* Allineamento input inferiore */
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 96%;
+  margin: 0 auto;
+}
+
+.left-labels {
+  text-align: left;
+}
+
+.right-buttons {
+  text-align: right;
+}  textarea {
     font-size: 0.95rem;
     width: 100%;
   }
