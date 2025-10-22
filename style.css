@@ -188,13 +188,19 @@ body {
   opacity: 0.65;
 }
 
-/* 🔹 Sposta leggermente verso l’alto la barra inferiore e il microfono */
+/* 🔹 Riallineamento ottico della barra inferiore su iPhone / Chrome */
 .composer {
-  padding-bottom: env(safe-area-inset-bottom);
-  margin-bottom: 8px;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 4px);
+  margin-bottom: 14px; /* alzata netta rispetto al bordo nero */
 }
 
-/* 🔹 Aggiunge respiro sotto alle bolle */
+/* 🔹 Riallinea il microfono e INVIA perfettamente */
+.right-buttons {
+  align-items: center;
+  transform: translateY(-2px); /* alza leggermente */
+}
+
+/* 🔹 Riduce la parte inferiore della chat per più respiro visivo */
 .chat-container {
-  padding-bottom: 90px;
+  padding-bottom: 60px; /* prima 90px → ora più armonico */
 }
