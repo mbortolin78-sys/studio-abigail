@@ -67,3 +67,42 @@ button {
   cursor: pointer;
   margin-left: 10px;
 }
+/* --- ADATTAMENTO RESPONSIVE --- */
+@media (max-width: 1024px) {
+  body {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  .chat-container {
+    width: 95%;
+    max-width: 100%;
+  }
+
+  textarea {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .chat-container {
+    width: 100%;
+    margin: 0;
+  }
+
+  .message-wrapper {
+    width: 100%;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+}
