@@ -167,32 +167,31 @@
 .top-tabs {
   display: flex;
   justify-content: center;
-  gap: 1.5rem; /* maggiore distanza */
+  gap: 1.2rem;
   background: transparent;
-  border-radius: 18px;
-  margin-top: 6px;
+  margin-top: -8px; /* le porta più vicino a Studio Abigail */
+  margin-bottom: 6px; /* più respiro sopra la linea */
 }
 
 .top-tabs button {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  font-size: 1rem;
+  font-size: 0.95rem; /* leggermente più piccolo */
   font-weight: 600;
   color: #3a2a15;
-  background-color: #f6e8cf; /* sabbia chiara */
-  border: 1px solid rgba(150, 120, 80, 0.25);
-  border-radius: 12px;
-  padding: 6px 18px;
+  background-color: transparent; /* neutro quando non attiva */
+  border: none;
+  padding: 5px 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 .top-tabs button.active {
-  background-color: #e9d8b3; /* un po’ più scuro per l’attivo */
+  background-color: #efd8b0; /* sabbia caldo, appena più scuro dello sfondo */
   color: #3a2a15;
 }
 
 .top-tabs button:hover {
-  background-color: #f3deb6; /* leggero riflesso dorato */
+  background-color: #f3e2be; /* riflesso dorato chiaro */
 }
 
 /* 3️⃣ Miglior equilibrio visivo del titolo */
