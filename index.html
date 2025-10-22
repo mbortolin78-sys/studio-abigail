@@ -67,19 +67,23 @@
   padding: 0 1rem;
     }
 
-    .message-wrapper {
-      display: flex;
-      width: 100%;
-      margin: 20px 0;
-    }
+   .message-wrapper {
+  display: flex;
+  width: 100%;
+  margin: 20px 0;
+  padding: 0 3vw; /* aggiunge respiro laterale */
+  box-sizing: border-box;
+}
 
     .message-wrapper.bot {
-      justify-content: center;
-    }
+  justify-content: flex-start; /* le mie bolle più a sinistra */
+  padding-left: 3vw;
+}
 
-    .message-wrapper.user {
-      justify-content: flex-end;
-    }
+   .message-wrapper.user {
+  justify-content: flex-end; /* la tua bolla rimane a destra */
+  padding-right: 3vw;
+}
 
     .message {
       font-size: 1rem;
