@@ -209,24 +209,28 @@
 .right-buttons {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* gestisce due livelli */
-  align-items: center; /* centra orizzontalmente */
+  align-items: center; /* centra orizzontalmente microfono sotto INVIA */
+  justify-content: center;
   height: 3.4em; /* stessa altezza della barra */
   padding-right: clamp(1em, 3vw, 2.2em);
   color: #5a4632;
+  position: relative;
 }
 
 .right-buttons .send {
   text-transform: uppercase;
   cursor: pointer;
-  align-self: flex-start; /* allineata in alto → come MARIKA */
+  position: relative;
+  top: -0.35em; /* INVIA sale un po', allineato a MARIKA */
 }
 
 .right-buttons .mic {
   cursor: pointer;
-  align-self: flex-end; /* allineata in basso → come CLIENTI */
+  font-size: 1rem;
+  position: relative;
+  top: 0.3em; /* microfono scende, allineato a CLIENTI */
 }
-
+    
 .right-buttons .mic {
   margin-top: 0.2em;
 }
