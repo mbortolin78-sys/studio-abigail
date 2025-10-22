@@ -57,22 +57,32 @@
       border-radius: 1px;
     }
 
-    .chat-container {
+   .chat-container {
   width: 100%;
-  max-width: 100%;
+  max-width: 900px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 3vw, 32px);
   overflow-y: auto;
-  padding: 0 1rem;
-    }
+  box-sizing: border-box;
+}
 
-   .message-wrapper {
+  .message-wrapper {
   display: flex;
   width: 100%;
-  margin: 20px 0;
-  padding: 0 3vw; /* aggiunge respiro laterale */
+  margin: 14px 0;
   box-sizing: border-box;
+}
+
+.message-wrapper.bot {
+  justify-content: flex-start;
+}
+
+.message-wrapper.user {
+  justify-content: flex-end;
 }
 
     .message-wrapper.bot {
@@ -91,18 +101,21 @@
       color: #5a4632;
     }
 
-    .message.bot {
-      width: calc(100% - 2cm);
-      margin: 0 1cm;
-      text-align: justify;
-    }
+   .message.bot {
+  max-width: 75%;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.8em 1.2em;
+  border-radius: 14px 14px 14px 4px;
+}
 
-    .message.user {
-      width: 60%;
-      text-align: right;
-      margin-right: 1cm;
-    }
-
+.message.user {
+  max-width: 75%;
+  text-align: right;
+  background: rgba(208, 176, 112, 0.35);
+  padding: 0.8em 1.2em;
+  border-radius: 14px 14px 4px 14px;
+}
     .time {
       font-size: 0.8rem;
       opacity: 0.5;
@@ -185,8 +198,24 @@
       gap: 5px;
     }
 
-    .send { text-transform: uppercase; cursor: pointer; }
+        .send { text-transform: uppercase; cursor: pointer; }
     .mic { cursor: pointer; }
+
+/* 🔹 Aggiungi da qui in giù */
+@media (max-width: 700px) {
+  .chat-container {
+    max-width: 100%;
+    padding-inline: 4vw;
+  }
+
+  .message.bot,
+  .message.user {
+    max-width: 90%;
+    padding: 0.7em 1em;
+  }
+
+/* 🔹 Fino a qui */
+  </style>
   </style>
 </head>
 <body>
