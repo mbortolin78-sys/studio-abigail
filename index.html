@@ -4,8 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#000000">  <title>✨ Studio Abigail ✨</title>
-  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+<title></title>
+<script>
+  // Se è installata come app (PWA standalone), non mostrare il titolo in alto
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    document.title = '';
+  } else {
+    // In browser, mostra il titolo con le stelline nella scheda
+    document.title = '✨ Studio Abigail ✨';
+  }
+</script>
+<link rel="manifest" href="manifest.json">
 <script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js')
