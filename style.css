@@ -230,7 +230,7 @@ body {
   font-weight: 700;
   color: #3a2a15;
   cursor: pointer;
-  transform: translateY(1px); /* centratura verticale precisa */
+  transform: translateY(-2px); /* lo alza di 2px */
 }
 
 .mic {
