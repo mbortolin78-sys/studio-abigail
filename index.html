@@ -278,5 +278,36 @@
   aggiungiMessaggio(risposta, "assistant");
   input.value = "";
 });  </script>
+  <script>
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const installBanner = document.createElement('button');
+    installBanner.textContent = '📱 Installa Studio Abigail';
+    installBanner.style.position = 'fixed';
+    installBanner.style.bottom = '20px';
+    installBanner.style.right = '20px';
+    installBanner.style.padding = '10px 20px';
+    installBanner.style.background = '#b49a6d';
+    installBanner.style.color = '#fff';
+    installBanner.style.border = 'none';
+    installBanner.style.borderRadius = '12px';
+    installBanner.style.fontFamily = 'Palatino Linotype, serif';
+    installBanner.style.fontSize = '16px';
+    installBanner.style.cursor = 'pointer';
+    document.body.appendChild(installBanner);
+
+    installBanner.addEventListener('click', async () => {
+      installBanner.style.display = 'none';
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        console.log('App installed');
+      }
+      deferredPrompt = null;
+    });
+  });
+</script>
 </body>
 </html>
