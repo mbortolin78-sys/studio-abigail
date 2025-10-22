@@ -150,28 +150,30 @@ button {
     gap: 8px;
   }
   
-.input-box {
+..input-box {
   flex-grow: 1;
-  background: transparent; /* nessuno sfondo */
-  border: none; /* elimina completamente il bordo */
-  outline: none; /* nessuna linea di selezione */
-  font-size: 1.1rem;
+  max-width: 80%;
+  font-size: 1.05rem;
   font-weight: 500;
-  color: #3a2a15; /* testo ben leggibile */
-  padding: 6px 4px;
-  caret-color: #a36a21; /* cursore dorato */
+  color: #3a2a15;
+  padding: 10px 16px;
+  text-align: center; /* allineato centralmente */
 }
 
   .message.user {
-    width: 75%;
-    margin-right: 6px;
-  }
+  width: 75%;
+  margin-right: 18px; /* più respiro a destra */
+}
 
-  .right-buttons {
-    font-size: 0.8rem;
-    gap: 3px;
-  }
-
+.right-buttons {
+  display: flex;
+  flex-direction: column; /* ora vanno uno sopra l’altro */
+  align-items: center;
+  justify-content: center;
+  gap: 3px; /* distanza tra INVIA e microfono */
+  transform: translate(-10px, 0);
+}
+  
  .mic {
   font-size: 1.1rem;
   cursor: pointer;
