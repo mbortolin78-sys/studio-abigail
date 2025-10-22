@@ -167,19 +167,19 @@ button {
 
 .right-buttons {
   display: flex;
-  flex-direction: column; /* uno sopra l’altro */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3px;
-  transform: translate(-10px, 0); /* centratura ottica */
+  gap: 4px;
+  transform: translateX(-25px); /* sposta INVIA e microfono di ~0.5cm verso il centro */
 }
   
- .mic {
+.mic {
   font-size: 1.1rem;
   cursor: pointer;
-  transform: translateY(-1px); /* allineato otticamente a INVIA */
+  transform: translateX(-6px) translateY(10px); /* 🎤 spostato verso il centro e leggermente più in basso */
 }
-  }
+  
 /* 🔹 Migliora leggibilità e contrasto del testo su iPhone / Chrome */
 body {
   -webkit-text-size-adjust: 110%; /* ingrandisce leggermente i font su Chrome iOS */
