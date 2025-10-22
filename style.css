@@ -26,13 +26,14 @@ header {
   align-items: center;
   overflow-y: auto;
 }
+/* 🔹 Testo dei messaggi più nitido e leggibile */
 .message {
-  max-width: 80%;
-  line-height: 1.6;
-  margin-block: 0.6em;
-  padding: 0.7em 1em;
-  border-radius: 14px;
-  word-wrap: break-word;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  font-weight: 600; /* leggero grassetto */
+  color: #4a3a22; /* più deciso ma armonico */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .message.assistant {
@@ -266,4 +267,40 @@ body {
 
 .tab:hover {
   background: rgba(90, 70, 50, 0.1);
+}
+/* ✨ Testo uniforme, nitido e leggibile in tutta l’interfaccia */
+
+/* Testo delle bolle (sia bot che utente) */
+.message,
+.message p {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  font-weight: 600; /* leggero grassetto per nitidezza */
+  color: #4a3a22; /* tono più caldo e deciso */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Testo dentro la barra di scrittura */
+.input-box input,
+.input-box textarea,
+.input-box {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #4a3a22;
+  background: transparent;
+  border: none;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Etichette, pulsanti e testo secondario */
+.side-buttons,
+.send,
+.time {
+  font-weight: 600;
+  color: #5a4632;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
