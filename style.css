@@ -158,7 +158,7 @@
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-size: 0.9rem;
   color: rgba(90, 70, 50, 0.55);
-  text-indent: 1cm; /* sposta leggermente a sinistra */
+  text-indent: 0cm; /* sposta leggermente a sinistra */
   opacity: 0.9;
   transform: translateY(3px);
 }
