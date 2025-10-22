@@ -160,7 +160,7 @@
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-size: 0.9rem;
   color: rgba(90, 70, 50, 0.55);
-  text-indent: -4cm; /* sposta leggermente a sinistra */
+  text-indent: -3cm; /* sposta leggermente a sinistra */
   opacity: 0.9;
   transform: translateY(3px);
 }
