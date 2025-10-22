@@ -5,15 +5,13 @@
 
 /* 🌿 Layout generale chat */
 .chat-container {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-  background-color: transparent;
+  justify-content: flex-start; /* 🔹 toglie lo spazio extra tra le bolle */
+  align-items: flex-start;
+  gap: 0.4em; /* 🔹 distanza armonica costante */
+  padding: 0 4vw;
+  overflow-y: auto;
 }
 
 /* 💬 Messaggi */
@@ -60,8 +58,9 @@
 /* User (destra) */
 .message.user {
   align-self: flex-end;
-  margin-right: 4vw;
   text-align: right;
+  margin-right: 3vw;
+  margin-top: -8px; /* 🔹 alza la tua bolla visivamente */
 }
 
 /* ✨ Barra inferiore */
