@@ -77,18 +77,16 @@
   box-sizing: border-box;
 }
 
-/* nessuna centratura forzata: gestiamo solo i margini */
 .message.bot {
-  width: calc(100%); /* 0,5 cm visivi */
+  width: calc(100% - 16px);
   text-align: justify;
-text-justify: inter-word;
+  text-justify: inter-word;
   background: transparent;
   padding: 0.2em 0.2em 0.2em 0;
-  margin-left: 0px; /* distanza precisa dal bordo sinistro */
-  margin-bottom: 0.5px; /* il mio messaggio scende meno */
+  margin-left: 18px; /* più respiro a sinistra */
+  margin-bottom: 0.5px;
   border: none;
 }
-
 .message.user {
   width: 60%;
   text-align: justify;
