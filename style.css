@@ -51,10 +51,12 @@
 
 .message.bot {
   align-self: flex-start;
-  text-align: left;
-  margin-left: 3vw; /* stesso respiro laterale della tua bolla */
-  margin-right: 3vw; /* aggiunge margine destro identico alla tua */
-  width: calc(100% - 6vw); /* 🔹 estende la bolla a tutto campo visivo */
+  text-align: justify; /* 🔹 allinea il testo ai due margini */
+  text-justify: inter-word; /* distribuisce lo spazio in modo uniforme */
+  margin-left: 3vw;
+  margin-right: 3vw;
+  width: calc(100% - 6vw); /* mantiene la larghezza armonica */
+  color: #3a2a15; /* per assicurare visibilità e coerenza */
 }
 
 /* User (destra) */
