@@ -188,27 +188,47 @@ body {
   opacity: 0.65;
 }
 
-/* 🔹 Riallineamento ottico finale barra inferiore */
+/* 🔹 Spaziatura ergonomica e ottica per barra inferiore */
 .composer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-  padding: 8px 14px;
+  gap: 22px; /* più spazio orizzontale tra le aree */
+  padding: 10px 18px;
   padding-bottom: calc(env(safe-area-inset-bottom) + 14px);
-  margin-bottom: 18px; /* solleva tutta la barra di ~6px */
-  transform: translateY(-10px); /* correzione ottica fine */
+  margin-bottom: 20px; /* distacco maggiore dal bordo inferiore */
+  transform: translateY(-8px);
+  box-shadow: 0 -3px 6px rgba(58, 39, 22, 0.1);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border-top: 1px solid rgba(90, 70, 50, 0.08);
 }
 
-/* Allineamento perfetto testo e microfono */
+/* Allineamento perfetto testo laterale e microfono */
 .left-buttons {
-  transform: translateY(2px); /* leggermente più centrato */
+  display: flex;
+  align-items: center;
+  transform: translateY(2px);
+  margin-right: 12px; /* spazio prima della bolla */
 }
 
 .right-buttons {
-  transform: translateY(-3px); /* microfono + INVIA sollevati */
+  display: flex;
+  align-items: center;
+  gap: 18px; /* maggiore respiro tra INVIA e microfono */
+  transform: translateY(-2px);
 }
 
+/* Bolla messaggio centrata verticalmente */
+.input-box {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 6px 14px;
+  border-radius: 12px;
+}
+
+/* Stacco morbido dalla linea superiore */
 .chat-container {
-  padding-bottom: 45px; /* più respiro nella parte inferiore */
+  padding-bottom: 60px;
 }
