@@ -8,11 +8,12 @@ body {
 
 header {
   text-align: center;
-  font-size: 1.6em;
+  font-size: 1.7em;
   font-weight: bold;
   color: #5a4632;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 0.8em 0;
+  padding: 0.4em 0 0.2em 0; /* riduce l'altezza totale del blocco */
+  margin-top: 0.3em; /* spinge verso l’alto tutto il titolo */
+  border: none; /* elimina la linea che appesantiva sotto */
 }
 
 .chat-container {
@@ -231,4 +232,39 @@ body {
 /* Stacco morbido dalla linea superiore */
 .chat-container {
   padding-bottom: 60px;
+}
+/* 🔹 Schede superiori di navigazione */
+.top-tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 8px 6px 8px; /* respiro laterale aumentato */
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(3px);
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  background: transparent;
+  border: none;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #5a4632;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab.active {
+  background: rgba(58, 39, 22, 0.15);
+  color: #3a2a15;
+}
+
+.tab:hover {
+  background: rgba(58, 39, 22, 0.08);
 }
