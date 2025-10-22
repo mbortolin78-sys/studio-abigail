@@ -121,20 +121,21 @@
   align-items: flex-end;
   justify-content: center;
   gap: 2px;
-  transform: translate(-14px, -3px); /* li sposta verso il centro e leggermente su */
+  transform: translate(-14px, -2px);
 }
+
 .send {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #3a2a15;
+  color: #2b1b0e;
   cursor: pointer;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .mic {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  transform: translateY(1px);
   cursor: pointer;
-  transform: translateX(-4px) translateY(4px); /* allineato sotto la "V" */
 }
 
 /* 🌸 Linea di separazione */
@@ -186,8 +187,9 @@
 .top-tabs {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  margin-top: -6px; /* le avvicina allo Studio Abigail */
+  gap: 18px;
+  margin-top: -6px;
+  margin-bottom: 0;
 }
 
 .top-tabs button {
@@ -201,8 +203,8 @@
 }
 
 .top-tabs button.active {
-  background-color: #efd8b0; /* sabbia caldo, appena più scuro dello sfondo */
-  color: #3a2a15;
+  background-color: #e9c892;
+  color: #2b1b0e;
 }
 
 .top-tabs button:hover {
@@ -240,14 +242,17 @@ h1 {
 }
 /* Linea elegante sotto il titolo */
 .title-rule {
-  width: 70%;
+  width: 72%;
   height: 1px;
-  background: linear-gradient(to right,
+  margin-top: 0;
+  margin-bottom: 10px;
+  background: linear-gradient(
+    to right,
     transparent 0%,
-    rgba(58, 42, 21, 0.3) 30%,
-    rgba(58, 42, 21, 0.3) 70%,
-    transparent 100%);
-  margin: 2px auto 16px auto; /* 🔹 la avvicina alle schede */
+    rgba(170, 125, 60, 0.7) 30%,
+    rgba(170, 125, 60, 0.7) 70%,
+    transparent 100%
+  );
   border-radius: 1px;
 }
 
