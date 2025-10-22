@@ -154,28 +154,31 @@
       border-radius: 1px;
     }
 
-    .composer {
+  .composer {
   width: 100%;
   max-width: 900px;
   display: flex;
-  align-items: center;
+  align-items: center; /* centratura verticale perfetta */
   justify-content: space-between;
   margin: 0 auto 20px auto;
   padding: 0;
   box-sizing: border-box;
+  height: 3.4em; /* uniforma altezza rispetto alla bolla */
 }
 
-   .side-buttons {
+  .side-buttons {
   display: flex;
   flex-direction: column;
+  justify-content: center; /* centrati verticalmente */
   align-items: flex-start;
-  gap: 4px;
+  gap: 3px;
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   cursor: pointer;
   color: #5a4632;
   padding-left: 0.8em;
+  height: 100%;
 }
 
     .side-buttons div:hover { opacity: 0.7; }
@@ -202,16 +205,18 @@
       border-color: #8B6B42;
       box-shadow: 0 0 3px rgba(139, 107, 66, 0.4);
     }
-
-   .right-buttons {
+.right-buttons {
   display: flex;
   flex-direction: column;
+  justify-content: center; /* centrati verticalmente */
   align-items: flex-end;
-  gap: 6px;
+  gap: 3px;
   font-size: 0.9rem;
   color: #5a4632;
   padding-right: 0.8em;
+  height: 100%;
 }
+    
 @media (max-width: 700px) {
   .composer {
     flex-direction: row;
