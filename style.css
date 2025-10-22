@@ -33,38 +33,37 @@
   padding-right: 3vw;
 }
 
-/* 💬 Stile bolle messaggio armonico e leggibile */
+/* 💬 Bolle messaggio migliorate */
 .message {
   max-width: 75%;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  font-size: 1.08rem;
+  font-size: 1.1rem;
   font-weight: 500;
   line-height: 1.45;
-  padding: 6px 12px;
-  margin-top: 0.2em;
-  margin-bottom: 0.2em; /* avvicina le bolle */
+  padding: 4px 10px;
+  margin-top: 4px;
+  margin-bottom: 4px; /* 🔹 ridotto distacco */
   border: none;
-  border-radius: 12px;
+  background: transparent;
+  color: #2d1c0e; /* più nitido e caldo */
   text-align: justify;
   text-justify: inter-word;
-  background: transparent;
-  color: #2c1a0f; /* testo più intenso e nitido */
-  text-shadow: 0 0 0.5px rgba(0, 0, 0, 0.2); /* micro contrasto ottico */
+  text-shadow: 0 0 0.4px rgba(0, 0, 0, 0.25); /* sottile contrasto ottico */
 }
 
-/* 🪶 Messaggi del bot (sinistra) */
+/* Bot (sinistra) */
 .message.bot {
   align-self: flex-start;
-  margin-left: 3vw;
+  margin-left: 4vw;
 }
 
-/* 🪶 Messaggi dell’utente (destra) */
+/* User (destra) */
 .message.user {
   align-self: flex-end;
+  margin-right: 4vw;
   text-align: right;
-  margin-right: 3vw;
-  color: #2c1a0f;
 }
+
 /* ✨ Barra inferiore */
 .composer {
   display: flex;
@@ -227,10 +226,15 @@
 h1 {
   margin-bottom: 0.2rem;
 }
+/* Linea elegante sotto il titolo */
 .title-rule {
   width: 70%;
   height: 1px;
-  background: linear-gradient(to right, transparent 0%, rgba(208,176,112,0.75) 30%, rgba(208,176,112,0.75) 70%, transparent 100%);
-  margin: 1px auto 4px; /* la avvicina verso l’alto */
+  background: linear-gradient(to right,
+    transparent 0%,
+    rgba(58, 42, 21, 0.3) 30%,
+    rgba(58, 42, 21, 0.3) 70%,
+    transparent 100%);
+  margin: 2px auto 16px auto; /* 🔹 la avvicina alle schede */
   border-radius: 1px;
 }
