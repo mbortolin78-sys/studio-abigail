@@ -188,19 +188,43 @@ body {
   opacity: 0.65;
 }
 
-/* 🔹 Riallineamento ottico della barra inferiore su iPhone / Chrome */
+/* 🔹 Riallineamento ottico completo barra inferiore (Chrome + iPhone) */
 .composer {
-  padding-bottom: calc(env(safe-area-inset-bottom) + 4px);
-  margin-bottom: 14px; /* alzata netta rispetto al bordo nero */
-}
-
-/* 🔹 Riallinea il microfono e INVIA perfettamente */
-.right-buttons {
+  display: flex;
   align-items: center;
-  transform: translateY(-2px); /* alza leggermente */
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 14px;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 10px);
+  margin-bottom: 12px; /* solleva tutta la barra */
+  transform: translateY(-6px); /* correzione ottica globale */
 }
 
-/* 🔹 Riduce la parte inferiore della chat per più respiro visivo */
+/* Allineamento perfetto testo e microfono */
+.left-buttons,
+.right-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.left-buttons {
+  transform: translateY(1px); /* centra MARIKA / CLIENTI */
+}
+
+.right-buttons {
+  transform: translateY(-1px); /* centra INVIA e microfono */
+}
+
+/* Bolla messaggio centrata verticalmente rispetto al testo */
+.input-box {
+  display: flex;
+  align-items: center;
+  height: 38px; /* uniforme su tutti i device */
+  padding: 6px 12px;
+  border-radius: 12px;
+}
+
+/* Spazio visivo inferiore della chat */
 .chat-container {
-  padding-bottom: 60px; /* prima 90px → ora più armonico */
+  padding-bottom: 50px; /* ridotto per dare più equilibrio */
 }
