@@ -198,3 +198,10 @@
 h1 {
   margin-bottom: 0.2rem;
 }
+.title-rule {
+  width: 70%;
+  height: 1px;
+  background: linear-gradient(to right, transparent 0%, rgba(208,176,112,0.75) 30%, rgba(208,176,112,0.75) 70%, transparent 100%);
+  margin: 2px auto 8px; /* avvicina la linea ai bottoni */
+  border-radius: 1px;
+}
