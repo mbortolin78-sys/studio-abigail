@@ -118,12 +118,11 @@
 .right-buttons {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  gap: 5px;
-  transform: translateX(-26px);
+  gap: 2px;
+  transform: translate(-14px, -3px); /* li sposta verso il centro e leggermente su */
 }
-
 .send {
   font-size: 1.1rem;
   font-weight: 700;
