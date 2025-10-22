@@ -222,12 +222,11 @@ body {
   margin-right: 12px; /* spazio prima della bolla */
 }
 
-/* 🔹 Riallineamento ottico di INVIA e microfono */
 .right-buttons {
   display: flex;
   align-items: center;
-  gap: 10px; /* distanza tra INVIA e 🎤 */
-  transform: translateX(-18px); /* sposta entrambi più a sinistra */
+  gap: 12px;
+  transform: translate(-14px, -2px); /* 🔹 li sposta leggermente più in alto */
 }
 
 .send {
@@ -372,4 +371,12 @@ b {
   height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+/* 🔹 Placeholder più elegante e bilanciato */
+.input-box::placeholder {
+  color: rgba(90, 70, 50, 0.35); /* tono caldo ma molto tenue */
+  font-weight: 500;
+  transform: translateY(3px); /* leggero abbassamento */
+  text-align: left; /* torna a sinistra per coerenza visiva */
+  opacity: 0.6; /* leggermente trasparente */
 }
