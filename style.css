@@ -170,4 +170,14 @@ button {
   .mic {
     font-size: 0.9rem;
   }
+/* 🔹 Migliora leggibilità testo su iPhone */
+.message p {
+  font-size: 1.15rem; /* +2 punti ottici */
+  color: #3a2a15; /* più deciso ma resta elegante */
+  line-height: 1.6;
+}
+
+.time {
+  font-size: 0.85rem;
+  opacity: 0.65;
 }
