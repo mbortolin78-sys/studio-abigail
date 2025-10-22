@@ -1,24 +1,24 @@
-{{
+{
   "name": "Studio Abigail",
-  "short_name": "StudioAbigail",
-  "description": "Interfaccia del Metodo Marika — Studio Abigail",
-  "start_url": "./index.html",
+  "short_name": "Abigail",
+  "description": "Studio Abigail — Interfaccia intuitiva e fluida per la gestione energetica e narrativa.",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#000000",
-  "theme_color": "#000000",
+  "theme_color": "#b49a6d",
   "icons": [
     {
-      "src": "icon-180.jpeg",
+      "src": "icon-180.jpg",
       "sizes": "180x180",
       "type": "image/jpeg"
     },
     {
-      "src": "icon-512.jpeg",
+      "src": "icon-512.jpg",
       "sizes": "512x512",
       "type": "image/jpeg"
     },
     {
-      "src": "icon-1024.jpeg",
+      "src": "icon-1024.jpg",
       "sizes": "1024x1024",
       "type": "image/jpeg"
     }
