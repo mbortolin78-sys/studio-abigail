@@ -152,22 +152,15 @@ button {
   
 .input-box {
   flex-grow: 1;
-  border: none;
-  border-bottom: 1px solid rgba(163, 105, 21, 0.4);
-  background: transparent;
-  font-size: 1.05rem;
+  background: transparent; /* nessuno sfondo */
+  border: none; /* elimina completamente il bordo */
+  outline: none; /* nessuna linea di selezione */
+  font-size: 1.1rem;
   font-weight: 500;
-  color: #3a2a15;
+  color: #3a2a15; /* testo ben leggibile */
   padding: 6px 4px;
-  outline: none;
+  caret-color: #a36a21; /* cursore dorato */
 }
-
-.input-box:focus {
-  border-bottom: 1px solid rgba(163, 105, 21, 0.7);
-}  .message.bot {
-    width: calc(100% - 12px);
-    margin-left: 6px;
-  }
 
   .message.user {
     width: 75%;
