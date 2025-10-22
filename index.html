@@ -208,13 +208,27 @@
     
 .right-buttons {
   display: flex;
-  flex-direction: row; /* da colonna → riga */
-  align-items: center; /* centratura verticale perfetta */
-  justify-content: flex-end;
-  gap: 0.6em;
-  font-size: 0.9rem;
-  color: #5a4632;
+  flex-direction: column;
+  justify-content: space-between; /* gestisce due livelli */
+  align-items: center; /* centra orizzontalmente */
+  height: 3.4em; /* stessa altezza della barra */
   padding-right: clamp(1em, 3vw, 2.2em);
+  color: #5a4632;
+}
+
+.right-buttons .send {
+  text-transform: uppercase;
+  cursor: pointer;
+  align-self: flex-start; /* allineata in alto → come MARIKA */
+}
+
+.right-buttons .mic {
+  cursor: pointer;
+  align-self: flex-end; /* allineata in basso → come CLIENTI */
+}
+
+.right-buttons .mic {
+  margin-top: 0.2em;
 }
     
 @media (max-width: 700px) {
