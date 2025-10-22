@@ -240,8 +240,34 @@
     max-width: 90%;
     padding: 0.7em 1em;
   }
+/* 🔹 Effetti interattivi eleganti */
+.side-buttons div:hover,
+.send:hover,
+.mic:hover {
+  color: #8B6B42;
+  transition: color 0.3s ease;
+}
 
-/* 🔹 Fino a qui */
+/* 🔹 Pulsante INVIA in stato attivo */
+.send:active {
+  color: #B68C55;
+  transform: scale(0.98);
+  transition: all 0.15s ease-in-out;
+}
+
+/* 🔹 Microfono acceso (stato registrazione simulato) */
+.mic.active {
+  color: #B68C55;
+  text-shadow: 0 0 4px rgba(182, 140, 85, 0.6);
+  transition: all 0.3s ease;
+}
+// Effetto microfono attivo
+const micButton = document.querySelector('.mic');
+micButton.addEventListener('click', () => {
+  micButton.classList.toggle('active');
+});
+  
+  /* 🔹 Fino a qui */
   </style>
   </style>
 </head>
