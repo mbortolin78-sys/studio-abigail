@@ -41,27 +41,20 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // click su invia
-  sendBtn.addEventListener("click", sendMessage);
+ document.getElementById("sendBtn").addEventListener("click", async () => {
+  const input = document.getElementById("messageInput");
+  const testo = input.value.trim();
+  if (!testo) return;
 
-  // autoespansione
-  textarea.addEventListener("input", () => {
-    textarea.style.height = "auto";
-    // --- GESTIONE COMANDI LOCALI ---
+  // Mostra subito il messaggio utente
+  aggiungiMessaggio(testo, "user");
 
-async function leggiComandiOperativi() {
-  try {
-    const response = await fetch("Comandi Operativi.docx");
-    const blob = await response.blob();
-    const arrayBuffer = await blob.arrayBuffer();
-    const textDecoder = new TextDecoder();
-    const testo = textDecoder.decode(arrayBuffer);
-    return testo.toUpperCase(); // uniforma tutto
-  } catch (error) {
-    console.error("Errore nel caricamento del file Comandi Operativi:", error);
-    return null;
-  }
-}
+  // Se contiene un comando, eseguilo
+  const risposta = await eseguiComando(testo);
+  aggiungiMessaggio(risposta, "assistant");
+
+  input.value = "";
+});
 
 async function eseguiComando(input) {
   const testo = await leggiComandiOperativi();
