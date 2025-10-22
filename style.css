@@ -405,3 +405,18 @@ b {
   transform: translateY(4px);
   text-align: center;
 }
+/* 🔧 Allineamento finale INVIA + Microfono centrato perfetto */
+.right-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transform: translateX(-28px); /* sposta INVIA e 🎤 verso il centro */
+}
+
+.mic {
+  font-size: 1.1rem;
+  cursor: pointer;
+  transform: translateX(-4px) translateY(12px); /* 🎤 sotto la V */
+}
