@@ -231,6 +231,6 @@ h1 {
   width: 70%;
   height: 1px;
   background: linear-gradient(to right, transparent 0%, rgba(208,176,112,0.75) 30%, rgba(208,176,112,0.75) 70%, transparent 100%);
-  margin: 0px auto 4px; /* la avvicina verso l’alto */
+  margin: 1px auto 4px; /* la avvicina verso l’alto */
   border-radius: 1px;
 }
