@@ -69,10 +69,11 @@
   box-sizing: border-box;
 }
 
-  .message-wrapper {
+ .message-wrapper {
   display: flex;
   width: 100%;
-  margin: 14px 0;
+  margin: 12px 0;
+  padding: 0; /* elimina il margine interno che bloccava le bolle */
   box-sizing: border-box;
 }
 
@@ -101,19 +102,19 @@
     }
 
 .message.bot {
-  width: 96%;
+  width: 98%; /* spinta fino ai bordi visivi */
   text-align: left;
   background: transparent;
-  padding: 0.4em 0.6em 0.4em 0;
+  padding: 0.4em 0.4em 0.4em 0;
   margin: 0;
   border: none;
 }
 
 .message.user {
-  width: 65%;
+  width: 68%; /* più ampia */
   text-align: right;
   background: transparent;
-  padding: 0.4em 0 0.4em 0.6em;
+  padding: 0.4em 0 0.4em 0.4em;
   margin: 0 0 0 auto;
   border: none;
 }
@@ -229,7 +230,7 @@
   cursor: pointer;
   font-size: 1rem;
   position: relative;
-  top: 0.6em; /* sollevato di ~0.3em */
+  top: 0.35em; /* microfono più in alto, allineato a CLIENTI */
 }
     
 .right-buttons .mic {
