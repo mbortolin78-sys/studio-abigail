@@ -60,7 +60,8 @@
   align-self: flex-end;
   text-align: right;
   margin-right: 3vw;
-  margin-top: -24px; /* 🔹 alza la tua bolla visivamente */
+  position: relative;
+  top: -18px; /* 🔹 alza davvero la bolla di circa 1 cm */
 }
 
 /* ✨ Barra inferiore */
