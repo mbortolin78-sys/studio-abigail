@@ -167,11 +167,11 @@ button {
 
 .right-buttons {
   display: flex;
-  flex-direction: column; /* ora vanno uno sopra l’altro */
+  flex-direction: column; /* uno sopra l’altro */
   align-items: center;
   justify-content: center;
-  gap: 3px; /* distanza tra INVIA e microfono */
-  transform: translate(-10px, 0);
+  gap: 3px;
+  transform: translate(-10px, 0); /* centratura ottica */
 }
   
  .mic {
@@ -391,17 +391,17 @@ b {
   padding-right: 3vw;
 }
 
-.right-buttons {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transform: translate(-12px, -2px);
-}
-
 .input-box::placeholder {
   color: rgba(90,70,50,0.7);
   font-weight: 500;
   opacity: 0.85;
   transform: translateY(4px);
   text-align: left;
+}
+.input-box::placeholder {
+  color: rgba(90, 70, 50, 0.7);
+  font-weight: 500;
+  opacity: 0.8;
+  transform: translateY(4px);
+  text-align: center;
 }
