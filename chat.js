@@ -27,6 +27,25 @@ function sendMessage() {
     chatArea.scrollTop = chatArea.scrollHeight;
   }
 }
+    // RISPOSTA DI ABIGAIL
+    const result = processCommand(text);
+
+    const botBubble = document.createElement('div');
+    botBubble.className = 'message-bubble theirs';
+
+    const botTime = new Date().toLocaleTimeString([], {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+
+    botBubble.innerHTML = `
+      <p>${result.output}</p>
+      <div class="separator-theirs"></div>
+      <span class="timestamp">${botTime}</span>
+    `;
+
+    chatArea.appendChild(botBubble);
+    chatArea.scrollTop = chatArea.scrollHeight;
 
 sendButton.addEventListener('click', sendMessage);
 
