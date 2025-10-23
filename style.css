@@ -149,15 +149,17 @@ body {
   width: 50%;
 }
 
-.status-bar-fill {
-  background-color: #f1d7ab;
-  height: 40px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  border-bottom: 1px solid
+@media screen and (max-width: 100px) {
+  /* Sfondo dietro la barra in alto */
+  .status-bar-fill {
+    background-color: #f1d7ab;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
 
   /* Alza il box input */
   .message-input-container {
