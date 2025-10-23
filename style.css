@@ -147,3 +147,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   margin: 10px 0 6px 0;
   width: 100%;
 }
+
+.separator-line {
+  height: 1px;
+  background-color: #d8b079;
+  margin: 6px 0;
+  width: calc(100% + 10px); /* supera le icone di ~1cm */
+  margin-left: auto;
+}
