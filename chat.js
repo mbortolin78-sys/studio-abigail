@@ -49,7 +49,11 @@ recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
 recognition.onresult = function(event) {
-  let testo = event.results[0][0].transcript;
+  const transcript = event.results[0][0].transcript;
+  const testoCorretto = correggiTesto(transcript);
+  messageInput.value = testoCorretto;
+  messageInput.placeholder = "Scrivi o parla…";
+};
 
   // Correzione base
   testo = testo.trim();
