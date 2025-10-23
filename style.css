@@ -1,0 +1,81 @@
+body {
+  background-color: #FFEDD3;
+  color: #3a2a15;
+  font-family: 'Palatino Linotype', 'Book Antiqua', serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #f1d7ab;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.tabs-container {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px solid #d8b079;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #3a2a15;
+}
+
+.tab.active {
+  border-bottom: 2px solid #3a2a15;
+}
+
+.message-bubble {
+  background-color: #f1d7ab;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin: 10px;
+  position: relative;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #7a5c3a;
+  margin-top: 5px;
+}
+
+.copy-button, .edit-button {
+  font-size: 12px;
+  color: #7a5c3a;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.message-input-container {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #f1d7ab;
+  border-top: 1px solid #d8b079;
+}
+
+.message-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff3e0;
+  color: #3a2a15;
+  border: none;
+}
+
+.send-button, .microphone-button {
+  background-color: #d8b079;
+  color: #3a2a15;
+  border: none;
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
