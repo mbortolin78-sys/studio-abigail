@@ -24,17 +24,21 @@ body {
 }
 
 .message-bubble.mine {
-  width: 60%;
+  width: 80%; /* 🔥 più ampia */
   margin-left: auto;
-  background-color: #f8e7c4; /* più chiaro di #f1d7ab */
+  background-color: #f9e9d0; /* 🔥 nuovo colore delicato */
   text-align: justify;
-  direction: rtl; /* 🔥 testo giustificato ma allineato a destra */
+  direction: rtl; /* 🔥 allineamento a destra con giustificazione */
+  padding-left: 20px;
+  padding-right: 0;
 }
 
 .message-bubble.theirs {
   width: 100%;
   background-color: #f1d7ab;
   text-align: justify;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .timestamp {
