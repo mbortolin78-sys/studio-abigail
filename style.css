@@ -3,42 +3,46 @@ body {
   color: #3a2a15;
   font-family: 'Palatino Linotype', 'Book Antiqua', serif;
   margin: 0;
-  padding: 0;
+  padding-bottom: 80px; /* spazio per la barra fissa */
 }
 
-.navbar {
-  background-color: #f1d7ab;
-  padding: 20px;
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-}
-
+/* Schede in alto */
 .tabs-container {
   display: flex;
   justify-content: space-around;
-  border-bottom: 2px solid #d8b079;
+  background-color: #f1d7ab;
+  padding: 10px 0;
 }
 
 .tab {
   padding: 10px 20px;
   cursor: pointer;
   color: #3a2a15;
+  background-color: transparent;
+  border: none;
 }
 
 .tab.active {
-  border-bottom: 2px solid #3a2a15;
+  background-color: #f1d7ab; /* stesso sfondo della chat */
+  border-radius: 5px;
 }
 
+/* Bolle dei messaggi */
 .message-bubble {
   background-color: #f1d7ab;
   padding: 15px 20px;
   border-radius: 10px;
   margin: 10px;
   position: relative;
+  max-width: 80%;
 }
 
-.timestamp {
+/.message-bubble.mine {
+  width: 60%;
+  margin-left: auto;
+}
+
+/.timestamp {
   font-size: 12px;
   color: #7a5c3a;
   margin-top: 5px;
@@ -53,7 +57,12 @@ body {
   margin-top: 5px;
 }
 
+/* Barra fissa in basso */
 .message-input-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   padding: 15px;
