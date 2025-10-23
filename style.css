@@ -193,3 +193,37 @@ body {
     border-bottom: 1px solid #d8b079;
   }
 }
+
+/* Migliorie solo per cellulare */
+@media screen and (max-width: 600px) {
+  /* Sfondo dietro la barra in alto */
+  .status-bar-fill {
+    background-color: #f1d7ab;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+
+  /* Alza il box input */
+  .message-input-container {
+    bottom: 20px !important;
+    background-color: #f1d7ab !important;
+  }
+
+  /* Alza le schede */
+  .tabs-inline {
+    bottom: 100px !important;
+  }
+
+  /* Allunga le linee sotto le bolle */
+  .separator-mine {
+    width: 60% !important;
+  }
+
+  .separator-theirs {
+    width: 30% !important;
+  }
+}
