@@ -11,6 +11,7 @@ body {
   padding: 20px;
   overflow-y: auto;
   max-height: calc(100vh - 160px);
+  position: relative;
 }
 
 /* Bolle */
@@ -48,31 +49,20 @@ body {
   margin-left: 10px;
 }
 
-/* Input + schede */
-.message-input-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: flex-end;
-  padding: 10px 15px;
-  background-color: #f1d7ab;
-  border-top: 1px solid #d8b079;
-  gap: 10px;
-  z-index: 5;
-}
-
-/* Schede orizzontali a sinistra */
+/* Schede orizzontali dentro il box chat */
 .tabs-inline {
   display: flex;
-  flex-direction: row;
   gap: 8px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px 20px;
+  background-color: transparent;
 }
 
 .tab {
-  padding: 6px 12px;
-  background-color: #f1d7ab;
+  padding: 6px 14px;
+  background-color: #FFEDD3;
   color: #3a2a15;
   border: none;
   border-radius: 6px;
@@ -82,11 +72,24 @@ body {
 }
 
 .tab.active {
-  background-color: #FFEDB3;
+  background-color: #f1d7ab;
   font-weight: bold;
 }
 
 /* Input */
+.message-input-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #f1d7ab;
+  border-top: 1px solid #d8b079;
+  z-index: 5;
+}
+
 .message-input {
   flex: 1;
   padding: 10px;
@@ -106,6 +109,7 @@ body {
   color: #3a2a15;
   border: none;
   padding: 10px;
+  margin-left: 10px;
   border-radius: 5px;
   cursor: pointer;
 }
