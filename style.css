@@ -95,25 +95,3 @@ body {
   z-index: 999;
 }
 
-/* Migliorie solo per iPhone */
-@media screen and (max-width: 600px) {
-  /* Alza il box input */
-  .message-input-container {
-    bottom: 20px !important;
-    background-color: #f1d7ab !important;
-  }
-
-  /* Alza le schede */
-  .tabs-inline {
-    bottom: 100px !important;
-  }
-
-  /* Allunga le linee sotto le bolle */
-  .separator-mine {
-    width: 60% !important;
-  }
-
-  .separator-theirs {
-    width: 30% !important;
-  }
-}
