@@ -100,13 +100,15 @@ body {
   position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
+  width: 100%;                   /* occupa tutta la larghezza */
   display: flex;
   align-items: center;
-  padding: 15px;
+  gap: 8px;                      /* spazio tra input e bottoni */
+  padding: 12px 16px;
   background-color: #f1d7ab;
   border-top: 1px solid #d8b079;
-  z-index: 5;
+  z-index: 10;                   /* rimane sopra le bolle */
+  box-sizing: border-box;        /* evita che il padding spinga la barra verso l’alto */
 }
 .message-input {
   flex: 1;
