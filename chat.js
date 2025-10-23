@@ -1,3 +1,4 @@
+import { processCommand } from './ai.js';
 const messageInput = document.getElementById('messageInput');
 const chatArea = document.getElementById('chat-area');
 const sendButton = document.querySelector('.send-button');
