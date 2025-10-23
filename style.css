@@ -27,35 +27,33 @@ body {
   line-height: 1.6;
   margin: 0;
 }
-
 .message-bubble.mine {
   width: 50%;
   margin-left: auto;
-  background-color: #f1d7ab; /* colore che c’era sulla mia */
+  background-color: #f1d7ab;
   text-align: justify;
   text-align-last: right;
   border-radius: 10px;
-box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
-
 .message-bubble.theirs {
   width: 100%;
-  background-color: #FFEDD3; /* colore dello sfondo */
+  background-color: #FFEDD3;
   text-align: justify;
   padding-left: 0;
   padding-right: 0;
 }
 
+/* Timestamp e bottoni */
 .timestamp {
   font-size: 14px;
   color: #7a5c3a;
   margin-top: 0px;
   vertical-align: middle;
 }
-
 .copy-button, .edit-button {
- font-size: 13px; /* 🔥 icone più visibili */
-  margin-left: 6px; /* 🔥 spazio ravvicinato ma leggibile */
+  font-size: 13px;
+  margin-left: 6px;
   color: #7a5c3a;
   background: none;
   border: none;
@@ -63,16 +61,15 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   vertical-align: middle;
 }
 
+/* Tabs */
 .tabs-inline {
   position: fixed;
-  bottom: 80px; /* altezza precisa per incastrarle */
+  bottom: 80px;
   left: 0;
   display: flex;
   z-index: 6;
   margin-left: 15px;
 }
-
-/* Schede */
 .tab {
   padding: 8px 16px;
   border: none;
@@ -82,20 +79,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   margin: 0;
   background-color: #FFEDD3;
   color: #3a2a15;
-  box-shadow: none;
-  border-bottom: none;
 }
-
-/* Scheda attiva: stesso colore del box input */
 .tab.active {
-  background-color: #f1d7ab; /* colore del box input */
+  background-color: #f1d7ab;
   font-weight: bold;
-  box-shadow: none;
-  border-bottom: none;
   position: relative;
-  z-index: 7; /* 🔥 porta la scheda sopra la linea */
+  z-index: 7;
 }
-
 
 /* Input */
 .message-input-container {
@@ -110,7 +100,6 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   border-top: 1px solid #d8b079;
   z-index: 5;
 }
-
 .message-input {
   flex: 1;
   font-size: 18px;
@@ -120,12 +109,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   color: #3a2a15;
   border: 2px solid transparent;
 }
-
 .message-input:focus {
   outline: none;
   border-color: #d8b079;
 }
-
 .send-button, .microphone-button {
   background-color: #d8b079;
   color: #3a2a15;
@@ -136,89 +123,30 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   border-radius: 5px;
   cursor: pointer;
 }
-
 .message-input::placeholder {
-  font-size: 13px; /* 🔥 più piccolo */
-  color: #b48c5a;  /* 🔥 tonalità calda e meno visibile */
-  opacity: 0.8;    /* 🔥 leggermente attenuato */
+  font-size: 13px;
+  color: #b48c5a;
+  opacity: 0.8;
 }
 
+/* Separatori */
 .separator-theirs {
   height: 1px;
   background-color: #d8b079;
-  margin: 12px 0 6px 0; /* 🔥 alzata di 0.5cm */
+  margin: 12px 0 6px 0;
   width: 24%;
-  margin-left: 0; /* 🔥 allineata a sinistra */
+  margin-left: 0;
 }
-
 .separator-mine {
   height: 1px;
   background-color: #d8b079;
-  margin: 12px 0 6px auto; /* 🔥 alzata di 0.5cm */
-  width: 50%; /* 🔥 più lunga */
+  margin: 12px 0 6px auto;
+  width: 50%;
 }
 
-@media screen and (max-width: 600px) {
-  body {
-    background-color: #fdf6f0; /* Colore più caldo per la parte bianca sopra */
-  }
-
-  .message-bubble {
-    font-size: 17px; /* Testo più grande */
-    padding: 14px;
-  }
-
-  .message-input {
-    font-size: 17px; /* Input più leggibile */
-  }
-
-  .timestamp {
-    font-size: 14px;
-    color: #6a4e42; /* Più contrasto */
-  }
-
-  .separator-theirs,
-  .separator-mine {
-    height: 2px;
-    background-color: #c4a28d; /* Più visibile */
-    width: 80%; /* Esteso */
-    margin: 6px auto;
-  }
-
-  .tabs-inline {
-    margin-top: 12px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #c4a28d;
-  }
-
-  .tab {
-    font-size: 16px;
-    padding: 10px 0;
-  }
-
-  .message-input-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #fff;
-    padding: 12px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-    z-index: 100;
-  }
-
-  .send-button,
-  .microphone-button {
-    font-size: 20px;
-    padding: 10px;
-  }
-}
-
+/* Mobile fix: alza la barra input su iPhone */
 @media screen and (max-width: 600px) {
   .message-input-container {
-    bottom: 20px; /* Alza la barra di input */
+    bottom: 20px;
   }
 }
