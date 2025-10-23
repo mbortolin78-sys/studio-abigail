@@ -4,7 +4,9 @@ body {
   color: #3a2a15;
   font-family: 'Palatino Linotype', 'Book Antiqua', serif;
   margin: 0;
-  padding-bottom: 80px;
+  padding: 0;            /* ← toglie lo spazio sotto */
+  height: 100vh;         /* ← corpo alto quanto la finestra */
+  overflow: hidden;      /* ← impedisce di muovere la barra */
 }
 
 /* Chat area */
