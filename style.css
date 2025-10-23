@@ -26,11 +26,15 @@ body {
 .message-bubble.mine {
   width: 60%;
   margin-left: auto;
-  background-color: #fff3e0;
+  background-color: #f8e7c4; /* più chiaro di #f1d7ab */
+  text-align: justify;
+  direction: rtl; /* 🔥 testo giustificato ma allineato a destra */
 }
 
 .message-bubble.theirs {
   width: 100%;
+  background-color: #f1d7ab;
+  text-align: justify;
 }
 
 .timestamp {
