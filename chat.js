@@ -3,7 +3,7 @@ import { processCommand } from './ai.js';
 const messageInput = document.getElementById('messageInput');
 const chatArea = document.getElementById('chat-area');
 const sendButton = document.querySelector('.send-button');
-const micButton = document.querySelector('.mic-button');
+const micButton = document.querySelector('.microphone-button');
 
 let currentTab = 'marika';
 const chatStorage = {
@@ -36,7 +36,6 @@ if (SpeechRecognition) {
   recognition.onresult = event => {
     let transcript = event.results[0][0].transcript;
 
-    // Correzione base
     transcript = transcript
       .replace(/\s*virgola\s*/gi, ', ')
       .replace(/\s*punto\s*/gi, '. ')
@@ -56,7 +55,6 @@ function sendMessage() {
     minute: '2-digit'
   });
 
-  // Bolla utente
   const userBubble = `
     <div class="message-bubble mine">
       <p>${text}</p>
@@ -84,3 +82,55 @@ function renderChat() {
   chatArea.innerHTML = chatStorage[currentTab].join('');
   chatArea.scrollTop = chatArea.scrollHeight;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('.tab');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      currentTab = tab.getAttribute('data-tab');
+
+      if (chatStorage[currentTab].length === 0) {
+        const time = new Date().toLocaleTimeString([], {
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+
+        const intro = currentTab === 'marika'
+          ? `<p>Ciao Marika 🌷</p>`
+          : `<p>Benvenuta nello spazio clienti. Qui troverai i dialoghi professionali 💼</p>`;
+
+        const introBubble = `
+          <div class="message-bubble theirs">
+            ${intro}
+            <div class="separator-theirs"></div>
+            <span class="timestamp">${time}</span>
+          </div>
+        `;
+
+        chatStorage[currentTab].push(introBubble);
+      }
+
+      renderChat();
+    });
+  });
+
+  // Messaggio iniziale per Marika
+  const time = new Date().toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+
+  const introBubble = `
+    <div class="message-bubble theirs">
+      <p>Ciao Marika 🌷</p>
+      <div class="separator-theirs"></div>
+      <span class="timestamp">${time}</span>
+    </div>
+  `;
+  chatStorage.marika.push(introBubble);
+  renderChat();
+});
