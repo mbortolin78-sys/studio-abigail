@@ -146,56 +146,6 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-  /* 1. Alza il box input */
-  .message-input-container {
-    bottom: 20px !important;
-    background-color: #f1d7ab !important;
-  }
-
-  /* 2. Alza le schede */
-  .tabs-inline {
-    bottom: 100px !important;
-  }
-
-  /* 3. Allunga le linee sotto le bolle */
-  .separator-mine {
-    width: 60% !important;
-  }
-
-  .separator-theirs {
-    width: 30% !important;
-  }
-
-  /* 4. Sfondo dorato dietro la barra in alto */
-  .status-bar-fill {
-    background-color: #f1d7ab;
-    height: 40px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-  }
-}
-
-/* Barra decorativa sopra la chat — solo per desktop */
-.chat-header-bar {
-  display: none; /* nascosta di default */
-}
-
-@media screen and (min-width: 601px) {
-  .chat-header-bar {
-    display: block;
-    background-color: #f1d7ab;
-    height: 40px;
-    width: 100%;
-    position: relative;
-    border-bottom: 1px solid #d8b079;
-  }
-}
-
-/* Migliorie solo per iPhone */
-@media screen and (max-width: 600px) and (orientation: portrait) {
   /* Sfondo dietro la barra in alto */
   .status-bar-fill {
     background-color: #f1d7ab;
@@ -225,5 +175,10 @@ body {
 
   .separator-theirs {
     width: 30% !important;
+  }
+
+  /* Nascondi la barra decorativa del web */
+  .chat-header-bar {
+    display: none !important;
   }
 }
