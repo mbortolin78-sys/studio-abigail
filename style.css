@@ -6,50 +6,46 @@ body {
   padding-bottom: 80px;
 }
 
-/* Titolo */
-.navbar {
-  background-color: #f1d7ab;
-  padding: 20px;
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-}
-
-/* Schede */
+/* Schede compatte in alto */
 .tabs-container {
   display: flex;
   justify-content: space-around;
-  background-color: #f1d7ab;
-  padding: 20px 0 10px 0; /* più spazio sotto */
+  background-color: #FFEDD3;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #d8b079;
 }
 
 .tab {
-  padding: 10px 20px;
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
   cursor: pointer;
   color: #3a2a15;
-  background-color: #e8cfa7; /* sfondo per scheda non attiva */
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  background-color: #e8cfa7;
+  border: none;
+  font-size: 16px;
 }
 
 .tab.active {
-  background-color: #FFEDD3; /* sfondo chiaro per scheda attiva */
+  background-color: #FFEDD3;
+  font-weight: bold;
 }
 
-/* Chat */
+/* Chat area */
 #chat-area {
   padding: 10px;
   overflow-y: auto;
-  max-height: calc(100vh - 200px);
+  max-height: calc(100vh - 160px);
 }
 
+/* Bolle */
 .message-bubble {
   background-color: #f1d7ab;
   padding: 15px 20px;
   border-radius: 10px;
   margin: 10px;
   position: relative;
-  max-width: 80%;
 }
 
 .message-bubble.mine {
@@ -101,7 +97,7 @@ body {
 
 .message-input:focus {
   outline: none;
-  border-color: #d8b079; /* colore caldo invece del blu */
+  border-color: #d8b079;
 }
 
 .send-button, .microphone-button {
