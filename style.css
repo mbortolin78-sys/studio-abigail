@@ -147,10 +147,10 @@ body {
 
 /* Mobile fix: alza la barra input su iPhone */
 @media screen and (max-width: 600px) {
-  /* 1. Alza le schede su iPhone */
   .tabs-inline {
-    bottom: 100px !important; /* forza l’altezza su mobile */
+    bottom: 100px !important;
   }
+}
 
   /* 2. Sfondo sotto al box input */
   body {
