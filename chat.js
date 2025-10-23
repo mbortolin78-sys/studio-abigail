@@ -43,19 +43,29 @@ function startDictation() {
     return;
   }
 
-  const recognition = new SpeechRecognition();
-  recognition.lang = 'it-IT';
-  recognition.interimResults = false;
-  recognition.maxAlternatives = 1;
+ const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+recognition.lang = 'it-IT';
+recognition.interimResults = false;
+recognition.maxAlternatives = 1;
 
-  messageInput.placeholder = "Sto ascoltando…";
-  recognition.start();
+recognition.onresult = function(event) {
+  let testo = event.results[0][0].transcript;
 
-  recognition.onresult = function(event) {
-    const transcript = event.results[0][0].transcript;
-    messageInput.value = transcript;
-    messageInput.placeholder = "Scrivi o parla…";
-  };
+  // Correzione base
+  testo = testo.trim();
+  testo = testo.charAt(0).toUpperCase() + testo.slice(1);
+
+  // Aggiunta virgole semplici: dove ci sono "e poi", "allora", "però", ecc.
+  testo = testo.replace(/\b(e poi|allora|però|comunque|quindi|invece|cioè)\b/gi, ", $1");
+
+  // Punto finale se manca
+  if (!/[.!?]$/.test(testo)) {
+    testo += ".";
+  }
+
+  messageInput.value = testo;
+  messageInput.placeholder = "Scrivi o parla…";
+};
   
 function correggiTesto(testo) {
   // Inizia con maiuscola
