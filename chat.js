@@ -52,4 +52,47 @@ function sendMessage() {
 
   // Salva entrambi nella scheda attiva
   chatStorage[currentTab].push(userBubble.outerHTML);
-  chatStorage[currentTab].push(botBubble.outer
+  chatStorage[currentTab].push(botBubble.outerHTML);
+
+  messageInput.value = '';
+  renderChat();
+}
+
+function renderChat() {
+  chatArea.innerHTML = chatStorage[currentTab].join('');
+  chatArea.scrollTop = chatArea.scrollHeight;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // 🔥 AGGIORNA LA SCHEDA ATTIVA
+      currentTab = tab.getAttribute('data-tab');
+
+      // Se la chat è vuota, mostra il messaggio iniziale
+      if (chatStorage[currentTab].length === 0) {
+        const time = new Date().toLocaleTimeString([], {
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+
+        const introBubble = document.createElement('div');
+        introBubble.className = 'message-bubble theirs';
+        introBubble.innerHTML = currentTab === 'marika'
+          ? `<p>Benvenuta Marika 🌷</p><div class="separator-theirs"></div><span class="timestamp">${time}</span>`
+          : `<p>Qui troverai i dialoghi con i tuoi clienti 💼</p><div class="separator-theirs"></div><span class="timestamp">${time}</span>`;
+
+        chatStorage[currentTab].push(introBubble.outerHTML);
+      }
+
+      renderChat();
+    });
+  });
+
+  // Mostra la chat iniziale di Marika al primo avvio
+  if (chatStorage.marika.length === 0) {
+    const time
