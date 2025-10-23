@@ -49,6 +49,7 @@ function startDictation() {
   recognition.maxAlternatives = 1;
 
   recognition.start();
+  console.log("🎤 Microfono avviato");
 
   recognition.onresult = function(event) {
     const transcript = event.results[0][0].transcript;
