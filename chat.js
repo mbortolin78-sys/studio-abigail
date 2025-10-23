@@ -22,46 +22,73 @@ messageInput.addEventListener('keydown', event => {
   }
 });
 
-// 🎙️ MICROFONO COMPLETO E STABILE
+// 🎙️ MICROFONO CON INDICATORE "STO ASCOLTANDO"
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const listeningIndicator = document.getElementById('listeningIndicator');
+const micButton = document.querySelector('.microphone-button');
 
-let recognition;
 if (SpeechRecognition) {
-  recognition = new SpeechRecognition();
+  const recognition = new SpeechRecognition();
   recognition.lang = 'it-IT';
   recognition.interimResults = false;
   recognition.continuous = false;
 
-  recognition.onresult = event => {
-    let transcript = event.results[0][0].transcript;
+  micButton.addEventListener('click', () => {
+    try {
+      // Mostra subito l'indicatore (prima ancora dell'audio)
+      listeningIndicator.textContent = '🎧 Sto ascoltando…';
+      listeningIndicator.classList.add('show');
+      micButton.setAttribute('aria-pressed', 'true');
 
+      // piccolo delay per evitare race su alcuni Chrome
+      setTimeout(() => recognition.start(), 200);
+    } catch (err) {
+      console.error('Errore avvio microfono:', err);
+      listeningIndicator.classList.remove('show');
+      micButton.setAttribute('aria-pressed', 'false');
+      alert('Impossibile avviare il microfono.');
+    }
+  });
+
+  recognition.onaudiostart = () => {
+    // Conferma che l’audio è partito
+    listeningIndicator.textContent = '🎧 Sto ascoltando…';
+  };
+
+  recognition.onspeechstart = () => {
+    // Voce rilevata
+    listeningIndicator.textContent = '🗣️ Rilevata voce…';
+  };
+
+  recognition.onspeechend = () => {
+    // Hai finito di parlare
+    listeningIndicator.textContent = '🔍 Elaboro la voce…';
+  };
+
+  recognition.onresult = (event) => {
+    let transcript = event.results[0][0].transcript;
     transcript = transcript
       .replace(/\s*virgola\s*/gi, ', ')
       .replace(/\s*punto\s*/gi, '. ')
       .replace(/\s+/g, ' ')
       .replace(/^([a-z])/g, m => m.toUpperCase());
-
-    messageInput.value = transcript.trim();
-  };
-
-  recognition.onerror = event => {
-    console.error('Errore microfono:', event.error);
-    alert('Errore microfono: ' + event.error);
+    document.getElementById('messageInput').value = transcript.trim();
   };
 
   recognition.onend = () => {
-    micButton.classList.remove('active');
+    listeningIndicator.classList.remove('show');
+    micButton.setAttribute('aria-pressed', 'false');
   };
 
-  micButton.addEventListener('click', () => {
-    try {
-      recognition.start();
-      micButton.classList.add('active');
-    } catch (err) {
-      console.error('Errore avvio microfono:', err);
-      alert('Impossibile avviare il microfono. Ricarica la pagina.');
+  recognition.onerror = (event) => {
+    console.error('Errore microfono:', event.error);
+    listeningIndicator.classList.remove('show');
+    micButton.setAttribute('aria-pressed', 'false');
+    // "no-speech" è normale se non parli entro ~2s
+    if (event.error !== 'no-speech') {
+      alert('Errore microfono: ' + event.error);
     }
-  });
+  };
 } else {
   alert('Il tuo browser non supporta la Web Speech API.');
 }
