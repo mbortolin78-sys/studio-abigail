@@ -207,3 +207,29 @@ body {
 body {
   padding-top: 40px;
 }
+
+.message-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.listening-indicator {
+  display: none;
+  position: absolute;
+  bottom: 48px;  /* appare sopra la barra input */
+  left: 50%;
+  transform: translateX(-50%);
+  color: #6a4a00;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  padding: 4px 10px;
+  font-size: 14px;
+  font-style: italic;
+  transition: opacity .3s ease;
+}
+
+.listening-indicator.show {
+  display: block;
+}
