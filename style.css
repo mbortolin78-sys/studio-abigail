@@ -49,16 +49,18 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 .timestamp {
   font-size: 14px;
   color: #7a5c3a;
-  margin-top: 5px;
+  margin-top: 0px;
+  vertical-align: middle;
 }
 
 .copy-button, .edit-button {
  font-size: 13px; /* 🔥 icone più visibili */
-  margin-left: 8px; /* 🔥 spazio ravvicinato ma leggibile */
+  margin-left: 6px; /* 🔥 spazio ravvicinato ma leggibile */
   color: #7a5c3a;
   background: none;
   border: none;
   cursor: pointer;
+  vertical-align: middle;
 }
 
 .tabs-inline {
@@ -144,7 +146,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 .separator-theirs {
   height: 1px;
   background-color: #d8b079;
-  margin: 15px 0 8px 0; /* 🔥 alzata di 0.5cm */
+  margin: 12px 0 6px 0; /* 🔥 alzata di 0.5cm */
   width: 20%;
   margin-left: 0; /* 🔥 allineata a sinistra */
 }
@@ -152,6 +154,6 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 .separator-mine {
   height: 1px;
   background-color: #d8b079;
-  margin: 15px 0 8px auto; /* 🔥 alzata di 0.5cm */
+  margin: 12px 0 6px auto; /* 🔥 alzata di 0.5cm */
   width: 50%; /* 🔥 più lunga */
 }
