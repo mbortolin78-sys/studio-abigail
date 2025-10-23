@@ -7,6 +7,14 @@ body {
   padding-bottom: 80px;
 }
 
+.chat-header-bar {
+  background-color: #f1d7ab;
+  height: 40px; /* circa 2 cm */
+  width: 100%;
+  position: relative;
+  border-bottom: 1px solid #d8b079;
+}
+
 /* Chat area */
 #chat-area {
   padding: 20px;
@@ -178,10 +186,3 @@ body {
   }
 }
 
-.chat-header-bar {
-  background-color: #f1d7ab;
-  height: 40px; /* circa 2 cm */
-  width: 100%;
-  position: relative;
-  border-bottom: 1px solid #d8b079;
-}
