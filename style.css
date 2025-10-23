@@ -51,7 +51,7 @@ body {
 /* Schede appoggiate alla linea di separazione */
 .tabs-inline {
   position: fixed;
-  bottom: 61px; /* altezza precisa per appoggiarle sulla linea */
+  bottom: 70px; /* ora più alta, appoggiata alla linea */
   left: 0;
   display: flex;
   z-index: 6;
