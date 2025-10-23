@@ -1,7 +1,7 @@
 body {
-  background-color: #1E1E2F;
-  color: #F3F3F3;
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: #FFEDD3;
+  color: #3a2a15;
+  font-family: 'Palatino Linotype', 'Book Antiqua', serif;
   margin: 0;
   padding-bottom: 80px;
 }
@@ -10,16 +10,16 @@ body {
 .tabs-container {
   display: flex;
   justify-content: center;
-  background-color: #1E1E2F;
+  background-color: #FFEDD3;
   padding: 0;
-  border-bottom: 1px solid #2C2C3F;
+  border-bottom: 1px solid #d8b079;
 }
 
 .tab {
   padding: 12px 20px;
   margin: 0;
-  background-color: #2C2C3F;
-  color: #F3F3F3;
+  background-color: #f1d7ab;
+  color: #3a2a15;
   border: none;
   cursor: pointer;
   font-size: 16px;
@@ -27,7 +27,7 @@ body {
 }
 
 .tab.active {
-  background-color: #1E1E2F;
+  background-color: #FFEDD3;
   font-weight: bold;
 }
 
@@ -39,7 +39,7 @@ body {
 }
 
 .message-bubble {
-  background-color: #2C2C3F;
+  background-color: #f1d7ab;
   padding: 15px 20px;
   border-radius: 10px;
   margin: 10px 0;
@@ -50,7 +50,7 @@ body {
 .message-bubble.mine {
   width: 60%;
   margin-left: auto;
-  background-color: #3A3A5D;
+  background-color: #fff3e0;
 }
 
 .message-bubble.theirs {
@@ -59,13 +59,13 @@ body {
 
 .timestamp {
   font-size: 12px;
-  color: #B0B0C0;
+  color: #7a5c3a;
   margin-top: 5px;
 }
 
 .copy-button, .edit-button {
   font-size: 12px;
-  color: #B0B0C0;
+  color: #7a5c3a;
   background: none;
   border: none;
   cursor: pointer;
@@ -81,27 +81,27 @@ body {
   display: flex;
   align-items: center;
   padding: 15px;
-  background-color: #2C2C3F;
-  border-top: 1px solid #3A3A5D;
+  background-color: #f1d7ab;
+  border-top: 1px solid #d8b079;
 }
 
 .message-input {
   flex: 1;
   padding: 10px;
   border-radius: 5px;
-  background-color: #1E1E2F;
-  color: #F3F3F3;
+  background-color: #fff3e0;
+  color: #3a2a15;
   border: 2px solid transparent;
 }
 
 .message-input:focus {
   outline: none;
-  border-color: #57577A;
+  border-color: #d8b079;
 }
 
 .send-button, .microphone-button {
-  background-color: #57577A;
-  color: #F3F3F3;
+  background-color: #d8b079;
+  color: #3a2a15;
   border: none;
   padding: 10px;
   margin-left: 10px;
