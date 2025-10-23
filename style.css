@@ -145,28 +145,23 @@ body {
   width: 50%;
 }
 
-/* Mobile fix: alza la barra input su iPhone */
 @media screen and (max-width: 600px) {
+  /* 1. Alza la barra input per iPhone 11 */
+  .message-input-container {
+    bottom: 20px !important;
+  }
+
+  /* 2. Alza le schede “Marika / Clienti” */
   .tabs-inline {
     bottom: 100px !important;
   }
-}
 
-  /* 2. Sfondo sotto al box input */
-  body {
-    background-color: #f1d7ab; /* stesso colore della tua bolla */
-  }
-
-  .message-input-container {
-    background-color: #f1d7ab; /* già corretto */
-  }
-
-  /* 3. Linee più lunghe sotto le bolle */
+  /* 3. Allunga le linee sotto le bolle */
   .separator-mine {
-    width: 60%;
+    width: 60% !important;
   }
 
   .separator-theirs {
-    width: 30%;
+    width: 30% !important;
   }
 }
