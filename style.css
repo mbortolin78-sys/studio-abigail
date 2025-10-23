@@ -149,7 +149,6 @@ body {
   width: 50%;
 }
 
-@media screen 
 .status-bar-fill {
   background-color: #f1d7ab;
   height: 40px;
@@ -158,7 +157,7 @@ body {
   left: 0;
   right: 0;
   z-index: 999;
-  border-bottom: 1px solid  }
+  border-bottom: 1px solid
 
   /* Alza il box input */
   .message-input-container {
