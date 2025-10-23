@@ -173,7 +173,7 @@ background-color: #FFEDD3;
 }
 @media screen and (max-width: 600px) {
   body {
-    background-color: #f1d7ab !important;
+    background-color: #FFEDD3 !important;
   }
 
   .message-input-container {
