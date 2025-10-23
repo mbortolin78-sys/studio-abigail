@@ -157,30 +157,65 @@ body {
   position: relative; /* questa fa ricomparire la scritta */
 }
 
+/* 🎯 BARRA INFERIORE COMPLETA (input + invia + microfono) */
 .message-input-container {
   position: fixed;
-  bottom: 0px; /* ← rialza la barra di circa mezzo centimetro */
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 78px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 0 20px;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 24px;
   background-color: #f1d7ab;
   border-top: 2px solid #d8b079;
   z-index: 10;
   box-sizing: border-box;
-  position: relative; /* necessario per “Sto ascoltando…” */
+  position: relative;
+}
+
+/* Campo di testo */
+.message-input {
+  flex-grow: 1;                      /* si adatta allo spazio disponibile */
+  height: 44px;
+  border: 1px solid #d8b079;
+  border-radius: 8px;
+  padding: 0 14px;
+  font-size: 17px;
+  font-family: 'Palatino Linotype', 'Book Antiqua', serif;
+  background-color: #fff3e0;
+  color: #3a2a15;
+  box-sizing: border-box;
 }
 
 .message-input:focus {
   outline: none;
-  border-color: #d8b079;
+  border-color: #b88c4a;
+  box-shadow: 0 0 6px rgba(216,176,121,0.4);
 }
-.send-button,
-/* Bottoni: microfono e invia uniformati, ma con invia più largo */
+
+/* Bottone Invia — più largo ma stessa altezza */
+.send-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 36px;
+  border: none;
+  border-radius: 8px;
+  background-color: #d8b079;
+  color: #3a2a15;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+}
+
+/* Bottone Microfono — stesso stile ma quadrato */
 .microphone-button {
   display: flex;
   align-items: center;
@@ -197,51 +232,39 @@ body {
   box-shadow: 0 2px 3px rgba(0,0,0,0.1);
 }
 
-/* Invia più largo ma stessa altezza */
-.send-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 44px;             /* non cambia: resta perfetta */
-  padding: 0 28px;          /* più largo: più respiro visivo */
-  border: none;
-  border-radius: 8px;
-  background-color: #d8b079;
+/* Effetti hover e attivi */
+.send-button:hover,
+.microphone-button:hover {
+  background-color: #e2b86d;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 5px rgba(0,0,0,0.15);
+}
+
+.microphone-button.active {
+  background-color: #c79b5f;
+  box-shadow: 0 0 8px rgba(215,170,80,0.5);
+  transform: scale(1.05);
+}
+
+/* Indicatore “Sto ascoltando…” */
+.listening-indicator {
+  display: none;
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
   color: #3a2a15;
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  padding: 4px 10px;
+  font-style: italic;
+  font-size: 14px;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
-/* Effetti hover e attivo */
-.send-button:hover,
-.microphone-button:hover {
-  background-color: #e2b86d;
-  transform: translateY(-2px);
-  box-shadow: 0 3px 5px rgba(0,0,0,0.15);
-}
-
-.microphone-button.active {
-  background-color: #c79b5f;
-  box-shadow: 0 0 8px rgba(215,170,80,0.5);
-  transform: scale(1.05);
-}
-/* Effetto hover (luce dorata dolce) */
-.send-button:hover,
-.microphone-button:hover {
-  background-color: #e2b86d;
-  transform: translateY(-2px);
-  box-shadow: 0 3px 5px rgba(0,0,0,0.15);
-}
-
-/* Stato attivo del microfono */
-.microphone-button.active {
-  background-color: #c79b5f;
-  box-shadow: 0 0 8px rgba(215,170,80,0.5);
-  transform: scale(1.05);
+.listening-indicator.show {
+  display: block;
 }
 
 /* Testo “Invia” dentro bottone più leggibile */
