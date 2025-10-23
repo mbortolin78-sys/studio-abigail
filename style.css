@@ -134,19 +134,36 @@ body {
   height: 1px;
   background-color: #d8b079;
   margin: 12px 0 6px 0;
-  width: 30%;
+  width: 24%;
   margin-left: 0;
 }
 .separator-mine {
   height: 1px;
   background-color: #d8b079;
   margin: 12px 0 6px auto;
-  width: 60%;
+  width: 50%;
 }
 
 /* Mobile fix: alza la barra input su iPhone */
 @media screen and (max-width: 600px) {
+  body {
+    background-color: #FFEDD3;
+  }
+
   .message-input-container {
-    bottom: 20px;
+    background-color: #f1d7ab;
+    bottom: 20px; /* alza la barra input per iPhone 11 */
+  }
+
+  .tabs-inline {
+    bottom: 100px;
+  }
+
+  .separator-mine {
+    width: 60%;
+  }
+
+  .separator-theirs {
+    width: 30%;
   }
 }
