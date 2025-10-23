@@ -15,25 +15,22 @@ const chatStorage = {
 sendButton.addEventListener('click', sendMessage);
 
 // INVIO CON ENTER
-messageInput.addEventListener('keydown', function (event) {
+messageInput.addEventListener('keydown', event => {
   if (event.key === 'Enter') {
     event.preventDefault();
     sendMessage();
   }
 });
 
-// MICROFONO FUNZIONANTE
+// 🎙️ MICROFONO COMPLETO E STABILE
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+let recognition;
 if (SpeechRecognition) {
-  const recognition = new SpeechRecognition();
+  recognition = new SpeechRecognition();
   recognition.lang = 'it-IT';
   recognition.interimResults = false;
   recognition.continuous = false;
-
-  micButton.addEventListener('click', () => {
-    recognition.start();
-    micButton.classList.add('active');
-  });
 
   recognition.onresult = event => {
     let transcript = event.results[0][0].transcript;
@@ -55,18 +52,26 @@ if (SpeechRecognition) {
   recognition.onend = () => {
     micButton.classList.remove('active');
   };
+
+  micButton.addEventListener('click', () => {
+    try {
+      recognition.start();
+      micButton.classList.add('active');
+    } catch (err) {
+      console.error('Errore avvio microfono:', err);
+      alert('Impossibile avviare il microfono. Ricarica la pagina.');
+    }
+  });
 } else {
   alert('Il tuo browser non supporta la Web Speech API.');
 }
 
+// ✉️ INVIO MESSAGGI
 function sendMessage() {
   const text = messageInput.value.trim();
   if (text === '') return;
 
-  const time = new Date().toLocaleTimeString([], {
-    hour: '2-digit',
-    minute: '2-digit'
-  });
+  const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
   const userBubble = `
     <div class="message-bubble mine">
@@ -91,11 +96,13 @@ function sendMessage() {
   renderChat();
 }
 
+// 💬 RENDER CHAT
 function renderChat() {
   chatArea.innerHTML = chatStorage[currentTab].join('');
   chatArea.scrollTop = chatArea.scrollHeight;
 }
 
+// 🧭 GESTIONE TAB
 document.addEventListener('DOMContentLoaded', () => {
   const tabs = document.querySelectorAll('.tab');
 
