@@ -7,12 +7,21 @@ function sendMessage() {
   if (text !== '') {
     const bubble = document.createElement('div');
     bubble.className = 'message-bubble mine';
+
+    const time = new Date().toLocaleTimeString([], {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+
     bubble.innerHTML = `
       <p>${text}</p>
-      <span class="timestamp">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+      <div class="separator-above-time"></div>
+      <span class="timestamp">${time}</span>
+      <div class="separator-line"></div>
       <button class="copy-button">📋</button>
       <button class="edit-button">✏️</button>
     `;
+
     chatArea.appendChild(bubble);
     messageInput.value = '';
     chatArea.scrollTop = chatArea.scrollHeight;
