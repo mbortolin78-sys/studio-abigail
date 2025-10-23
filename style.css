@@ -194,8 +194,8 @@ body {
   }
 }
 
-/* Migliorie solo per cellulare */
-@media screen and (max-width: 600px) {
+/* Migliorie solo per iPhone */
+@media screen and (max-width: 600px) and (orientation: portrait) {
   /* Sfondo dietro la barra in alto */
   .status-bar-fill {
     background-color: #f1d7ab;
