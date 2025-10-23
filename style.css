@@ -76,40 +76,38 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 78px;                 /* altezza complessiva più grande */
+  height: 78px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 0 20px;              /* spazio interno laterale */
+  justify-content: center;
+  gap: 12px;
+  padding: 0 24px;
   background-color: #f1d7ab;
   border-top: 2px solid #d8b079;
   z-index: 10;
   box-sizing: border-box;
+  position: relative; /* per ancorare l'indicatore */
 }
 
-/* Indicatore "Sto ascoltando…" sopra la barra */
+/* Indicatore “Sto ascoltando…” */
 .listening-indicator {
   display: none;
   position: absolute;
-  bottom: 60px;                /* altezza sopra la barra */
+  top: -34px; /* sopra la barra */
   left: 50%;
   transform: translateX(-50%);
   color: #3a2a15;
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.6);
   border-radius: 10px;
-  padding: 4px 10px;
+  padding: 4px 12px;
   font-style: italic;
-  font-size: 14px;
-  text-align: center;
+  font-size: 15px;
   white-space: nowrap;
-  transition: opacity .3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
 .listening-indicator.show {
   display: block;
-  opacity: 1;
 }
 
 /* Tabs */
