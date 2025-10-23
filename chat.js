@@ -45,38 +45,20 @@ function startDictation() {
 
   const recognition = new SpeechRecognition();
   recognition.lang = 'it-IT';
-  recognition.interimResults = true; // 🔥 attiviamo i risultati parziali
+  recognition.interimResults = false;
   recognition.maxAlternatives = 1;
-  recognition.continuous = false;
 
   messageInput.placeholder = "Sto ascoltando…";
   recognition.start();
 
-  let finalTranscript = "";
-
-  recognition.onstart = function() {
-    console.log("🟢 In ascolto...");
-  };
-
   recognition.onresult = function(event) {
-    for (let i = event.resultIndex; i < event.results.length; ++i) {
-      const result = event.results[i];
-      if (result.isFinal) {
-        finalTranscript += result[0].transcript;
-      }
-    }
-
-    if (finalTranscript) {
-      console.log("📝 Trascritto:", finalTranscript);
-      messageInput.value = finalTranscript;
-      messageInput.placeholder = "Scrivi o parla…";
-      sendMessage();
-    }
+    const transcript = event.results[0][0].transcript;
+    messageInput.value = transcript;
+    messageInput.placeholder = "Scrivi o parla…";
   };
 
   recognition.onerror = function(event) {
     messageInput.placeholder = "Scrivi o parla…";
-
     if (event.error === "no-speech") {
       alert("Non ho sentito nulla. Riprova parlando subito dopo il clic.");
     } else {
@@ -85,7 +67,7 @@ function startDictation() {
   };
 
   recognition.onend = function() {
-    console.log("🔴 Microfono spento");
     messageInput.placeholder = "Scrivi o parla…";
   };
 }
+
