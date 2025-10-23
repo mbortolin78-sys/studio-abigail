@@ -81,31 +81,46 @@ function correggiTesto(testo) {
 
 function correggiTesto(testo) {
   testo = testo.trim();
+
+  // Maiuscola iniziale
   testo = testo.charAt(0).toUpperCase() + testo.slice(1);
+
+  // Aggiunge punto finale se manca
   if (!/[.!?]$/.test(testo)) {
     testo += ".";
   }
+
   return testo;
 }
 
-recognition.onresult = function(event) {
-  const transcript = event.results[0][0].transcript;
-  const testoCorretto = correggiTesto(transcript);
-  messageInput.value = testoCorretto;
-  messageInput.placeholder = "Scrivi o parla…";
-};
-  
+function startDictation() {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    alert("Il tuo browser non supporta la dettatura vocale.");
+    return;
+  }
+
+  const recognition = new SpeechRecognition();
+  recognition.lang = 'it-IT';
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+
+  messageInput.placeholder = "Sto ascoltando…";
+  recognition.start();
+
+  recognition.onresult = function(event) {
+    const transcript = event.results[0][0].transcript;
+    const testoCorretto = correggiTesto(transcript);
+    messageInput.value = testoCorretto;
+    messageInput.placeholder = "Scrivi o parla…";
+  };
+
   recognition.onerror = function(event) {
     messageInput.placeholder = "Scrivi o parla…";
-    if (event.error === "no-speech") {
-      alert("Non ho sentito nulla. Riprova parlando subito dopo il clic.");
-    } else {
-      alert("Errore nella dettatura: " + event.error);
-    }
+    alert("Errore nella dettatura: " + event.error);
   };
 
   recognition.onend = function() {
     messageInput.placeholder = "Scrivi o parla…";
   };
 }
-
