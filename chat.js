@@ -85,13 +85,21 @@ function correggiTesto(testo) {
   // Maiuscola iniziale
   testo = testo.charAt(0).toUpperCase() + testo.slice(1);
 
-  // Aggiunge punto finale se manca
+  // Aggiunta virgole prima di connettivi (solo se presenti)
+  const connettivi = ["poi", "allora", "però", "comunque", "quindi", "invece", "cioè"];
+  connettivi.forEach(parola => {
+    const regex = new RegExp("\\b" + parola + "\\b", "gi");
+    testo = testo.replace(regex, ", " + parola);
+  });
+
+  // Punto finale se manca
   if (!/[.!?]$/.test(testo)) {
     testo += ".";
   }
 
   return testo;
 }
+
 
 function startDictation() {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
