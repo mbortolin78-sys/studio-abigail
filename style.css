@@ -64,7 +64,7 @@ body {
 /* Tabs */
 .tabs-inline {
   position: fixed;
-  bottom: 100px;
+  bottom: 80px;
   left: 0;
   display: flex;
   z-index: 6;
@@ -163,5 +163,11 @@ body {
 
   .separator-theirs {
     width: 30% !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .tabs-inline {
+    bottom: 100px !important; /* alzate solo su cellulare */
   }
 }
