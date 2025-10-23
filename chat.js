@@ -52,10 +52,11 @@ function startDictation() {
   console.log("🎤 Microfono avviato");
 
   recognition.onresult = function(event) {
-    const transcript = event.results[0][0].transcript;
-    messageInput.value = transcript;
-    sendMessage();
-  };
+  const transcript = event.results[0][0].transcript;
+  console.log("📝 Trascritto:", transcript);
+  messageInput.value = transcript;
+  sendMessage();
+};
 
   recognition.onerror = function(event) {
     console.error("Errore nella dettatura:", event.error);
