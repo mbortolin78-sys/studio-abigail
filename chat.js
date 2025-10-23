@@ -24,8 +24,8 @@ messageInput.addEventListener('keydown', event => {
 });
 
 // MICROFONO
+// 🎙️ MICROFONO con placeholder dinamico
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
 if (SpeechRecognition) {
   const recognition = new SpeechRecognition();
   recognition.lang = 'it-IT';
@@ -36,14 +36,22 @@ if (SpeechRecognition) {
     try {
       recognition.start();
       micButton.classList.add('active');
-      listeningIndicator.classList.add('show');
-      listeningIndicator.textContent = '🎧 Sto ascoltando…';
+      messageInput.placeholder = "🎧 Sto ascoltando… parla pure";
     } catch (err) {
-      console.error('Errore microfono:', err);
+      console.error('Errore avvio microfono:', err);
+      messageInput.placeholder = "Scrivi o parla…";
     }
   });
 
-  recognition.onresult = event => {
+  recognition.onspeechstart = () => {
+    messageInput.placeholder = "🗣️ Rilevo la tua voce…";
+  };
+
+  recognition.onspeechend = () => {
+    messageInput.placeholder = "🔍 Elaboro la voce…";
+  };
+
+  recognition.onresult = (event) => {
     let transcript = event.results[0][0].transcript;
     transcript = transcript
       .replace(/\s*virgola\s*/gi, ', ')
@@ -53,23 +61,18 @@ if (SpeechRecognition) {
     messageInput.value = transcript.trim();
   };
 
-  recognition.onspeechstart = () => {
-    listeningIndicator.textContent = '🗣️ Rilevata voce…';
-  };
-
-  recognition.onspeechend = () => {
-    listeningIndicator.textContent = '🔍 Elaboro la voce…';
-  };
-
   recognition.onend = () => {
     micButton.classList.remove('active');
-    listeningIndicator.classList.remove('show');
+    messageInput.placeholder = "Scrivi o parla…";
   };
 
-  recognition.onerror = event => {
-    console.error('Errore microfono:', event.error);
-    listeningIndicator.classList.remove('show');
+  recognition.onerror = (event) => {
+    console.error("Errore microfono:", event.error);
+    micButton.classList.remove('active');
+    messageInput.placeholder = "Scrivi o parla…";
   };
+} else {
+  alert("Il tuo browser non supporta la Web Speech API.");
 }
 
 // INVIO MESSAGGIO
