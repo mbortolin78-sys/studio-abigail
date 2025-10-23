@@ -3,6 +3,11 @@ import { processCommand } from './ai.js';
 const messageInput = document.getElementById('messageInput');
 const chatArea = document.getElementById('chat-area');
 const sendButton = document.querySelector('.send-button');
+let currentTab = 'marika';
+const chatStorage = {
+  marika: [],
+  clienti: []
+};
 
 // INVIO MANUALE
 sendButton.addEventListener('click', sendMessage);
@@ -35,10 +40,10 @@ function sendMessage() {
     <span class="timestamp">${time}</span>
   `;
 
-  chatArea.appendChild(userBubble);
-  chatArea.scrollTop = chatArea.scrollHeight;
+  chatStorage[currentTab].push(userBubble.outerHTML);
   messageInput.value = '';
-
+  renderChat();
+  
   // RISPOSTA DI ABIGAIL
   const result = processCommand(text);
 
@@ -56,8 +61,8 @@ function sendMessage() {
     <span class="timestamp">${botTime}</span>
   `;
 
-  chatArea.appendChild(botBubble);
-  chatArea.scrollTop = chatArea.scrollHeight;
+  chatStorage[currentTab].push(botBubble.outerHTML);
+  renderChat();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
