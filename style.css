@@ -149,17 +149,16 @@ body {
   width: 50%;
 }
 
-@media screen and (max-width: 600px) {
-  /* Sfondo dietro la barra in alto */
-  .status-bar-fill {
-    background-color: #f1d7ab;
-    height: 40px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-  }
+@media screen 
+.status-bar-fill {
+  background-color: #f1d7ab;
+  height: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  border-bottom: 1px solid  }
 
   /* Alza il box input */
   .message-input-container {
@@ -204,32 +203,3 @@ body {
 body {
   padding-top: 40px;
 }
-
-/* ==== Parametro comune per i margini laterali ==== */
-:root { --side-gap: clamp(12px, 3vw, 28px); }
-
-/* BOT: a tutto campo (con respiro laterale uguale alla tua) */
-.message-wrapper.bot { justify-content: flex-start; }
-.message-wrapper.bot .message,
-.message.bot {
-  width: calc(100% - (var(--side-gap) * 2)) !important;
-  max-width: none !important;       /* annulla eventuali limiti 60/70/75% */
-  margin-left: var(--side-gap) !important;
-  margin-right: var(--side-gap) !important;
-  text-align: justify;
-  text-justify: inter-word;
-  box-sizing: border-box;
-}
-
-/* USER: resta a destra con larghezza inferiore */
-.message-wrapper.user { justify-content: flex-end; }
-.message-wrapper.user .message,
-.message.user {
-  width: 60%;
-  max-width: 700px;                  /* opzionale: limite superiore gradevole */
-  margin-right: var(--side-gap);
-  margin-left: var(--side-gap);
-}
-
-/* Se da qualche parte c’è una regola generica che strozza le bolle… annullala qui. */
-.chat-container .message { max-width: none !important; }
