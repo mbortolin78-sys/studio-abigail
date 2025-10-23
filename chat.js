@@ -28,9 +28,11 @@ if (SpeechRecognition) {
   const recognition = new SpeechRecognition();
   recognition.lang = 'it-IT';
   recognition.interimResults = false;
+  recognition.continuous = false;
 
   micButton.addEventListener('click', () => {
     recognition.start();
+    micButton.classList.add('active');
   });
 
   recognition.onresult = event => {
@@ -44,6 +46,17 @@ if (SpeechRecognition) {
 
     messageInput.value = transcript.trim();
   };
+
+  recognition.onerror = event => {
+    console.error('Errore microfono:', event.error);
+    alert('Errore microfono: ' + event.error);
+  };
+
+  recognition.onend = () => {
+    micButton.classList.remove('active');
+  };
+} else {
+  alert('Il tuo browser non supporta la Web Speech API.');
 }
 
 function sendMessage() {
