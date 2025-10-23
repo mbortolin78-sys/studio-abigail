@@ -69,6 +69,15 @@ function correggiTesto(testo) {
   return testo;
 }
 
+function correggiTesto(testo) {
+  testo = testo.trim();
+  testo = testo.charAt(0).toUpperCase() + testo.slice(1);
+  if (!/[.!?]$/.test(testo)) {
+    testo += ".";
+  }
+  return testo;
+}
+
 recognition.onresult = function(event) {
   const transcript = event.results[0][0].transcript;
   const testoCorretto = correggiTesto(transcript);
