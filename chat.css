@@ -1,20 +1,30 @@
 const messageInput = document.getElementById('messageInput');
+const chatArea = document.getElementById('chat-area');
 
 function sendMessage() {
   const text = messageInput.value.trim();
   if (text !== '') {
     const bubble = document.createElement('div');
-    bubble.className = 'message-bubble';
+    bubble.className = 'message-bubble mine';
     bubble.innerHTML = `
       <p>${text}</p>
       <span class="timestamp">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
       <button class="copy-button">📋 Copia</button>
       <button class="edit-button">✏️ Modifica</button>
     `;
-    document.getElementById('chat-area').appendChild(bubble);
+    chatArea.appendChild(bubble);
     messageInput.value = '';
+    chatArea.scrollTop = chatArea.scrollHeight;
   }
 }
+
+// Invio con Enter
+messageInput.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    sendMessage();
+  }
+});
 
 function startDictation() {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
