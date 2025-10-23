@@ -4,7 +4,7 @@ function sendMessage() {
   const text = messageInput.value.trim();
   if (text !== '') {
     const bubble = document.createElement('div');
-    bubble.className = 'message-bubble';
+    bubble.className = 'message-bubble mine';
     bubble.innerHTML = `
       <p>${text}</p>
       <span class="timestamp">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
@@ -15,6 +15,14 @@ function sendMessage() {
     messageInput.value = '';
   }
 }
+
+// Invio con Enter
+messageInput.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    sendMessage();
+  }
+});
 
 function startDictation() {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
