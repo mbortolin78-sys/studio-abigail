@@ -42,7 +42,7 @@ body {
 }
 
 .message-bubble.theirs {
-  width: calc(100% - 6vw); /* 👈 si estende fino ai margini della chat */;
+  width: calc(110% - 6vw); /* 👈 si estende fino ai margini della chat */;
   background-color: #FFEDD3;
   text-align: justify;
   padding-left: 0;
