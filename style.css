@@ -22,6 +22,11 @@ body {
   position: relative;
   max-width: 80%;
 }
+.message-bubble p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+}
 
 .message-bubble.mine {
   width: 50%;
@@ -42,18 +47,19 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .timestamp {
-  font-size: 12px;
+  font-size: 14px;
   color: #7a5c3a;
   margin-top: 5px;
 }
 
 .copy-button, .edit-button {
-  font-size: 12px;
+ font-size: 16px; /* 🔥 icone più visibili */
+  margin-left: 8px; /* 🔥 spazio ravvicinato ma leggibile */
   color: #7a5c3a;
   background: none;
   border: none;
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
 .tabs-inline {
@@ -106,7 +112,8 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 
 .message-input {
   flex: 1;
-  padding: 10px;
+  font-size: 18px;
+  padding: 12px;
   border-radius: 5px;
   background-color: #fff3e0;
   color: #3a2a15;
@@ -122,7 +129,8 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   background-color: #d8b079;
   color: #3a2a15;
   border: none;
-  padding: 10px;
+  font-size: 16px;
+  padding: 12px;
   margin-left: 10px;
   border-radius: 5px;
   cursor: pointer;
