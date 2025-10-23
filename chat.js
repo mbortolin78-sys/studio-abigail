@@ -90,7 +90,7 @@ function correggiTesto(testo) {
   testo = testo.charAt(0).toUpperCase() + testo.slice(1);
 
   // Aggiunta virgole prima di connettivi (solo se presenti)
-  const connettivi = ["poi", "allora", "però", "comunque", "quindi", "invece", "cioè"];
+  const connettivi = ["poi", "allora", "però", "comunque", "quindi", "invece", "cioè", "ma", "o", "oppure"];
   connettivi.forEach(parola => {
     const regex = new RegExp("\\b" + parola + "\\b", "gi");
     testo = testo.replace(regex, ", " + parola);
