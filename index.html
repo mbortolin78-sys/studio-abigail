@@ -42,5 +42,13 @@
 </footer>
 
   <script src="chat.js"></script>
+
+   <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(() => console.log('✅ Service worker registrato'))
+      .catch(err => console.error('❌ Errore nel service worker:', err));
+  }
+</script>
 </body>
 </html>
