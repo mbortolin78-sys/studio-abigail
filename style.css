@@ -31,8 +31,8 @@ body {
 }
 
 .message-bubble.mine {
-  width: calc(100% - 1cm); /* larghezza piena meno margini */
-  margin: 0.5cm auto 10px auto; /* margine sopra/sotto e laterale */
+  width: 60%;
+  margin: 10px 0.5cm 10px auto; /* sopra, destra, sotto, sinistra */
   background-color: #f1d7ab;
   text-align: justify;
   text-align-last: right;
