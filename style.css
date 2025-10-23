@@ -68,6 +68,45 @@ body {
   cursor: pointer;
   vertical-align: middle;
 }
+/* Barra inferiore — campo messaggio + tasti */
+.message-input-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background-color: #f1d7ab;
+  border-top: 1px solid #d8b079;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+/* Indicatore "Sto ascoltando…" sopra la barra */
+.listening-indicator {
+  display: none;
+  position: absolute;
+  bottom: 60px;                /* altezza sopra la barra */
+  left: 50%;
+  transform: translateX(-50%);
+  color: #3a2a15;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  padding: 4px 10px;
+  font-style: italic;
+  font-size: 14px;
+  text-align: center;
+  white-space: nowrap;
+  transition: opacity .3s ease;
+}
+
+.listening-indicator.show {
+  display: block;
+  opacity: 1;
+}
 
 /* Tabs */
 .tabs-inline {
