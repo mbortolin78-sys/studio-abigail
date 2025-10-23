@@ -64,7 +64,7 @@ body {
 /* Tabs */
 .tabs-inline {
   position: fixed;
-  bottom: 80px;
+  bottom: 100px;
   left: 0;
   display: flex;
   z-index: 6;
@@ -134,14 +134,14 @@ body {
   height: 1px;
   background-color: #d8b079;
   margin: 12px 0 6px 0;
-  width: 24%;
+  width: 30%;
   margin-left: 0;
 }
 .separator-mine {
   height: 1px;
   background-color: #d8b079;
   margin: 12px 0 6px auto;
-  width: 50%;
+  width: 60%;
 }
 
 /* Mobile fix: alza la barra input su iPhone */
