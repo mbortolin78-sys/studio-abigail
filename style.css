@@ -181,3 +181,8 @@ background-color: #FFEDD3;
     bottom: 20px !important; /* per iPhone 11 */
   }
 }
+
+.status-bar-color {
+  background-color: #f1d7ab; /* colore della tua bolla */
+  height: 40px;
+}
