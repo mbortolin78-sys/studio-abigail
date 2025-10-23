@@ -48,17 +48,27 @@ function startDictation() {
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
 
-  recognition.start();
   console.log("🎤 Microfono avviato");
+  recognition.start();
+
+  recognition.onstart = function() {
+    console.log("🟢 In ascolto...");
+  };
 
   recognition.onresult = function(event) {
-  const transcript = event.results[0][0].transcript;
-  console.log("📝 Trascritto:", transcript);
-  messageInput.value = transcript;
-  sendMessage();
-};
+    const transcript = event.results[0][0].transcript;
+    console.log("📝 Trascritto:", transcript);
+    messageInput.value = transcript;
+    sendMessage();
+  };
 
   recognition.onerror = function(event) {
-    console.error("Errore nella dettatura:", event.error);
+    console.error("❌ Errore:", event.error);
+    alert("Errore nella dettatura: " + event.error);
+  };
+
+  recognition.onend = function() {
+    console.log("🔴 Microfono spento");
   };
 }
+
