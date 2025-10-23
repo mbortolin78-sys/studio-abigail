@@ -1,0 +1,110 @@
+body {
+  background-color: #1E1E2F;
+  color: #F3F3F3;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  margin: 0;
+  padding-bottom: 80px;
+}
+
+/* Schede */
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  background-color: #1E1E2F;
+  padding: 0;
+  border-bottom: 1px solid #2C2C3F;
+}
+
+.tab {
+  padding: 12px 20px;
+  margin: 0;
+  background-color: #2C2C3F;
+  color: #F3F3F3;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 6px 6px 0 0;
+}
+
+.tab.active {
+  background-color: #1E1E2F;
+  font-weight: bold;
+}
+
+/* Chat */
+#chat-area {
+  padding: 20px;
+  overflow-y: auto;
+  max-height: calc(100vh - 160px);
+}
+
+.message-bubble {
+  background-color: #2C2C3F;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin: 10px 0;
+  position: relative;
+  max-width: 80%;
+}
+
+.message-bubble.mine {
+  width: 60%;
+  margin-left: auto;
+  background-color: #3A3A5D;
+}
+
+.message-bubble.theirs {
+  width: 100%;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #B0B0C0;
+  margin-top: 5px;
+}
+
+.copy-button, .edit-button {
+  font-size: 12px;
+  color: #B0B0C0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* Input */
+.message-input-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #2C2C3F;
+  border-top: 1px solid #3A3A5D;
+}
+
+.message-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #1E1E2F;
+  color: #F3F3F3;
+  border: 2px solid transparent;
+}
+
+.message-input:focus {
+  outline: none;
+  border-color: #57577A;
+}
+
+.send-button, .microphone-button {
+  background-color: #57577A;
+  color: #F3F3F3;
+  border: none;
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
