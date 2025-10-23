@@ -216,3 +216,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     padding: 10px;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .message-input-container {
+    bottom: 20px; /* Alza la barra di input */
+  }
+}
