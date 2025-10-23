@@ -81,4 +81,6 @@ function sendMessage() {
 }
 
 function renderChat() {
-  chatArea.innerHTML = chatStorage[currentTab].
+  chatArea.innerHTML = chatStorage[currentTab].join('');
+  chatArea.scrollTop = chatArea.scrollHeight;
+}
