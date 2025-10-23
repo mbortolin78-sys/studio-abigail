@@ -146,19 +146,21 @@ body {
 
 /* Mobile fix: alza la barra input su iPhone */
 @media screen and (max-width: 600px) {
+  /* 1. Alza le schede su iPhone */
+  .tabs-inline {
+    bottom: 100px !important; /* forza l’altezza su mobile */
+  }
+
+  /* 2. Sfondo sotto al box input */
   body {
-    background-color: #FFEDD3;
+    background-color: #f1d7ab; /* stesso colore della tua bolla */
   }
 
   .message-input-container {
-    background-color: #f1d7ab;
-    bottom: 20px; /* alza la barra input per iPhone 11 */
+    background-color: #f1d7ab; /* già corretto */
   }
 
-  .tabs-inline {
-    bottom: 100px;
-  }
-
+  /* 3. Linee più lunghe sotto le bolle */
   .separator-mine {
     width: 60%;
   }
