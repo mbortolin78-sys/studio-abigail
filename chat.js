@@ -56,7 +56,26 @@ function startDictation() {
     messageInput.value = transcript;
     messageInput.placeholder = "Scrivi o parla…";
   };
+  
+function correggiTesto(testo) {
+  // Inizia con maiuscola
+  testo = testo.charAt(0).toUpperCase() + testo.slice(1);
 
+  // Aggiunge punto finale se manca
+  if (!/[.!?]$/.test(testo)) {
+    testo += ".";
+  }
+
+  return testo;
+}
+
+recognition.onresult = function(event) {
+  const transcript = event.results[0][0].transcript;
+  const testoCorretto = correggiTesto(transcript);
+  messageInput.value = testoCorretto;
+  messageInput.placeholder = "Scrivi o parla…";
+};
+  
   recognition.onerror = function(event) {
     messageInput.placeholder = "Scrivi o parla…";
     if (event.error === "no-speech") {
