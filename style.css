@@ -141,10 +141,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   opacity: 0.8;    /* 🔥 leggermente attenuato */
 }
 
-.separator-single {
+.separator-theirs {
   height: 1px;
   background-color: #d8b079;
-  margin: 20px 0 10px 0; /* 🔥 distacco dal testo */
+  margin: 15px 0 8px 0; /* 🔥 alzata di 0.5cm */
   width: 30%;
-  margin-left: auto;
+  margin-left: 0; /* 🔥 allineata a sinistra */
+}
+
+.separator-mine {
+  height: 1px;
+  background-color: #d8b079;
+  margin: 15px 0 8px auto; /* 🔥 alzata di 0.5cm */
+  width: 40%; /* 🔥 più lunga */
 }
