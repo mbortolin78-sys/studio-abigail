@@ -5,51 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Studio Abigail</title>
 
+  <!-- Stili -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Manifest PWA -->
   <link rel="manifest" href="/manifest.json" />
+
+  <!-- Icona per iPhone -->
   <link rel="apple-touch-icon" href="/icon-180.png" />
+
+  <!-- Favicon per browser -->
+  <link rel="icon" type="image/png" href="/icon-512.png" />
+
+  <!-- Script principale -->
   <script src="chat.js" defer></script>
 </head>
 
 <body>
 
- <main id="chat-area">
-  <!-- Bolla mia (theirs) -->
-  <div class="message-bubble theirs">
-  <p>Benvenuta nello spazio di dialogo intuitivo.</p>
-  <div class="separator-theirs"></div>
-  <span class="timestamp">09:42</span>
-  <button class="copy-button">📋</button>
-</div>
+  <main id="chat-area">
+    <!-- Bolla mia (theirs) -->
+    <div class="message-bubble theirs">
+      <p>Benvenuta nello spazio di dialogo intuitivo.</p>
+      <div class="separator-theirs"></div>
+      <span class="timestamp">09:42</span>
+      <button class="copy-button">📋</button>
+    </div>
 
-  <!-- Bolla tua (mine) -->
- <div class="message-bubble mine">
-  <p>ciao</p>
-  <div class="separator-mine"></div>
-  <button class="edit-button">✏️</button>
-  <button class="copy-button">📋</button>
-  <span class="timestamp">10:35</span>
-</div>
+    <!-- Bolla tua (mine) -->
+    <div class="message-bubble mine">
+      <p>ciao</p>
+      <div class="separator-mine"></div>
+      <button class="edit-button">✏️</button>
+      <button class="copy-button">📋</button>
+      <span class="timestamp">10:35</span>
+    </div>
 
-  <section class="tabs-inline">
-    <button class="tab active">Marika</button>
-    <button class="tab">Clienti</button>
-  </section>
+    <!-- Tabs -->
+    <section class="tabs-inline">
+      <button class="tab active">Marika</button>
+      <button class="tab">Clienti</button>
+    </section>
+  </main>
 
- <footer class="message-input-container">
-  <input type="text" id="messageInput" class="message-input" placeholder="Scrivi o parla…" />
-  <button class="send-button">Invia</button>
-  <button class="microphone-button" onclick="startDictation()">🎤</button>
-</footer>
-
-  <script src="chat.js"></script>
-
-   <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(() => console.log('✅ Service worker registrato'))
-      .catch(err => console.error('❌ Errore nel service worker:', err));
-  }
-</script>
-</body>
-</html>
+  <!-- Input messaggio -->
+  <footer class="message-input-container">
+    <input type="text" id="messageInput" class="message-input" placeholder="Scrivi o parla…" />
+    <button class="send-button">Invia</button>
