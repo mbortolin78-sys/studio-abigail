@@ -48,16 +48,16 @@ body {
   margin-left: 10px;
 }
 
-/* Schede appoggiate alla linea di separazione */
 .tabs-inline {
   position: fixed;
-  bottom: 70px; /* ora più alta, appoggiata alla linea */
+  bottom: 71px; /* altezza precisa per incastrarle */
   left: 0;
   display: flex;
   z-index: 6;
   margin-left: 15px;
 }
 
+/* Schede */
 .tab {
   padding: 8px 16px;
   border: none;
@@ -67,13 +67,16 @@ body {
   margin: 0;
   background-color: #FFEDD3;
   color: #3a2a15;
-  box-shadow: 0 -1px 0 #d8b079 inset;
+  box-shadow: none; /* 🔥 togli ogni ombra */
+  border-bottom: none; /* 🔥 niente linea sotto */
 }
 
+/* Scheda attiva: stesso colore del box input */
 .tab.active {
   background-color: #f1d7ab;
   font-weight: bold;
   box-shadow: none;
+  border-bottom: none;
 }
 
 /* Input */
