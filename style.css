@@ -24,18 +24,18 @@ body {
 }
 
 .message-bubble.mine {
-  width: 80%; /* 🔥 più ampia */
+  width: 60%;
   margin-left: auto;
-  background-color: #f9e9d0; /* 🔥 nuovo colore delicato */
+  background-color: #f1d7ab; /* colore che c’era sulla mia */
   text-align: justify;
-  direction: rtl; /* 🔥 allineamento a destra con giustificazione */
-  padding-left: 20px;
-  padding-right: 0;
+  text-align-last: right;
+  border-radius: 10px;
+box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .message-bubble.theirs {
   width: 100%;
-  background-color: #f1d7ab;
+  background-color: #FFEDD3; /* colore dello sfondo */
   text-align: justify;
   padding-left: 0;
   padding-right: 0;
