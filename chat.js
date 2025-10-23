@@ -136,3 +136,33 @@ function startDictation() {
     messageInput.placeholder = "Scrivi o parla…";
   };
 }
+
+// Attiva le schede cliccabili
+const tabs = document.querySelectorAll('.tab');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    const chatArea = document.getElementById('chat-area');
+    chatArea.innerHTML = '';
+
+    if (tab.textContent === 'Marika') {
+      chatArea.innerHTML = `
+        <div class="message-bubble theirs">
+          <p>Benvenuta Marika 🌷</p>
+          <div class="separator-theirs"></div>
+          <span class="timestamp">09:42</span>
+        </div>
+      `;
+    } else if (tab.textContent === 'Clienti') {
+      chatArea.innerHTML = `
+        <div class="message-bubble theirs">
+          <p>Qui troverai i dialoghi con i tuoi clienti 💼</p>
+          <div class="separator-theirs"></div>
+          <span class="timestamp">09:42</span>
+        </div>
+      `;
+    }
+  });
+});
