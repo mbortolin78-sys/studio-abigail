@@ -4,6 +4,7 @@ const messageInput = document.getElementById('messageInput');
 const chatArea = document.getElementById('chat-area');
 const sendButton = document.querySelector('.send-button');
 const micButton = document.querySelector('.microphone-button');
+const listeningIndicator = document.getElementById('listeningIndicator');
 
 let currentTab = 'marika';
 const chatStorage = {
@@ -22,10 +23,8 @@ messageInput.addEventListener('keydown', event => {
   }
 });
 
-// 🎙️ MICROFONO CON INDICATORE "STO ASCOLTANDO"
+// MICROFONO
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-const listeningIndicator = document.getElementById('listeningIndicator');
-const micButton = document.querySelector('.microphone-button');
 
 if (SpeechRecognition) {
   const recognition = new SpeechRecognition();
@@ -35,65 +34,45 @@ if (SpeechRecognition) {
 
   micButton.addEventListener('click', () => {
     try {
-      // Mostra subito l'indicatore (prima ancora dell'audio)
-      listeningIndicator.textContent = '🎧 Sto ascoltando…';
+      recognition.start();
+      micButton.classList.add('active');
       listeningIndicator.classList.add('show');
-      micButton.setAttribute('aria-pressed', 'true');
-
-      // piccolo delay per evitare race su alcuni Chrome
-      setTimeout(() => recognition.start(), 200);
+      listeningIndicator.textContent = '🎧 Sto ascoltando…';
     } catch (err) {
-      console.error('Errore avvio microfono:', err);
-      listeningIndicator.classList.remove('show');
-      micButton.setAttribute('aria-pressed', 'false');
-      alert('Impossibile avviare il microfono.');
+      console.error('Errore microfono:', err);
     }
   });
 
-  recognition.onaudiostart = () => {
-    // Conferma che l’audio è partito
-    listeningIndicator.textContent = '🎧 Sto ascoltando…';
-  };
-
-  recognition.onspeechstart = () => {
-    // Voce rilevata
-    listeningIndicator.textContent = '🗣️ Rilevata voce…';
-  };
-
-  recognition.onspeechend = () => {
-    // Hai finito di parlare
-    listeningIndicator.textContent = '🔍 Elaboro la voce…';
-  };
-
-  recognition.onresult = (event) => {
+  recognition.onresult = event => {
     let transcript = event.results[0][0].transcript;
     transcript = transcript
       .replace(/\s*virgola\s*/gi, ', ')
       .replace(/\s*punto\s*/gi, '. ')
       .replace(/\s+/g, ' ')
       .replace(/^([a-z])/g, m => m.toUpperCase());
-    document.getElementById('messageInput').value = transcript.trim();
+    messageInput.value = transcript.trim();
+  };
+
+  recognition.onspeechstart = () => {
+    listeningIndicator.textContent = '🗣️ Rilevata voce…';
+  };
+
+  recognition.onspeechend = () => {
+    listeningIndicator.textContent = '🔍 Elaboro la voce…';
   };
 
   recognition.onend = () => {
+    micButton.classList.remove('active');
     listeningIndicator.classList.remove('show');
-    micButton.setAttribute('aria-pressed', 'false');
   };
 
-  recognition.onerror = (event) => {
+  recognition.onerror = event => {
     console.error('Errore microfono:', event.error);
     listeningIndicator.classList.remove('show');
-    micButton.setAttribute('aria-pressed', 'false');
-    // "no-speech" è normale se non parli entro ~2s
-    if (event.error !== 'no-speech') {
-      alert('Errore microfono: ' + event.error);
-    }
   };
-} else {
-  alert('Il tuo browser non supporta la Web Speech API.');
 }
 
-// ✉️ INVIO MESSAGGI
+// INVIO MESSAGGIO
 function sendMessage() {
   const text = messageInput.value.trim();
   if (text === '') return;
@@ -103,7 +82,6 @@ function sendMessage() {
   const userBubble = `
     <div class="message-bubble mine">
       <p>${text}</p>
-      <div class="separator-mine"></div>
       <span class="timestamp">${time}</span>
     </div>
   `;
@@ -113,7 +91,6 @@ function sendMessage() {
   const botBubble = `
     <div class="message-bubble theirs">
       <p>${result.output}</p>
-      <div class="separator-theirs"></div>
       <span class="timestamp">${time}</span>
     </div>
   `;
@@ -123,13 +100,13 @@ function sendMessage() {
   renderChat();
 }
 
-// 💬 RENDER CHAT
+// RENDER CHAT
 function renderChat() {
   chatArea.innerHTML = chatStorage[currentTab].join('');
   chatArea.scrollTop = chatArea.scrollHeight;
 }
 
-// 🧭 GESTIONE TAB
+// SCHEDE
 document.addEventListener('DOMContentLoaded', () => {
   const tabs = document.querySelectorAll('.tab');
 
@@ -137,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
-
       currentTab = tab.getAttribute('data-tab');
 
       if (chatStorage[currentTab].length === 0) {
@@ -148,37 +124,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const intro = currentTab === 'marika'
           ? `<p>Ciao Marika 🌷</p>`
-          : `<p>Benvenuta nello spazio clienti. Qui troverai i dialoghi professionali 💼</p>`;
+          : `<p>Benvenuta nello spazio clienti 💼</p>`;
 
         const introBubble = `
           <div class="message-bubble theirs">
             ${intro}
-            <div class="separator-theirs"></div>
             <span class="timestamp">${time}</span>
           </div>
         `;
-
         chatStorage[currentTab].push(introBubble);
       }
-
       renderChat();
     });
   });
 
-  // Messaggio iniziale per Marika
-  const time = new Date().toLocaleTimeString([], {
-    hour: '2-digit',
-    minute: '2-digit'
-  });
-
+  const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   const introBubble = `
     <div class="message-bubble theirs">
       <p>Ciao Marika 🌷</p>
-      <div class="separator-theirs"></div>
       <span class="timestamp">${time}</span>
     </div>
   `;
-
   chatStorage.marika.push(introBubble);
   renderChat();
 });
