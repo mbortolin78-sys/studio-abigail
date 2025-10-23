@@ -187,7 +187,7 @@ body {
   .chat-header-bar {
     display: block;
     background-color: #f1d7ab;
-    height: 40px; /* circa 2 cm */
+    height: 40px;
     width: 100%;
     position: relative;
     border-bottom: 1px solid #d8b079;
