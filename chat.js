@@ -47,10 +47,9 @@ function startDictation() {
   recognition.lang = 'it-IT';
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
+  recognition.continuous = false; // 🔁 non ascolta all'infinito, ma aspetta con più pazienza
 
-  console.log("🎤 Microfono avviato");
   messageInput.placeholder = "Sto ascoltando…";
-
   recognition.start();
 
   recognition.onstart = function() {
@@ -66,11 +65,12 @@ function startDictation() {
   };
 
   recognition.onerror = function(event) {
-    console.error("❌ Errore:", event.error);
     messageInput.placeholder = "Scrivi o parla…";
 
-    if (event.error === "no-speech" || event.error === "aborted") {
+    if (event.error === "no-speech") {
       alert("Non ho sentito nulla. Riprova parlando subito dopo il clic.");
+    } else if (event.error === "aborted") {
+      alert("Dettatura interrotta. Riprova.");
     } else {
       alert("Errore nella dettatura: " + event.error);
     }
