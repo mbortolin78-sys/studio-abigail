@@ -1,5 +1,6 @@
+/* Sfondo generale */
 body {
-background-color: #FFEDD3;
+  background-color: #FFEDD3;
   color: #3a2a15;
   font-family: 'Palatino Linotype', 'Book Antiqua', serif;
   margin: 0;
@@ -70,7 +71,6 @@ background-color: #FFEDD3;
   z-index: 6;
   margin-left: 15px;
 }
-
 .tab {
   padding: 8px 16px;
   border: none;
@@ -83,106 +83,3 @@ background-color: #FFEDD3;
 }
 .tab.active {
   background-color: #f1d7ab;
-  font-weight: bold;
-  position: relative;
-  z-index: 7;
-}
-
-/* Input */
-.message-input-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  background-color: #f1d7ab;
-  border-top: 1px solid #d8b079;
-  z-index: 5;
-}
-.message-input {
-  flex: 1;
-  font-size: 18px;
-  padding: 12px;
-  border-radius: 5px;
-  background-color: #fff3e0;
-  color: #3a2a15;
-  border: 2px solid transparent;
-}
-.message-input:focus {
-  outline: none;
-  border-color: #d8b079;
-}
-.send-button, .microphone-button {
-  background-color: #d8b079;
-  color: #3a2a15;
-  border: none;
-  font-size: 16px;
-  padding: 12px;
-  margin-left: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.message-input::placeholder {
-  font-size: 13px;
-  color: #b48c5a;
-  opacity: 0.8;
-}
-
-/* Separatori */
-.separator-theirs {
-  height: 1px;
-  background-color: #d8b079;
-  margin: 12px 0 6px 0;
-  width: 24%;
-  margin-left: 0;
-}
-.separator-mine {
-  height: 1px;
-  background-color: #d8b079;
-  margin: 12px 0 6px auto;
-  width: 50%;
-}
-
-@media screen and (max-width: 600px) {
-  /* 1. Alza la barra input per iPhone 11 */
-  .message-input-container {
-    bottom: 20px !important;
-  }
-
-  /* 2. Alza le schede “Marika / Clienti” */
-  .tabs-inline {
-    bottom: 100px !important;
-  }
-
-  /* 3. Allunga le linee sotto le bolle */
-  .separator-mine {
-    width: 60% !important;
-  }
-
-  .separator-theirs {
-    width: 30% !important;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .tabs-inline {
-    bottom: 100px !important; /* alzate solo su cellulare */
-  }
-}
-@media screen and (max-width: 600px) {
-  body {
-    background-color: #FFEDD3 !important;
-  }
-
-  .message-input-container {
-    background-color: #f1d7ab !important;
-    bottom: 20px !important; /* per iPhone 11 */
-  }
-}
-
-.status-bar-color {
-  background-color: #f1d7ab; /* colore della tua bolla */
-  height: 40px;
-}
