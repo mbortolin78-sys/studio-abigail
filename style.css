@@ -24,7 +24,7 @@ body {
 }
 
 .message-bubble.mine {
-  width: 60%;
+  width: 50%;
   margin-left: auto;
   background-color: #f1d7ab; /* colore che c’era sulla mia */
   text-align: justify;
