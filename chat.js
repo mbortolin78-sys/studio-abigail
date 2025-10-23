@@ -23,35 +23,29 @@ messageInput.addEventListener('keydown', event => {
   }
 });
 
-// MICROFONO
-// 🎙️ MICROFONO con placeholder dinamico
+// 🎙️ MICROFONO CON INDICATORE VISIVO
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const listeningIndicator = document.getElementById('listeningIndicator');
+
 if (SpeechRecognition) {
   const recognition = new SpeechRecognition();
   recognition.lang = 'it-IT';
   recognition.interimResults = false;
-  recognition.continuous = false;
+  recognition.continuous = true; // ✅ resta in ascolto anche se fai pause
 
   micButton.addEventListener('click', () => {
     try {
       recognition.start();
       micButton.classList.add('active');
-      messageInput.placeholder = "🎧 Sto ascoltando… parla pure";
+      listeningIndicator.classList.add('show');
+      listeningIndicator.textContent = '🎧 Sto ascoltando…';
     } catch (err) {
       console.error('Errore avvio microfono:', err);
-      messageInput.placeholder = "Scrivi o parla…";
+      listeningIndicator.classList.remove('show');
     }
   });
 
-  recognition.onspeechstart = () => {
-    messageInput.placeholder = "🗣️ Rilevo la tua voce…";
-  };
-
-  recognition.onspeechend = () => {
-    messageInput.placeholder = "🔍 Elaboro la voce…";
-  };
-
-  recognition.onresult = (event) => {
+  recognition.onresult = event => {
     let transcript = event.results[0][0].transcript;
     transcript = transcript
       .replace(/\s*virgola\s*/gi, ', ')
@@ -61,18 +55,25 @@ if (SpeechRecognition) {
     messageInput.value = transcript.trim();
   };
 
-  recognition.onend = () => {
-    micButton.classList.remove('active');
-    messageInput.placeholder = "Scrivi o parla…";
+  recognition.onspeechstart = () => {
+    listeningIndicator.textContent = '🗣️ Rilevata voce…';
   };
 
-  recognition.onerror = (event) => {
-    console.error("Errore microfono:", event.error);
+  recognition.onspeechend = () => {
+    listeningIndicator.textContent = '🔍 Elaboro la voce…';
+  };
+
+  recognition.onend = () => {
     micButton.classList.remove('active');
-    messageInput.placeholder = "Scrivi o parla…";
+    listeningIndicator.classList.remove('show');
+  };
+
+  recognition.onerror = event => {
+    console.error('Errore microfono:', event.error);
+    listeningIndicator.classList.remove('show');
   };
 } else {
-  alert("Il tuo browser non supporta la Web Speech API.");
+  alert('Il tuo browser non supporta la Web Speech API.');
 }
 
 // INVIO MESSAGGIO
