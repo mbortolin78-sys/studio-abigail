@@ -59,3 +59,41 @@ function sendMessage() {
   chatArea.appendChild(botBubble);
   chatArea.scrollTop = chatArea.scrollHeight;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const selectedTab = tab.getAttribute('data-tab');
+      const chatArea = document.getElementById('chat-area');
+
+      const introBubble = document.createElement('div');
+      introBubble.className = 'message-bubble theirs';
+
+      const time = new Date().toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+
+      if (selectedTab === 'marika') {
+        introBubble.innerHTML = `
+          <p>Benvenuta Marika 🌷</p>
+          <div class="separator-theirs"></div>
+          <span class="timestamp">${time}</span>
+        `;
+      } else if (selectedTab === 'clienti') {
+        introBubble.innerHTML = `
+          <p>Qui troverai i dialoghi con i tuoi clienti 💼</p>
+          <div class="separator-theirs"></div>
+          <span class="timestamp">${time}</span>
+        `;
+      }
+
+      chatArea.appendChild(introBubble);
+      chatArea.scrollTop = chatArea.scrollHeight;
+    });
+  });
+});
