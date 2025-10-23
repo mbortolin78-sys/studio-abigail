@@ -14,14 +14,16 @@
   <link rel="icon" type="image/png" href="/icon-512.png" />
 
   <!-- Modalità app su iPhone -->
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
   <!-- Script -->
   <script src="chat.js" defer></script>
 </head>
 
 <body>
+  <!-- Sfondo dorato dietro la barra in alto -->
+  <div class="status-bar-color"></div>
 
   <main id="chat-area">
     <!-- Messaggio ricevuto -->
@@ -63,7 +65,6 @@
         .catch(err => console.error('❌ Errore nel service worker:', err));
     }
   </script>
-
 </body>
-  <div class="status-bar-color"></div>
 </html>
+
