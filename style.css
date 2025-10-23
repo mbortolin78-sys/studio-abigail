@@ -31,7 +31,7 @@ body {
 }
 
 .message-bubble.mine {
-  width: 60%;
+  width: 100%;
   margin-right: 0.5cm;
   margin-left: auto;
   background-color: #f1d7ab;
@@ -42,7 +42,7 @@ body {
 }
 
 .message-bubble.theirs {
-  max-width: calc(100% - 0.5cm);
+  max-width: 60%;
   margin-right: auto;
   margin-left: 0.5cm;
   background-color: #FFEDD3;
