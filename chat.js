@@ -3,7 +3,7 @@ import { processCommand } from './ai.js';
 const messageInput = document.getElementById('messageInput');
 const chatArea = document.getElementById('chat-area');
 const sendButton = document.querySelector('.send-button');
-const micButton = document.querySelector('.microphone-button');
+const micButton = document.getElementById('microphone-button');
 
 let currentTab = 'marika';
 const chatStorage = {
