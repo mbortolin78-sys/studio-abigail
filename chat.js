@@ -5,6 +5,35 @@ const chatArea = document.getElementById('chat-area');
 const sendButton = document.querySelector('.send-button');
 const micButton = document.querySelector('.microphone-button');
 
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+if (SpeechRecognition) {
+  const recognition = new SpeechRecognition();
+  recognition.lang = 'it-IT';
+  recognition.interimResults = false;
+
+  micButton.addEventListener('click', () => {
+    recognition.start();
+  });
+
+  recognition.onresult = event => {
+    let transcript = event.results[0][0].transcript;
+
+    transcript = transcript
+      .replace(/\s*virgola\s*/gi, ', ')
+      .replace(/\s*punto\s*/gi, '. ')
+      .replace(/\s+/g, ' ')
+      .replace(/^([a-z])/g, m => m.toUpperCase());
+
+    messageInput.value = transcript.trim();
+  };
+
+  recognition.onerror = event => {
+    console.error("Errore riconoscimento vocale:", event.error);
+  };
+} else {
+  console.warn("SpeechRecognition non supportato dal browser.");
+}
+
 let currentTab = 'marika';
 const chatStorage = {
   marika: [],
