@@ -67,17 +67,20 @@ body {
   margin: 0;
   background-color: #FFEDD3;
   color: #3a2a15;
-  box-shadow: none; /* 🔥 togli ogni ombra */
-  border-bottom: none; /* 🔥 niente linea sotto */
+  box-shadow: none;
+  border-bottom: none;
 }
 
 /* Scheda attiva: stesso colore del box input */
 .tab.active {
-  background-color: #f1d7ab;
+  background-color: #f1d7ab; /* colore del box input */
   font-weight: bold;
   box-shadow: none;
   border-bottom: none;
+  position: relative;
+  z-index: 7; /* 🔥 porta la scheda sopra la linea */
 }
+
 
 /* Input */
 .message-input-container {
