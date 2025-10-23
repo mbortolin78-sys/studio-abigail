@@ -22,13 +22,14 @@ messageInput.addEventListener('keydown', function (event) {
   }
 });
 
-// 🎙️ MICROFONO ORIGINALE (funzionante)
+// MICROFONO STABILE
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
 if (SpeechRecognition) {
   const recognition = new SpeechRecognition();
   recognition.lang = 'it-IT';
   recognition.interimResults = false;
-  recognition.continuous = true; // ✅ questa è l’unica riga che aggiungiamo
+  recognition.continuous = true; // ✅ puoi fare pause
 
   micButton.addEventListener('click', () => {
     recognition.start();
@@ -42,7 +43,6 @@ if (SpeechRecognition) {
       .replace(/\s*punto\s*/gi, '. ')
       .replace(/\s+/g, ' ')
       .replace(/^([a-z])/g, m => m.toUpperCase());
-
     messageInput.value = transcript.trim();
   };
 
