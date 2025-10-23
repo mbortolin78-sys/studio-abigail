@@ -15,11 +15,10 @@ function sendMessage() {
 
     bubble.innerHTML = `
       <p>${text}</p>
-      <div class="separator-above-time"></div>
-      <span class="timestamp">${time}</span>
-      <div class="separator-line"></div>
-      <button class="copy-button">📋</button>
+      <div class="separator-mine"></div>
       <button class="edit-button">✏️</button>
+      <button class="copy-button">📋</button>
+      <span class="timestamp">${time}</span>
     `;
 
     chatArea.appendChild(bubble);
