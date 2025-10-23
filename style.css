@@ -207,32 +207,3 @@ body {
 body {
   padding-top: 40px;
 }
-
-.message-input-container {
-  position: relative;
-}
-
-.listening-indicator {
-  display: none;                /* nascosto di default */
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  top: -32px;                   /* appare sopra l’input */
-  text-align: center;
-  color: #ffd27f;               /* oro caldo */
-  font-style: italic;
-  font-size: 14px;
-  padding: 6px 10px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 10px;
-  z-index: 10;                  /* sopra tutto */
-  backdrop-filter: blur(2px);
-  transition: opacity .2s ease, transform .2s ease;
-}
-
-.listening-indicator.show {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
