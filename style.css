@@ -32,7 +32,7 @@ body {
 
 .message-bubble.mine {
   width: 60%;
-  margin-right: 0px;
+  margin-right: 0.5cm;
   margin-left: auto;
   background-color: #f1d7ab;
   text-align: justify;
