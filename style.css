@@ -157,3 +157,62 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   margin: 12px 0 6px auto; /* 🔥 alzata di 0.5cm */
   width: 50%; /* 🔥 più lunga */
 }
+
+@media screen and (max-width: 600px) {
+  body {
+    background-color: #fdf6f0; /* Colore più caldo per la parte bianca sopra */
+  }
+
+  .message-bubble {
+    font-size: 17px; /* Testo più grande */
+    padding: 14px;
+  }
+
+  .message-input {
+    font-size: 17px; /* Input più leggibile */
+  }
+
+  .timestamp {
+    font-size: 14px;
+    color: #6a4e42; /* Più contrasto */
+  }
+
+  .separator-theirs,
+  .separator-mine {
+    height: 2px;
+    background-color: #c4a28d; /* Più visibile */
+    width: 80%; /* Esteso */
+    margin: 6px auto;
+  }
+
+  .tabs-inline {
+    margin-top: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #c4a28d;
+  }
+
+  .tab {
+    font-size: 16px;
+    padding: 10px 0;
+  }
+
+  .message-input-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+    z-index: 100;
+  }
+
+  .send-button,
+  .microphone-button {
+    font-size: 20px;
+    padding: 10px;
+  }
+}
