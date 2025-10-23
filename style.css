@@ -171,3 +171,13 @@ body {
     bottom: 100px !important; /* alzate solo su cellulare */
   }
 }
+@media screen and (max-width: 600px) {
+  body {
+    background-color: #f1d7ab !important;
+  }
+
+  .message-input-container {
+    background-color: #f1d7ab !important;
+    bottom: 20px !important; /* per iPhone 11 */
+  }
+}
