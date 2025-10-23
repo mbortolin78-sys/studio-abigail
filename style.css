@@ -179,19 +179,17 @@ body {
 }
 
 /* Barra decorativa sopra la chat — solo per desktop */
+.chat-header-bar {
+  display: none; /* nascosta di default */
+}
+
 @media screen and (min-width: 601px) {
   .chat-header-bar {
+    display: block;
     background-color: #f1d7ab;
     height: 40px; /* circa 2 cm */
     width: 100%;
     position: relative;
     border-bottom: 1px solid #d8b079;
-  }
-}
-
-/* Nascondi la barra su mobile */
-@media screen and (max-width: 600px) {
-  .chat-header-bar {
-    display: none;
   }
 }
