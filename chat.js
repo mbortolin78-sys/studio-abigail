@@ -49,6 +49,8 @@ function startDictation() {
   recognition.maxAlternatives = 1;
 
   console.log("🎤 Microfono avviato");
+  messageInput.placeholder = "Sto ascoltando…";
+
   recognition.start();
 
   recognition.onstart = function() {
@@ -59,16 +61,23 @@ function startDictation() {
     const transcript = event.results[0][0].transcript;
     console.log("📝 Trascritto:", transcript);
     messageInput.value = transcript;
+    messageInput.placeholder = "Scrivi o parla…";
     sendMessage();
   };
 
   recognition.onerror = function(event) {
     console.error("❌ Errore:", event.error);
-    alert("Errore nella dettatura: " + event.error);
+    messageInput.placeholder = "Scrivi o parla…";
+
+    if (event.error === "no-speech" || event.error === "aborted") {
+      alert("Non ho sentito nulla. Riprova parlando subito dopo il clic.");
+    } else {
+      alert("Errore nella dettatura: " + event.error);
+    }
   };
 
   recognition.onend = function() {
     console.log("🔴 Microfono spento");
+    messageInput.placeholder = "Scrivi o parla…";
   };
 }
-
