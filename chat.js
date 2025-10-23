@@ -48,3 +48,5 @@ function startDictation() {
     console.error("Errore nella dettatura:", event.error);
   };
 }
+
+}
