@@ -23,20 +23,23 @@ body {
   position: relative;
   max-width: 80%;
 }
+
 .message-bubble p {
   font-size: 18px;
   line-height: 1.6;
   margin: 0;
 }
+
 .message-bubble.mine {
-  width: 50%;
-  margin-left: auto;
+  width: calc(100% - 1cm); /* larghezza piena meno margini */
+  margin: 0.5cm auto 10px auto; /* margine sopra/sotto e laterale */
   background-color: #f1d7ab;
   text-align: justify;
   text-align-last: right;
   border-radius: 10px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
+
 .message-bubble.theirs {
   width: 100%;
   background-color: #FFEDD3;
