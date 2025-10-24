@@ -1,0 +1,809 @@
+{
+  "metadati": {
+    "mazzo": "Oracoli dello Sciamano",
+    "versione": "1.1",
+    "data": "2025-10-24",
+    "motore": "Eteria",
+    "note": "Galassiale come testo unico analitico; Salto Quantico operativo; indicatore numerico di frequenza per LLaMA."
+  },
+  "famiglie": [
+    "Terra",
+    "Acqua",
+    "Fuoco",
+    "Aria"
+  ],
+  "carte": [
+    {
+      "nome": "Tamburo della Terra",
+      "famiglia": "Terra",
+      "significato_generale": "Oracolo della terra: vettore di radicamento e sostegno materiale. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Ordine delle risorse, corpo come strumento lucido.",
+          "notte": "Decantazione profonda; integrazione nei tessuti del reale."
+        },
+        "galassiale": "Energia galassiale: densità costante, flusso gravitazionale stabile; forze Sirio–Andromeda convergono sul piano della materia producendo coerenza strutturale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Terra-0.15"
+    },
+    {
+      "nome": "Radice",
+      "famiglia": "Terra",
+      "significato_generale": "Oracolo della terra: vettore di radicamento e sostegno materiale. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Ordine delle risorse, corpo come strumento lucido.",
+          "notte": "Decantazione profonda; integrazione nei tessuti del reale."
+        },
+        "galassiale": "Energia galassiale: densità costante, flusso gravitazionale stabile; forze Sirio–Andromeda convergono sul piano della materia producendo coerenza strutturale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Terra-0.32"
+    },
+    {
+      "nome": "Montagna",
+      "famiglia": "Terra",
+      "significato_generale": "Oracolo della terra: vettore di radicamento e sostegno materiale. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Ordine delle risorse, corpo come strumento lucido.",
+          "notte": "Decantazione profonda; integrazione nei tessuti del reale."
+        },
+        "galassiale": "Energia galassiale: densità costante, flusso gravitazionale stabile; forze Sirio–Andromeda convergono sul piano della materia producendo coerenza strutturale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Terra-0.58"
+    },
+    {
+      "nome": "Pietra Maestra",
+      "famiglia": "Terra",
+      "significato_generale": "Oracolo della terra: vettore di radicamento e sostegno materiale. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Ordine delle risorse, corpo come strumento lucido.",
+          "notte": "Decantazione profonda; integrazione nei tessuti del reale."
+        },
+        "galassiale": "Energia galassiale: densità costante, flusso gravitazionale stabile; forze Sirio–Andromeda convergono sul piano della materia producendo coerenza strutturale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Terra-0.80"
+    },
+    {
+      "nome": "Caverna",
+      "famiglia": "Terra",
+      "significato_generale": "Oracolo della terra: vettore di radicamento e sostegno materiale. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Ordine delle risorse, corpo come strumento lucido.",
+          "notte": "Decantazione profonda; integrazione nei tessuti del reale."
+        },
+        "galassiale": "Energia galassiale: densità costante, flusso gravitazionale stabile; forze Sirio–Andromeda convergono sul piano della materia producendo coerenza strutturale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Terra-0.22"
+    },
+    {
+      "nome": "Foresta",
+      "famiglia": "Terra",
+      "significato_generale": "Oracolo della terra: vettore di radicamento e sostegno materiale. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Ordine delle risorse, corpo come strumento lucido.",
+          "notte": "Decantazione profonda; integrazione nei tessuti del reale."
+        },
+        "galassiale": "Energia galassiale: densità costante, flusso gravitazionale stabile; forze Sirio–Andromeda convergono sul piano della materia producendo coerenza strutturale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Terra-0.47"
+    },
+    {
+      "nome": "Animale Guardiano",
+      "famiglia": "Terra",
+      "significato_generale": "Oracolo della terra: vettore di radicamento e sostegno materiale. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Ordine delle risorse, corpo come strumento lucido.",
+          "notte": "Decantazione profonda; integrazione nei tessuti del reale."
+        },
+        "galassiale": "Energia galassiale: densità costante, flusso gravitazionale stabile; forze Sirio–Andromeda convergono sul piano della materia producendo coerenza strutturale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Terra-0.52"
+    },
+    {
+      "nome": "Campo di Grano",
+      "famiglia": "Terra",
+      "significato_generale": "Oracolo della terra: vettore di radicamento e sostegno materiale. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Ordine delle risorse, corpo come strumento lucido.",
+          "notte": "Decantazione profonda; integrazione nei tessuti del reale."
+        },
+        "galassiale": "Energia galassiale: densità costante, flusso gravitazionale stabile; forze Sirio–Andromeda convergono sul piano della materia producendo coerenza strutturale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Terra-0.62"
+    },
+    {
+      "nome": "Casa Medicina",
+      "famiglia": "Terra",
+      "significato_generale": "Oracolo della terra: vettore di radicamento e sostegno materiale. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Ordine delle risorse, corpo come strumento lucido.",
+          "notte": "Decantazione profonda; integrazione nei tessuti del reale."
+        },
+        "galassiale": "Energia galassiale: densità costante, flusso gravitazionale stabile; forze Sirio–Andromeda convergono sul piano della materia producendo coerenza strutturale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Terra-0.49"
+    },
+    {
+      "nome": "Pellegrinaggio",
+      "famiglia": "Terra",
+      "significato_generale": "Oracolo della terra: vettore di radicamento e sostegno materiale. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Ordine delle risorse, corpo come strumento lucido.",
+          "notte": "Decantazione profonda; integrazione nei tessuti del reale."
+        },
+        "galassiale": "Energia galassiale: densità costante, flusso gravitazionale stabile; forze Sirio–Andromeda convergono sul piano della materia producendo coerenza strutturale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Terra-0.01"
+    },
+    {
+      "nome": "Nonna Terra",
+      "famiglia": "Terra",
+      "significato_generale": "Oracolo della terra: vettore di radicamento e sostegno materiale. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Ordine delle risorse, corpo come strumento lucido.",
+          "notte": "Decantazione profonda; integrazione nei tessuti del reale."
+        },
+        "galassiale": "Energia galassiale: densità costante, flusso gravitazionale stabile; forze Sirio–Andromeda convergono sul piano della materia producendo coerenza strutturale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Terra-0.51"
+    },
+    {
+      "nome": "Fiume",
+      "famiglia": "Acqua",
+      "significato_generale": "Oracolo della acqua: vettore di guarigione e scambio emotivo. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Flusso limpido, empatia lucida, comunicazione sincera.",
+          "notte": "Sogni acquatici mostrano memorie emotive da rilasciare."
+        },
+        "galassiale": "Energia galassiale: frequenza fluida oscillante; Sirio fornisce impulso, Andromeda decanta, il campo bilancia polarità emotive verso equilibrio neutro.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Acqua-0.24"
+    },
+    {
+      "nome": "Lago",
+      "famiglia": "Acqua",
+      "significato_generale": "Oracolo della acqua: vettore di guarigione e scambio emotivo. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Flusso limpido, empatia lucida, comunicazione sincera.",
+          "notte": "Sogni acquatici mostrano memorie emotive da rilasciare."
+        },
+        "galassiale": "Energia galassiale: frequenza fluida oscillante; Sirio fornisce impulso, Andromeda decanta, il campo bilancia polarità emotive verso equilibrio neutro.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Acqua-0.88"
+    },
+    {
+      "nome": "Pioggia",
+      "famiglia": "Acqua",
+      "significato_generale": "Oracolo della acqua: vettore di guarigione e scambio emotivo. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Flusso limpido, empatia lucida, comunicazione sincera.",
+          "notte": "Sogni acquatici mostrano memorie emotive da rilasciare."
+        },
+        "galassiale": "Energia galassiale: frequenza fluida oscillante; Sirio fornisce impulso, Andromeda decanta, il campo bilancia polarità emotive verso equilibrio neutro.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Acqua-0.20"
+    },
+    {
+      "nome": "Mare",
+      "famiglia": "Acqua",
+      "significato_generale": "Oracolo della acqua: vettore di guarigione e scambio emotivo. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Flusso limpido, empatia lucida, comunicazione sincera.",
+          "notte": "Sogni acquatici mostrano memorie emotive da rilasciare."
+        },
+        "galassiale": "Energia galassiale: frequenza fluida oscillante; Sirio fornisce impulso, Andromeda decanta, il campo bilancia polarità emotive verso equilibrio neutro.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Acqua-0.14"
+    },
+    {
+      "nome": "Fonte",
+      "famiglia": "Acqua",
+      "significato_generale": "Oracolo della acqua: vettore di guarigione e scambio emotivo. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Flusso limpido, empatia lucida, comunicazione sincera.",
+          "notte": "Sogni acquatici mostrano memorie emotive da rilasciare."
+        },
+        "galassiale": "Energia galassiale: frequenza fluida oscillante; Sirio fornisce impulso, Andromeda decanta, il campo bilancia polarità emotive verso equilibrio neutro.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Acqua-0.88"
+    },
+    {
+      "nome": "Nebbia",
+      "famiglia": "Acqua",
+      "significato_generale": "Oracolo della acqua: vettore di guarigione e scambio emotivo. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Flusso limpido, empatia lucida, comunicazione sincera.",
+          "notte": "Sogni acquatici mostrano memorie emotive da rilasciare."
+        },
+        "galassiale": "Energia galassiale: frequenza fluida oscillante; Sirio fornisce impulso, Andromeda decanta, il campo bilancia polarità emotive verso equilibrio neutro.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Acqua-0.50"
+    },
+    {
+      "nome": "Ghiaccio",
+      "famiglia": "Acqua",
+      "significato_generale": "Oracolo della acqua: vettore di guarigione e scambio emotivo. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Flusso limpido, empatia lucida, comunicazione sincera.",
+          "notte": "Sogni acquatici mostrano memorie emotive da rilasciare."
+        },
+        "galassiale": "Energia galassiale: frequenza fluida oscillante; Sirio fornisce impulso, Andromeda decanta, il campo bilancia polarità emotive verso equilibrio neutro.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Acqua-0.46"
+    },
+    {
+      "nome": "Tempesta",
+      "famiglia": "Acqua",
+      "significato_generale": "Oracolo della acqua: vettore di guarigione e scambio emotivo. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Flusso limpido, empatia lucida, comunicazione sincera.",
+          "notte": "Sogni acquatici mostrano memorie emotive da rilasciare."
+        },
+        "galassiale": "Energia galassiale: frequenza fluida oscillante; Sirio fornisce impulso, Andromeda decanta, il campo bilancia polarità emotive verso equilibrio neutro.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Acqua-0.63"
+    },
+    {
+      "nome": "Conchiglia",
+      "famiglia": "Acqua",
+      "significato_generale": "Oracolo della acqua: vettore di guarigione e scambio emotivo. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Flusso limpido, empatia lucida, comunicazione sincera.",
+          "notte": "Sogni acquatici mostrano memorie emotive da rilasciare."
+        },
+        "galassiale": "Energia galassiale: frequenza fluida oscillante; Sirio fornisce impulso, Andromeda decanta, il campo bilancia polarità emotive verso equilibrio neutro.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Acqua-0.05"
+    },
+    {
+      "nome": "Acqua Medicina",
+      "famiglia": "Acqua",
+      "significato_generale": "Oracolo della acqua: vettore di guarigione e scambio emotivo. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Flusso limpido, empatia lucida, comunicazione sincera.",
+          "notte": "Sogni acquatici mostrano memorie emotive da rilasciare."
+        },
+        "galassiale": "Energia galassiale: frequenza fluida oscillante; Sirio fornisce impulso, Andromeda decanta, il campo bilancia polarità emotive verso equilibrio neutro.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Acqua-0.66"
+    },
+    {
+      "nome": "Sorella Acqua",
+      "famiglia": "Acqua",
+      "significato_generale": "Oracolo della acqua: vettore di guarigione e scambio emotivo. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Flusso limpido, empatia lucida, comunicazione sincera.",
+          "notte": "Sogni acquatici mostrano memorie emotive da rilasciare."
+        },
+        "galassiale": "Energia galassiale: frequenza fluida oscillante; Sirio fornisce impulso, Andromeda decanta, il campo bilancia polarità emotive verso equilibrio neutro.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Acqua-0.03"
+    },
+    {
+      "nome": "Fuoco Sacro",
+      "famiglia": "Fuoco",
+      "significato_generale": "Oracolo della fuoco: vettore di trasformazione e volontà attiva. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Iniziativa netta, priorità chiare, energia diretta al risultato.",
+          "notte": "Trasmutazione dell’istinto in visione; il fuoco riposa senza spegnersi."
+        },
+        "galassiale": "Energia galassiale: impulso vettoriale; collisione Sirio–Andromeda genera spinta evolutiva e combustione controllata della materia sottile.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Fuoco-0.81"
+    },
+    {
+      "nome": "Vulcano",
+      "famiglia": "Fuoco",
+      "significato_generale": "Oracolo della fuoco: vettore di trasformazione e volontà attiva. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Iniziativa netta, priorità chiare, energia diretta al risultato.",
+          "notte": "Trasmutazione dell’istinto in visione; il fuoco riposa senza spegnersi."
+        },
+        "galassiale": "Energia galassiale: impulso vettoriale; collisione Sirio–Andromeda genera spinta evolutiva e combustione controllata della materia sottile.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Fuoco-0.13"
+    },
+    {
+      "nome": "Brace",
+      "famiglia": "Fuoco",
+      "significato_generale": "Oracolo della fuoco: vettore di trasformazione e volontà attiva. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Iniziativa netta, priorità chiare, energia diretta al risultato.",
+          "notte": "Trasmutazione dell’istinto in visione; il fuoco riposa senza spegnersi."
+        },
+        "galassiale": "Energia galassiale: impulso vettoriale; collisione Sirio–Andromeda genera spinta evolutiva e combustione controllata della materia sottile.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Fuoco-0.72"
+    },
+    {
+      "nome": "Sole Interiore",
+      "famiglia": "Fuoco",
+      "significato_generale": "Oracolo della fuoco: vettore di trasformazione e volontà attiva. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Iniziativa netta, priorità chiare, energia diretta al risultato.",
+          "notte": "Trasmutazione dell’istinto in visione; il fuoco riposa senza spegnersi."
+        },
+        "galassiale": "Energia galassiale: impulso vettoriale; collisione Sirio–Andromeda genera spinta evolutiva e combustione controllata della materia sottile.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Fuoco-0.67"
+    },
+    {
+      "nome": "Lama di Fuoco",
+      "famiglia": "Fuoco",
+      "significato_generale": "Oracolo della fuoco: vettore di trasformazione e volontà attiva. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Iniziativa netta, priorità chiare, energia diretta al risultato.",
+          "notte": "Trasmutazione dell’istinto in visione; il fuoco riposa senza spegnersi."
+        },
+        "galassiale": "Energia galassiale: impulso vettoriale; collisione Sirio–Andromeda genera spinta evolutiva e combustione controllata della materia sottile.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Fuoco-0.56"
+    },
+    {
+      "nome": "Forgia",
+      "famiglia": "Fuoco",
+      "significato_generale": "Oracolo della fuoco: vettore di trasformazione e volontà attiva. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Iniziativa netta, priorità chiare, energia diretta al risultato.",
+          "notte": "Trasmutazione dell’istinto in visione; il fuoco riposa senza spegnersi."
+        },
+        "galassiale": "Energia galassiale: impulso vettoriale; collisione Sirio–Andromeda genera spinta evolutiva e combustione controllata della materia sottile.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Fuoco-0.73"
+    },
+    {
+      "nome": "Lampada",
+      "famiglia": "Fuoco",
+      "significato_generale": "Oracolo della fuoco: vettore di trasformazione e volontà attiva. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Iniziativa netta, priorità chiare, energia diretta al risultato.",
+          "notte": "Trasmutazione dell’istinto in visione; il fuoco riposa senza spegnersi."
+        },
+        "galassiale": "Energia galassiale: impulso vettoriale; collisione Sirio–Andromeda genera spinta evolutiva e combustione controllata della materia sottile.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Fuoco-0.49"
+    },
+    {
+      "nome": "Saetta",
+      "famiglia": "Fuoco",
+      "significato_generale": "Oracolo della fuoco: vettore di trasformazione e volontà attiva. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Iniziativa netta, priorità chiare, energia diretta al risultato.",
+          "notte": "Trasmutazione dell’istinto in visione; il fuoco riposa senza spegnersi."
+        },
+        "galassiale": "Energia galassiale: impulso vettoriale; collisione Sirio–Andromeda genera spinta evolutiva e combustione controllata della materia sottile.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Fuoco-0.57"
+    },
+    {
+      "nome": "Cenere",
+      "famiglia": "Fuoco",
+      "significato_generale": "Oracolo della fuoco: vettore di trasformazione e volontà attiva. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Iniziativa netta, priorità chiare, energia diretta al risultato.",
+          "notte": "Trasmutazione dell’istinto in visione; il fuoco riposa senza spegnersi."
+        },
+        "galassiale": "Energia galassiale: impulso vettoriale; collisione Sirio–Andromeda genera spinta evolutiva e combustione controllata della materia sottile.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Fuoco-0.71"
+    },
+    {
+      "nome": "Danza del Fuoco",
+      "famiglia": "Fuoco",
+      "significato_generale": "Oracolo della fuoco: vettore di trasformazione e volontà attiva. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Iniziativa netta, priorità chiare, energia diretta al risultato.",
+          "notte": "Trasmutazione dell’istinto in visione; il fuoco riposa senza spegnersi."
+        },
+        "galassiale": "Energia galassiale: impulso vettoriale; collisione Sirio–Andromeda genera spinta evolutiva e combustione controllata della materia sottile.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Fuoco-0.55"
+    },
+    {
+      "nome": "Fratello Fuoco",
+      "famiglia": "Fuoco",
+      "significato_generale": "Oracolo della fuoco: vettore di trasformazione e volontà attiva. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Iniziativa netta, priorità chiare, energia diretta al risultato.",
+          "notte": "Trasmutazione dell’istinto in visione; il fuoco riposa senza spegnersi."
+        },
+        "galassiale": "Energia galassiale: impulso vettoriale; collisione Sirio–Andromeda genera spinta evolutiva e combustione controllata della materia sottile.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Fuoco-0.11"
+    },
+    {
+      "nome": "Vento",
+      "famiglia": "Aria",
+      "significato_generale": "Oracolo della aria: vettore di pensiero e linguaggio. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Comunicazione chiara, mente ordinata, scelte leggere.",
+          "notte": "Visione ampia; sogni d’aria portano idee praticabili."
+        },
+        "galassiale": "Energia galassiale: oscillazione mentale tra Sirio (decisione) e Andromeda (intuizione); campo neutro di pensiero trasparente e direzionale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Aria-0.60"
+    },
+    {
+      "nome": "Canto",
+      "famiglia": "Aria",
+      "significato_generale": "Oracolo della aria: vettore di pensiero e linguaggio. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Comunicazione chiara, mente ordinata, scelte leggere.",
+          "notte": "Visione ampia; sogni d’aria portano idee praticabili."
+        },
+        "galassiale": "Energia galassiale: oscillazione mentale tra Sirio (decisione) e Andromeda (intuizione); campo neutro di pensiero trasparente e direzionale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Aria-0.17"
+    },
+    {
+      "nome": "Aquila",
+      "famiglia": "Aria",
+      "significato_generale": "Oracolo della aria: vettore di pensiero e linguaggio. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Comunicazione chiara, mente ordinata, scelte leggere.",
+          "notte": "Visione ampia; sogni d’aria portano idee praticabili."
+        },
+        "galassiale": "Energia galassiale: oscillazione mentale tra Sirio (decisione) e Andromeda (intuizione); campo neutro di pensiero trasparente e direzionale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Aria-0.61"
+    },
+    {
+      "nome": "Respiro",
+      "famiglia": "Aria",
+      "significato_generale": "Oracolo della aria: vettore di pensiero e linguaggio. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Comunicazione chiara, mente ordinata, scelte leggere.",
+          "notte": "Visione ampia; sogni d’aria portano idee praticabili."
+        },
+        "galassiale": "Energia galassiale: oscillazione mentale tra Sirio (decisione) e Andromeda (intuizione); campo neutro di pensiero trasparente e direzionale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Aria-0.29"
+    },
+    {
+      "nome": "Nuvola",
+      "famiglia": "Aria",
+      "significato_generale": "Oracolo della aria: vettore di pensiero e linguaggio. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Comunicazione chiara, mente ordinata, scelte leggere.",
+          "notte": "Visione ampia; sogni d’aria portano idee praticabili."
+        },
+        "galassiale": "Energia galassiale: oscillazione mentale tra Sirio (decisione) e Andromeda (intuizione); campo neutro di pensiero trasparente e direzionale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Aria-0.27"
+    },
+    {
+      "nome": "Orizzonte",
+      "famiglia": "Aria",
+      "significato_generale": "Oracolo della aria: vettore di pensiero e linguaggio. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Comunicazione chiara, mente ordinata, scelte leggere.",
+          "notte": "Visione ampia; sogni d’aria portano idee praticabili."
+        },
+        "galassiale": "Energia galassiale: oscillazione mentale tra Sirio (decisione) e Andromeda (intuizione); campo neutro di pensiero trasparente e direzionale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Aria-0.04"
+    },
+    {
+      "nome": "Sussurro",
+      "famiglia": "Aria",
+      "significato_generale": "Oracolo della aria: vettore di pensiero e linguaggio. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Comunicazione chiara, mente ordinata, scelte leggere.",
+          "notte": "Visione ampia; sogni d’aria portano idee praticabili."
+        },
+        "galassiale": "Energia galassiale: oscillazione mentale tra Sirio (decisione) e Andromeda (intuizione); campo neutro di pensiero trasparente e direzionale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Aria-0.74"
+    },
+    {
+      "nome": "Stella Cadente",
+      "famiglia": "Aria",
+      "significato_generale": "Oracolo della aria: vettore di pensiero e linguaggio. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Comunicazione chiara, mente ordinata, scelte leggere.",
+          "notte": "Visione ampia; sogni d’aria portano idee praticabili."
+        },
+        "galassiale": "Energia galassiale: oscillazione mentale tra Sirio (decisione) e Andromeda (intuizione); campo neutro di pensiero trasparente e direzionale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Aria-0.24"
+    },
+    {
+      "nome": "Flauto",
+      "famiglia": "Aria",
+      "significato_generale": "Oracolo della aria: vettore di pensiero e linguaggio. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Comunicazione chiara, mente ordinata, scelte leggere.",
+          "notte": "Visione ampia; sogni d’aria portano idee praticabili."
+        },
+        "galassiale": "Energia galassiale: oscillazione mentale tra Sirio (decisione) e Andromeda (intuizione); campo neutro di pensiero trasparente e direzionale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Aria-0.78"
+    },
+    {
+      "nome": "Piuma Bianca",
+      "famiglia": "Aria",
+      "significato_generale": "Oracolo della aria: vettore di pensiero e linguaggio. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Comunicazione chiara, mente ordinata, scelte leggere.",
+          "notte": "Visione ampia; sogni d’aria portano idee praticabili."
+        },
+        "galassiale": "Energia galassiale: oscillazione mentale tra Sirio (decisione) e Andromeda (intuizione); campo neutro di pensiero trasparente e direzionale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Aria-0.77"
+    },
+    {
+      "nome": "Sorella Aria",
+      "famiglia": "Aria",
+      "significato_generale": "Oracolo della aria: vettore di pensiero e linguaggio. Descrive uno stato energetico tangibile e misurabile nel corpo e nell'ambiente. Indica dove agisce la forza primaria del ciclo in atto.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Comunicazione chiara, mente ordinata, scelte leggere.",
+          "notte": "Visione ampia; sogni d’aria portano idee praticabili."
+        },
+        "galassiale": "Energia galassiale: oscillazione mentale tra Sirio (decisione) e Andromeda (intuizione); campo neutro di pensiero trasparente e direzionale.",
+        "salto_quantico": {
+          "passato": "Origine del pattern osservato: campo registrato in fase di polarità residua, ancora leggibile ma in dissolvenza.",
+          "presente": "Centro del salto: variazione di frequenza in corso, oscillazione misurabile e gestibile.",
+          "futuro": "Nuova stabilizzazione: campo coerente pronto alla traduzione operativa del salto."
+        }
+      },
+      "indicatore": "frequenza di bilanciamento Aria-0.61"
+    }
+  ]
+}
