@@ -32,7 +32,9 @@ if (SpeechRecognition) {
   recognition.continuous = true; // ✅ puoi fare pause
 
   micButton.addEventListener('click', () => {
-    recognition.start();
+  if (recognition && recognition.state !== "listening") {
+  recognition.start();
+}
     micButton.classList.add('active');
   });
 
