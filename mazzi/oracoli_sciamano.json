@@ -1,18 +1,4 @@
-{
-  "metadati": {
-    "mazzo": "Oracoli dello Sciamano",
-    "versione": "1.1",
-    "data": "2025-10-24",
-    "motore": "Eteria",
-    "note": "Galassiale come testo unico analitico; Salto Quantico operativo; indicatore numerico di frequenza per LLaMA."
-  },
-  "famiglie": [
-    "Terra",
-    "Acqua",
-    "Fuoco",
-    "Aria"
-  ],
-  "carte": [
+[
     {
       "nome": "Tamburo della Terra",
       "famiglia": "Terra",
