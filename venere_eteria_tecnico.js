@@ -19,18 +19,7 @@ let ORACOLI_SCIAMANO = null;
 
 async function caricaMazzoOracoli() {
   try {
-    const res = await fetch('./mazzi/oracoli_sciamano.json');
-    if (!res.ok) {
-      console.error('Errore nel caricamento del mazzo Oracoli dello Sciamano');
-      return null;
-    }
-    ORACOLI_SCIAMANO = await res.json();
-    console.log('✅ Mazzo Oracoli dello Sciamano caricato in memoria');
-    return ORACOLI_SCIAMANO;
-  } catch (err) {
-    console.error('❌ Errore durante il caricamento degli oracoli:', err);
-    return null;
-  }
+  import ORACOLI_SCIAMANO from './mazzi/oracoli_sciamano.json' assert { type: 'json' };
 }
 
 export async function eseguiVenereEteria(data, ora, luogo, comando) {
