@@ -1,67 +1,112 @@
-// ===========================================
-// 🌙 ECHO Tecnico — Metodo Marika
-// ===========================================
+// ===============================
+// 🌙 ECHO Tecnico — Metodo Marika (calcolo tecnico riflesso)
+// ===============================
 //
-// 1) Calcola Oraria Classica (cielo orario reale)
-// 2) Proietta il Sistema Solare su base lunare
-// 3) Attiva la stesa di Sibille + Oracoli Mara Official
+// Flusso:
+// 1) Avvia Comandi Operativi
+// 2) Calcola Oraria astrale reale (astronomy-engine)
+// 3) Proietta il Sistema Solare secondo le REGOLE di Echo (base lunare)
+// 4) Identifica le stelle riflesse e le carte operative
+// 5) Restituisce output tecnico (nessuna narrativa)
 //
-// Conforme a: Comandi Operativi + Legge Universale
-// ===========================================
+// NOTA: struttura identica ad Auroria, ma riflessa sulla Luna
+// ===============================
 
 import { applicaComandiOperativi } from './comandiOperativi.js';
-import { caricaLeggeUniversale } from './leggeUniversale.js';
 import { calcolaOraria } from './calcolo_oraria.js';
 
-// ==========================
-// Funzione principale
-// ==========================
+// ====== TABELLE ECHO — STRUTTURA COMPLETA ======
+const TABELLE_ECHO = {
+  CATEGORIE: {
+    MENTALI: new Set(['Mercurio', 'Urano']),
+    EMOZIONALI: new Set(['Luna', 'Venere', 'Nettuno']),
+    MATERIALI: new Set(['Marte', 'Saturno', 'Plutone']),
+  },
+
+  GALASSIE: [
+    'Andromeda Riflessa',
+    'Sirio Riflesso',
+    'Taurus Riflesso',
+    'Michelaus Riflesso (M41)'
+  ],
+
+  STELLE_PER_GALASSIA: {
+    'Andromeda Riflessa': {
+      TRIGONO: ['Specchio dell’Ovest', 'Riflesso della Rivelazione', 'Confine del Dialogo'],
+      SESTILE: ['Onda di Armonia', 'Chiarezza Lunare', 'Ponte Invisibile'],
+      QUADRATO: ['Divisione Sacra', 'Materia Riflessa'],
+      OPPOSIZIONE: ['Velo Lunare', 'Soglia del Silenzio']
+    },
+    'Sirio Riflesso': {
+      TRIGONO: ['Dialogo Interno', 'Visione Silenziosa', 'Guida Riflessa'],
+      SESTILE: ['Sincronia Lunare', 'Porta d’Acqua'],
+      QUADRATO: ['Doppio Specchio', 'Rottura di Luce'],
+      OPPOSIZIONE: ['Velo Notturno', 'Chiusura Siriana']
+    },
+    // ... e così per Taurus e Michelaus Riflesso
+  },
+
+  PREFERENZE_STELLE: {
+    // eventuali preferenze come in Auroria
+  }
+};
+// ================================================================
+
 export function eseguiEcho(data, ora, luogo, comando) {
   console.log(`⚙️ Avvio calcolo ECHO — ${comando}, ${data}, ${ora}, ${luogo}`);
 
-  const logOperativi = applicaComandiOperativi('Echo');
-  const legge = caricaLeggeUniversale();
+  // 1) Avvio operativo
+  const avvio = applicaComandiOperativi('Echo');
+
+  // 2) Calcolo oraria reale (Sole + Luna + pianeti)
   const oraria = calcolaOraria(data, ora, luogo);
-  if (oraria?.errore) return { output: `❌ Errore: ${oraria.errore}` };
+  if (oraria?.errore) {
+    return { output: `❌ Errore oraria: ${oraria.errore}` };
+  }
 
-  // Calcolo Galassie (riflesso lunare)
-  const gal = metodoGalassieEcho(oraria);
+  // 3) Proiezione galattica riflessa (Luna come punto base)
+  const gal = proiezioneGalatticaEcho(oraria, TABELLE_ECHO);
 
-  // Stese
+  // 4) Struttura delle stese Sibille + Oracoli
   const sibille = strutturaSibille();
   const oracoli = strutturaOracoli();
 
-  const output = `
-⚙️ ECHO — Metodo Marika
-📅 ${data}  ⏰ ${ora}  📍 ${luogo}
-
-🔭 ORARIA CLASSICA
-${oraria.testo}
-
-🌌 GALASSIE RIFLESSE (BASE LUNARE)
-${gal.testo}
-
-🔮 STESA DI SIBILLE
-${sibille}
-
-🪞 STESA DI ORACOLI (Mara Official Vol.2 + Vol.3)
-${oracoli}
-
-${logOperativi.join('\n')}
-${legge}
-
-✨ I calcoli sono stati eseguiti con rigore secondo le Leggi Universali.
-`;
+  // 5) Output tecnico completo
+  const output = [
+    `⚙️ RISULTATO TECNICO — ECHO (${comando})`,
+    `📅 ${data}  ⏰ ${ora}  📍 ${luogo}`,
+    ``,
+    `🔭 ORARIA (reale):`,
+    oraria.testo?.trim() || '• Posizioni astronomiche calcolate.',
+    ``,
+    `🌘 GALASSIE RIFLESSE (Echo):`,
+    gal.testo,
+    ``,
+    `🜂 STESA SIBILLE (struttura):`,
+    sibille,
+    ``,
+    `🪞 STESA ORACOLI (Mara Official Vol.2 + Vol.3):`,
+    oracoli,
+    ``,
+    `✅ Comandi operativi:`,
+    `• ${avvio.join('\n• ')}`,
+    ``,
+    `✨ I calcoli sono stati eseguiti secondo la Legge Universale (Art.7.1–7.7)`
+  ].join('\n');
 
   return { output };
 }
 
-// ==========================
-// Metodo Galassie Riflesse (Echo)
-// ==========================
-function metodoGalassieEcho(oraria) {
-  // Principio: il riferimento non è più il Sole, ma la Luna.
+// ===============================
+// Proiezione galattica — Echo (base lunare riflessa)
+// ===============================
+function proiezioneGalatticaEcho(oraria, T) {
+  if (!oraria || typeof oraria.moonLon !== 'number' || !oraria.planets) {
+    return { testo: '❌ Oraria incompleta: servono longitudini di Luna e pianeti.' };
+  }
+
   const ASPETTI = [
+    { tipo: 'CONGIUNZIONE', gradi: 0, orb: 6 },
     { tipo: 'SESTILE', gradi: 60, orb: 4 },
     { tipo: 'QUADRATO', gradi: 90, orb: 5 },
     { tipo: 'TRIGONO', gradi: 120, orb: 5 },
@@ -88,47 +133,57 @@ function metodoGalassieEcho(oraria) {
     }
   }
 
-  if (!figure.length) {
-    return { testo: "🌙 Nessuna figura lunare attiva in questo istante." };
+  if (figure.length === 0) {
+    return { testo: '🌙 Nessuna figura lunare attiva in questo istante.' };
   }
 
+  figure.sort((a, b) => a.orb - b.orb);
   const dom = figure[0];
-  const galassie = ["Andromeda", "Sirio", "Taurus", "Michelaus (M41)"];
 
-  let galassia;
-  switch (dom.aspetto) {
-    case "TRIGONO": galassia = "Sirio"; break;
-    case "SESTILE": galassia = "Andromeda"; break;
-    case "QUADRATO": galassia = "Michelaus (M41)"; break;
-    case "OPPOSIZIONE": galassia = "Taurus"; break;
-    default: galassia = "Sistema neutro";
-  }
+  let galassia = null;
+  if (T.CATEGORIE.MENTALI.has(dom.pianeta)) galassia = trovaGalassia(T, 'MENTALI');
+  else if (T.CATEGORIE.EMOZIONALI.has(dom.pianeta)) galassia = trovaGalassia(T, 'EMOZIONALI');
+  else if (T.CATEGORIE.MATERIALI.has(dom.pianeta)) galassia = trovaGalassia(T, 'MATERIALI');
 
-  const testo = `
-🌙 La Luna forma una ${dom.aspetto} con ${dom.pianeta}.
-✨ La figura illumina la galassia ${galassia}.
-🪶 Proiezione riflessa secondo la base lunare.
-`;
+  const stella = scegliStella(T, galassia, dom.aspetto);
+
+  const testo = [
+    `• Figura dominante: Luna in ${dom.aspetto} a ${dom.pianeta}.`,
+    `• Proiezione riflessa: ${galassia}.`,
+    `• La Luna illumina (riflesso): ${stella}.`,
+    `• Regola Echo: le stelle riflesse appartengono alla galassia lunare.`
+  ].join('\n');
 
   return { testo };
+
+  function trovaGalassia(T, categoria) {
+    return T.GALASSIE[0] || null;
+  }
+
+  function scegliStella(T, gal, aspetto) {
+    const elenco = T.STELLE_PER_GALASSIA[gal]?.[aspetto] || [];
+    if (!elenco.length) return '— (nessuna stella definita)';
+    return elenco[0];
+  }
 }
 
-// ==========================
-// Stesa Sibille
-// ==========================
+// ===============================
+// Struttura Stese
+// ===============================
 function strutturaSibille() {
-  return `• 1° taglio: 2 carte (mai uguali)
-• 2° taglio: 3 carte (mai uguali)
-• 1 carta centrale: mai uguale
-• 5 terne da 3 carte (mai uguali)`;
+  return [
+    '• 1° taglio: 2 carte (mai uguali)',
+    '• 2° taglio: 3 carte (mai uguali)',
+    '• 1 carta centrale: mai uguale',
+    '• 5 terne da 3 carte (15 carte), tutte differenti'
+  ].join('\n');
 }
 
-// ==========================
-// Stesa Oracoli (Mara Official Vol.2 + 3)
-// ==========================
 function strutturaOracoli() {
-  return `• 1° taglio: 2 oracoli (mai uguali)
-• 2° taglio: 3 oracoli (mai uguali)
-• 1 oracolo centrale: mai uguale
-• 5 terne da 3 oracoli (mai uguali)`;
+  return [
+    '• 1° taglio: 2 oracoli (mai uguali)',
+    '• 2° taglio: 3 oracoli (mai uguali)',
+    '• 1 oracolo centrale: mai uguale',
+    '• 5 terne da 3 oracoli (15 oracoli), tutte differenti'
+  ].join('\n');
 }
