@@ -1,0 +1,587 @@
+{
+  "metadati": {
+    "mazzo": "Lenormand",
+    "versione": "1.0",
+    "data": "2025-10-24",
+    "motore": "Echo",
+    "note": "Galassie senza stelle; struttura come Sibille (generale, oraria, galattica)."
+  },
+  "carte": [
+    {
+      "nome": "Cavaliere",
+      "significato_generale": "Energia terrestre sincronica: Cavaliere mostra notizie, avanzamento, arrivo come vettore operativo. La carta indica messaggio operativo che mette in moto un passaggio, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a notizie, avanzamento, arrivo. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a messaggio operativo che mette in moto un passaggio. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a messaggio operativo che mette in moto un passaggio. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su notizie, avanzamento, arrivo. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di messaggio operativo che mette in moto un passaggio. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in messaggio operativo che mette in moto un passaggio. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Quadrifoglio",
+      "significato_generale": "Energia terrestre sincronica: Quadrifoglio mostra occasioni rapide, fortuna breve come vettore operativo. La carta indica finestra utile che richiede prontezza e umiltà, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a occasioni rapide, fortuna breve. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a finestra utile che richiede prontezza e umiltà. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a finestra utile che richiede prontezza e umiltà. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su occasioni rapide, fortuna breve. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di finestra utile che richiede prontezza e umiltà. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in finestra utile che richiede prontezza e umiltà. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Nave",
+      "significato_generale": "Energia terrestre sincronica: Nave mostra viaggio, transito, espansione come vettore operativo. La carta indica spostamento fisico o interiore verso un orizzonte coerente, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a viaggio, transito, espansione. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a spostamento fisico o interiore verso un orizzonte coerente. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a spostamento fisico o interiore verso un orizzonte coerente. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su viaggio, transito, espansione. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di spostamento fisico o interiore verso un orizzonte coerente. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in spostamento fisico o interiore verso un orizzonte coerente. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Casa",
+      "significato_generale": "Energia terrestre sincronica: Casa mostra radici, protezione, base come vettore operativo. La carta indica gestione del perimetro affettivo e logistico, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a radici, protezione, base. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a gestione del perimetro affettivo e logistico. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a gestione del perimetro affettivo e logistico. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su radici, protezione, base. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di gestione del perimetro affettivo e logistico. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in gestione del perimetro affettivo e logistico. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Albero",
+      "significato_generale": "Energia terrestre sincronica: Albero mostra salute, crescita lenta, lignaggio come vettore operativo. La carta indica processi profondi che maturano nel tempo, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a salute, crescita lenta, lignaggio. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a processi profondi che maturano nel tempo. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a processi profondi che maturano nel tempo. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su salute, crescita lenta, lignaggio. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di processi profondi che maturano nel tempo. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in processi profondi che maturano nel tempo. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Nubi",
+      "significato_generale": "Energia terrestre sincronica: Nubi mostra confusione, transizione, dubbio come vettore operativo. La carta indica fase di scarsa visibilità che invita a semplificare, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a confusione, transizione, dubbio. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a fase di scarsa visibilità che invita a semplificare. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a fase di scarsa visibilità che invita a semplificare. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su confusione, transizione, dubbio. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di fase di scarsa visibilità che invita a semplificare. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in fase di scarsa visibilità che invita a semplificare. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Serpente",
+      "significato_generale": "Energia terrestre sincronica: Serpente mostra deviazione, intelligenza tattica come vettore operativo. La carta indica strategie sottili, rischio di manipolazione, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a deviazione, intelligenza tattica. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a strategie sottili, rischio di manipolazione. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a strategie sottili, rischio di manipolazione. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su deviazione, intelligenza tattica. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di strategie sottili, rischio di manipolazione. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in strategie sottili, rischio di manipolazione. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Bara",
+      "significato_generale": "Energia terrestre sincronica: Bara mostra fine, compostaggio, trasformazione come vettore operativo. La carta indica chiusura necessaria che libera energia, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a fine, compostaggio, trasformazione. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a chiusura necessaria che libera energia. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a chiusura necessaria che libera energia. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su fine, compostaggio, trasformazione. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di chiusura necessaria che libera energia. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in chiusura necessaria che libera energia. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Bouquet",
+      "significato_generale": "Energia terrestre sincronica: Bouquet mostra invito, grazia, dono come vettore operativo. La carta indica armonia sociale e riconoscimento, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a invito, grazia, dono. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a armonia sociale e riconoscimento. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a armonia sociale e riconoscimento. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su invito, grazia, dono. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di armonia sociale e riconoscimento. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in armonia sociale e riconoscimento. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Falce",
+      "significato_generale": "Energia terrestre sincronica: Falce mostra taglio rapido, decisione, rischio come vettore operativo. La carta indica interruzione netta o raccolto improvviso, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a taglio rapido, decisione, rischio. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a interruzione netta o raccolto improvviso. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a interruzione netta o raccolto improvviso. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su taglio rapido, decisione, rischio. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di interruzione netta o raccolto improvviso. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in interruzione netta o raccolto improvviso. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Frusta",
+      "significato_generale": "Energia terrestre sincronica: Frusta mostra attrito, ripetizione, allenamento come vettore operativo. La carta indica tensione ciclica da disciplinare, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a attrito, ripetizione, allenamento. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a tensione ciclica da disciplinare. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a tensione ciclica da disciplinare. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su attrito, ripetizione, allenamento. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di tensione ciclica da disciplinare. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in tensione ciclica da disciplinare. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Uccelli",
+      "significato_generale": "Energia terrestre sincronica: Uccelli mostra dialogo, notizie multiple come vettore operativo. La carta indica scambi veloci, ansia comunicativa, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a dialogo, notizie multiple. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a scambi veloci, ansia comunicativa. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a scambi veloci, ansia comunicativa. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su dialogo, notizie multiple. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di scambi veloci, ansia comunicativa. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in scambi veloci, ansia comunicativa. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Bambino",
+      "significato_generale": "Energia terrestre sincronica: Bambino mostra inizio, semplicità, fiducia come vettore operativo. La carta indica nuovo ciclo in forma elementare, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a inizio, semplicità, fiducia. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a nuovo ciclo in forma elementare. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a nuovo ciclo in forma elementare. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su inizio, semplicità, fiducia. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di nuovo ciclo in forma elementare. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in nuovo ciclo in forma elementare. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Volpe",
+      "significato_generale": "Energia terrestre sincronica: Volpe mostra astuzia, lavoro, prudenza come vettore operativo. La carta indica attenzione a interessi nascosti, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a astuzia, lavoro, prudenza. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a attenzione a interessi nascosti. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a attenzione a interessi nascosti. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su astuzia, lavoro, prudenza. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di attenzione a interessi nascosti. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in attenzione a interessi nascosti. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Orso",
+      "significato_generale": "Energia terrestre sincronica: Orso mostra forza, tutela, finanze come vettore operativo. La carta indica protezione assertiva e gestione di risorse, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a forza, tutela, finanze. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a protezione assertiva e gestione di risorse. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a protezione assertiva e gestione di risorse. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su forza, tutela, finanze. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di protezione assertiva e gestione di risorse. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in protezione assertiva e gestione di risorse. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Stelle",
+      "significato_generale": "Energia terrestre sincronica: Stelle mostra orientamento, ispirazione, rete come vettore operativo. La carta indica mappa razionale di possibilità, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a orientamento, ispirazione, rete. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a mappa razionale di possibilità. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a mappa razionale di possibilità. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su orientamento, ispirazione, rete. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di mappa razionale di possibilità. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in mappa razionale di possibilità. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Cicogna",
+      "significato_generale": "Energia terrestre sincronica: Cicogna mostra cambiamento, passaggio, rinnovo come vettore operativo. La carta indica trasloco, aggiornamento, riassetto, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a cambiamento, passaggio, rinnovo. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a trasloco, aggiornamento, riassetto. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a trasloco, aggiornamento, riassetto. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su cambiamento, passaggio, rinnovo. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di trasloco, aggiornamento, riassetto. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in trasloco, aggiornamento, riassetto. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Cane",
+      "significato_generale": "Energia terrestre sincronica: Cane mostra lealtà, supporto, alleato come vettore operativo. La carta indica presenza affidabile che sostiene, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a lealtà, supporto, alleato. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a presenza affidabile che sostiene. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a presenza affidabile che sostiene. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su lealtà, supporto, alleato. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di presenza affidabile che sostiene. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in presenza affidabile che sostiene. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Torre",
+      "significato_generale": "Energia terrestre sincronica: Torre mostra struttura, distanza, istituzioni come vettore operativo. La carta indica verticalità, autonomia, prospettiva, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a struttura, distanza, istituzioni. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a verticalità, autonomia, prospettiva. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a verticalità, autonomia, prospettiva. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su struttura, distanza, istituzioni. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di verticalità, autonomia, prospettiva. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in verticalità, autonomia, prospettiva. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Giardino",
+      "significato_generale": "Energia terrestre sincronica: Giardino mostra pubblico, visibilità, evento come vettore operativo. La carta indica apertura sociale, community, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a pubblico, visibilità, evento. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a apertura sociale, community. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a apertura sociale, community. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su pubblico, visibilità, evento. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di apertura sociale, community. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in apertura sociale, community. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Montagna",
+      "significato_generale": "Energia terrestre sincronica: Montagna mostra ostacolo, lentezza, prova come vettore operativo. La carta indica ritardo utile a consolidare, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a ostacolo, lentezza, prova. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a ritardo utile a consolidare. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a ritardo utile a consolidare. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su ostacolo, lentezza, prova. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di ritardo utile a consolidare. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in ritardo utile a consolidare. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Sentieri",
+      "significato_generale": "Energia terrestre sincronica: Sentieri mostra scelta, biforcazione, opzioni come vettore operativo. La carta indica decisione consapevole con rinuncia, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a scelta, biforcazione, opzioni. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a decisione consapevole con rinuncia. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a decisione consapevole con rinuncia. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su scelta, biforcazione, opzioni. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di decisione consapevole con rinuncia. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in decisione consapevole con rinuncia. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Topo",
+      "significato_generale": "Energia terrestre sincronica: Topo mostra consumo, perdita, usura come vettore operativo. La carta indica drenaggi piccoli ma continui, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a consumo, perdita, usura. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a drenaggi piccoli ma continui. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a drenaggi piccoli ma continui. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su consumo, perdita, usura. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di drenaggi piccoli ma continui. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in drenaggi piccoli ma continui. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Cuore",
+      "significato_generale": "Energia terrestre sincronica: Cuore mostra affetto, piacere, coesione come vettore operativo. La carta indica legame sincero e nutriente, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a affetto, piacere, coesione. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a legame sincero e nutriente. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a legame sincero e nutriente. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su affetto, piacere, coesione. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di legame sincero e nutriente. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in legame sincero e nutriente. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Anello",
+      "significato_generale": "Energia terrestre sincronica: Anello mostra patto, continuità, ciclo come vettore operativo. La carta indica accordo formale o impegno, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a patto, continuità, ciclo. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a accordo formale o impegno. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a accordo formale o impegno. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su patto, continuità, ciclo. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di accordo formale o impegno. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in accordo formale o impegno. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Libro",
+      "significato_generale": "Energia terrestre sincronica: Libro mostra segreto, studio, dati come vettore operativo. La carta indica informazione non ancora rivelata, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a segreto, studio, dati. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a informazione non ancora rivelata. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a informazione non ancora rivelata. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su segreto, studio, dati. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di informazione non ancora rivelata. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in informazione non ancora rivelata. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Lettera",
+      "significato_generale": "Energia terrestre sincronica: Lettera mostra documento, messaggio, firma come vettore operativo. La carta indica comunicazione ufficiale tracciabile, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a documento, messaggio, firma. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a comunicazione ufficiale tracciabile. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a comunicazione ufficiale tracciabile. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su documento, messaggio, firma. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di comunicazione ufficiale tracciabile. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in comunicazione ufficiale tracciabile. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Uomo",
+      "significato_generale": "Energia terrestre sincronica: Uomo mostra principio attivo, vettore come vettore operativo. La carta indica direzione, scelta, responsabilità, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a principio attivo, vettore. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a direzione, scelta, responsabilità. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a direzione, scelta, responsabilità. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su principio attivo, vettore. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di direzione, scelta, responsabilità. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in direzione, scelta, responsabilità. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Donna",
+      "significato_generale": "Energia terrestre sincronica: Donna mostra principio ricettivo, cura come vettore operativo. La carta indica accoglienza, ascolto, coesione, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a principio ricettivo, cura. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a accoglienza, ascolto, coesione. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a accoglienza, ascolto, coesione. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su principio ricettivo, cura. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di accoglienza, ascolto, coesione. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in accoglienza, ascolto, coesione. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Gigli",
+      "significato_generale": "Energia terrestre sincronica: Gigli mostra etica, eleganza, maturità come vettore operativo. La carta indica comportamento alto e sobrio, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a etica, eleganza, maturità. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a comportamento alto e sobrio. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a comportamento alto e sobrio. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su etica, eleganza, maturità. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di comportamento alto e sobrio. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in comportamento alto e sobrio. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Sole",
+      "significato_generale": "Energia terrestre sincronica: Sole mostra successo, energia, chiarezza come vettore operativo. La carta indica esposizione benefica e vitale, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a successo, energia, chiarezza. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a esposizione benefica e vitale. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a esposizione benefica e vitale. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su successo, energia, chiarezza. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di esposizione benefica e vitale. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in esposizione benefica e vitale. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Luna",
+      "significato_generale": "Energia terrestre sincronica: Luna mostra ritmo, immagine, sensibilità come vettore operativo. La carta indica riconoscimento emotivo e cicli, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a ritmo, immagine, sensibilità. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a riconoscimento emotivo e cicli. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a riconoscimento emotivo e cicli. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su ritmo, immagine, sensibilità. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di riconoscimento emotivo e cicli. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in riconoscimento emotivo e cicli. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Chiave",
+      "significato_generale": "Energia terrestre sincronica: Chiave mostra soluzione, accesso, garanzia come vettore operativo. La carta indica sblocco definitivo e controllo, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a soluzione, accesso, garanzia. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a sblocco definitivo e controllo. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a sblocco definitivo e controllo. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su soluzione, accesso, garanzia. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di sblocco definitivo e controllo. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in sblocco definitivo e controllo. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Pesci",
+      "significato_generale": "Energia terrestre sincronica: Pesci mostra flusso, economia, autonomia come vettore operativo. La carta indica liquidità e scambio, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a flusso, economia, autonomia. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a liquidità e scambio. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a liquidità e scambio. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su flusso, economia, autonomia. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di liquidità e scambio. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in liquidità e scambio. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Ancora",
+      "significato_generale": "Energia terrestre sincronica: Ancora mostra stabilità, tenuta, lavoro come vettore operativo. La carta indica fissaggio, permanenza, durata, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a stabilità, tenuta, lavoro. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a fissaggio, permanenza, durata. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a fissaggio, permanenza, durata. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su stabilità, tenuta, lavoro. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di fissaggio, permanenza, durata. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in fissaggio, permanenza, durata. Mantieni integrità anche sotto pressione."
+        }
+      }
+    },
+    {
+      "nome": "Croce",
+      "significato_generale": "Energia terrestre sincronica: Croce mostra peso, responsabilità, destino come vettore operativo. La carta indica prova significativa che chiude un ciclo, con attenzione alla coerenza tra valore e gesto. Si leggono i fatti senza simbolismi, privilegiando cause e ricadute misurabili.",
+      "sfumature": {
+        "oraria": {
+          "giorno": "Fase diurno-attiva: applica una micro-azione verificabile legata a peso, responsabilità, destino. Ordina priorità, comunica con chiarezza, evita sovraccarico.",
+          "notte": "Fase notturno-recettiva: decanta informazioni e segnali relativi a prova significativa che chiude un ciclo. Annota ricorrenze e correggi al mattino eventuali deviazioni."
+        },
+        "galattica": {
+          "Andromeda": "Andromeda: continuità e filo che resiste applicati a prova significativa che chiude un ciclo. Procedi con costanza, evita strappi.",
+          "Sirio": "Sirio: precisione e chiarezza su peso, responsabilità, destino. Definisci parametri e soglie di qualità.",
+          "Taurus": "Taurus: ricaduta materiale di prova significativa che chiude un ciclo. Cura il ritmo, consolida routine e risorse.",
+          "Michelaus": "Michelaus: coerenza etica in prova significativa che chiude un ciclo. Mantieni integrità anche sotto pressione."
+        }
+      }
+    }
+  ]
+}
