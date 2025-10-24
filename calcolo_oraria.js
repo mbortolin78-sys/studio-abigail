@@ -1,50 +1,52 @@
 // ===============================
-// 🌞 Calcolo Oraria Astrale — Metodo Marika
-// ===============================
-//
-// Calcola le longitudini eclittiche reali di Sole e pianeti
-// usando la libreria astronomica "astronomy-engine" (leggera e precisa)
-// Se la libreria non è ancora installata, basta aggiungerla con:
-// npm install astronomy-engine
-//
+// 🌞 Calcolo Oraria Astrale Reale — Metodo Marika
+// usa astronomy-engine per posizioni vere di Sole e pianeti
 // ===============================
 
 import * as Astronomy from 'astronomy-engine';
 
 export function calcolaOraria(data, ora, luogo) {
   try {
-    // Componi la data esatta (ISO)
-    const dateObj = new Date(`${data}T${ora}:00`);
-    
-    // Coordinate fisse di Montebelluna (se vuoi le aggiorni dopo con il GPS)
-    const coord = { lat: 45.776, lon: 11.789 }; 
+    // ISO locale (secondi a 00)
+    const when = new Date(`${data}T${ora}:00`);
 
-    // Pianeti e Sole da calcolare
-    const corpi = [
-      'Sun', 'Moon', 'Mercury', 'Venus', 'Mars',
-      'Jupiter', 'Saturn', 'Uranus', 'Neptune', 'Pluto'
-    ];
+    // per ora fisso Montebelluna (aggiorneremo al GPS quando vuoi)
+    const coord = { lat: 45.776, lon: 11.789 };
 
+    const corpi = ['Sun','Moon','Mercury','Venus','Mars','Jupiter','Saturn','Uranus','Neptune','Pluto'];
     const result = { sunLon: 0, planets: {} };
 
-    // Ciclo sui pianeti e calcolo longitudini
-    for (const corpo of corpi) {
-      const vec = Astronomy.Equatorial(Astronomy.Body[corpo], dateObj, coord.lat, coord.lon, true);
-      const ecl = Astronomy.Ecliptic(vec);
+    for (const body of corpi) {
+      const eq = Astronomy.Equatorial(Astronomy.Body[body], when, coord.lat, coord.lon, true);
+      const ecl = Astronomy.Ecliptic(eq);
       const lon = ((ecl.elon % 360) + 360) % 360;
-      if (corpo === 'Sun') result.sunLon = lon;
-      else result.planets[corpo] = { lon: lon };
+      if (body === 'Sun') result.sunLon = lon;
+      else result.planets[nomeItaliano(body)] = { lon };
     }
 
-    result.testo = `
-    • Oraria calcolata su effemeridi reali.
-    • Data: ${data}, Ora: ${ora}, Luogo: ${luogo}.
-    • Posizioni planetarie calcolate astronomicamente.
-    `;
+    result.testo = [
+      '• Oraria calcolata su effemeridi reali.',
+      `• Data: ${data}  Ora: ${ora}  Luogo: ${luogo}`,
+      '• Longitudini eclittiche 0–360°: Sole e pianeti.'
+    ].join('\n');
 
     return result;
   } catch (err) {
-    console.error(err);
-    return { errore: '❌ Errore nel calcolo oraria: ' + err.message };
+    return { errore: err.message || String(err) };
+  }
+
+  function nomeItaliano(b) {
+    switch (b) {
+      case 'Mercury': return 'Mercurio';
+      case 'Venus':   return 'Venere';
+      case 'Mars':    return 'Marte';
+      case 'Jupiter': return 'Giove';
+      case 'Saturn':  return 'Saturno';
+      case 'Uranus':  return 'Urano';
+      case 'Neptune': return 'Nettuno';
+      case 'Pluto':   return 'Plutone';
+      case 'Moon':    return 'Luna';
+      default:        return b;
+    }
   }
 }
