@@ -30,23 +30,62 @@ const TABELLE_ECHO = {
     'Michelaus Riflesso (M41)'
   ],
 
-  STELLE_PER_GALASSIA: {
-    'Andromeda Riflessa': {
-      TRIGONO: ['Specchio dell’Ovest', 'Riflesso della Rivelazione', 'Confine del Dialogo'],
-      SESTILE: ['Onda di Armonia', 'Chiarezza Lunare', 'Ponte Invisibile'],
-      QUADRATO: ['Divisione Sacra', 'Materia Riflessa'],
-      OPPOSIZIONE: ['Velo Lunare', 'Soglia del Silenzio']
-    },
-    'Sirio Riflesso': {
-      TRIGONO: ['Dialogo Interno', 'Visione Silenziosa', 'Guida Riflessa'],
-      SESTILE: ['Sincronia Lunare', 'Porta d’Acqua'],
-      QUADRATO: ['Doppio Specchio', 'Rottura di Luce'],
-      OPPOSIZIONE: ['Velo Notturno', 'Chiusura Siriana']
-    },
-    // ... e così per Taurus e Michelaus Riflesso
+ STELLE_PER_GALASSIA: {
+  'Andromeda Riflessa': {
+    TRIGONO: ['Specchio dell’Est', 'Cristallo di Selene', 'Portale d’Aria'],
+    SESTILE: ['Riflesso del Pensiero', 'Occhio di Ermes', 'Sfera Mentale'],
+    QUADRATO: ['Nodo d’Ambra', 'Torre del Silenzio'],
+    OPPOSIZIONE: ['Cuore Speculare']
+  },
+  'Sirio Riflesso': {
+    TRIGONO: ['Velo d’Argento', 'Stella delle Maree', 'Etere Emotivo'],
+    SESTILE: ['Onda Interna', 'Riflesso di Sirio', 'Specchio di Venere'],
+    QUADRATO: ['Nucleo del Desiderio', 'Porta delle Emozioni'],
+    OPPOSIZIONE: ['Lacrima Lunare']
+  },
+  'Taurus Riflesso': {
+    TRIGONO: [
+      'Spira del Ferro',
+      'Occhio di Rubino',
+      'Nucleo del Minerale'
+    ],
+    SESTILE: [
+      'Croce di Rame',
+      'Riflesso Terrestre',
+      'Sfera del Lavoro'
+    ],
+    QUADRATO: [
+      'Caverna di Piombo',
+      'Nodo del Peso',
+      'Specchio del Tempo'
+    ],
+    OPPOSIZIONE: [
+      'Anello Saturniano',
+      'Cuore del Toro'
+    ]
   },
 
-  PREFERENZE_STELLE: {
+  'Michelaus Riflesso (M41)': {
+    TRIGONO: [
+      'Frattale Dorato',
+      'Etere Centrale',
+      'Sigillo Cosmico'
+    ],
+    SESTILE: [
+      'Armonia di Quarzo',
+      'Scala delle Tre Forme',
+      'Riflesso Universale'
+    ],
+    QUADRATO: [
+      'Nodo del Paradosso',
+      'Sfera del Disordine',
+      'Croce delle Quattro Direzioni'
+    ],
+    OPPOSIZIONE: [
+      'Punto Zero',
+      'Cuore della Legge Universale'
+    ]
+  }  PREFERENZE_STELLE: {
     // eventuali preferenze come in Auroria
   }
 };
