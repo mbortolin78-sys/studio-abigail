@@ -231,3 +231,31 @@ function strutturaSibille() {
     '• 5 terne da 3 carte (15 carte), tutte differenti'
   ].join('\n');
 }
+
+export function eseguiAuroria(data, ora, luogo, comando) {
+  console.log(`⚙️ Avvio calcolo AURORIA — ${comando}, ${data}, ${ora}, ${luogo}`);
+
+  // Esegue i comandi operativi di base e legge la legge universale
+  const logOperativi = applicaComandiOperativi('Auroria');
+  const legge = caricaLeggeUniversale();
+
+  // Simulazione del calcolo (proiezione astrale → galattica)
+  const galassiaAttiva = GALASSIE[Math.floor(Math.random() * GALASSIE.length)];
+  const tipoAspetto = ['TRIGONO', 'SESTILE', 'QUADRATO', 'OPPOSIZIONE'][Math.floor(Math.random() * 4)];
+  const stelle = STELLE_PER_GALASSIA[galassiaAttiva][tipoAspetto];
+
+  const output = `
+✨ Metodo AURORIA attivo (${comando})
+📅 Data: ${data} — 🕰️ Ora: ${ora}
+📍 Luogo: ${luogo}
+
+🌌 Galassia attiva: ${galassiaAttiva}
+🔭 Aspetto dominante: ${tipoAspetto}
+⭐ Stelle coinvolte: ${stelle.join(', ')}
+
+${logOperativi.join('\n')}
+${legge}
+  `;
+
+  return { output };
+}
