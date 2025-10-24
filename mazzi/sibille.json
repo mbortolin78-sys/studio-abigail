@@ -1,1 +1,163 @@
 
+[
+  {
+    "nome": "La Donna",
+    "significato_generale": "Matrice ricettiva del sistema: governa permeabilità, ascolto e capacità di modulare il campo emotivo senza assorbirlo. È l’acqua lunare che riflette e seleziona, trasformando l’informazione in nutrimento sottile e in scelta incarnata.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Fase di azione ricettiva: si apre il diaframma del sentire, ma con confini chiari. La Donna diurna integra segnali ambientali e sociali senza perdersi, orienta la cura verso un obiettivo concreto e stabilisce priorità sane (Legge Universale: coerenza tra desiderio, valore e gesto).",
+        "notte": "Picco di chiaroveggenza calma: si disinnescano eco emotive, emergono memorie cellulari e la Luna interiore riallinea il ritmo del respiro. L’intuizione non è suggestione, ma risonanza precisa con la traiettoria dell’anima (Oraria Astrale: prevale il principio lunare, profondità e decantazione)."
+      },
+      "galattica": {
+        "Andromeda": "Attiva la matrice compassione: trasmuta giudizio in cura lucida. La Donna diventa nodo di coesione del gruppo, armonizzando conflitti senza annullarli.",
+        "Sirio": "Raffina il canale intuitivo: l’informazione sottile si fa chiara e verificabile. Si sintonizza su segnali ripetuti (sincronicità) e li traduce in micro-decisioni efficaci.",
+        "Taurus": "Radica il nutrimento: ciò che è tenero diventa forte. Prendersi cura del corpo, della casa e delle risorse porta risultati misurabili (ritmi, routine, materia).",
+        "Michelaus": "Custodisce equilibrio emozionale: taglia i cordoni energetici improduttivi, preserva il cuore dall’iper-empatia e sostiene un amore fermo ma non invasivo."
+      }
+    }
+  },
+  {
+    "nome": "L’Uomo",
+    "significato_generale": "Vettore direttivo del sistema: ordina, sceglie, attraversa. È il raggio solare che focalizza l’intento e lo porta in campo, trasformando la potenza in atto.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Volontà in moto: priorità, decisioni nette, passo visibile. Il sì/no è pulito e tracciabile; gli ostacoli diventano parametri di traiettoria e non freni.",
+        "notte": "Ritiro strategico: verifica motivazioni, depura l’ego da scenari reattivi. Si riassetta l’asse volontà-cuore per evitare forzature (sole interiore che riposa)."
+      },
+      "galattica": {
+        "Andromeda": "Coraggio animico: si tagliano rami secchi senza colpa. La forza serve la vita, non l’orgoglio.",
+        "Sirio": "Maestria mentale: il pensiero diventa laser etico. Pianifica per cicli e non per desideri impulsivi.",
+        "Taurus": "Radicamento dell’intento: ogni promessa è seguita da un piccolo atto materiale misurabile.",
+        "Michelaus": "Allineamento Spirito-Azione: protezione dagli eccessi di controllo; la fermezza resta permeabile alla verità."
+      }
+    }
+  },
+  {
+    "nome": "La Casa",
+    "significato_generale": "Campo-base e guscio: contenitore delle memorie, interruttore di sicurezza del sistema. È il perimetro entro cui l’energia si riorganizza e guarisce.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Ordine funzionale: si sistemano spazi, bilanci e routine. Piccoli gesti ripetuti creano continuità e resilienza.",
+        "notte": "Santuario di decantazione: il silenzio ricalibra il sistema nervoso; sogni e intuizioni riposizionano gli affetti sul vero bisogno."
+      },
+      "galattica": {
+        "Andromeda": "Sicurezza affettiva come ponte: la Casa accoglie e non trattiene; chi entra viene elevato, non trattenuto.",
+        "Sirio": "Pulizia del campo informativo: si sciolgono memorie familiari dense con rituali semplici ma costanti.",
+        "Taurus": "Materia che nutre: cibo, ritmo, temperatura, denaro ordinato. Il nido sostiene la missione, non la sostituisce.",
+        "Michelaus": "Equilibrio dentro-fuori: confini sani, porte aperte quando è allineato. Ospitalità lucida, non sacrificale."
+      }
+    }
+  },
+  {
+    "nome": "La Fortuna",
+    "significato_generale": "Ciclo di apertura: l’Universo sincronizza variabili esterne quando il campo interno è coerente. Fortuna = coerenza + tempismo.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Sblocco rapido: opportunità visibili, accelerazioni. Servono prontezza e umiltà nell’accogliere l’aiuto.",
+        "notte": "Ricalibrazione silente: si chiudono cicli senza clamore; il favore arriva come sollievo, non come euforia."
+      },
+      "galattica": {
+        "Andromeda": "Risonanza con il disegno più ampio: ciò che giova a molti fluisce più veloce.",
+        "Sirio": "Guida di sincronicità: segnali ripetuti, incontri precisi, tempismo perfetto.",
+        "Taurus": "Ricaduta concreta: denaro, lavoro, casa migliorano con metriche verificabili.",
+        "Michelaus": "Fortuna responsabile: il dono comporta servizio; si evita dispersione e trionfalismo."
+      }
+    }
+  },
+  {
+    "nome": "L’Amore",
+    "significato_generale": "Forza coesiva che integra polarità senza fonderle in confusione. È magnetismo dell’anima che ordina desiderio, cura e verità.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Incontro fertile: scambio chiaro, confini vivi, desiderio che sostiene la crescita reciproca.",
+        "notte": "Guarigione del legame: emergono ferite antiche da integrare con dolce fermezza, senza melodramma."
+      },
+      "galattica": {
+        "Andromeda": "Armonia delle differenze: l’attrazione diventa progetto comune.",
+        "Sirio": "Cuore intelligente: il sentimento dialoga con il senso.",
+        "Taurus": "Amore che si vede: gesti, tempo, responsabilità condivise.",
+        "Michelaus": "Tenerezza forte: protezione dal possesso; libertà che non abbandona."
+      }
+    }
+  },
+  {
+    "nome": "La Fedeltà",
+    "significato_generale": "Continuità di cuore e di gesto: coerenza tra parola, scelta e presenza nel tempo. È il collante etico del patto.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Affidabilità operativa: promesse mantenute, ritmi stabili, micro-correzioni quotidiane.",
+        "notte": "Ritorno al voto interiore: si riaccende la memoria del perché, si perdona l’errore e si riprende la rotta."
+      },
+      "galattica": {
+        "Andromeda": "Tutela del patto animico: le prove rafforzano, non erodono.",
+        "Sirio": "Codice di luce: integrità anche quando nessuno vede.",
+        "Taurus": "Fiducia misurabile: piccoli fatti, lunga durata.",
+        "Michelaus": "Onore energetico: si difende il giusto senza diventare rigidi."
+      }
+    }
+  },
+  {
+    "nome": "La Morte",
+    "significato_generale": "Fine necessaria che libera energia bloccata. Non annienta: ricicla forma perché l’essenza avanzi.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Chiusura consapevole: si taglia ciò che non sostiene più la vita. Si comunica con rispetto e chiarezza.",
+        "notte": "Rinascita nel buio: si metabolizza il lutto; il corpo rallenta per permettere al campo di riassettersi."
+      },
+      "galattica": {
+        "Andromeda": "Reset della coscienza: identità obsolete si sciolgono.",
+        "Sirio": "Trasmutazione codici: credenze limitanti vengono rimpiazzate da parametri più veri.",
+        "Taurus": "Pulizia materiale: semplificare, buttare, lasciare spazio.",
+        "Michelaus": "Distacco luminoso: si lascia andare senza durezza."
+      }
+    }
+  },
+  {
+    "nome": "La Speranza",
+    "significato_generale": "Vettore di fiducia operativa: non attesa passiva, ma orientamento del campo verso esiti coerenti.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Ottimismo misurato: si fanno passi piccoli e costanti, alimentati da visione chiara.",
+        "notte": "Fede silenziosa: il cuore riposa nel possibile; si evitano proiezioni salvifiche."
+      },
+      "galattica": {
+        "Andromeda": "Tensione al nuovo livello: la Speranza magnetizza alleanze.",
+        "Sirio": "Seme stellare: idee lungimiranti trovano forma.",
+        "Taurus": "Crescita lenta: risultati concreti nel medio periodo.",
+        "Michelaus": "Certezza mite: fiducia che non forza i tempi."
+      }
+    }
+  },
+  {
+    "nome": "Il Denaro",
+    "significato_generale": "Flusso vitale in forma numerica: misura scambio, responsabilità e capacità di contenere energia ad alta densità.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Entrate/uscite chiare, prezzo giusto, pianificazione. La materia risponde alla precisione.",
+        "notte": "Revisione del valore: si allinea il denaro al senso, non al vuoto compensativo."
+      },
+      "galattica": {
+        "Andromeda": "Abbondanza come qualità del dare: ciò che circola torna potenziato.",
+        "Sirio": "Equilibrio del flusso: si curano le micro-perdite energetiche.",
+        "Taurus": "Capitale tangibile: riserve, strumenti, casa, corpo.",
+        "Michelaus": "Etica del potere: guadagno pulito, niente compromessi opachi."
+      }
+    }
+  },
+  {
+    "nome": "Il Viaggio",
+    "significato_generale": "Transito iniziatico: movimento fisico o interiore che riallinea il campo a un orizzonte più ampio.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Apertura al nuovo: spostamenti, incontri, studio. Il territorio esterno educa quello interno.",
+        "notte": "Passaggio di soglia: sogni, simboli chiari, salti di prospettiva. L’ignoto diventa praticabile."
+      },
+      "galattica": {
+        "Andromeda": "Espansione dimensionale: si incontrano alleati e specchi potenzianti.",
+        "Sirio": "Guida luminosa: segnali ripetuti indicano la rotta corretta.",
+        "Taurus": "Logistica coerente: valigie leggere, budget chiaro, corpo preparato.",
+        "Michelaus": "Protezione in transito: timing sicuro, strappi evitati, rientro integro."
+      }
+    }
+  }
+]
