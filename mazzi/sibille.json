@@ -1,0 +1,162 @@
+[
+  {
+    "nome": "La Donna",
+    "significato_generale": "Rappresenta la matrice ricettiva, il cuore intuitivo e la forza della presenza lunare.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Accoglienza e cooperazione attiva.",
+        "notte": "Sensibilità profonda e chiaroveggenza."
+      },
+      "galattica": {
+        "Andromeda": "Portale della compassione cosmica.",
+        "Sirio": "Connessione con l’intuito e la conoscenza interiore.",
+        "Taurus": "Solidità del corpo come tempio della luce.",
+        "Michelaus": "Custodia dell’equilibrio emozionale."
+      }
+    }
+  },
+  {
+    "nome": "L’Uomo",
+    "significato_generale": "Forza attiva e direzione del flusso vitale. Principio solare in azione.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Determinazione, movimento, scelta chiara.",
+        "notte": "Riflessione sulla propria direzione interiore."
+      },
+      "galattica": {
+        "Andromeda": "Raggio del coraggio animico.",
+        "Sirio": "Maestria sulla volontà e sul pensiero.",
+        "Taurus": "Radicamento delle intenzioni nella materia.",
+        "Michelaus": "Allineamento tra spirito e azione."
+      }
+    }
+  },
+  {
+    "nome": "La Casa",
+    "significato_generale": "Spazio di protezione e fondamento dell’identità. Il luogo interiore da cui tutto nasce.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Ordine, stabilità, radici.",
+        "notte": "Ritiro, introspezione, silenzio fertile."
+      },
+      "galattica": {
+        "Andromeda": "Portale della sicurezza affettiva.",
+        "Sirio": "Allineamento delle memorie familiari.",
+        "Taurus": "Energia del nido e della materia che accoglie.",
+        "Michelaus": "Sacro equilibrio tra interno ed esterno."
+      }
+    }
+  },
+  {
+    "nome": "La Fortuna",
+    "significato_generale": "Movimento del destino, ciclicità che apre nuove possibilità.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Svolta positiva, avanzamento.",
+        "notte": "Ricalibrazione karmica e chiusura di cicli."
+      },
+      "galattica": {
+        "Andromeda": "Risonanza del destino cosmico.",
+        "Sirio": "Guida delle sincronicità benefiche.",
+        "Taurus": "Espansione concreta delle opportunità.",
+        "Michelaus": "Equilibrio tra fortuna e responsabilità."
+      }
+    }
+  },
+  {
+    "nome": "L’Amore",
+    "significato_generale": "Unione sacra delle forze opposte, fusione energetica e magnetismo dell’anima.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Unione armoniosa, attrazione luminosa.",
+        "notte": "Incontro delle ombre, guarigione affettiva."
+      },
+      "galattica": {
+        "Andromeda": "Armonia universale delle polarità.",
+        "Sirio": "Cuore stellare, connessione dei campi emozionali.",
+        "Taurus": "Manifestazione dell’amore nella materia.",
+        "Michelaus": "Saggezza del cuore che conduce la mente."
+      }
+    }
+  },
+  {
+    "nome": "La Fedeltà",
+    "significato_generale": "Lealtà verso se stessi e verso il cammino animico. Costanza e purezza d’intento.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Stabilità nelle relazioni e nei progetti.",
+        "notte": "Riconnessione alla propria verità più alta."
+      },
+      "galattica": {
+        "Andromeda": "Custodia della promessa animica.",
+        "Sirio": "Fedeltà al proprio codice di luce.",
+        "Taurus": "Sostenere con coerenza ciò che si ama.",
+        "Michelaus": "Onore spirituale e integrità energetica."
+      }
+    }
+  },
+  {
+    "nome": "La Morte",
+    "significato_generale": "Trasmutazione profonda. Fine necessaria che apre al rinnovamento.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Rilascio consapevole, chiusura dei cicli.",
+        "notte": "Rinascita nell’ombra, iniziazione al nuovo sé."
+      },
+      "galattica": {
+        "Andromeda": "Rinascita della coscienza superiore.",
+        "Sirio": "Trasmutazione dei vecchi codici dell’anima.",
+        "Taurus": "Purificazione della materia.",
+        "Michelaus": "Luce che dissolve l’attaccamento."
+      }
+    }
+  },
+  {
+    "nome": "La Speranza",
+    "significato_generale": "Frequenza della fiducia che guida la materia verso la luce futura.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Fiducia e ottimismo attivo.",
+        "notte": "Attesa silenziosa, fede interiore."
+      },
+      "galattica": {
+        "Andromeda": "Proiezione verso il nuovo piano di coscienza.",
+        "Sirio": "Seme stellare che attira l’evoluzione.",
+        "Taurus": "Crescita lenta ma fertile.",
+        "Michelaus": "Radiante certezza nella via dell’anima."
+      }
+    }
+  },
+  {
+    "nome": "Il Denaro",
+    "significato_generale": "Energia di scambio e potenza vitale che circola nella materia.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Guadagno, concretezza, risultati.",
+        "notte": "Riflessione sul valore autentico."
+      },
+      "galattica": {
+        "Andromeda": "Riconoscimento dell’abbondanza universale.",
+        "Sirio": "Flusso energetico equilibrato.",
+        "Taurus": "Radicamento del valore nella forma.",
+        "Michelaus": "Etica nella gestione del potere materiale."
+      }
+    }
+  },
+  {
+    "nome": "Il Viaggio",
+    "significato_generale": "Movimento interiore o esteriore, espansione della coscienza e del destino.",
+    "sfumature": {
+      "oraria": {
+        "giorno": "Apertura al nuovo, esplorazione, dinamismo.",
+        "notte": "Transito karmico, sogno o viaggio astrale."
+      },
+      "galattica": {
+        "Andromeda": "Espansione verso nuove dimensioni.",
+        "Sirio": "Guida luminosa nei passaggi di vita.",
+        "Taurus": "Percorso concreto e crescita graduale.",
+        "Michelaus": "Protezione durante la transizione."
+      }
+    }
+  }
+]
