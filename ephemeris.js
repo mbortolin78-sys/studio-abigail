@@ -32,37 +32,10 @@ export function calcolaOrariaAstrale(data, ora, luogo) {
     return {
       ascendente: ascendente.toFixed(2),
       sole: `RA ${sole.ra.toFixed(2)} / Dec ${sole.dec.toFixed(2)}`,
-      luna: `RA ${luna.ra.toFixed(2)} / Dec ${luna.dec.toFixed(2)}`
+      luna: `RA ${luna.ra.toFixed(2)} / Dec ${luna.dec.toFixed(2)}`,
+      nota: "Cielo calcolato per coordinate reali."
     };
   } catch (err) {
     return { errore: `Errore nel calcolo astronomico: ${err.message}` };
-  }
-}
-
-    // Aggiorna la posizione corrente
-    latCorrente = lat;
-    lonCorrente = lon;
-    luogoCorrente = luogo;
-
-    // Crea l’osservatore
-    const observer = new Astronomy.Observer(lat, lon, 0);
-
-    // Calcola posizioni reali del Sole e della Luna
-    const sole = Astronomy.Equator('Sun', dateISO, observer, true, true);
-    const luna = Astronomy.Equator('Moon', dateISO, observer, true, true);
-
-    // Calcola ascendente (approssimazione oraria)
-    const ascendente = (sole.ra + lon / 15) % 24;
-
-    // Restituisce i dati principali del cielo reale
-    return {
-      ascendente: `${ascendente.toFixed(2)}h`,
-      sole: `RA ${sole.ra.toFixed(2)}h / Dec ${sole.dec.toFixed(2)}°`,
-      luna: `RA ${luna.ra.toFixed(2)}h / Dec ${luna.dec.toFixed(2)}°`,
-      nota: `Cielo calcolato per ${luogo} (${lat.toFixed(4)}°, ${lon.toFixed(4)}°)`
-    };
-
-  } catch (err) {
-    return { nota: "⚠️ Errore nel calcolo orario." };
   }
 }
