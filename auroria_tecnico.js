@@ -46,7 +46,7 @@ const TABELLE_AURORIA = {
     OPPOSIZIONE: ['Chiusura', 'Velo di Sirio']
   },
   // … e così per Taurus e Michelaus
-}
+ }
 };
 
   // regole opzionali: preferenze stella per tipo aspetto (se presenti nel tuo file)
