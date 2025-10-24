@@ -14,12 +14,32 @@
 import { applicaComandiOperativi } from './comandiOperativi.js';
 import { calcolaOraria } from './calcolo_oraria.js';
 import { applicaLeggeUniversale } from './leggeUniversale.js';
-import ORACOLI_SCIAMANO from './mazzi/oracoli_sciamano.json';
+// ====== CARICAMENTO MAZZO ORACOLI (Venere Eteria) ======
+let ORACOLI_SCIAMANO = null;
 
-export function eseguiVenereEteria(data, ora, luogo, comando) {
+async function caricaMazzoOracoli() {
+  try {
+    const res = await fetch('./mazzi/oracoli_sciamano.json');
+    if (!res.ok) {
+      console.error('Errore nel caricamento del mazzo Oracoli dello Sciamano');
+      return null;
+    }
+    ORACOLI_SCIAMANO = await res.json();
+    console.log('✅ Mazzo Oracoli dello Sciamano caricato in memoria');
+    return ORACOLI_SCIAMANO;
+  } catch (err) {
+    console.error('❌ Errore durante il caricamento degli oracoli:', err);
+    return null;
+  }
+}
+
+export async function eseguiVenereEteria(data, ora, luogo, comando) {
   const tipo = parseTipo(comando);
   if (!tipo) return { output: 'Comando non riconosciuto. Usa: RVEteria' };
-
+await caricaMazzoOracoli();
+  console.log('Oracoli disponibili:', ORACOLI_SCIAMANO?.carte?.length || 0);
+  if (!ORACOLI_SCIAMANO) return { output: '❌ Mazzo Oracoli non caricato correttamente.' };
+  
   // 1️⃣ Comandi + Legge
   const operativi = applicaComandiOperativi('Venere Eteria');
   const oraria = calcolaOraria(data, ora, luogo);
