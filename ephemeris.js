@@ -1,6 +1,6 @@
 // ephemeris.js — calcolo oraria astrale reale di Studio Abigail
 // ephemeris.js — calcolo oraria astrale reale con tolleranza di 50 metri
-import * as Astronomy from 'astronomy-engine';
+import * as Astronomy from 'https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.0/astronomy.module.min.js';
 
 // Distanza in metri tra due punti GPS
 function distanzaMetri(lat1, lon1, lat2, lon2) {
