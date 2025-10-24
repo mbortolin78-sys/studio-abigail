@@ -1,44 +1,80 @@
-// ai.js — Motore tecnico diretto di Studio Abigail
-// Gestisce il riconoscimento dei comandi e richiama il file tecnico corretto
+// ai.js — Motore di riconoscimento e instradamento dei comandi operativi
 
-// Importa i moduli principali
-import { calcolaOrariaAstrale } from './ephemeris.js';
+// Importa i metodi principali
+import { eseguiAuroria } from './auroria_tecnico.js';
+import { eseguiEcho } from './echo_tecnico.js';
+import { eseguiVelaria } from './velaria_tecnico.js';
+import { eseguiEteria } from './eteria_tecnico.js';
+import { eseguiVenereClassica } from './venere_classica_tecnico.js';
+import { eseguiVenereAuroria } from './venere_auroria_tecnico.js';
+import { eseguiVenereVelaria } from './venere_velaria_tecnico.js';
+import { eseguiVenereEteria } from './venere_eteria_tecnico.js';
+import { eseguiIdentikit } from './identikit_tecnico.js';
 
-// Comandi tecnici collegati (ognuno sarà un file separato)
-import { eseguiRAS } from './ras.js';
-import { eseguiRAE } from './rae.js';
-// In futuro: import { eseguiRVE } from './rve.js'; ecc.
-
-let luogoCorrente = "Montebelluna"; // Luogo predefinito
+// ────────────────────────────────────────────────
+// FUNZIONE PRINCIPALE
+// ────────────────────────────────────────────────
 
 export function processCommand(text) {
-  const cleaned = text.trim().toUpperCase().replace(/\./g, '');
-  const now = new Date();
-
-  const data = now.toLocaleDateString('it-IT');
-  const ora = now.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
-
-  // Se l'utente imposta un nuovo luogo
-  if (cleaned.startsWith("LUOGO ")) {
-    const nuovoLuogo = text.substring(6).trim();
-    if (nuovoLuogo) {
-      luogoCorrente = nuovoLuogo.charAt(0).toUpperCase() + nuovoLuogo.slice(1);
-      return { output: `📍 Luogo impostato su ${luogoCorrente}.` };
-    } else {
-      return { output: "❗️Devi specificare un luogo dopo 'LUOGO'." };
-    }
+  if (!text || text.trim() === '') {
+    return { output: "🪶 Inserisci un comando o una domanda." };
   }
 
-  // Riconoscimento comando operativo
-  const comando = cleaned.split(' ')[0]; // es. "RAS", "RAE" ecc.
+  // Normalizza testo (rimuove punti, spazi e converte in maiuscolo)
+  const comando = text.replace(/\./g, '').trim().toUpperCase();
 
+  // Data, ora e luogo automatici
+  const data = new Date();
+  const ora = data.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+  const luogoCorrente = "Montebelluna"; // luogo predefinito
+
+  // ───────────────────────────────
+  // ROUTER DEI COMANDI
+  // ───────────────────────────────
   switch (comando) {
+
+    // 🌞 AURORIA
     case 'RAS':
-      return eseguiRAS(data, ora, luogoCorrente, text);
     case 'RAE':
-      return eseguiRAE(data, ora, luogoCorrente, text);
-    // Aggiungeremo qui anche gli altri (REE, RES, RVE, ecc.)
+      return eseguiAuroria(data, ora, luogoCorrente, comando);
+
+    // 🌊 ECHO
+    case 'RES':
+    case 'REE':
+      return eseguiEcho(data, ora, luogoCorrente, comando);
+
+    // 🌬 VELARIA
+    case 'RVS':
+    case 'RVE':
+      return eseguiVelaria(data, ora, luogoCorrente, comando);
+
+    // 🌌 ETERIA
+    case 'RETERIAE':
+    case 'RETERIAS':
+      return eseguiEteria(data, ora, luogoCorrente, comando);
+
+    // 💫 VENERE — CLASSICA
+    case 'RVC':
+      return eseguiVenereClassica(data, ora, luogoCorrente, comando);
+
+    // 💫 VENERE — AURORIA
+    case 'RVA':
+      return eseguiVenereAuroria(data, ora, luogoCorrente, comando);
+
+    // 💫 VENERE — VELARIA
+    case 'RVV':
+      return eseguiVenereVelaria(data, ora, luogoCorrente, comando);
+
+    // 💫 VENERE — ETERIA
+    case 'RVETERIA':
+      return eseguiVenereEteria(data, ora, luogoCorrente, comando);
+
+    // 🌙 IDENTIKIT
+    case 'RVI':
+      return eseguiIdentikit(data, ora, luogoCorrente, comando);
+
+    // 🪶 Default
     default:
-      return { output: "🪶 Formula non riconosciuta come comando operativo." };
+      return { output: "✨ Formula non riconosciuta come comando operativo." };
   }
 }
