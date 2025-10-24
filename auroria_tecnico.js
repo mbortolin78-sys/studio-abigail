@@ -1,33 +1,22 @@
 // ===============================
-// 🔮 Metodo Auroria Tecnico – Metodo Marika
+// 🔮 Metodo Auroria Tecnico — Metodo Marika
 // Basato su: Auroria.docx + Legge Universale + Comandi Operativi
 // ===============================
 
 import { applicaLeggeUniversale } from './leggeUniversale.js';
 import { applicaComandiOperativi } from './comandiOperativi.js';
 
-// ===============================
 // ✴️ Funzione principale
-// ===============================
 export async function eseguiAuroria(data, ora, luogo, comando) {
-  // 1️⃣ Reset e riallineamento dei file fondamentali
   const reset = applicaComandiOperativi('Auroria');
-  
-  // 2️⃣ Calcolo Oraria Classica
+
   const oraria = calcolaOrariaClassica(data, ora, luogo);
-
-  // 3️⃣ Calcolo Galassie
-  const galassie = calcolaGalassie(oraria);
-
-  // 4️⃣ Stesa di Sibille
-  const sibille = calcolaSibille();
-
-  // 5️⃣ Applicazione Legge Universale
+  const galassie = calcolaGalassieAuroria(oraria);
+  const sibille = calcolaSibilleAuroria();
   const legge = applicaLeggeUniversale(oraria, galassie, sibille);
 
-  // 6️⃣ Output tecnico finale
   const output = `
-  ⚙️ RISULTATO TECNICO – Metodo AURORIA (${comando})
+  ⚙️ RISULTATO TECNICO — Metodo AURORIA (${comando})
   ────────────────────────────────
   📅 Data: ${data}
   ⏰ Ora: ${ora}
@@ -45,46 +34,47 @@ export async function eseguiAuroria(data, ora, luogo, comando) {
   ⚖️ LEGGE UNIVERSALE
   ${legge}
 
-  ✨ Calcolo eseguito con rigore scientifico–esoterico secondo i protocolli ufficiali.
+  ✨ Calcolo conforme alla Legge Universale — Metodo Marika.
   `;
-
   return { output };
 }
 
 // ===============================
-// 🜂 1. Metodo Oraria Classica
+// 🔭 Metodo Oraria Classica
 // ===============================
 function calcolaOrariaClassica(data, ora, luogo) {
   return `
-  - Ricostruzione scientifico–esoterica del cielo orario
-  - Coordinate base: data ${data}, ora ${ora}, luogo ${luogo}
-  - Ascendente (AS), Medio Cielo (MC), 12 case e disposizione planetaria calcolate
-  - Ogni pianeta posizionato in segno e casa corrispondenti all’istante esatto
+  • Ricostruzione del cielo dell’istante — ascendente, medio cielo, 12 case. 
+  • Dati base: ${data}, ${ora}, ${luogo}.
+  • Pianeti collocati nei segni e nelle case secondo calcolo esatto.
   `;
 }
 
 // ===============================
-// ✴️ 2. Metodo Galassie
+// ✴️ Metodo Galassie Auroria
 // ===============================
-function calcolaGalassie(oraria) {
+function calcolaGalassieAuroria(oraria) {
   return `
-  - Proiezione del Sistema Solare in quattro galassie archetipiche:
-    Andromeda, Sirio, Taurus, Michelaus (Ammasso M41)
-  - Identificazione della stella illuminata dal Sole e dai pianeti in figura
-  - Ogni stella attiva è denominata (es. “Stella della Rivelazione”, “Stella del Dialogo”)
-  - Regola: i pianeti non hanno stelle proprie, ma generano figure proiettive
+  • Il Sole funge da faro di proiezione.
+  • Si verifica la figura geometrica del Sole con gli altri pianeti 
+    (opposizione, trigono, quadrato, sestile, triangolo).
+  • Il Sistema Solare viene proiettato nella galassia corrispondente:
+    Andromeda, Sirio, Taurus, Michelaus (M41).
+  • Si individua la stella illuminata dal Sole (es. “Stella della Rivelazione”).
+  • Regola: i pianeti non hanno stelle proprie — la luce appartiene solo alla galassia.
+  • Forma corretta: “Il Sole illumina la Stella della Rivelazione di Andromeda”.
   `;
 }
 
 // ===============================
-// 🜃 3. Stesa di Sibille
+// 🜃 Metodo Stesa di Sibille Auroria
 // ===============================
-function calcolaSibille() {
+function calcolaSibilleAuroria() {
   return `
-  - 1° taglio: 2 carte (mai uguali)
-  - 2° taglio: 3 carte (mai uguali)
-  - 1 carta centrale: mai uguale
-  - 5 terne da 3 carte, tutte differenti
-  - Ogni stesa viene applicata in sequenza: Oraria → Galassie → Sibille
+  • 1° taglio: 2 carte (mai uguali)
+  • 2° taglio: 3 carte (mai uguali)
+  • 1 carta centrale: mai uguale
+  • 5 terne da 3 carte (15 carte totali), tutte differenti
+  • Nessuna ripetizione ammessa — sequenza fissa Oraria → Galassie → Sibille.
   `;
 }
