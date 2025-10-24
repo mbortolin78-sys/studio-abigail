@@ -7,9 +7,8 @@ import { applicaLeggeUniversale } from './leggeUniversale.js';
 import { applicaComandiOperativi } from './comandiOperativi.js';
 import { calcolaOraria } from './calcolo_oraria.js';
 
-// ====== INIEZIONE MAZZI ======
-let ORACOLI_SCIAMANO = null;
-export function setOracoliSciamano(data) { ORACOLI_SCIAMANO = data; }
+// ======= IMPORT MAZZO ORACOLI =======
+import ORACOLI_SCIAMANO from './mazzi/oracoli_sciamano.json';
 
 // ====== ENTRY POINT ======
 export function eseguiEteria(data, ora, luogo, comando) {
