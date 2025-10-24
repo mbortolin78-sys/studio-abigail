@@ -1,3 +1,5 @@
+import { calcolaOrariaAstrale } from './ephemeris.js';
+
 // ai.js — motore interno di Studio Abigail (con luogo fisso gestito dinamicamente)
 
 let luogoCorrente = "Montebelluna"; // valore iniziale predefinito
@@ -39,7 +41,7 @@ export function processCommand(text) {
 
 // Funzione principale che genera la risposta base
 function eseguiComando(cmd, data, ora, luogo, text) {
-  return {
-    output: `${cmd} eseguito — ${data}, ${ora}, ${luogo} — calcolo avviato con parametri attivi.`
+    const oraria = calcolaOrariaAstrale(data, ora, luogo);  return {
+    output: `${cmd} eseguito — ${data}, ${ora}, ${luogo} — ${oraria.nota}.`
   };
 }
