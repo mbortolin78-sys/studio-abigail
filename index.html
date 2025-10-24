@@ -21,7 +21,7 @@
  <script type="module" src="chat.js"></script>
 </head>
 
-<body>
+ <body>
  <div class="chat-header-bar"></div>
   <!-- oppure: <div class="custom-header"></div> -->
 
@@ -53,5 +53,8 @@
         .catch(err => console.error('❌ Errore nel service worker:', err));
     }
   </script>
+
+<!-- ✅ Script principale della chat -->
+<script type="module" src="chat.js"></script>
 </body>
 </html>
