@@ -1,34 +1,14 @@
 // ephemeris.js — calcolo oraria astrale reale di Studio Abigail
-// ephemeris.js — calcolo oraria astrale reale con tolleranza di 50 metri
-import * as Astronomy from 'https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.0/astronomy.module.min.js';
-
-// Distanza in metri tra due punti GPS
-function distanzaMetri(lat1, lon1, lat2, lon2) {
-  const R = 6371000; // Raggio medio della Terra in metri
-  const toRad = x => (x * Math.PI) / 180;
-  const dLat = toRad(lat2 - lat1);
-  const dLon = toRad(lon2 - lon1);
-  const a =
-    Math.sin(dLat / 2) ** 2 +
-    Math.cos(toRad(lat1)) *
-      Math.cos(toRad(lat2)) *
-      Math.sin(dLon / 2) ** 2;
-  return R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
-}
-
-// Coordinate attuali salvate in memoria (predefinite Montebelluna)
-let latCorrente = 45.7781;
-let lonCorrente = 12.0383;
-let luogoCorrente = "Montebelluna";
+import * as Astronomy from 'https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.0/+esm';
 
 export function calcolaOrariaAstrale(data, ora, luogo) {
   try {
-    // Converte la data e ora italiane in formato ISO
+    // Converte la data e ora italiana in formato ISO
     const [giorno, mese, anno] = data.split('/');
     const [ore, minuti] = ora.split(':');
     const dateISO = new Date(`${anno}-${mese}-${giorno}T${ore}:${minuti}:00+02:00`);
 
-    // Imposta coordinate predefinite
+    // Coordinate base — Montebelluna
     let lat = 45.7781;
     let lon = 12.0383;
 
@@ -38,18 +18,26 @@ export function calcolaOrariaAstrale(data, ora, luogo) {
     if (luogo.toLowerCase().includes("milano")) { lat = 45.4642; lon = 9.19; }
     if (luogo.toLowerCase().includes("napoli")) { lat = 40.8518; lon = 14.2681; }
 
-    // Controlla la distanza dal punto precedente
-    const distanza = distanzaMetri(latCorrente, lonCorrente, lat, lon);
+    // Crea l’osservatore
+    const observer = new Astronomy.Observer(lat, lon, 0);
 
-    // Se lo spostamento è minore di 50 metri, mantieni il cielo attuale
-    if (distanza < 50) {
-      return { 
-        ascendente: "—",
-        sole: "—",
-        luna: "—",
-        nota: `Cielo invariato — spostamento inferiore a 50 metri da ${luogoCorrente}.`
-      };
-    }
+    // Calcola posizioni reali di Sole e Luna
+    const sole = Astronomy.Equator('Sun', dateISO, observer, true, true);
+    const luna = Astronomy.Equator('Moon', dateISO, observer, true, true);
+
+    // Calcolo ascendente (semplificato)
+    const ascendente = (sole.ra * 15 + lon) % 360;
+
+    // Restituisce i dati principali del cielo reale
+    return {
+      ascendente: ascendente.toFixed(2),
+      sole: `RA ${sole.ra.toFixed(2)} / Dec ${sole.dec.toFixed(2)}`,
+      luna: `RA ${luna.ra.toFixed(2)} / Dec ${luna.dec.toFixed(2)}`
+    };
+  } catch (err) {
+    return { errore: `Errore nel calcolo astronomico: ${err.message}` };
+  }
+}
 
     // Aggiorna la posizione corrente
     latCorrente = lat;
