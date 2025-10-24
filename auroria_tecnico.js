@@ -19,24 +19,35 @@ import { calcolaOraria } from './calcolo_oraria.js';
 
 // ====== TABELLE DA COMPILARE CON I NOMI UFFICIALI DI AURORIA ======
 const TABELLE_AURORIA = {
-  // categorie di pianeti usate da Auroria per scegliere la galassia
   CATEGORIE: {
     MENTALI:    new Set(['Mercurio', 'Urano']),
     EMOZIONALI: new Set(['Luna', 'Venere', 'Nettuno']),
     MATERIALI:  new Set(['Marte', 'Saturno', 'Plutone']),
   },
 
-  // elenco galassie del TUO metodo (inserisci i nomi esatti dal file Auroria)
   GALASSIE: [
-    // 'Andromeda', 'Sirio', 'Taurus', 'Michelaus (M41)', ...
+    'Andromeda',
+    'Sirio',
+    'Taurus',
+    'Michelaus (M41)'
   ],
 
-  // mappa galassia -> elenco stelle (nomi esatti dal file Auroria)
-  STELLE_PER_GALASSIA: {
-    // 'Andromeda': ['Stella della Rivelazione', 'Stella della Confessione', ...],
-    // 'Sirio':     ['Stella del Dialogo', ...],
-    // ...
+ STELLE_PER_GALASSIA: {
+  'Andromeda': {
+    TRIGONO: ['Rivelazione', 'Ascensione', 'Soglia dell’Ovest'],
+    SESTILE: ['Armonia', 'Intelletto', 'Dialogo di Luce'],
+    QUADRATO: ['Conflitto Sacro', 'Materia Oscura'],
+    OPPOSIZIONE: ['Nascosta', 'Confessione', 'Rottura di Ciclo']
   },
+  'Sirio': {
+    TRIGONO: ['Dialogo', 'Visione', 'Guida'],
+    SESTILE: ['Sincronia', 'Ponte di Cielo'],
+    QUADRATO: ['Scissione', 'Riflesso'],
+    OPPOSIZIONE: ['Chiusura', 'Velo di Sirio']
+  },
+  // … e così per Taurus e Michelaus
+}
+};
 
   // regole opzionali: preferenze stella per tipo aspetto (se presenti nel tuo file)
   PREFERENZE_STELLE: {
