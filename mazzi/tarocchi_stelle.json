@@ -1,12 +1,4 @@
-{
-  "metadati": {
-    "mazzo": "Tarocchi delle Stelle (Dal Negro)",
-    "versione": "1.1",
-    "data": "2025-10-24",
-    "motore": "Velaria",
-    "note": "Galassiale come testo unico per polarità; rimosse le proprietà 'collisione' e 'parola_chiave'."
-  },
-  "carte": [
+[
     {
       "nome": "Il Matto",
       "arcano": "Maggiore",
