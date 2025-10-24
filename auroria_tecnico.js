@@ -10,7 +10,8 @@ import { applicaComandiOperativi } from './comandiOperativi.js';
 export async function eseguiAuroria(data, ora, luogo, comando) {
   const reset = applicaComandiOperativi('Auroria');
 
-  const oraria = calcolaOrariaClassica(data, ora, luogo);
+  import { calcolaOraria } from './calcolo_oraria.js';
+  const oraria = calcolaOraria(data, ora, luogo);
   const galassie = calcolaGalassieAuroria(oraria);
   const sibille = calcolaSibilleAuroria();
   const legge = applicaLeggeUniversale(oraria, galassie, sibille);
