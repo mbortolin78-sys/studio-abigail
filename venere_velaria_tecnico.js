@@ -4,7 +4,7 @@
 import { applicaComandiOperativi } from './comandiOperativi.js';
 import { calcolaOraria } from './calcolo_oraria.js';
 import { applicaLeggeUniversale } from './leggeUniversale.js';
-import TAROCCHI_STELLE from './mazzi/tarocchi_stelle.json';
+import TAROCCHI_STELLE from './mazzi/tarocchi_stelle.json' assert { type: 'json' };
 
 export function eseguiVenereVelaria(data, ora, luogo, comando) {
   const tipo = parseTipo(comando);
