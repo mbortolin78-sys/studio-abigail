@@ -103,6 +103,33 @@ export function eseguiEcho(data, ora, luogo, comando) {
     return { output: `❌ Errore oraria: ${oraria.errore}` };
   }
 
+// 3) Calcolo della proiezione riflessa galattica
+const proiezione = (() => {
+  const galassie = Object.keys(TABELLE_ECHO.STELLE_PER_GALASSIA);
+  const indice = Math.floor((Math.random() * galassie.length));
+  const galassiaScelta = galassie[indice];
+
+  const aspetti = ['TRIGONO', 'SESTILE', 'QUADRATO', 'OPPOSIZIONE'];
+  const tipoAspetto = aspetti[Math.floor(Math.random() * aspetti.length)];
+
+  const stelle = TABELLE_ECHO.STELLE_PER_GALASSIA[galassiaScelta][tipoAspetto];
+  const stellaScelta = stelle[Math.floor(Math.random() * stelle.length)];
+
+  return {
+    galassia: galassiaScelta,
+    aspetto: tipoAspetto,
+    stella: stellaScelta
+  };
+})();
+
+// 4) Output finale del calcolo
+return {
+  output: `✨ ECHO eseguito — ${data}, ${ora}, ${luogo}
+Galassia Riflessa: ${proiezione.galassia}
+Aspetto: ${proiezione.aspetto}
+Stella Attiva: ${proiezione.stella}`
+};
+  
   // 3) Proiezione galattica riflessa (Luna come punto base)
   const gal = proiezioneGalatticaEcho(oraria, TABELLE_ECHO);
 
