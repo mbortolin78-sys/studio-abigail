@@ -129,5 +129,13 @@ function parseTipo(c) {
 function safe(fn) {
   try { return fn && fn(); } catch { return null; }
 }
-
-export default { eseguiVenereClassica };
+// ===============================
+// OUTPUT
+// ===============================
+// ===============================
+// OUTPUT
+// ===============================
+const outputFinale = righe.join('\n');
+console.log('✅ Venere Classica eseguita correttamente:', outputFinale);
+return { output: outputFinale };
+}
