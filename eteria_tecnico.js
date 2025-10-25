@@ -28,9 +28,9 @@ async function caricaOracoliSciamano() {
 
 // ====== PARSING COMANDO ======
 function parseTipo(text = '') {
-  const t = String(text).replace(/\./g, '').toUpperCase();
-  if (/\bRETERIAE\b/.test(t)) return 'RETERIAE';
-  if (/\bRETERIAS\b/.test(t)) return 'RETERIAS';
+  const t = String(text).replace(/\./g, '').trim().toUpperCase();
+  if (t === 'RETERIAE') return 'RETERIAE';
+  if (t === 'RETERIAS') return 'RETERIAS';
   return null;
 }
 
