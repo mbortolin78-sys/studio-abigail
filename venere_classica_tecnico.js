@@ -30,6 +30,7 @@ export function eseguiVenereClassica(data, ora, luogo, comando) {
   const oc = metodoOrariaClassica(oraria);
   const al = metodoAldebaran(oraria);
 
+  // Costruzione output
   const righe = [];
   righe.push(`✨ METODO VENERE CLASSICA — ${tipo}`);
   righe.push(`📅 ${data} — 🕰️ ${ora} — 📍 ${luogo}`);
@@ -52,7 +53,9 @@ export function eseguiVenereClassica(data, ora, luogo, comando) {
   righe.push('');
   righe.push('✨ I calcoli sono stati eseguiti con rigore secondo le Leggi Universali.');
 
-  return { output: righe.join('\n') };
+  const outputFinale = righe.join('\n');
+  console.log('✅ Venere Classica eseguita correttamente:', outputFinale);
+  return { output: outputFinale };
 }
 
 // =====================================================
@@ -128,14 +131,4 @@ function parseTipo(c) {
 
 function safe(fn) {
   try { return fn && fn(); } catch { return null; }
-}
-// ===============================
-// OUTPUT
-// ===============================
-// ===============================
-// OUTPUT
-// ===============================
-const outputFinale = righe.join('\n');
-console.log('✅ Venere Classica eseguita correttamente:', outputFinale);
-return { output: outputFinale };
 }
