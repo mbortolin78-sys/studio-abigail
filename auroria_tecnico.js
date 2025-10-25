@@ -90,7 +90,7 @@ export function eseguiAuroria(data, ora, luogo, comando) {
     schemaSibille?.trim() || '⚠️ Schema Sibille non definito.',
     ``,
     `⚙️ Comandi Operativi`,
-    logOperativi?.join('\n') || '⚠️ Nessun comando operativo disponibile.',
+    operativi?.join('\n') || '⚠️ Nessun comando operativo disponibile.',
     // (facoltativo) `⚖️ Legge Universale`, legge?.testo || '—',
   ];
 
