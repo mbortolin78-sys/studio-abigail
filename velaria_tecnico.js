@@ -19,7 +19,7 @@ const TAROCCHI_STELLE = await fetch('./mazzi/tarocchi_stelle.json').then(res => 
 // ===============================
 // FUNZIONE PRINCIPALE
 // ===============================
-export function eseguiVelaria(data, ora, luogo, comando) {
+export async function eseguiVelaria(data, ora, luogo, comando) {
   console.log(`⚙️ Avvio calcolo VELARIA — ${comando}, ${data}, ${ora}, ${luogo}`);
 
   // 1) Comandi Operativi
