@@ -39,7 +39,13 @@ export async function eseguiEteria(data, ora, luogo, comando) {
   const avvio = applicaComandiOperativi('Eteria');
   const oraria = safe(() => calcolaOraria(data, ora, luogo));
   const legge  = safe(() => applicaLeggeUniversale({ modulo: 'Eteria', data, ora, luogo, oraria }));
-  if (oraria?.errore) return { output: `❌ Errore oraria: ${oraria.errore}` };
+  export async function eseguiEteria(data, ora, luogo, comando) {
+  const tipo = parseTipo(comando);
+  if (!tipo) return { output: 'Comando Eteria non riconosciuto. Usa: RETERIAE o RETERIAS.' };
+
+  // ... tutto il resto del codice ...
+}
+
 
   // 2) Galassie (proiezione coerente con i tuoi doc)
   const gal = calcolaGalassieEteria(oraria);
