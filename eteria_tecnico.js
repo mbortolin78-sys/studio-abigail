@@ -161,3 +161,15 @@ function creaTerneUniche(deck = [], numeroTerne = 5, rng = Math.random) {
 }
 
 // ======
+
+// ===============================
+// Funzione di sicurezza (safe wrapper)
+// ===============================
+function safe(fn) {
+  try {
+    return fn && fn();
+  } catch (err) {
+    console.warn('⚠️ Errore in funzione protetta:', err);
+    return null;
+  }
+}
