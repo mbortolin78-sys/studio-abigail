@@ -62,47 +62,49 @@ const TABELLE_AURORIA = {
 // API principale chiamata da ai.js
 // ===============================
 export function eseguiAuroria(data, ora, luogo, comando) {
-  // 1️⃣ Calcolo oraria reale
-  const oraria = calcolaOraria(data, ora, luogo);
+  console.log(`⚙️ Avvio calcolo AURORIA — ${comando}, ${data}, ${ora}, ${luogo}`);
 
-  // 2️⃣ Proiezione galattica
+  // 1) Comandi operativi (log tecnico)
+  const logOperativi = applicaComandiOperativi('Auroria');
+
+  // 2) Oraria reale
+  const oraria = calcolaOraria(data, ora, luogo);
+  if (oraria?.errore) {
+    return { output: `❌ Errore oraria: ${oraria.errore}` };
+  }
+
+  // 3) Proiezione galattica secondo Auroria (NO nomi inventati)
   const gal = proiezioneGalatticaAuroria(oraria, TABELLE_AURORIA);
 
-  // 3️⃣ Schema Sibille (solo struttura)
+  // 4) Schema stesa Sibille (solo struttura; le carte reali le collegheremo al mazzo)
   const schemaSibille = strutturaSibille();
 
-  // 4️⃣ (Facoltativo) Legge Universale
+  // 5) (Facoltativo) Legge Universale come passo tecnico — lasciare commentato se non usi ora
   // const legge = applicaLeggeUniversale?.({
   //   modulo: 'Auroria', data, ora, luogo, oraria,
   // });
 
   const righe = [
     `✨ Metodo AURORIA attivo (${comando})`,
-    `📅 ${data} → 🕰 ${ora} → 📍 ${luogo}`,
+    `📅 ${data} — 🕰️ ${ora} — 📍 ${luogo}`,
     ``,
-    `🌞 ORARIA (reale)`,
-    oraria?.testo?.trim() || '⚠️ Posizioni astronomiche non calcolate (Sole e pianeti).',
+    `🔭 ORARIA (reale)`,
+    oraria.testo?.trim() || '• Posizioni astronomiche calcolate (Sole e pianeti).',
     ``,
     `🌌 PROIEZIONE GALATTICA`,
-    gal?.testo?.trim() || '⚠️ Dati galattici non disponibili.',
+    gal.testo,
     ``,
-    `🔮 STESA SIBILLE (schema)`,
-    schemaSibille?.trim() || '⚠️ Schema Sibille non definito.',
+    `🜂 STESA SIBILLE (schema)`,
+    schemaSibille,
     ``,
-    `⚙️ Comandi Operativi`,
-    operativi?.join('\n') || '⚠️ Nessun comando operativo disponibile.',
-    // (facoltativo) `⚖️ Legge Universale`, legge?.testo || '—',
+    `✅ Comandi operativi`,
+    `• ${logOperativi.join('\n• ')}`,
+    // (facoltativo) ``, `📜 Legge Universale`, legge?.testo || '—',
   ];
 
-  const outputFinale = righe.filter(Boolean).join('\n');
-
-  if (!outputFinale.trim()) {
-    console.warn('⚠️ Nessun contenuto generato da AURORIA.');
-    return { output: '⚠️ Calcolo non completato — controlla i moduli Oraria o Galattica.' };
-  }
-
-  return { output: outputFinale };
+  return { output: righe.join('\n') };
 }
+
 
 // ===============================
 // Proiezione galattica — AURORIA
