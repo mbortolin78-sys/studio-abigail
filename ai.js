@@ -48,33 +48,38 @@ export async function processCommand(text) {
     case 'RVE':
       return eseguiVelaria(data, ora, luogoCorrente, comando);
 
-    // ✴ ETERIA
+   // ✴ ETERIA
+case 'RETERIA':
 case 'RETERIAE':
 case 'RETERIAS':
   return await eseguiEteria(data, ora, luogoCorrente, comando);
 
-    // 💫 VENERE — CLASSICA
-    case 'RVC':
-      return eseguiVenereClassica(data, ora, luogoCorrente, comando);
+   // venere_classica_tecnico.js
+export function eseguiVenereClassica(data, ora, luogo, comando) {
+  console.log(`💫 Avvio calcolo VENERE CLASSICA — ${comando}`);
+  return { output: `💫 Metodo VENERE CLASSICA attivo (${comando}) — ${ora}, ${luogo}` };
+}
 
-    // 💫 VENERE — AURORIA
-    case 'RVA':
-      return eseguiVenereAuroria(data, ora, luogoCorrente, comando);
+// venere_auroria_tecnico.js
+export function eseguiVenereAuroria(data, ora, luogo, comando) {
+  console.log(`💫 Avvio calcolo VENERE AURORIA — ${comando}`);
+  return { output: `💫 Metodo VENERE AURORIA attivo (${comando}) — ${ora}, ${luogo}` };
+}
 
-    // 💫 VENERE — VELARIA
-    case 'RVV':
-      return eseguiVenereVelaria(data, ora, luogoCorrente, comando);
+// venere_velaria_tecnico.js
+export function eseguiVenereVelaria(data, ora, luogo, comando) {
+  console.log(`💫 Avvio calcolo VENERE VELARIA — ${comando}`);
+  return { output: `💫 Metodo VENERE VELARIA attivo (${comando}) — ${ora}, ${luogo}` };
+}
 
-    // 💫 VENERE — ETERIA
-    case 'RVETERIA':
-      return eseguiVenereEteria(data, ora, luogoCorrente, comando);
+// venere_eteria_tecnico.js
+export function eseguiVenereEteria(data, ora, luogo, comando) {
+  console.log(`💫 Avvio calcolo VENERE ETERIA — ${comando}`);
+  return { output: `💫 Metodo VENERE ETERIA attivo (${comando}) — ${ora}, ${luogo}` };
+}
 
-    // 🌙 IDENTIKIT
-    case 'RVI':
-      return eseguiIdentikit(data, ora, luogoCorrente, comando);
-
-    // 🪶 Default
-    default:
-      return { output: "✨ Formula non riconosciuta come comando operativo." };
-  }
+// identikit_tecnico.js
+export function eseguiIdentikit(data, ora, luogo, comando) {
+  console.log(`🪞 Avvio IDENTIKIT — ${comando}`);
+  return { output: `🪞 Metodo IDENTIKIT attivo (${comando}) — ${ora}, ${luogo}` };
 }
