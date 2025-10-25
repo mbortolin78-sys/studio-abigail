@@ -102,9 +102,9 @@ export function eseguiAuroria(data, ora, luogo, comando) {
     // (facoltativo) ``, `📜 Legge Universale`, legge?.testo || '—',
   ];
 
-  return { output: righe.join('\n') };
-}
-
+  return {
+  output: righe.join('\n')
+};
 
 // ===============================
 // Proiezione galattica — AURORIA
