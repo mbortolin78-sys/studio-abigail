@@ -48,10 +48,10 @@ export function processCommand(text) {
     case 'RVE':
       return eseguiVelaria(data, ora, luogoCorrente, comando);
 
-    // 🌌 ETERIA
-    case 'RETERIAE':
-    case 'RETERIAS':
-      return eseguiEteria(data, ora, luogoCorrente, comando);
+    // ✴ ETERIA
+case 'RETERIAE':
+case 'RETERIAS':
+  return await eseguiEteria(data, ora, luogoCorrente, comando);
 
     // 💫 VENERE — CLASSICA
     case 'RVC':
