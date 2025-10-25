@@ -257,4 +257,6 @@ function listNomi(arr = []) { return (arr || []).map(c => c?.nome || c?.id || '(
 function listStr(arr) { return Array.isArray(arr) && arr.length ? arr.join(' • ') : '—'; }
 function safe(fn) { try { return fn && fn(); } catch { return null; } }
 
-export default { eseguiEteria };
+export async function eseguiEteria(data, ora, luogo, comando) {
+  // ... lascia tutto il codice già presente ...
+}
