@@ -15,7 +15,7 @@ import { eseguiIdentikit } from './identikit_tecnico.js';
 // FUNZIONE PRINCIPALE
 // ────────────────────────────────────────────────
 
-export function processCommand(text) {
+export async function processCommand(text) {
   if (!text || text.trim() === '') {
     return { output: "🪶 Inserisci un comando o una domanda." };
   }
