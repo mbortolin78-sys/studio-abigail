@@ -29,7 +29,11 @@ async function caricaOracoliSciamano() {
 
 // ====== EXPORT PRINCIPALE ======
 export async function eseguiEteria(data, ora, luogo, comando) {
-    if (!tipo) return { output: 'Comando Eteria non riconosciuto. Usa: RETERIAE o RETERIAS.' };
+  const tipo = parseTipo(comando);
+  if (!tipo) return { output: 'Comando Eteria non riconosciuto. Usa: RETERIAE o RETERIAS.' };
+
+  // ... resto del codice ...
+}
 
   // 1) Avvii + Oraria + Legge
   const avvio = applicaComandiOperativi('Eteria');
