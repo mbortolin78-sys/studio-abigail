@@ -13,16 +13,18 @@ export function eseguiVenereVelaria(data, ora, luogo, comando) {
   const tipo = parseTipo(comando);
   if (!tipo) return { output: 'Comando non riconosciuto. Usa: RVV (Venere Velaria).' };
 
+  // 1️⃣ Comandi Operativi + Oraria + Legge Universale
   const operativi = safe(() => applicaComandiOperativi('Venere Velaria')) || [];
   const oraria = safe(() => calcolaOraria(data, ora, luogo)) || {};
   const legge  = safe(() => applicaLeggeUniversale({ modulo: 'Venere Velaria', data, ora, luogo })) || {};
 
-  // Metodi in sequenza tassativa
+  // 2️⃣ Metodi in sequenza tassativa
   const tn = metodoTemaNatale(oraria);
   const vn = metodoVenaria(oraria);
   const vv = metodoVelaria(oraria);
   const al = metodoAldebaran(oraria);
 
+  // 3️⃣ Costruzione output
   const righe = [];
   righe.push(`✨ METODO VENERE VELARIA — ${tipo}`);
   righe.push(`📅 ${data} — 🕰️ ${ora} — 📍 ${luogo}`);
@@ -43,9 +45,11 @@ export function eseguiVenereVelaria(data, ora, luogo, comando) {
   if (Array.isArray(legge?.righe)) righe.push(...legge.righe);
   else righe.push('• Legge applicata secondo protocollo.');
   righe.push('');
-  righe.push('✨ I calcoli sono stati eseguiti con rigore secondo le Leggi Universali – Metodo Marika.');
+  righe.push('✅ I calcoli sono stati eseguiti con rigore secondo le Leggi Universali — Metodo Marika.');
 
-  return { output: righe.join('\n') };
+  const outputFinale = righe.join('\n');
+  console.log('✅ Venere Velaria eseguita correttamente:', outputFinale);
+  return { output: outputFinale };
 }
 
 // ======================================================
@@ -78,12 +82,12 @@ function metodoVenaria(oraria) {
 // ======================================================
 function metodoVelaria(oraria) {
   const out = [];
-  out.push('• Oraria Classica interna eseguita su data-ora-luogo domanda.');
+  out.push('• Oraria Classica interna eseguita su data–ora–luogo domanda.');
   out.push('• Luna = metronomo: aspetti applicativi = attivazioni (ora/giorno).');
   out.push('• Case rilevanti: III messaggi – XI social – IX estero – I/IV fisico – X visibilità.');
   out.push('• Fusione Venaria → Velaria: ricalcolo rami dal fascio consultante.');
   out.push('• Timeline = quando, chi, cosa, dove, perché, sviluppo, dettagli, intenzioni.');
-  out.push('• Portali Argento+Azzurro = reali  /  Oro o Bronzo = impersonificazione  /  Rame = filtro.');
+  out.push('• Portali Argento + Azzurro = reali / Oro o Bronzo = impersonificazione / Rame = filtro.');
   out.push('• Calibrazione Identità: coincidenza fasci = autenticità / scarto = deviazione.');
   return { testo: out };
 }
@@ -113,6 +117,7 @@ function parseTipo(c) {
   const s = String(c || '').toUpperCase();
   return s.includes('RVV') ? 'RVV' : null;
 }
-function safe(fn) { try { return fn && fn(); } catch { return null; } }
 
-export default { eseguiVenereVelaria };
+function safe(fn) {
+  try { return fn && fn(); } catch { return null; }
+}
