@@ -52,7 +52,6 @@ const COMMAND_ALIASES = new Map([
   ['RVS', 'RVS'], ['RVE', 'RVE'],
 
   // ETERIA (normale + estesa + sintetica)
-  ['RETERIA',  'RETERIA'],
   ['RETERIAE', 'RETERIAE'],
   ['RETERIAS', 'RETERIAS'],
 
@@ -70,50 +69,64 @@ function resolveCommand(raw) {
   const norm = normalizeCommand(raw);
   return COMMAND_ALIASES.get(norm) || null;
 }
+// ─────────────────────────────────────────────
+// ESECUZIONE DEL COMANDO RICONOSCIUTO
+// ─────────────────────────────────────────────
 
-// ———————————————————————————————————————————————
-// router → handler
-async function dispatch(cmdKey, { dataIT, oraIT, luogo }) {
-  switch (cmdKey) {
-    // AURORIA
-    case 'RAS':
+export async function processCommand(text) {
+  if (!text || text.trim() === '') {
+    return { output: "🪶 Inserisci un comando o una domanda." };
+  }
+
+  const norm = normalizeCommand(text);
+  const canonical = resolveCommand(norm);
+  const [now, dataIT, oraIT] = nowPieces();
+  const luogoCorrente = defaultLocation();
+
+  if (!canonical) {
+    return { output: "✨ Formula non riconosciuta come comando operativo." };
+  }
+
+  switch (canonical) {
+
+    // 🌞 AURORIA
     case 'RAE':
-      return eseguiAuroria(dataIT, oraIT, luogo, cmdKey);
+    case 'RAS':
+      return await eseguiAuroria(dataIT, oraIT, luogoCorrente, canonical);
 
-    // ECHO
-    case 'RES':
+    // 🌊 ECHO
     case 'REE':
-      return eseguiEcho(dataIT, oraIT, luogo, cmdKey);
+    case 'RES':
+      return await eseguiEcho(dataIT, oraIT, luogoCorrente, canonical);
 
-    // VELARIA
-    case 'RVS':
+    // 🌬 VELARIA
     case 'RVE':
-      return eseguiVelaria(dataIT, oraIT, luogo, cmdKey);
+    case 'RVS':
+      return await eseguiVelaria(dataIT, oraIT, luogoCorrente, canonical);
 
-    // ETERIA (tutte le varianti puntano allo stesso motore tecnico)
-    case 'RETERIA':
+    // ✴ ETERIA
     case 'RETERIAE':
     case 'RETERIAS':
-      return await eseguiEteria(dataIT, oraIT, luogo, cmdKey);
+      return await eseguiEteria(dataIT, oraIT, luogoCorrente, canonical);
 
-    // VENERE
+    // 💫 VENERE
     case 'RVC':
-      return eseguiVenereClassica(dataIT, oraIT, luogo, cmdKey);
+      return await eseguiVenereClassica(dataIT, oraIT, luogoCorrente, canonical);
     case 'RVA':
-      return eseguiVenereAuroria(dataIT, oraIT, luogo, cmdKey);
+      return await eseguiVenereAuroria(dataIT, oraIT, luogoCorrente, canonical);
     case 'RVV':
-      return eseguiVenereVelaria(dataIT, oraIT, luogo, cmdKey);
+      return await eseguiVenereVelaria(dataIT, oraIT, luogoCorrente, canonical);
     case 'RVETERIA':
-      return eseguiVenereEteria(dataIT, oraIT, luogo, cmdKey);
+      return await eseguiVenereEteria(dataIT, oraIT, luogoCorrente, canonical);
 
-    // IDENTIKIT
+    // 🌙 IDENTIKIT
     case 'RVI':
-      return eseguiIdentikit(dataIT, oraIT, luogo, cmdKey);
+      return await eseguiIdentikit(dataIT, oraIT, luogoCorrente, canonical);
 
+    // Default
     default:
-      return { output: '✨ Comando non riconosciuto.' };
+      return { output: "✨ Formula non riconosciuta come comando operativo." };
   }
-}
 
 // ———————————————————————————————————————————————
 // API principale
