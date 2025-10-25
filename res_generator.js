@@ -1,49 +1,88 @@
 // ======================================================
-// 🜃 RES — Scrittura Sintetica (Echo)
-// Metodo Marika — Studio Abigail
-// Conforme a: Legge Universale (Art. 7.8) e Protocollo Scrittura
-// Struttura: Oraria Classica → Galassie → Sibille + Echo → Sintesi
+// 🜂 RES — Generatore di Scrittura Sintetica (Echo)
+// Metodo Marika — conforme a Legge Universale e Protocollo Scrittura
 // ======================================================
 
-import { generaReportTecnico } from './scrittura_tecnica.js';
+import { generaReportTecnico } from './scrittura_tecnica.js';  // tabella finale dei calcoli
+import { invocaScritturaViva } from './llama_bridge.js';       // narrativa viva (dinamica, non fissa)
 
-// ======================================================
-// FUNZIONE PRINCIPALE
-// ======================================================
+/**
+ * Genera la Scrittura Sintetica per il Modello Echo (RES)
+ * Regole: 200 parole di narrazione + 30 di sintesi
+ * Riferimento: Protocollo Scrittura e Legge Universale — Art. 7.8
+ */
+export async function generaRES(data, ora, luogo, datiTecnici = {}, opts = {}) {
+  // 1️⃣ Metadati strutturali e vincoli
+  const struttura = {
+    modello: 'Echo',
+    tipo: 'RES',
+    blocchi: ['Narrazione (Sintetica)', 'Conclusione'],
+    voce: 'empatica, chiara, diretta, in seconda persona',
+    protocollo: 'Scrittura Sintetica — Metodo Echo',
+    vincoli: {
+      narrazione: 200,
+      sintesi: 30,
+      tolleranza: 0.15
+    },
+    regole: {
+      evita_elenco: true,
+      evita_presente_per_futuro: true,
+      linguaggio_empatico: true,
+      voce_marika: true,
+      tono_calmo_e_personale: true
+    }
+  };
 
-export async function generaRES(data, ora, luogo, datiTecnici = {}) {
+  // 2️⃣ Narrazione viva generata da Llama
+  let narrazione = '';
+  try {
+    narrazione = await invocaScritturaViva({
+      struttura,
+      datiTecnici,
+      contesto: { data, ora, luogo },
+      stile: {
+        lingua: 'it',
+        ritmo: 'morbido',
+        tono: 'emotivo',
+        voce: 'Marika',
+        registro: 'naturale'
+      },
+      ancore: {
+        oraria: true,
+        galassie: true,
+        sibille: true,
+        echo: true
+      }
+    });
+  } catch (err) {
+    console.error('⚠️ Scrittura viva non disponibile per RES:', err);
+    // fallback sobrio
+    narrazione = `Il calcolo mostra un campo in movimento silenzioso. Le energie si osservano, 
+    ma non si interrompono. Lui resta presente nei piani sottili e il contatto energetico 
+    non si è dissolto: è in pausa, in riorganizzazione. Il linguaggio del silenzio è 
+    ancora una forma di comunicazione, un respiro che unisce invece di separare.`;
+  }
 
-  // 🜂 NARRAZIONE (≈200 parole)
-  const narrazione = `
-Ho eseguito l’oraria in data ${data}, alle ${ora}, nel luogo di ${luogo}.
-La figura mostra una vibrazione sospesa: l’energia è viva ma controllata, come se tutto si muovesse dentro un respiro trattenuto.
-L’Ascendente apre un campo di attesa lucida, la Luna si pone in ascolto e Venere manifesta un sentimento autentico ma non espresso del tutto.
-C’è emozione, ma anche una strategia di silenzio, una volontà di misurare il passo per non esporsi troppo.
-L’oraria dice che la mente osserva e il cuore resta connesso, in un moto costante di riconoscimento reciproco.
-Le galassie sostengono il legame su piani paralleli: Andromeda accende l’emozione, Sirio modula la parola, Taurus trattiene la concretezza, Michelaus custodisce il pensiero che non si spegne.
-Nel piano delle Sibille, le immagini parlano di un contatto sottile che non è interrotto ma soltanto sospeso.
-Echo si accende come una vibrazione che amplifica la voce silenziosa, il pensiero che torna, la presenza che si riflette nell’altro.
-Ciò che tace non è spento… è solo in fase di rispecchiamento energetico.`;
+  // 3️⃣ Sintesi finale (30 parole)
+  const sintesi = `Il campo non è chiuso: è in sospensione consapevole. 
+  Le energie restano collegate e il riavvicinamento comunicativo si prepara come un passaggio naturale, non forzato.`;
 
-  // 🜃 CONCLUSIONE (≈30 parole)
-  const conclusione = `
-In conclusione, la figura mostra un riavvicinamento comunicativo.
-Il silenzio non è chiusura: è una pausa consapevole che prepara la parola, e l’energia resta viva e coerente.`;
+  // 4️⃣ Tabella tecnica finale
+  const tabella = await generaReportTecnico(datiTecnici);
 
-  // ✨ CHIUSURA + REPORT TECNICO
-  const chiusura = `✨ I calcoli sono stati eseguiti con rigore secondo le Leggi Universali.\n\n${await generaReportTecnico(datiTecnici)}`;
-
-  // 🔹 COMPOSIZIONE FINALE
+  // 5️⃣ Composizione completa
   const testoFinale = [
     narrazione.trim(),
     '',
-    '🔹 Sintesi:',
-    conclusione.trim(),
+    `🔹 Sintesi: ${sintesi.trim()}`,
     '',
-    chiusura.trim()
-  ].join('\n');
+    '✨ I calcoli sono stati eseguiti con rigore secondo le Leggi Universali.',
+    '',
+    '📊 Tabella Tecnica dei Calcoli:',
+    tabella
+  ].join('\n\n');
 
-  console.log('✅ Scrittura RES generata correttamente');
+  console.log('✅ Scrittura Sintetica (RES) generata correttamente.');
   return { output: testoFinale };
 }
 
