@@ -3,7 +3,7 @@
 // usa astronomy-engine per posizioni vere di Sole e pianeti
 // ===============================
 
-import * as Astronomy from 'https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.0/astronomy-engine.min.js';
+import * as Astronomy from 'https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.0/+esm';
 
 export function calcolaOraria(data, ora, luogo) {
   try {
