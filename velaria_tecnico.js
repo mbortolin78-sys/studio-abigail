@@ -14,7 +14,7 @@ import { applicaComandiOperativi } from './comandiOperativi.js';
 import { calcolaOraria } from './calcolo_oraria.js';
 
 // ====== CARICAMENTO TAROCCHI ======
-import TAROCCHI_STELLE from './mazzi/tarocchi_stelle.json';
+const TAROCCHI_STELLE = await fetch('./mazzi/tarocchi_stelle.json').then(res => res.json());
 
 // ===============================
 // FUNZIONE PRINCIPALE
