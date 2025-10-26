@@ -125,13 +125,13 @@ body {
 .meta {
   font-size: 0.8em;
   color: rgba(42, 28, 8, 0.6);
-  border-top: 2px solid rgba(138, 97, 45, 0.25);
-  padding-top: 3px;
+  border-top: 1px solid rgba(138, 97, 45, 0.2); /* linea più sottile e tinta sabbia 20% */
+  padding-top: 2px;
   display: flex;
   align-items: center;
   gap: 6px;
-  width: 20%; 
-  transform: translateX(-25%); /* la centra visivamente */
+  width: 100%; /* perfettamente allineata al testo */
+  margin-left: 0; /* parte esattamente dove inizia il testo */
 }
 
 .copy {
