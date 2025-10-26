@@ -9,19 +9,20 @@ body {
   margin: 0;
 }
 
+/* ——— Contenitore generale ——— */
 .app-container {
   width: 95%;
   max-width: 900px;
   height: 90vh;
   display: flex;
   flex-direction: column;
-  background-color: #F4EFE1;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(42, 28, 8, 0.15);
-  overflow: hidden;
-  padding: 8px; /* margine interno per il respiro attorno alla chat */
+  background: #F4EFE1;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
 }
 
+/* ——— Intestazione ——— */
 .header {
   background-color: #F1E8DA;
   display: flex;
@@ -35,17 +36,19 @@ body {
 
 .header-title {
   font-size: 1.3em;
+  color: #2A1C08;
   letter-spacing: 0.5px;
 }
 
+/* ——— Tabs in alto ——— */
 .tabs {
   display: flex;
   gap: 8px;
 }
 
-/* Pulsanti con gradiente vellutato */
+/* Schede e pulsanti sfumati (giallo → bianco in basso) */
 .tab, #send-btn, #mic-btn {
-  background: linear-gradient(270deg, #EEA82D 0%, #F6E9C9 100%);
+  background: linear-gradient(180deg, #EEA82D 0%, #FFFFFF 100%);
   border: 1px solid #BCB193;
   color: #2A1C08;
   border-radius: 6px;
@@ -53,33 +56,35 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  box-shadow: 0 2px 5px rgba(42, 28, 8, 0.1);
+  box-shadow: 0 2px 5px rgba(42, 28, 8, 0.10);
 }
 
 .tab:hover, #send-btn:hover, #mic-btn:hover {
   filter: brightness(1.05);
 }
 
+/* Tab attiva = stesso colore dello sfondo */
 .tab.active {
   background: #F4EFE1;
   border: 1px solid #BCB193;
-  box-shadow: inset 0 2px 4px rgba(42, 28, 8, 0.1);
+  box-shadow: inset 0 2px 4px rgba(42, 28, 8, 0.08);
 }
 
-/* Chat */
+/* ——— Area messaggi ——— */
 .chat-window {
   flex: 1;
   overflow-y: auto;
   padding: 24px;
-  margin: 4px;
+  margin: 12px 8px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  border-radius: 12px;
+  border-radius: 8px;
   background-color: #F8F4EA;
-  box-shadow: inset 0 1px 6px rgba(42, 28, 8, 0.08);
+  box-shadow: inset 0 1px 6px rgba(42, 28, 8, 0.06);
 }
 
+/* ——— Messaggi ——— */
 .message {
   display: flex;
   flex-direction: column;
@@ -124,7 +129,7 @@ body {
   opacity: 1;
 }
 
-/* Area scrittura */
+/* ——— Area scrittura ——— */
 .input-area {
   display: flex;
   align-items: center;
