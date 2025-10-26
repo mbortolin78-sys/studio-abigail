@@ -86,4 +86,4 @@ export async function generaRVE(data, ora, luogo, datiTecnici = {}) {
   return { output: testoFinale };
 }
 
-export default { generaRVE };
+export default generaRVE ;
