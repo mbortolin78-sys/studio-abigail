@@ -68,7 +68,10 @@ if (SpeechRecognition) {
 function interpretCommand(text) {
   const normalized = text.toUpperCase().replace(/\s|\./g, "").replace(/-|_/g, "");
 
-  const commands = ["RAE", "RAS", "RES", "REE", "RVE", "RVI", "RVC", "RVA", "RVV"];
+  const commands = [
+    "RAE", "RAS", "REE", "RES", "RVE", "RVS", "RETERIAE", "RETERIAS", "RVC", "RVA", "RVV", "RVETERIA", "RVI"
+  ];
+
   const matched = commands.find(cmd => normalized.includes(cmd));
 
   if (matched) {
