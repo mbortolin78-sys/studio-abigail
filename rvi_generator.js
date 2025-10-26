@@ -129,4 +129,4 @@ export async function generaRVI(data, ora, luogo, tag = 'UFFICIALE', datiTecnici
 
 function safe(fn) { try { return fn && fn(); } catch { return null; } }
 
-export default { generaRVI };
+export default generaRVI;
