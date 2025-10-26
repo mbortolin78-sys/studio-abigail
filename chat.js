@@ -1,5 +1,5 @@
 // =======================================
-// Studio Abigail ✨ — Chat con doppia scheda e microfono
+// Studio Abigail — Chat con doppia scheda e microfono
 // =======================================
 
 (function () {
@@ -21,14 +21,21 @@
   // CAMBIO SCHEDA
   // ===============================
   tabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => {
-      tabs.forEach(t => t.classList.remove("active"));
-      tab.classList.add("active");
+  tab.addEventListener("click", () => {
+    // Rimuove stato attivo da tutte
+    tabs.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+
+    // Transizione morbida nella finestra chat
+    chatWindow.style.opacity = "0";
+    setTimeout(() => {
       state.activeChat = index === 0 ? "clienti" : "marika";
       renderChat();
-    });
+      chatWindow.style.opacity = "1";
+    }, 150);
   });
-
+});
+  
   // ===============================
   // RENDER CHAT
   // ===============================
