@@ -258,13 +258,25 @@ textarea::placeholder {
     transform: translateY(-2mm);
   }
 
-  /* 🔹 Testo più visibile e leggibile */
-  .text,
-  textarea {
-    font-size: 1.05em;
-    color: #1c1308;
-    font-weight: 500;
+  /* ✨ Testo delle bolle più visibile e leggibile su mobile */
+.text {
+  font-size: 1.05em; /* leggermente più grande */
+  font-weight: 500;  /* più deciso ma non pesante */
+  color: #2A1C08;    /* pieno e caldo */
+  line-height: 1.6;
+}
+
+/* Versione ottimizzata per schermi piccoli */
+@media (max-width: 768px) {
+  .text {
+    font-size: 1.12em;  /* un filo più grande solo su telefono */
+    color: #1e1205;     /* tono leggermente più scuro per contrasto */
   }
+
+  textarea {
+    font-size: 1.05em; /* anche il campo Scrivi... un po’ più leggibile */
+  }
+}
 
   /* 🔹 Placeholder più corto e più delicato */
   textarea::placeholder {
