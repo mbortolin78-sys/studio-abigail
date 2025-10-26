@@ -1,238 +1,72 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Studio Abigail ✨</title>
-  <style>
-    :root {
-      --sfondo: #f8f5f2;
-      --sfondo-header: #f3ece6;
-      --sfondo-box: #f9f6f2;
-      --accento: #c9b199;
-      --testo: #3a2f2a;
-      --ombra: rgba(0,0,0,0.05);
-    }
-
-    body {
-      margin: 0;
-      font-family: "Inter", "Segoe UI", sans-serif;
-      background: var(--sfondo);
-      color: var(--testo);
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-    }
-
-    /* HEADER */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 18px;
-      background: var(--sfondo-header);
-      border-bottom: 1px solid var(--ombra);
-    }
-
-    header h1 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.4rem;
-      color: var(--testo);
-      margin: 0;
-    }
-
-    .tabs {
-      display: flex;
-      gap: 8px;
-    }
-
-    .tab {
-      background: var(--accento);
-      border: none;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      color: #000;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .tab.active {
-      background: var(--sfondo);
-      border: 1px solid var(--accento);
-    }
-
-    /* CHAT */
-    main {
-      flex: 1;
-      padding: 20px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .message {
-      max-width: 80%;
-      line-height: 1.4;
-      padding-bottom: 4px;
-      border-bottom: 1px solid var(--ombra);
-    }
-
-    .message.user {
-      align-self: flex-end;
-      text-align: right;
-    }
-
-    .message-text {
-      font-size: 0.95rem;
-      color: var(--testo);
-    }
-
-    .message-meta {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 4px;
-      font-size: 0.75rem;
-      color: #a29283;
-      opacity: 0.7;
-    }
-
-    .message.user .message-meta {
-      flex-direction: row-reverse;
-    }
-
-    .copy-btn {
-      background: none;
-      border: none;
-      font-size: 0.9rem;
-      color: #a29283;
-      cursor: pointer;
-      padding: 0;
-    }
-
-    /* FOOTER */
-    footer {
-      display: flex;
-      align-items: center;
-      padding: 10px 14px;
-      background: var(--sfondo-box);
-      border-top: 1px solid var(--ombra);
-      gap: 8px;
-    }
-
-    textarea {
-      flex: 1;
-      border: none;
-      border-radius: 6px;
-      padding: 10px;
-      font-size: 0.9rem;
-      background: #fff8f4;
-      box-shadow: inset 0 0 3px var(--ombra);
-      resize: none;
-      min-height: 36px;
-      max-height: 120px;
-      outline: none;
-      color: var(--testo);
-    }
-
-    textarea:focus {
-      background: #f3ebe3;
-    }
-
-    textarea::placeholder {
-      font-size: 0.8rem;
-      color: rgba(58, 47, 47, 0.35);
-    }
-
-    .btn, .mic {
-      background: var(--accento);
-      border: none;
-      color: #000;
-      border-radius: 8px;
-      padding: 8px 14px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .btn:hover, .mic:hover {
-      background: #b89c83;
-    }
-
-    .mic.active {
-      background: #d1a984;
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Optima:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <h1>✨ Studio Abigail</h1>
-    <div class="tabs">
-      <button class="tab">Clienti</button>
-      <button class="tab active">Marika</button>
-    </div>
-  </header>
+  <div class="app-container">
 
-  <main id="chat"></main>
+    <!-- Intestazione -->
+    <header class="header">
+      <div class="header-title">✨ Studio Abigail</div>
+      <div class="tabs">
+        <button class="tab">Clienti</button>
+        <button class="tab active">Marika</button>
+      </div>
+    </header>
 
-  <footer>
-    <textarea id="input" placeholder="messaggio o parla..." rows="1"></textarea>
-    <button id="send" class="btn">Invia</button>
-    <button id="mic" class="mic">🎤</button>
-  </footer>
+    <!-- Finestra Chat -->
+    <main class="chat-window" id="chat-window"></main>
+
+    <!-- Barra di invio -->
+    <footer class="input-area">
+      <textarea id="message-input" placeholder="Scrivi un nuovo messaggio..." rows="1"></textarea>
+      <div class="input-buttons">
+        <button id="send-btn">Invia</button>
+        <button id="mic-btn" title="Attiva microfono">🎙️</button>
+      </div>
+    </footer>
+  </div>
 
   <script>
-    const chat = document.getElementById("chat");
-    const input = document.getElementById("input");
-    const send = document.getElementById("send");
-    const mic = document.getElementById("mic");
+    const chatWindow = document.getElementById("chat-window");
+    const input = document.getElementById("message-input");
+    const sendBtn = document.getElementById("send-btn");
 
-    input.addEventListener("input", () => {
-      input.style.height = "auto";
-      input.style.height = input.scrollHeight + "px";
-    });
-
-    function addMessage(text, user = false) {
-      const msg = document.createElement("div");
-      msg.className = "message" + (user ? " user" : "");
-      const time = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-      msg.innerHTML = `
-        <div class="message-text">${text}</div>
-        <div class="message-meta">
-          <span>${time}</span>
-          <button class="copy-btn" onclick="navigator.clipboard.writeText(\`${text.replace(/`/g, "\\`")}\`)">📋</button>
-        </div>
-      `;
-      chat.appendChild(msg);
-      chat.scrollTo(0, chat.scrollHeight);
+    function addMessage(text, sender = "user") {
+      const msgDiv = document.createElement("div");
+      msgDiv.classList.add("message", sender);
+      msgDiv.innerHTML = `
+        <div class="text">${text}</div>
+        <div class="meta">
+          ${sender === "user" 
+            ? `<span class="copy">📋</span><span class="time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>`
+            : `<span class="time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span><span class="copy">📋</span>`
+          }
+        </div>`;
+      chatWindow.appendChild(msgDiv);
+      chatWindow.scrollTop = chatWindow.scrollHeight;
     }
 
-    function sendMessage() {
+    sendBtn.addEventListener("click", () => {
       const text = input.value.trim();
-      if (!text) return;
-      addMessage(text, true);
-      input.value = "";
-      input.style.height = "auto";
-      setTimeout(() => addMessage("✨ Risposta elaborata..."), 800);
-    }
-
-    send.addEventListener("click", sendMessage);
-
-    input.addEventListener("keydown", e => {
-      if (e.key === "Enter" && !e.shiftKey) {
-        e.preventDefault();
-        sendMessage();
+      if (text) {
+        addMessage(text, "user");
+        input.value = "";
+        // simulazione risposta
+        setTimeout(() => addMessage("Ricevuto: " + text, "assistant"), 500);
       }
     });
 
-    let recording = false;
-    mic.addEventListener("click", () => {
-      recording = !recording;
-      mic.classList.toggle("active", recording);
-      input.placeholder = recording ? "🎧 Sto ascoltando..." : "messaggio o parla...";
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        sendBtn.click();
+      }
     });
   </script>
 </body>
