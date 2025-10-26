@@ -164,6 +164,12 @@ textarea {
   transition: box-shadow 0.2s ease;
 }
 
+textarea::placeholder {
+  font-size: 0.82em;               /* più piccolo */
+  color: rgba(42, 28, 8, 0.25);    /* molto trasparente */
+  font-style: italic;              /* leggero accenno elegante */
+}
+
 textarea:focus {
   outline: none;
   box-shadow: 0 0 6px rgba(238, 168, 45, 0.4);
