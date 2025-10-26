@@ -3,9 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> Studio Abigail </title>
+  <title>Studio Abigail</title>
 
-  <!-- Stile generale -->
+  <!-- 🟢 Manifest e icona app -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-180.png">
+  <meta name="theme-color" content="#D8C9B4" />
+
+  <!-- 🟤 Stile generale -->
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Optima:wght@400;700&display=swap" rel="stylesheet" />
 </head>
@@ -15,7 +20,7 @@
 
     <!-- 🟡 INTESTAZIONE -->
     <header class="header">
-      <div class="header-title">  Studio Abigail</div>
+      <div class="header-title">Studio Abigail</div>
       <div class="tabs">
         <button class="tab">Clienti</button>
         <button class="tab active">Marika</button>
@@ -37,10 +42,18 @@
         <button id="mic-btn" title="Attiva microfono">🎙️</button>
       </div>
     </footer>
-
   </div>
 
   <!-- 🔧 SCRIPT PRINCIPALE -->
   <script src="chat.js"></script>
+
+  <!-- 🌀 Registrazione del Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('✅ Service Worker registrato con successo'))
+        .catch(err => console.log('❌ Errore registrazione SW:', err));
+    }
+  </script>
 </body>
 </html>
