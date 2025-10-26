@@ -6,6 +6,10 @@
 const chatWindow = document.getElementById("chat-window");
 const input = document.getElementById("message-input");
 const sendBtn = document.getElementById("send-btn");
+// 📱 Accorcia solo il testo del placeholder su mobile
+if (window.innerWidth <= 768) {
+  document.getElementById("message-input").placeholder = "Scrivi...";
+}
 const micBtn = document.getElementById("mic-btn");
 const tabs = document.querySelectorAll(".tab");
 
