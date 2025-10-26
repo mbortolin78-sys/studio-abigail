@@ -24,59 +24,6 @@ body {
     -6px 0 20px rgba(138, 97, 45, 0.2); /* ombra calda tutt’attorno */
   overflow: hidden;
 }
-/* Pulsanti generali (Invia, Microfono, ecc.) */
-button {
-  background: linear-gradient(180deg, #EEA82D 0%, #fff3d6 100%);
-  border: 1px solid #BCB193;
-  color: #000;
-  font-weight: 600;
-  border-radius: 8px;
-  padding: 6px 16px;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(138, 97, 45, 0.25);
-  transition: all 0.2s ease-in-out;
-}
-
-button:hover {
-  filter: brightness(1.05);
-}
-
-/* Pulsante attivo */
-button.active {
-  background: linear-gradient(180deg, #EEA82D 0%, #fff3d6 100%);
-  color: #000;
-}
-
-/* Pulsante non attivo (come lo sfondo chat) */
-button.inactive {
-  background: #F4EFE1;
-  color: #000;
-  border: 1px solid #d6cfc3;
-}
-
-/* Pulsante microfono (stessa altezza e stile di Invia) */
-button.mic {
-  width: 42px;
-  height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(180deg, #EEA82D 0%, #fff3d6 100%);
-  border: 1px solid #BCB193;
-  box-shadow: 0 2px 4px rgba(138, 97, 45, 0.25);
-  border-radius: 8px;
-  cursor: pointer;
-}.header {
-  background-color: #F1E8DA;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 20px;
-  font-weight: bold;
-  color: #2A1C08;
-  border-bottom: 1px solid #D8C9B4;
-}
-
 .header-title {
   font-size: 1.3em;
   letter-spacing: 0.5px;
@@ -87,28 +34,49 @@ button.mic {
   gap: 8px;
 }
 
+/* Schede in alto */
 .tab {
-  background: linear-gradient(180deg, #EEA82D 0%, #E1A22B 100%);
+  background: #F4EFE1; /* non attiva = stesso colore sfondo */
   color: #2A1C08;
-  border: none;
+  border: 1px solid #D8C9B4;
   border-radius: 10px;
   padding: 6px 14px;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(42, 28, 8, 0.2);
+  box-shadow: 0 2px 4px rgba(42, 28, 8, 0.1);
+  transition: all 0.3s ease;
 }
 
 .tab.active {
-  background: #F4EFE1;
-  box-shadow: inset 0 2px 4px rgba(42, 28, 8, 0.15);
+  background: linear-gradient(180deg, #EEA82D 0%, #fff3d6 100%); /* sfumatura miele */
+  box-shadow: 0 2px 6px rgba(138, 97, 45, 0.3);
+  border: 1px solid #BCB193;
 }
 
-.chat-window {
-  flex: 1;
-  overflow-y: auto;
-  padding: 28px;
-  background-color: #F8F4EA;
-  box-shadow: inset 0 1px 6px rgba(42, 28, 8, 0.06);
+/* Pulsanti Invia e Microfono */
+#send-btn, #mic-btn {
+  background: linear-gradient(180deg, #EEA82D 0%, #fff3d6 100%);
+  border: 1px solid #BCB193;
+  color: #2A1C08;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(138, 97, 45, 0.25);
+  transition: all 0.2s ease-in-out;
+}
+
+#send-btn:hover, #mic-btn:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 4px 8px rgba(138, 97, 45, 0.3);
+}
+
+/* Pulsante microfono identico come misura a invia */
+#mic-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
 }
 
 .message {
