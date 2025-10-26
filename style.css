@@ -234,3 +234,34 @@ textarea::placeholder {
   display: flex;
   gap: 8px;
 }
+
+/* 🌿 Migliorie per dispositivi mobili */
+@media (max-width: 768px) {
+  /* Testo più leggibile */
+  body {
+    font-size: 1.05em;
+  }
+
+  .header-title {
+    font-size: 1.2em;
+  }
+
+  /* Bottoni Clienti / Marika / Invio / Microfono più grandi */
+  .tab,
+  #send-btn,
+  #mic-btn {
+    font-size: 1.05em;
+    padding: 12px 20px;
+  }
+
+  /* Testo messaggi leggermente più marcato */
+  .text {
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  /* Placeholder più visibile ma sempre delicato */
+  textarea::placeholder {
+    color: rgba(42, 28, 8, 0.35);
+  }
+}
