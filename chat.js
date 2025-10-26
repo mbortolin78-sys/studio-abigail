@@ -138,9 +138,14 @@ input.addEventListener("input", () => {
   input.style.height = input.scrollHeight + "px";
 });
 
-// 🔄 Dopo invio torna all’altezza originale
+// ✉️ Dopo invio torna all’altezza originale e mantiene il placeholder corretto
 sendBtn.addEventListener("click", () => {
   input.style.height = "auto";
+  if (window.innerWidth <= 768) {
+    input.placeholder = "Scrivi…"; // mantiene il placeholder breve su mobile
+  } else {
+    input.placeholder = "Scrivi un nuovo messaggio..."; // desktop
+  }
 });
 
 // 📋 Copia testo dei messaggi
