@@ -6,16 +6,17 @@
   <title>Studio Abigail — Metodo Marika</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --sfondo: #F8F1E5;
       --pannello: #EFE0C4;
-      --testo: #5A4432;
-      --accento: #D9A441;
-      --chiaro: #FFFDF8;
-      --bordo: #D5C2A5;
+      --testo: #4a3a2c;
+      --accento: #d5a354;
+      --accento-hover: #c2903c;
+      --bordo: #d1bfa5;
+      --chiaro: #fffdf9;
     }
 
     body {
@@ -36,27 +37,28 @@
       max-width: 820px;
       background: var(--pannello);
       border-bottom: 1px solid var(--bordo);
-      padding: 12px 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
     }
 
     header h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       color: var(--testo);
+      margin: 0;
     }
 
     .tabs {
       display: flex;
-      gap: 10px;
+      gap: 6px;
     }
 
     .tab {
       background: var(--chiaro);
-      padding: 8px 16px;
-      border-radius: 8px;
+      padding: 6px 12px;
+      border-radius: 6px;
       cursor: pointer;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       border: 1px solid var(--bordo);
       transition: 0.2s ease;
     }
@@ -73,25 +75,20 @@
       max-width: 820px;
       display: flex;
       flex-direction: column;
-      padding: 20px;
+      padding: 24px;
       overflow-y: auto;
+      line-height: 1.6;
     }
 
     .message {
-      background: var(--chiaro);
-      border: 1px solid var(--bordo);
-      border-radius: 12px;
-      padding: 14px 16px;
-      margin-bottom: 10px;
-      max-width: 80%;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+      font-size: 1rem;
+      margin-bottom: 18px;
+      white-space: pre-wrap;
+      text-align: justify;
     }
 
     .user {
-      align-self: flex-end;
-      background: var(--accento);
-      color: white;
-      font-weight: 500;
+      text-align: right;
     }
 
     footer {
@@ -101,20 +98,25 @@
       width: 100%;
       max-width: 820px;
       border-top: 1px solid var(--bordo);
-      padding: 14px 20px;
+      padding: 12px 20px;
       background: var(--pannello);
+      gap: 10px;
     }
 
-    input {
+    textarea {
       flex: 1;
+      min-height: 38px;
+      max-height: 120px;
+      resize: none;
       border: 1px solid var(--bordo);
       border-radius: 8px;
       padding: 10px 12px;
       font-size: 1rem;
       outline: none;
-      margin-right: 10px;
+      line-height: 1.5;
       background: var(--chiaro);
       color: var(--testo);
+      transition: height 0.2s ease;
     }
 
     button {
@@ -122,14 +124,21 @@
       color: white;
       border: none;
       border-radius: 8px;
-      padding: 10px 18px;
-      font-size: 1rem;
+      padding: 9px 16px;
+      font-size: 0.95rem;
       cursor: pointer;
       transition: 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     button:hover {
-      background: #c29134;
+      background: var(--accento-hover);
+    }
+
+    .mic {
+      font-size: 1.1rem;
     }
   </style>
 </head>
@@ -146,16 +155,21 @@
   <main id="chat"></main>
 
   <footer>
-    <input id="input" placeholder="Scrivi o parla..." />
+    <textarea id="input" placeholder="Scrivi o parla..."></textarea>
+    <button id="mic"><span class="mic">🎙</span></button>
     <button id="send">Invia</button>
   </footer>
 
   <script>
     const input = document.getElementById('input');
     const sendBtn = document.getElementById('send');
+    const micBtn = document.getElementById('mic');
     const chat = document.getElementById('chat');
     const tabs = document.querySelectorAll('.tab');
+    let recognizing = false;
+    let recognition;
 
+    // === Cambio scheda ===
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
         tabs.forEach(t => t.classList.remove('active'));
@@ -163,12 +177,19 @@
       });
     });
 
-    async function inviaMessaggio() {
-      const testo = input.value.trim();
+    // === Espansione textarea ===
+    input.addEventListener('input', () => {
+      input.style.height = 'auto';
+      input.style.height = input.scrollHeight + 'px';
+    });
+
+    // === Invio messaggio ===
+    async function inviaMessaggio(testo) {
       if (!testo) return;
 
       chat.innerHTML += `<div class="message user">${testo}</div>`;
       input.value = '';
+      input.style.height = 'auto';
 
       try {
         const res = await fetch('http://localhost:3210/narrativa', {
@@ -186,10 +207,47 @@
       chat.scrollTo(0, chat.scrollHeight);
     }
 
-    sendBtn.addEventListener('click', inviaMessaggio);
+    sendBtn.addEventListener('click', () => inviaMessaggio(input.value.trim()));
     input.addEventListener('keydown', e => {
-      if (e.key === 'Enter') inviaMessaggio();
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        inviaMessaggio(input.value.trim());
+      }
     });
+
+    // === Microfono ===
+    if ('webkitSpeechRecognition' in window) {
+      recognition = new webkitSpeechRecognition();
+      recognition.lang = 'it-IT';
+      recognition.continuous = false;
+      recognition.interimResults = false;
+
+      recognition.onstart = () => {
+        recognizing = true;
+        input.placeholder = "🎙 In ascolto...";
+        micBtn.style.background = "#c2903c";
+      };
+
+      recognition.onend = () => {
+        recognizing = false;
+        input.placeholder = "Scrivi o parla...";
+        micBtn.style.background = "var(--accento)";
+      };
+
+      recognition.onresult = event => {
+        const transcript = event.results[0][0].transcript;
+        input.value += (input.value ? ' ' : '') + transcript;
+        input.dispatchEvent(new Event('input'));
+      };
+
+      micBtn.addEventListener('click', () => {
+        if (recognizing) recognition.stop();
+        else recognition.start();
+      });
+    } else {
+      micBtn.disabled = true;
+      micBtn.title = "Microfono non supportato su questo browser";
+    }
   </script>
 </body>
 </html>
