@@ -3,58 +3,187 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Studio Abigail</title>
+  <title>Studio Abigail — Metodo Marika</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --lavanda: #e8e6f3;
+      --chiaro: #f9f9fb;
+      --testo: #2c2a36;
+      --bordo: #dcdbe0;
+      --accento: #7b6ef6;
+    }
 
-  <!-- Stili -->
-  <link rel="stylesheet" href="style.css" />
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--chiaro);
+      color: var(--testo);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-  <!-- Manifest e icona -->
-  <link rel="manifest" href="/manifest.json" />
-  <link rel="apple-touch-icon" href="/icon-180.png" />
-  <link rel="icon" type="image/png" href="/icon-512.png" />
+    header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 820px;
+      border-bottom: 1px solid var(--bordo);
+      background: white;
+      padding: 12px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-  <!-- Modalità app su iPhone -->
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    header h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--accento);
+    }
 
-  <!-- Script -->
- <script type="module" src="chat.js"></script>
+    .tabs {
+      display: flex;
+      gap: 10px;
+    }
+
+    .tab {
+      background: var(--lavanda);
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: 0.2s ease;
+    }
+
+    .tab.active {
+      background: var(--accento);
+      color: white;
+    }
+
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 820px;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .message {
+      background: white;
+      border: 1px solid var(--bordo);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      max-width: 80%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+    }
+
+    .user {
+      align-self: flex-end;
+      background: var(--accento);
+      color: white;
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 820px;
+      border-top: 1px solid var(--bordo);
+      padding: 14px 20px;
+      background: white;
+    }
+
+    input {
+      flex: 1;
+      border: 1px solid var(--bordo);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 1rem;
+      outline: none;
+      margin-right: 10px;
+    }
+
+    button {
+      background: var(--accento);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #695ee0;
+    }
+  </style>
 </head>
 
- <body>
- <div class="chat-header-bar"></div>
-  <!-- oppure: <div class="custom-header"></div> -->
+<body>
+  <header>
+    <h1>Studio Abigail</h1>
+    <div class="tabs">
+      <div class="tab active" id="tabMarika">Marika</div>
+      <div class="tab" id="tabClienti">Clienti</div>
+    </div>
+  </header>
 
-  <!-- Barra decorativa solo per web -->
-  <div class="chat-header-bar"></div>
+  <main id="chat"></main>
 
-<main id="chat-area"></main>
-
-<footer class="message-input-container">
-  <div id="listeningIndicator" class="listening-indicator">🎧 Sto ascoltando…</div>
-  <input type="text" id="messageInput" class="message-input" placeholder="Scrivi o parla…" />
-  <button class="send-button">Invia</button>
-  <button class="microphone-button">🎤</button>
-</footer>
-  
-<!-- Schede cliccabili -->
-<section class="tabs-inline">
-  <button class="tab active" data-tab="marika">Marika</button>
-  <button class="tab" data-tab="clienti">Clienti</button>
-</section>
-
+  <footer>
+    <input id="input" placeholder="Scrivi o parla..." />
+    <button id="send">Invia</button>
   </footer>
 
-  <!-- Service Worker -->
   <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js')
-        .then(() => console.log('✅ Service worker registrato'))
-        .catch(err => console.error('❌ Errore nel service worker:', err));
-    }
-  </script>
+    const input = document.getElementById('input');
+    const sendBtn = document.getElementById('send');
+    const chat = document.getElementById('chat');
+    const tabs = document.querySelectorAll('.tab');
 
-<!-- ✅ Script principale della chat -->
-<script type="module" src="chat.js"></script>
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+
+    async function inviaMessaggio() {
+      const testo = input.value.trim();
+      if (!testo) return;
+
+      chat.innerHTML += `<div class="message user">${testo}</div>`;
+      input.value = '';
+
+      try {
+        const res = await fetch('http://localhost:3210/narrativa', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ comando: testo })
+        });
+
+        const data = await res.json();
+        chat.innerHTML += `<div class="message">${data.text || '⚠️ Nessuna risposta dal motore narrativo.'}</div>`;
+      } catch (e) {
+        chat.innerHTML += `<div class="message">❌ Errore di connessione al motore narrativo.</div>`;
+      }
+
+      chat.scrollTo(0, chat.scrollHeight);
+    }
+
+    sendBtn.addEventListener('click', inviaMessaggio);
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') inviaMessaggio();
+    });
+  </script>
 </body>
 </html>
