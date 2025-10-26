@@ -235,20 +235,19 @@ textarea::placeholder {
   gap: 8px;
 }
 
-/* 🌸 CORREZIONI PER MOBILE */
+/* 🌸 CORREZIONI PER MOBILE — versione unificata */
 @media (max-width: 768px) {
 
-  /* 🔹 Sposta le schede a destra */
+  /* 🔹 Sposta le schede a destra e nascondi titolo */
   .tabs {
     margin-left: auto;
   }
 
-  /* 🔹 Nascondi titolo Studio Abigail */
   .header-title {
     display: none;
   }
 
-  /* 🔹 Uniforma lo sfondo (ora/batteria + intestazione + chat) */
+  /* 🔹 Uniforma tutto lo sfondo (header + area notch + chat) */
   html, body, .header {
     background-color: #F4EFE1 !important;
   }
@@ -256,136 +255,103 @@ textarea::placeholder {
   /* 🔹 Eleva leggermente tutto il blocco centrale */
   .app-container {
     transform: translateY(-2mm);
+    width: calc(100% - 40px);
+    height: calc(100vh - 40px);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    background: #F4EFE1;
+    border-radius: 24px;
+    box-shadow:
+      0 10px 25px rgba(138, 97, 45, 0.35),
+      0 -10px 25px rgba(138, 97, 45, 0.25),
+      10px 0 25px rgba(138, 97, 45, 0.25),
+      -10px 0 25px rgba(138, 97, 45, 0.25);
+    overflow: hidden;
+    position: relative;
   }
 
-  /* ✨ Testo delle bolle più visibile e leggibile su mobile */
-.text {
-  font-size: 1.25em; /* leggermente più grande */
-  font-weight: 501;  /* più deciso ma non pesante */
-  color: #2A1C08;    /* pieno e caldo */
-  line-height: 1.6;
-}
+  /* 🔹 Header fuso con lo sfondo */
+  .header {
+    background: linear-gradient(to bottom, #F4EFE1 0%, #F4EFE1 85%, #F8F4EA 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    font-weight: bold;
+    color: #2A1C08;
+    border: none;
+    box-shadow: none;
+    position: relative;
+    z-index: 3;
+  }
 
-/* Versione ottimizzata per schermi piccoli */
-@media (max-width: 768px) {
+  /* 🔹 Linea di fusione tra header e chat */
+  .header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to bottom, rgba(244,239,225,0.7), rgba(244,239,225,0));
+  }
+
+  /* 🔹 Fusione con barra superiore (notch/ora/batteria) */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: env(safe-area-inset-top, 40px);
+    background-color: #F4EFE1;
+    z-index: 9999;
+  }
+
+  /* 🔹 Testo e leggibilità */
   .text {
-    font-size: 1.12em;  /* un filo più grande solo su telefono */
-    color: #1e1205;     /* tono leggermente più scuro per contrasto */
+    font-size: 1.15em;
+    font-weight: 500;
+    color: #1E1205;
+    line-height: 1.6;
   }
 
   textarea {
-    font-size: 1.05em; /* anche il campo Scrivi... un po’ più leggibile */
+    font-size: 1.05em;
+    height: 48px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 1.3;
   }
-}
 
-  /* 🔹 Placeholder più corto e più delicato */
   textarea::placeholder {
-    color: rgba(42, 28, 8, 0.45);
     font-size: 0.9em;
+    color: rgba(42, 28, 8, 0.45);
   }
 
-  /* 🔹 Margine in basso per non coprire con la tastiera */
-  .input-area {
-    padding-bottom: 1.2rem;
-  }
-}
-/* 🌸 Correzione colore barra superiore (solo su mobile) */
-@media (max-width: 768px) {
-
-/* 🌸 Uniforma la barra superiore (ora, batteria, Wi-Fi) con lo sfondo */
-@supports (-webkit-touch-callout: none) {
-  :root {
-    --safe-area-inset-top: env(safe-area-inset-top);
-  }
-
-  body {
-    background-color: #F4EFE1;
-    padding-top: var(--safe-area-inset-top); /* segue il notch */
-  }
-
-.app-container {
-  width: calc(100% - 40px);
-  height: calc(100vh - 40px);
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  background: #F4EFE1;
-  border-radius: 24px;
-  box-shadow:
-    0 10px 25px rgba(138, 97, 45, 0.35),
-    0 -10px 25px rgba(138, 97, 45, 0.25),
-    10px 0 25px rgba(138, 97, 45, 0.25),
-    -10px 0 25px rgba(138, 97, 45, 0.25);
-  overflow: hidden;
-  position: relative;
-}
-
-/* 🔸 Header fuso con sfondo */
-.header {
-  background: linear-gradient(to bottom, #F4EFE1 0%, #F4EFE1 85%, #F8F4EA 100%);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 20px;
-  font-weight: bold;
-  color: #2A1C08;
-  border: none;
-  box-shadow: none;
-  position: relative;
-  z-index: 3;
-}
-
-/* effetto ottico per fondere il bordo tra header e chat */
-.header::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(to bottom, rgba(244,239,225,0.7), rgba(244,239,225,0));
-}
-/* ✨ Correzione visiva per fondere l’header con la parte alta dello schermo */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: env(safe-area-inset-top, 40px); /* copre area notch */
-  background-color: #F4EFE1; /* stesso colore del contenitore */
-  z-index: 9999;
-}
-
-  /* 📱 Miglioramenti di leggibilità su dispositivi mobili */
-@media (max-width: 768px) {
-  .header-title {
-    font-size: 1.4em; /* titolo leggermente più grande */
-  }
-
+  /* 🔹 Pulsanti più visibili e proporzionati */
   .tab {
-    font-size: 1.05em; /* Clienti / Marika più leggibili */
+    font-size: 1.05em;
     padding: 10px 18px;
   }
 
   #send-btn,
   #mic-btn {
-    font-size: 1.05em; /* testo più grande ma proporzionato */
+    height: 48px;
+    font-size: 1.05em;
     padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   #mic-btn {
-    font-size: 1.3em; /* microfono più visibile */
+    font-size: 1.4em;
   }
 
-  textarea,
-  .text {
-    font-size: 1.05em; /* testo chat più leggibile */
-    color: #1F1406; /* tono leggermente più scuro per contrasto */
-  }
-
-  textarea::placeholder {
-    font-size: 0.9em;
-    color: rgba(42, 28, 8, 0.3); /* un filo più visibile ma sempre delicato */
+  /* 🔹 Margine in basso per non coprire con tastiera */
+  .input-area {
+    padding-bottom: 1.2rem;
   }
 }
