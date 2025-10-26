@@ -9,20 +9,18 @@ body {
   margin: 0;
 }
 
-/* ——— Contenitore generale ——— */
 .app-container {
   width: 95%;
   max-width: 900px;
   height: 90vh;
   display: flex;
   flex-direction: column;
-  background: #F4EFE1;
-  border-radius: 0;
-  box-shadow: none;
-  padding: 0;
+  background-color: #F4EFE1;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(42, 28, 8, 0.15);
+  overflow: hidden;
 }
 
-/* ——— Intestazione ——— */
 .header {
   background-color: #F1E8DA;
   display: flex;
@@ -36,55 +34,39 @@ body {
 
 .header-title {
   font-size: 1.3em;
-  color: #2A1C08;
   letter-spacing: 0.5px;
 }
 
-/* ——— Tabs in alto ——— */
 .tabs {
   display: flex;
   gap: 8px;
 }
 
-/* Schede e pulsanti sfumati (giallo → bianco in basso) */
-.tab, #send-btn, #mic-btn {
-  background: linear-gradient(180deg, #EEA82D 0%, #FFFFFF 100%);
-  border: 1px solid #BCB193;
+.tab {
+  background: linear-gradient(180deg, #EEA82D 0%, #E1A22B 100%);
   color: #2A1C08;
-  border-radius: 6px;
-  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0 2px 5px rgba(42, 28, 8, 0.10);
+  box-shadow: 0 2px 4px rgba(42, 28, 8, 0.2);
 }
 
-.tab:hover, #send-btn:hover, #mic-btn:hover {
-  filter: brightness(1.05);
-}
-
-/* Tab attiva = stesso colore dello sfondo */
 .tab.active {
   background: #F4EFE1;
-  border: 1px solid #BCB193;
-  box-shadow: inset 0 2px 4px rgba(42, 28, 8, 0.08);
+  box-shadow: inset 0 2px 4px rgba(42, 28, 8, 0.15);
 }
 
-/* ——— Area messaggi ——— */
 .chat-window {
   flex: 1;
   overflow-y: auto;
-  padding: 24px;
-  margin: 12px 8px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  border-radius: 8px;
-  background-color: #F8F4EA;
-  box-shadow: inset 0 1px 6px rgba(42, 28, 8, 0.06);
+  gap: 12px;
 }
 
-/* ——— Messaggi ——— */
 .message {
   display: flex;
   flex-direction: column;
@@ -105,7 +87,7 @@ body {
 .text {
   background: none;
   padding: 8px 10px;
-  line-height: 1.6;
+  line-height: 1.5;
   border-radius: 8px;
   text-align: justify;
 }
@@ -129,7 +111,6 @@ body {
   opacity: 1;
 }
 
-/* ——— Area scrittura ——— */
 .input-area {
   display: flex;
   align-items: center;
@@ -142,19 +123,19 @@ body {
 textarea {
   flex: 1;
   resize: none;
-  border: 1px solid #BCB193;
-  background: #F8F4EA;
+  border: none;
+  background: #F4EFE1;
   border-radius: 8px;
   padding: 10px;
   font-size: 1em;
   color: #2A1C08;
-  box-shadow: inset 0 1px 3px rgba(42, 28, 8, 0.08);
-  transition: all 0.2s ease;
+  box-shadow: inset 0 2px 5px rgba(42, 28, 8, 0.1);
+  transition: box-shadow 0.2s ease;
 }
 
 textarea:focus {
   outline: none;
-  box-shadow: 0 0 5px rgba(238, 168, 45, 0.3);
+  box-shadow: 0 0 6px rgba(238, 168, 45, 0.4);
 }
 
 .input-buttons {
@@ -163,9 +144,16 @@ textarea:focus {
 }
 
 #send-btn, #mic-btn {
-  width: 70px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: linear-gradient(180deg, #EEA82D 0%, #E1A22B 100%);
+  color: #2A1C08;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(42, 28, 8, 0.2);
+}
+
+#send-btn:hover, #mic-btn:hover {
+  box-shadow: 0 3px 8px rgba(42, 28, 8, 0.25);
 }
