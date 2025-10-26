@@ -345,3 +345,14 @@ textarea::placeholder {
   height: 1px;
   background: linear-gradient(to bottom, rgba(244,239,225,0.7), rgba(244,239,225,0));
 }
+/* ✨ Correzione visiva per fondere l’header con la parte alta dello schermo */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: env(safe-area-inset-top, 40px); /* copre area notch */
+  background-color: #F4EFE1; /* stesso colore del contenitore */
+  z-index: 9999;
+}
