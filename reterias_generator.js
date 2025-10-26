@@ -49,4 +49,4 @@ export async function generaREteriaS(data, ora, luogo, datiTecnici = {}) {
   return { output: testoFinale };
 }
 
-export default generaRAS;
+export default generaRETERIAS;
