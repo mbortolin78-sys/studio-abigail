@@ -123,17 +123,28 @@ body {
 
 /* Linea e icona copia */
 .meta {
+.meta {
   font-size: 0.8em;
   color: rgba(42, 28, 8, 0.6);
-  border-top: 1px solid rgba(138, 97, 45, 0.2); /* sabbia 20% */
+  border-top: 1px solid rgba(138, 97, 45, 0.2);
   padding-top: 2px;
   display: flex;
   align-items: center;
   gap: 6px;
-  width: fit-content; /* la linea si adatta al testo */
-  margin-left: 0;
-  margin-top: 4px; /* perfettamente ancorata al testo */
+  width: 3cm; /* lunghezza linea */
+  margin-top: 4px;
 }
+
+.message.user .meta {
+  justify-content: flex-end; /* ancorata a destra */
+  margin-left: auto;
+}
+
+.message.assistant .meta {
+  justify-content: flex-start; /* ancorata a sinistra */
+  margin-right: auto;
+}
+  
 .copy {
   cursor: pointer;
   opacity: 0.7;
