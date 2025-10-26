@@ -356,3 +356,36 @@ body::before {
   background-color: #F4EFE1; /* stesso colore del contenitore */
   z-index: 9999;
 }
+
+  /* 📱 Miglioramenti di leggibilità su dispositivi mobili */
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 1.4em; /* titolo leggermente più grande */
+  }
+
+  .tab {
+    font-size: 1.05em; /* Clienti / Marika più leggibili */
+    padding: 10px 18px;
+  }
+
+  #send-btn,
+  #mic-btn {
+    font-size: 1.05em; /* testo più grande ma proporzionato */
+    padding: 12px 18px;
+  }
+
+  #mic-btn {
+    font-size: 1.3em; /* microfono più visibile */
+  }
+
+  textarea,
+  .text {
+    font-size: 1.05em; /* testo chat più leggibile */
+    color: #1F1406; /* tono leggermente più scuro per contrasto */
+  }
+
+  textarea::placeholder {
+    font-size: 0.9em;
+    color: rgba(42, 28, 8, 0.3); /* un filo più visibile ma sempre delicato */
+  }
+}
