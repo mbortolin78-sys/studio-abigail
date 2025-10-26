@@ -35,7 +35,7 @@ export async function generaRAE(data, ora, luogo, datiTecnici = {}) {
   ].join('\n\n');
 
   console.log('✅ Scrittura Estesa (RAE) generata correttamente.');
-  return { output: testoFinale };
+return { output: testoFinale };
 }
 
-export default { generaRAE };
+export default generaRAE;
