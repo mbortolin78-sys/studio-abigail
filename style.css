@@ -15,11 +15,13 @@ body {
   margin: 20px;
   display: flex;
   flex-direction: column;
-  background: #F4EFE1;
-  border-radius: 24px; /* leggermente più morbido, tipo gestionale */
+  background: #F4EFE1; /* colore dello sfondo come il gestionale */
+  border-radius: 24px;
   box-shadow:
-    0 8px 25px rgba(138, 97, 45, 0.25),
-    0 4px 12px rgba(138, 97, 45, 0.15); /* ombra calda color miele */
+    0 10px 25px rgba(138, 97, 45, 0.35),
+    0 -6px 20px rgba(138, 97, 45, 0.25),
+    6px 0 20px rgba(138, 97, 45, 0.2),
+    -6px 0 20px rgba(138, 97, 45, 0.2); /* ombra calda tutt’attorno */
   overflow: hidden;
 }
 
