@@ -150,10 +150,9 @@ body {
   padding: 8px 10px;
   line-height: 1.65;
   border-radius: 8px;
-  text-align: justify;          /* mantiene la giustificazione */
-  text-justify: inter-word;     /* distribuisce meglio gli spazi */
-  hyphens: auto;                /* spezza naturalmente le parole lunghe */
-  word-break: normal;           /* evita salti strani */
+  text-align: left; /* ← molto più naturale e leggibile */
+  word-break: normal;
+  hyphens: none;
 }
 
 /* Linea e icona copia */
