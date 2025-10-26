@@ -261,3 +261,42 @@ textarea::placeholder {
     padding: 18px;
   }
 }
+/* 📱 Regolazioni estetiche solo per telefono */
+@media (max-width: 768px) {
+
+  /* 🔹 Nascondi la scritta "Studio Abigail" */
+  .header-title {
+    display: none;
+  }
+
+  /* 🔹 Sfondo della barra di stato (zona orologio/batteria) dello stesso colore */
+  body {
+    background-color: #F4EFE1;
+  }
+
+  /* 🔹 Alza il blocco centrale di 2mm */
+  .app-container {
+    transform: translateY(-2mm);
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* 🔹 Testo messaggi e nuovo messaggio più leggibile */
+  .text, textarea {
+    font-size: 1.05em;        /* leggermente più grande */
+    color: #1b1106;           /* più contrastato */
+    font-weight: 500;         /* più marcato */
+  }
+
+  /* 🔹 Placeholder più chiaro e più visibile */
+  textarea::placeholder {
+    color: rgba(42, 28, 8, 0.45);  /* più visibile rispetto a prima */
+  }
+}
+
+// 📱 Cambia placeholder solo su telefono
+if (window.innerWidth <= 768) {
+  const input = document.getElementById("message-input");
+  input.setAttribute("placeholder", "Scrivi...");
+}
