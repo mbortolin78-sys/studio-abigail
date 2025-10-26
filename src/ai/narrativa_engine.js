@@ -1,113 +1,84 @@
-// server/narrativa_server.js
-import express from "express";
-import fetch from "node-fetch";
-import bodyParser from "body-parser";
+// ==============================================
+// ✦ NARRATIVA ENGINE — Metodo Marika / Studio Abigail
+// Gestisce la generazione narrativa con Ollama
+// ==============================================
 
-const app = express();
-app.use(bodyParser.json());
+export async function generaNarrativa(tipo, datiTecnici, opzioni = {}) {
+  const MODEL = "llama3.1:latest";
+  const OLLAMA_URL = "http://127.0.0.1:11434/api/generate";
 
-// Modello predefinito (puoi cambiarlo da .env)
-const MODEL = process.env.OLLAMA_MODEL || "llama3.1:latest";
-const OLLAMA_URL = process.env.OLLAMA_URL || "http://127.0.0.1:11434/api/generate";
+  // ===============================
+  // 1. Mappa dei protocolli di stile
+  // ===============================
+  const STILI = {
+    RAE: "Auroria — linguaggio ampio e fluido, tono discorsivo e umano, senza formule fisse.",
+    RAS: "Auroria — tono intimo e introspettivo, diretto, mai poetico, voce semplice e sincera.",
+    REE: "Echo — flusso naturale, linguaggio evocativo ma concreto, ritmo variabile.",
+    RES: "Echo — simbolico e chiaro, linguaggio quotidiano e scorrevole.",
+    RVE: "Velaria Estesa — relazionale, umano, osservativo, narrativo ma reale.",
+    RVS: "Velaria Sintetica — un unico blocco ≥200 parole + sintesi di ~30 parole, senza elenchi.",
+    REteriaE: "Eteria Estesa — tono profondo e tecnico, coerente con la Legge Universale.",
+    REteriaS: "Eteria Sintetica — voce chiara e neutra, mai didascalica.",
+    RVC: "Venere Classica — 5 blocchi identificativi completi, tono professionale e empatico.",
+    RVA: "Venere Auroria — identikit esteso, voce morbida e moderna, senza artifici poetici.",
+    RVV: "Venere Velaria — tono relazionale e lucido, linguaggio contemporaneo.",
+    RVEteria: "Venere Eteria — connessa a galassie e salto quantico, chiusura armonica.",
+    RVI: "Identikit — descrizione di una persona reale, senza mostrare i TAG nel testo."
+  };
 
-// --- Prompt builder senza frasi fisse, aderente ai protocolli/messe in guardia ---
-function buildPrompt(tipo, datiTecnici, opzioni = {}) {
-  const stileBase = {
-    RAE: "Auroria — respiro ampio, ma linguaggio naturale (mai poetese).",
-    RAS: "Auroria — tono intimo, diretto, empatico, zero frasi fatte.",
-    REE: "Echo — ritmo fluido, immagini di eco e ascolto, mai lirismi fissi.",
-    RES: "Echo — simbolico ma quotidiano, chiaro e concreto.",
-    RVE: "Velaria Estesa — relazionale/operativo, osservativo e umano.",
-    RVS: "Velaria Sintetica — 1 blocco ≥200 parole + conclusione ~30 parole, niente elenchi.", //  [oai_citation:0‡RVS.docx](sediment://file_00000000179c620aa7650243e941e8ac)
-    REteriaE: "Eteria Estesa — profondo, strutturato su galassie e salto quantico.",
-    REteriaS: "Eteria Sintetica — essenziale, chiaro, rispettando sequenza tecnica.",
-    RVC: "Venere Classica — 4 metodi in sequenza, tono conversazionale professionale.",
-    RVA: "Venere Auroria — 4 metodi, voce calda e moderna, niente formule fisse.",
-    RVV: "Venere Velaria — 4 metodi, pragmatico e relazionale.",
-    RVEteria: "Venere Eteria — 4 metodi, focus su galassie+salto, niente carte.",
-    RVI: "Identikit — descrizione persona (una sola figura); non mostrare il TAG nel testo."
-  }[tipo] || "Voce naturale, discorsiva, senza formule ricorrenti.";
+  // ===============================
+  // 2. Prompt dinamico
+  // ===============================
+  const base = STILI[tipo] || "Voce naturale, contemporanea e coerente con i protocolli.";
 
-  // Regole per TAG (RVI): i tag esistono ma NON vanno mostrati nel testo narrativo
-  const tagIstruzioni = (tipo === "RVI")
-    ? `Usa internamente il dizionario dei TAG, ma NON stampare i TAG tra parentesi. La persona è UNA sola (identikit puntuale).` //  [oai_citation:1‡RVI_TAG.docx](sediment://file_000000002b2c620a8621bb06a899c9cc)
-    : `Se compaiono persone/campi, rispetta l’uso corretto dei ruoli secondo i miei protocolli.`;
-
-  // Vincoli anti-frasi-fisse: sampling e variazione micro-stilistica
-  const variazione = `
-Scrivi **in italiano naturale e contemporaneo**, come in una conversazione. 
-Vietate formule ripetitive e pattern fissi. Frasi di lunghezza variabile (alcune brevi, altre medie). 
-Evita elenchi puntati: usa solo prosa scorrevole.`;
-
-  // Vincoli specifici RVS (Velaria sintetica)
-  const rvsVincoli = (tipo === "RVS")
-    ? `
-[Vincolo Velaria Sintetica]
-- Un unico blocco narrativo di **almeno 200 parole**.
-- **Conclusione di ~30 parole** in una frase unica, chiara e pulita.
-- Sequenza tacita dei calcoli: Oraria Classica → Galassiale → (eventuali carte se previste dal modulo tecnico; per Venere NO).
-- Nessun elenco o titoli.`
-    : ``; //  [oai_citation:2‡RVS.docx](sediment://file_00000000179c620aa7650243e941e8ac)
-
-  // Tabella tecnica: verrà appesa dalla UI, non duplicarla
-  const codaTecnica = `Non ripetere i dati tecnici in elenco: chiudi il testo e lascia che la UI aggiunga la tabella tecnica in coda.`;
-
-  return `
+  const prompt = `
 [Ruolo/Voce]
-${stileBase}
-${variazione}
-${tagIstruzioni}
-${rvsVincoli}
+${base}
 
-[Contesto tecnico da interpretare fedelmente, senza inventare]
+[Regole]
+- Linguaggio naturale, discorsivo, come un dialogo reale.
+- Evita frasi fisse, elenchi, titoli e formule ricorrenti.
+- Usa lunghezze di frase variabili.
+- Mantieni tono coerente con ${tipo}.
+${tipo === "RVI" ? "Non mostrare i TAG nel testo, usali solo per orientare la descrizione." : ""}
+${tipo === "RVS" ? "- Scrivi almeno 200 parole + una conclusione di circa 30 parole." : ""}
+
+[Dati tecnici da interpretare simbolicamente]
 ${JSON.stringify(datiTecnici, null, 2)}
 
 [Obiettivo]
-- Trasforma i calcoli in un testo coerente con il metodo indicato.
-- Tono conversazionale, professionale ma umano.
-- Niente frasi fatte, niente “ho fatto l’oraria…”.
-- Chiudi con una riga di sintesi chiara (se RVS, ~30 parole).
-
-[Nota]
-${codaTecnica}
+Traduci i dati tecnici in un testo discorsivo coerente con il Metodo Marika.
+Chiudi sempre con equilibrio e naturalezza.
 `;
-}
 
-app.post("/api/narrativa", async (req, res) => {
+  // ===============================
+  // 3. Invio ad Ollama
+  // ===============================
+  const body = {
+    model: MODEL,
+    prompt,
+    stream: false,
+    options: {
+      temperature: opzioni.temperature ?? 0.9,
+      top_p: opzioni.top_p ?? 0.95,
+      repeat_penalty: 1.1,
+      num_predict: 900
+    }
+  };
+
   try {
-    const { tipo, datiTecnici, temperature = 0.9, top_p = 0.95 } = req.body || {};
-    if (!tipo) return res.status(400).json({ error: "Missing 'tipo'." });
-
-    const prompt = buildPrompt(tipo, datiTecnici);
-    const body = {
-      model: MODEL,
-      prompt,
-      stream: false,
-      options: {
-        temperature,
-        top_p,
-        repeat_penalty: 1.1,
-        num_predict: 800
-      }
-    };
-
-    const r = await fetch(OLLAMA_URL, {
+    const res = await fetch(OLLAMA_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body)
     });
-    const json = await r.json();
-    if (!r.ok) return res.status(500).json({ error: json?.error || "Ollama error" });
+    const json = await res.json();
+    if (!res.ok) throw new Error(json?.error || "Errore Ollama");
 
-    const text = (json?.response || "").trim();
-    return res.json({ text });
-  } catch (e) {
-    console.error(e);
-    res.status(500).json({ error: "Narrativa server error" });
+    const testo = (json.response || "").trim();
+    return testo;
+  } catch (err) {
+    console.error("❌ Errore durante la generazione narrativa:", err);
+    return "⚠️ Errore nel motore narrativo.";
   }
-});
-
-const PORT = process.env.PORT || 3210;
-app.listen(PORT, () => {
-  console.log(`Narrativa server up on http://localhost:${PORT}`);
-});
+}
