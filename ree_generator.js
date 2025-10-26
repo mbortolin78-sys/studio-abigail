@@ -92,4 +92,4 @@ export async function generaREE(data, ora, luogo, datiTecnici = {}, opts = {}) {
   return { output: testoFinale };
 }
 
-export default generaRAS;
+export default generaREE;
