@@ -1,427 +1,159 @@
-/* Sfondo generale */
 body {
-  background-color: #FFEDD3;
-  color: #3a2a15;
-  font-family: 'Palatino Linotype', 'Book Antiqua', serif;
-  margin: 0;
-  padding: 0;            /* ← toglie lo spazio sotto */
-  height: 100vh;         /* ← corpo alto quanto la finestra */
-  overflow: hidden;      /* ← impedisce di muovere la barra */
-}
-
-#chat-area {
-  padding: 20px;
-  overflow-y: auto;
-  height: calc(100vh - 110px);  /* spazio perfetto sopra la barra */
-  box-sizing: border-box;
-}
-
-/* Bolle */
-.message-bubble {
-  background-color: #f1d7ab;
-  padding: 15px 20px;
-  border-radius: 10px;
-  margin: 10px 0;
-  position: relative;
-  max-width: 80%;
-}
-
-.message-bubble p {
-  font-size: 18px;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.message-bubble.mine {
-  width: 60%;
-  margin-right: 0.5cm;
-  margin-left: auto;
-  background-color: #f1d7ab;
-  text-align: justify;
-  text-align-last: right;
-  border-radius: 10px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-.message-bubble.theirs {
-  max-width: 100%;
-  margin-right: auto;
-  margin-left: 0.5cm;
-  background-color: #FFEDD3;
-  text-align: justify;
-  padding-left: 0;
-  padding-right: 0.7;
-  display: block;
-}
-
-/* Timestamp e bottoni */
-.timestamp {
-  font-size: 14px;
-  color: #7a5c3a;
-  margin-top: 0px;
-  vertical-align: middle;
-}
-.copy-button, .edit-button {
-  font-size: 13px;
-  margin-left: 6px;
-  color: #7a5c3a;
-  background: none;
-  border: none;
-  cursor: pointer;
-  vertical-align: middle;
-}
-/* Barra inferiore — campo messaggio + tasti */
-.message-input-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 70px;
+  font-family: 'Optima', serif;
+  background-color: #F4EFE1;
+  color: #2A1C08;
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 0 20px;
-  background-color: #f1d7ab;
-  border-top: 1px solid #d8b079;
-  z-index: 10;
-  box-sizing: border-box;
-  position: relative;
-}
-
-/* Campo testo */
-.message-input {
-  flex-grow: 1;
-  height: 40px;
-  border: 1px solid #d8b079;
-  border-radius: 8px;
-  padding: 0 14px;
-  font-size: 16px;
-  background-color: #fff3e0;
-  color: #3a2a15;
-  box-sizing: border-box;
-}
-
-.message-input:focus {
-  outline: none;
-  border-color: #b88c4a;
-  box-shadow: 0 0 5px rgba(216,176,121,0.4);
-}
-
-/* Bottoni uniformi */
-.send-button,
-.microphone-button {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  height: 40px;
-  min-width: 46px;
-  border: none;
-  border-radius: 8px;
-  background-color: #e7c890;
-  color: #3a2a15;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 3px rgba(0,0,0,0.1);
-}
-
-/* Hover più delicato */
-.send-button:hover,
-.microphone-button:hover {
-  background-color: #efd29f;
-  transform: translateY(-2px);
-  box-shadow: 0 3px 5px rgba(0,0,0,0.12);
-}
-
-/* Microfono attivo (luce fissa dorata, nessuna animazione) */
-.microphone-button.active {
-  background-color: #e0b66f;
-  box-shadow: 0 0 8px rgba(215,170,80,0.4);
-  transform: scale(1.05);
-}
-
-/* Indicatore “Sto ascoltando…” */
-.listening-indicator {
-  display: none;
-  position: absolute;
-  top: -34px; /* sopra la barra */
-  left: 50%;
-  transform: translateX(-50%);
-  color: #3a2a15;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 10px;
-  padding: 4px 12px;
-  font-style: italic;
-  font-size: 15px;
-  white-space: nowrap;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-}
-
-.listening-indicator.show {
-  display: block;
-}
-
-/* Tabs */
-.tabs-inline {
-  position: fixed;
-  bottom: 80px;
-  left: 0;
-  display: flex;
-  z-index: 6;
-  margin-left: 15px;
-}
-.tab {
-  padding: 8px 16px;
-  border: none;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 6px 6px 0 0;
+  height: 100vh;
   margin: 0;
-  background-color: #FFEDD3;
-  color: #3a2a15;
-}
-.tab.active {
-  background-color: #f1d7ab;
-  font-weight: bold;
-  position: relative;
-  z-index: 7;
 }
 
-/* Input */
-.message-input-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 78px;
+.app-container {
+  width: 95%;
+  max-width: 900px;
+  height: 90vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  background-color: #F4EFE1;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(42, 28, 8, 0.15);
+  overflow: hidden;
+}
+
+.header {
+  background-color: #F1E8DA;
+  display: flex;
   justify-content: space-between;
-  gap: 10px;
-  padding: 0 20px;
-  background-color: #f1d7ab;
-  border-top: 2px solid #d8b079;
-  z-index: 10;
-  box-sizing: border-box;
-  position: relative; /* questa fa ricomparire la scritta */
-}
-
-/* 🎯 BARRA INFERIORE COMPLETA (input + invia + microfono) */
-.message-input-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 78px;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 0 24px;
-  background-color: #f1d7ab;
-  border-top: 2px solid #d8b079;
-  z-index: 10;
-  box-sizing: border-box;
-  position: relative;
+  padding: 12px 20px;
+  font-weight: bold;
+  color: #2A1C08;
+  border-bottom: 1px solid #D8C9B4;
 }
 
-/* Campo di testo */
-.message-input {
-  flex-grow: 1;                      /* si adatta allo spazio disponibile */
-  height: 44px;
-  border: 1px solid #d8b079;
-  border-radius: 8px;
-  padding: 0 14px;
-  font-size: 17px;
-  font-family: 'Palatino Linotype', 'Book Antiqua', serif;
-  background-color: #fff3e0;
-  color: #3a2a15;
-  box-sizing: border-box;
+.header-title {
+  font-size: 1.3em;
+  letter-spacing: 0.5px;
 }
 
-.message-input:focus {
-  outline: none;
-  border-color: #b88c4a;
-  box-shadow: 0 0 6px rgba(216,176,121,0.4);
-}
-
-/* Bottone Invia — più largo ma stessa altezza */
-.send-button {
+.tabs {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 44px;
-  padding: 0 36px;
+  gap: 8px;
+}
+
+.tab {
+  background: linear-gradient(180deg, #EEA82D 0%, #E1A22B 100%);
+  color: #2A1C08;
   border: none;
-  border-radius: 8px;
-  background-color: #d8b079;
-  color: #3a2a15;
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 3px rgba(0,0,0,0.1);
-}
-
-/* Bottone Microfono — stesso stile ma quadrato */
-.microphone-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 44px;
-  width: 44px;
-  border: none;
-  border-radius: 8px;
-  background-color: #d8b079;
-  color: #3a2a15;
-  font-size: 18px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 3px rgba(0,0,0,0.1);
-}
-
-/* Effetti hover e attivi */
-.send-button:hover,
-.microphone-button:hover {
-  background-color: #e2b86d;
-  transform: translateY(-2px);
-  box-shadow: 0 3px 5px rgba(0,0,0,0.15);
-}
-
-.microphone-button.active {
-  background-color: #c79b5f;
-  box-shadow: 0 0 8px rgba(215,170,80,0.5);
-  transform: scale(1.05);
-}
-
-/* Indicatore “Sto ascoltando…” */
-.listening-indicator {
-  display: none;
-  position: absolute;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #3a2a15;
-  background: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
-  padding: 4px 10px;
-  font-style: italic;
-  font-size: 14px;
-  white-space: nowrap;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-}
-
-.listening-indicator.show {
-  display: block;
-}
-
-/* Testo “Invia” dentro bottone più leggibile */
-.send-button {
+  padding: 6px 14px;
   font-weight: 600;
-  letter-spacing: 0.3px;
-}
-.message-input::placeholder {
-  font-size: 13px;
-  color: #b48c5a;
-  opacity: 0.8;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(42, 28, 8, 0.2);
 }
 
-/* Separatori */
-.separator-theirs {
-  height: 1px;
-  background-color: #d8b079;
-  margin: 12px 0 6px 0;
-  width: 24%;
-  margin-left: 0;
-}
-.separator-mine {
-  height: 1px;
-  background-color: #d8b079;
-  margin: 12px 0 6px auto;
-  width: 50%;
+.tab.active {
+  background: #F4EFE1;
+  box-shadow: inset 0 2px 4px rgba(42, 28, 8, 0.15);
 }
 
-@media screen and (max-width: 100px) {
-  /* Sfondo dietro la barra in alto */
-  .status-bar-fill {
-    background-color: #f1d7ab;
-    height: 40px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-  }
-
-  /* Alza il box input */
-  .message-input-container {
-    bottom: 20px !important;
-    background-color: #f1d7ab !important;
-  }
-
-  /* Alza le schede */
-  .tabs-inline {
-    bottom: 100px !important;
-  }
-
-  /* Allunga le linee sotto le bolle */
-  .separator-mine {
-    width: 60% !important;
-  }
-
-  .separator-theirs {
-    width: 30% !important;
-  }
-
-  /* Nascondi la barra decorativa del web */
-  .chat-header-bar {
-    display: none !important;
-  }
+.chat-window {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-/* Barra decorativa sopra la chat — visibile solo sul web */
-.chat-header-bar {
-  background-color: #f1d7ab;
-  height: 40px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  border-bottom: 1px solid #d8b079;
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-/* Spazio sotto la barra per non coprire la chat */
-body {
-  padding-top: 40px;
+.message.user {
+  align-items: flex-end;
+  max-width: 60%;
+  margin-left: auto;
 }
 
-.message-input-container {
-  position: relative;
+.message.assistant {
+  align-items: flex-start;
+  max-width: 100%;
+}
+
+.text {
+  background: none;
+  padding: 8px 10px;
+  line-height: 1.5;
+  border-radius: 8px;
+  text-align: justify;
+}
+
+.meta {
+  font-size: 0.8em;
+  color: rgba(42, 28, 8, 0.6);
+  border-top: 1px solid #D8C9B4;
+  padding-top: 2px;
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.listening-indicator {
-  display: none;
-  position: absolute;
-  bottom: 48px;  /* appare sopra la barra input */
-  left: 50%;
-  transform: translateX(-50%);
-  color: #6a4a00;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 10px;
-  padding: 4px 10px;
-  font-size: 14px;
-  font-style: italic;
-  transition: opacity .3s ease;
+.copy {
+  cursor: pointer;
+  opacity: 0.7;
 }
 
-.listening-indicator.show {
-  display: block;
+.copy:hover {
+  opacity: 1;
+}
+
+.input-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #F1E8DA;
+  padding: 12px 16px;
+  border-top: 1px solid #D8C9B4;
+}
+
+textarea {
+  flex: 1;
+  resize: none;
+  border: none;
+  background: #F4EFE1;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1em;
+  color: #2A1C08;
+  box-shadow: inset 0 2px 5px rgba(42, 28, 8, 0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 6px rgba(238, 168, 45, 0.4);
+}
+
+.input-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+#send-btn, #mic-btn {
+  background: linear-gradient(180deg, #EEA82D 0%, #E1A22B 100%);
+  color: #2A1C08;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(42, 28, 8, 0.2);
+}
+
+#send-btn:hover, #mic-btn:hover {
+  box-shadow: 0 3px 8px rgba(42, 28, 8, 0.25);
 }
