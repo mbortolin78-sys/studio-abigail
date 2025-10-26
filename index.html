@@ -2,13 +2,16 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Studio Abigail ✨</title>
+  <title>✨ Studio Abigail</title>
   <style>
     :root {
       --sfondo: #f8f5f2;
+      --sfondo-header: #f2ebe6;
+      --sfondo-input: #fff8f4;
       --testo: #3a2f2f;
-      --accento: #b8a292;
-      --ombra: rgba(0, 0, 0, 0.05);
+      --accento: #b59c8c;
+      --accento-hover: #a28573;
+      --ombra: rgba(0, 0, 0, 0.06);
     }
 
     * { box-sizing: border-box; }
@@ -28,14 +31,22 @@
       justify-content: space-between;
       align-items: center;
       padding: 12px 20px;
+      background: var(--sfondo-header);
       border-bottom: 1px solid var(--ombra);
     }
 
     header h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       color: var(--accento);
       margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    header h1 span {
+      font-size: 1.2rem;
     }
 
     .tabs {
@@ -44,7 +55,7 @@
     }
 
     .tab {
-      background: transparent;
+      background: var(--sfondo);
       border: none;
       padding: 6px 14px;
       font-size: 0.9rem;
@@ -56,6 +67,11 @@
 
     .tab.active {
       background: var(--accento);
+      color: #fff;
+    }
+
+    .tab:hover {
+      background: var(--accento-hover);
       color: #fff;
     }
 
@@ -99,6 +115,11 @@
       font-size: 0.9rem;
       color: #a29283;
       padding: 0;
+      transition: 0.3s;
+    }
+
+    .message-meta button:hover {
+      color: var(--accento);
     }
 
     .message.user .message-meta {
@@ -111,7 +132,7 @@
       align-items: center;
       border-top: 1px solid var(--ombra);
       padding: 10px 14px;
-      background: var(--sfondo);
+      background: var(--sfondo-header);
       gap: 8px;
     }
 
@@ -124,7 +145,7 @@
       padding: 10px;
       font-size: 0.9rem;
       border-radius: 6px;
-      background: #fff8f4;
+      background: var(--sfondo-input);
       box-shadow: inset 0 0 3px var(--ombra);
       color: var(--testo);
     }
@@ -134,7 +155,7 @@
       color: rgba(58, 47, 47, 0.35);
     }
 
-    .btn {
+    .btn, .mic {
       border: none;
       color: #fff;
       background: var(--accento);
@@ -143,28 +164,26 @@
       cursor: pointer;
       font-size: 0.9rem;
       transition: 0.3s;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .btn:hover { background: #a88b77; }
-
-    .mic {
-      background: var(--accento);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      padding: 8px 14px;
-      cursor: pointer;
-      transition: background 0.3s;
+    .btn:hover, .mic:hover {
+      background: var(--accento-hover);
     }
 
-    .mic.active { background: #d69e7d; }
+    .mic.active {
+      background: #d69e7d;
+    }
+
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Studio Abigail ✨</h1>
+    <h1><span>✨</span>Studio Abigail</h1>
     <div class="tabs">
       <button class="tab active">Clienti</button>
       <button class="tab">Marika</button>
@@ -174,7 +193,7 @@
   <main id="chat"></main>
 
   <footer>
-    <textarea id="input" placeholder="Scrivi un messaggio o parla..." rows="1"></textarea>
+    <textarea id="input" placeholder="messaggio o parla..." rows="1"></textarea>
     <button id="send" class="btn">Invia</button>
     <button id="mic" class="mic">🎤</button>
   </footer>
@@ -185,13 +204,11 @@
     const sendBtn = document.getElementById('send');
     const micBtn = document.getElementById('mic');
 
-    // Espansione automatica del campo testo
     input.addEventListener('input', () => {
       input.style.height = 'auto';
       input.style.height = input.scrollHeight + 'px';
     });
 
-    // Funzione per aggiungere un messaggio
     function addMessage(text, user = false) {
       const el = document.createElement('div');
       el.className = 'message' + (user ? ' user' : '');
@@ -215,12 +232,11 @@
       setTimeout(() => addMessage('✨ Risposta elaborata...'), 800);
     });
 
-    // Microfono fittizio
     let recording = false;
     micBtn.addEventListener('click', () => {
       recording = !recording;
       micBtn.classList.toggle('active', recording);
-      input.placeholder = recording ? '🎧 Sto ascoltando...' : 'Scrivi un messaggio o parla...';
+      input.placeholder = recording ? '🎧 Sto ascoltando...' : 'messaggio o parla...';
     });
   </script>
 </body>
