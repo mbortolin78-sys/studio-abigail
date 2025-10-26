@@ -261,7 +261,7 @@ textarea::placeholder {
   /* ✨ Testo delle bolle più visibile e leggibile su mobile */
 .text {
   font-size: 1.25em; /* leggermente più grande */
-  font-weight: 505;  /* più deciso ma non pesante */
+  font-weight: 500;  /* più deciso ma non pesante */
   color: #2A1C08;    /* pieno e caldo */
   line-height: 1.6;
 }
@@ -303,30 +303,47 @@ textarea::placeholder {
     padding-top: var(--safe-area-inset-top); /* segue il notch */
   }
 
-  .app-container {
-    background-color: #F4EFE1;
-  }
+.app-container {
+  width: calc(100% - 40px);
+  height: calc(100vh - 40px);
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  background: #F4EFE1;
+  border-radius: 24px;
+  box-shadow:
+    0 10px 25px rgba(138, 97, 45, 0.35),
+    0 -10px 25px rgba(138, 97, 45, 0.25),
+    10px 0 25px rgba(138, 97, 45, 0.25),
+    -10px 0 25px rgba(138, 97, 45, 0.25),
+    inset 0 2px 6px rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  position: relative;
+}
 
-/* 🔸 Header perfettamente fuso con lo sfondo del contenitore */
+/* 🔸 Header perfettamente integrato nel corpo, senza stacco */
 .header {
-  background-color: #F4EFE1;       /* stesso tono del corpo */
+  background-color: #F4EFE1;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 12px 20px;
   font-weight: bold;
   color: #2A1C08;
-  border: none;                    /* elimina ogni bordo visibile */
-  box-shadow: none;                /* elimina la linea d'ombra */
+  border: none;
+  box-shadow: 0 1px 2px rgba(138, 97, 45, 0.08); /* sfumatura minima per fusione */
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
-/* 🔸 Elimina completamente la linea di separazione tra header e contenuto */
-.chat-window {
-  background-color: #F4EFE1;       /* uniforme */
-  box-shadow: none;                /* niente bordo interno */
-  border-top: none;
-  margin-top: 0;
-  padding-top: 0;
+/* Trucco per fondere perfettamente header e corpo */
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to bottom, rgba(244,239,225,1) 0%, rgba(244,239,225,0.8) 100%);
+  z-index: 2;
 }
