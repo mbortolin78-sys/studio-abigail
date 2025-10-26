@@ -1,131 +1,96 @@
-import { processCommand } from './ai.js';
+const chatWindow = document.getElementById("chat-window");
+const input = document.getElementById("message-input");
+const sendBtn = document.getElementById("send-btn");
+const micBtn = document.getElementById("mic-btn");
+const tabs = document.querySelectorAll(".tab");
 
-const messageInput = document.getElementById('messageInput');
-const chatArea = document.getElementById('chat-area');
-const sendButton = document.querySelector('.send-button');
-const micButton = document.querySelector('.microphone-button');
+let currentTab = "marika";
+const chatStorage = { marika: [], clienti: [] };
 
-let currentTab = 'marika';
-const chatStorage = {
-  marika: [],
-  clienti: []
-};
-
-// INVIO CON BOTTONE
-sendButton.addEventListener('click', sendMessage);
-
-// INVIO CON ENTER
-messageInput.addEventListener('keydown', function (event) {
-  if (event.key === 'Enter') {
-    event.preventDefault();
+// --- Gestione invio messaggi ---
+sendBtn.addEventListener("click", sendMessage);
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault();
     sendMessage();
   }
 });
 
-// MICROFONO STABILE
+function sendMessage() {
+  const text = input.value.trim();
+  if (!text) return;
+
+  const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+  const userMessage = `
+    <div class="message user">
+      <div class="text">${text}</div>
+      <div class="meta"><span class="time">${time}</span></div>
+    </div>
+  `;
+
+  const responseText = interpretCommand(text);
+  const assistantMessage = `
+    <div class="message assistant">
+      <div class="text">${responseText}</div>
+      <div class="meta"><span class="time">${time}</span></div>
+    </div>
+  `;
+
+  chatStorage[currentTab].push(userMessage, assistantMessage);
+  input.value = "";
+  renderChat();
+}
+
+// --- Riconoscimento vocale ---
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 if (SpeechRecognition) {
   const recognition = new SpeechRecognition();
-  recognition.lang = 'it-IT';
+  recognition.lang = "it-IT";
   recognition.interimResults = false;
-  recognition.continuous = true;
 
-  micButton.addEventListener('click', () => {
+  micBtn.addEventListener("click", () => {
     recognition.start();
-    micButton.classList.add('active');
+    micBtn.classList.add("active");
   });
 
-  recognition.onresult = event => {
+  recognition.onresult = (event) => {
     let transcript = event.results[0][0].transcript;
-    transcript = transcript
-      .replace(/\s*virgola\s*/gi, ', ')
-      .replace(/\s*punto\s*/gi, '. ')
-      .replace(/\s+/g, ' ')
-      .replace(/^([a-z])/g, m => m.toUpperCase());
-    messageInput.value = transcript.trim();
+    input.value = transcript.trim();
   };
 
-  recognition.onend = () => micButton.classList.remove('active');
-  recognition.onerror = () => micButton.classList.remove('active');
+  recognition.onend = () => micBtn.classList.remove("active");
+  recognition.onerror = () => micBtn.classList.remove("active");
 }
 
-// INVIO MESSAGGIO
-function sendMessage() {
-  const text = messageInput.value.trim();
-  if (text === '') return;
-
-  const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
-  const userBubble = `
-    <div class="message-bubble mine">
-      <p>${text}</p>
-      <span class="timestamp">${time}</span>
-    </div>
-  `;
-
-  const result = interpretCommand(text);
-
-  const botBubble = `
-    <div class="message-bubble theirs">
-      <p>${result}</p>
-      <span class="timestamp">${time}</span>
-    </div>
-  `;
-
-  chatStorage[currentTab].push(userBubble, botBubble);
-  messageInput.value = '';
-  renderChat();
-}
-
-// INTERPRETAZIONE COMANDO
+// --- Interpretazione comandi ---
 function interpretCommand(text) {
-  const normalized = text.toUpperCase().replace(/\s|\./g, '').replace(/-/g, '').replace(/_/g, '');
+  const normalized = text.toUpperCase().replace(/\s|\./g, "").replace(/-|_/g, "");
 
-  const commands = ['RAE', 'RAS', 'RES', 'REE', 'RVE', 'RVI', 'RVC', 'RVA', 'RVV', 'RV', 'MARIKA'];
-
+  const commands = ["RAE", "RAS", "RES", "REE", "RVE", "RVI", "RVC", "RVA", "RVV"];
   const matched = commands.find(cmd => normalized.includes(cmd));
 
   if (matched) {
-    // Qui poi chiameremo la funzione corretta (es. processCommand)
     return `✨ Comando ${matched} riconosciuto. Inizio elaborazione...`;
   } else {
-    return '✨ Cortesemente mi potresti dire il comando?';
+    return "✨ Cortesemente mi potresti dire il comando?";
   }
 }
 
-// RENDER CHAT
-function renderChat() {
-  chatArea.innerHTML = chatStorage[currentTab].join('');
-  chatArea.scrollTop = chatArea.scrollHeight;
-}
+// --- Cambio scheda ---
+tabs.forEach((tab, index) => {
+  tab.addEventListener("click", () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
 
-// SCHEDE
-document.addEventListener('DOMContentLoaded', () => {
-  const tabs = document.querySelectorAll('.tab');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      currentTab = tab.getAttribute('data-tab');
-
-      if (chatStorage[currentTab].length === 0) {
-        const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        const intro =
-          currentTab === 'marika'
-            ? `<p>Ciao Marika 🌷</p>`
-            : `<p>Benvenuta nello spazio clienti 💼</p>`;
-
-        const introBubble = `
-          <div class="message-bubble theirs">
-            ${intro}
-            <span class="timestamp">${time}</span>
-          </div>
-        `;
-        chatStorage[currentTab].push(introBubble);
-      }
-      renderChat();
-    });
+    currentTab = index === 0 ? "clienti" : "marika";
+    renderChat();
   });
 });
+
+// --- Rendering chat ---
+function renderChat() {
+  chatWindow.innerHTML = chatStorage[currentTab].join("");
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
