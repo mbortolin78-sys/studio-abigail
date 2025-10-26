@@ -235,7 +235,7 @@ textarea::placeholder {
   gap: 8px;
 }
 
-/* 🌸 REGOLAZIONI SOLO PER MOBILE */
+/* 🌸 CORREZIONI PER MOBILE */
 @media (max-width: 768px) {
 
   /* 🔹 Sposta le schede a destra */
@@ -248,29 +248,32 @@ textarea::placeholder {
     display: none;
   }
 
-  /* 🔹 Sfondo barra superiore (ora/batteria) uniformato al box chat */
-  body {
+  /* 🔹 Uniforma lo sfondo (ora/batteria + intestazione + chat) */
+  html, body, .header {
     background-color: #F4EFE1 !important;
   }
 
-  /* 🔹 Correggi colore intestazione (stesso tono dello sfondo chat) */
-  .header {
-    background-color: #F4EFE1;
-  }
-
-  /* 🔹 Alza il blocco centrale leggermente */
+  /* 🔹 Eleva leggermente tutto il blocco centrale */
   .app-container {
-    transform: translateY(-3mm);
+    transform: translateY(-2mm);
   }
 
-  /* 🔹 Testo e input più leggibili */
-  .text, textarea {
+  /* 🔹 Testo più visibile e leggibile */
+  .text,
+  textarea {
     font-size: 1.05em;
     color: #1c1308;
     font-weight: 500;
   }
 
+  /* 🔹 Placeholder più corto e più delicato */
   textarea::placeholder {
     color: rgba(42, 28, 8, 0.45);
+    font-size: 0.9em;
+  }
+
+  /* 🔹 Margine in basso per non coprire con la tastiera */
+  .input-area {
+    padding-bottom: 1.2rem;
   }
 }
