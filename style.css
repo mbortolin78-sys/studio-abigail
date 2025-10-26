@@ -125,11 +125,13 @@ body {
 .meta {
   font-size: 0.8em;
   color: rgba(42, 28, 8, 0.6);
-  border-top: 2px solid rgba(138, 97, 45, 0.25); /* linea doppia, calda e morbida */
+  border-top: 2px solid rgba(138, 97, 45, 0.25);
   padding-top: 3px;
   display: flex;
   align-items: center;
   gap: 6px;
+  width: 200%; /* linea lunga il doppio rispetto al testo */
+  transform: translateX(-25%); /* la centra visivamente */
 }
 
 .copy {
