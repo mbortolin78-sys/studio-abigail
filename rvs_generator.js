@@ -46,4 +46,4 @@ export async function generaRVS(data, ora, luogo, datiTecnici = {}) {
   return { output: testoFinale };
 }
 
-export default { generaRVS };
+export default generaRVS;
