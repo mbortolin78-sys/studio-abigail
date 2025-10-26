@@ -235,33 +235,29 @@ textarea::placeholder {
   gap: 8px;
 }
 
-/* 🌿 Migliorie per dispositivi mobili */
+/* 📱 Miglioramenti solo per schermi piccoli */
 @media (max-width: 768px) {
-  /* Testo più leggibile */
-  body {
-    font-size: 1.05em;
+
+  /* Bottoni e schede: torna la dimensione originale */
+  .tab, #send-btn, #mic-btn {
+    padding: 8px 14px;
+    font-size: 0.95em;
   }
 
-  .header-title {
-    font-size: 1.2em;
-  }
-
-  /* Bottoni Clienti / Marika / Invio / Microfono più grandi */
-  .tab,
-  #send-btn,
-  #mic-btn {
-    font-size: 1.05em;
-    padding: 12px 20px;
-  }
-
-  /* Testo messaggi leggermente più marcato */
-  .text {
+  /* Testo più visibile */
+  body, .text, .header-title {
     font-weight: 500;
-    line-height: 1.6;
+    color: #1e1207; /* leggermente più intenso */
   }
 
-  /* Placeholder più visibile ma sempre delicato */
+  /* Placeholder più leggibile */
   textarea::placeholder {
+    font-size: 0.9em;
     color: rgba(42, 28, 8, 0.35);
+  }
+
+  /* Chat: un po' più spazio per leggere meglio */
+  .chat-window {
+    padding: 18px;
   }
 }
