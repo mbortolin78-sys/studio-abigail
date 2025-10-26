@@ -125,15 +125,15 @@ body {
 .meta {
   font-size: 0.8em;
   color: rgba(42, 28, 8, 0.6);
-  border-top: 1px solid rgba(138, 97, 45, 0.2); /* linea più sottile e tinta sabbia 20% */
+  border-top: 1px solid rgba(138, 97, 45, 0.2); /* sabbia 20% */
   padding-top: 2px;
   display: flex;
   align-items: center;
   gap: 6px;
-  width: 100%; /* perfettamente allineata al testo */
-  margin-left: 0; /* parte esattamente dove inizia il testo */
+  width: fit-content; /* la linea si adatta al testo */
+  margin-left: 0;
+  margin-top: 4px; /* perfettamente ancorata al testo */
 }
-
 .copy {
   cursor: pointer;
   opacity: 0.7;
