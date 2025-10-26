@@ -277,3 +277,16 @@ textarea::placeholder {
     padding-bottom: 1.2rem;
   }
 }
+/* 🌸 Correzione colore barra superiore (solo su mobile) */
+@media (max-width: 768px) {
+
+  /* Uniforma la tonalità dell’header con lo sfondo */
+  html, body, .header {
+    background-color: #F4EFE1 !important;
+  }
+
+  /* Rimuove l’effetto scuro nativo dei browser */
+  meta[name="theme-color"] {
+    content: "#F4EFE1";
+  }
+}
