@@ -280,39 +280,24 @@ textarea::placeholder {
 /* 🌸 Correzione colore barra superiore (solo su mobile) */
 @media (max-width: 768px) {
 
-  /* Uniforma la tonalità dell’header con lo sfondo */
-  html, body, .header {
-    background-color: #F4EFE1 !important;
+/* 🌸 Uniforma la barra superiore (ora, batteria, Wi-Fi) con lo sfondo */
+@supports (-webkit-touch-callout: none) {
+  :root {
+    --safe-area-inset-top: env(safe-area-inset-top);
   }
 
-  /* Rimuove l’effetto scuro nativo dei browser */
-  meta[name="theme-color"] {
-    content: "#F4EFE1";
-  }
-}
-
-/* 🌸 Uniforma header e sfondo mobile con continuità di ombra */
-@media (max-width: 768px) {
-
-  html, body {
-    background-color: #F4EFE1 !important;
+  body {
+    background-color: #F4EFE1;
+    padding-top: var(--safe-area-inset-top); /* segue il notch */
   }
 
-  /* Ombra calda e morbida che si fonde con il box principale */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 30px; /* altezza della sfumatura */
-    background: linear-gradient(to bottom, rgba(138, 97, 45, 0.25), rgba(244, 239, 225, 0));
-    z-index: 10;
-    pointer-events: none;
-  }
-
-  /* Allinea perfettamente il contenitore principale */
   .app-container {
-    margin-top: 10px;
+    background-color: #F4EFE1;
+  }
+
+  /* Elimina ogni stacco visivo o ombra */
+  .header {
+    background-color: #F4EFE1;
+    box-shadow: none;
   }
 }
