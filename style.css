@@ -132,8 +132,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  margin-bottom: 8px; /* distanza tra una bolla e l’altra */
 }
-
 .message.user {
   align-items: flex-end;
   max-width: 60%;
