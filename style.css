@@ -290,3 +290,29 @@ textarea::placeholder {
     content: "#F4EFE1";
   }
 }
+
+/* 🌸 Uniforma header e sfondo mobile con continuità di ombra */
+@media (max-width: 768px) {
+
+  html, body {
+    background-color: #F4EFE1 !important;
+  }
+
+  /* Ombra calda e morbida che si fonde con il box principale */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px; /* altezza della sfumatura */
+    background: linear-gradient(to bottom, rgba(138, 97, 45, 0.25), rgba(244, 239, 225, 0));
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  /* Allinea perfettamente il contenitore principale */
+  .app-container {
+    margin-top: 10px;
+  }
+}
