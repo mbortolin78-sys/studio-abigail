@@ -310,12 +310,19 @@ textarea::placeholder {
   }
 
   /* 🔹 Testo e leggibilità */
-  .text {
-    font-size: 1.15em;
-    font-weight: 500;
-    color: #1E1205;
-    line-height: 1.6;
-  }
+/* 🔹 Testo delle bolle — più grande, leggibile e con grassetto visibile */
+.text {
+  font-size: 1.22em;          /* più grande ma ancora armonico */
+  font-weight: 400;           /* base regolare per evitare spessori eccessivi */
+  color: #1A0E04;             /* tono leggermente più deciso per leggibilità */
+  line-height: 1.65;          /* più respiro tra le righe */
+}
+
+/* 🔸 Rende il grassetto più definito anche su iPhone */
+.text strong, .text b {
+  font-weight: 600;           /* grassetto evidente ma elegante */
+  color: #120A03;             /* leggermente più scuro per emergere */
+}
 
   textarea {
     font-size: 1.05em;
