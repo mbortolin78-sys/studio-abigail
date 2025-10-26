@@ -10,14 +10,16 @@ body {
 }
 
 .app-container {
-  width: calc(100% - 40px);   /* margine laterale di 20px per lato */
-  height: calc(100vh - 40px); /* margine superiore/inferiore di 20px */
-  margin: 20px;               /* distanza dal bordo dello schermo */
+  width: calc(100% - 40px);
+  height: calc(100vh - 40px);
+  margin: 20px;
   display: flex;
   flex-direction: column;
   background: #F4EFE1;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(42, 28, 8, 0.15);
+  border-radius: 24px; /* leggermente più morbido, tipo gestionale */
+  box-shadow:
+    0 8px 25px rgba(138, 97, 45, 0.25),
+    0 4px 12px rgba(138, 97, 45, 0.15); /* ombra calda color miele */
   overflow: hidden;
 }
 
