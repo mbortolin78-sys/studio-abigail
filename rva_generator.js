@@ -99,4 +99,4 @@ export async function generaRVA(data, ora, luogo, datiTecnici = {}) {
   return { output: testoFinale };
 }
 
-export default { generaRVA };
+export default generaRVA;
