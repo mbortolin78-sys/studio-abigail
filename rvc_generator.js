@@ -86,4 +86,4 @@ export async function generaRVC(data, ora, luogo, datiTecnici = {}) {
   return { output: testoFinale };
 }
 
-export default { generaRVC };
+export default generaRVC;
