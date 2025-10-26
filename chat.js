@@ -1,161 +1,131 @@
-// =======================================
-// Studio Abigail — Chat con doppia scheda e microfono
-// =======================================
+import { processCommand } from './ai.js';
 
-(function () {
-  const chatWindow = document.getElementById("chat-window");
-  const input = document.getElementById("message-input");
-  const sendBtn = document.getElementById("send-btn");
-  const micBtn = document.getElementById("mic-btn");
-  const tabs = document.querySelectorAll(".tab");
+const messageInput = document.getElementById('messageInput');
+const chatArea = document.getElementById('chat-area');
+const sendButton = document.querySelector('.send-button');
+const micButton = document.querySelector('.microphone-button');
 
-  // Stato locale
-  const state = {
-    activeChat: "marika",
-    chats: { marika: [], clienti: [] },
-    listening: false,
-    recognition: null
+let currentTab = 'marika';
+const chatStorage = {
+  marika: [],
+  clienti: []
+};
+
+// INVIO CON BOTTONE
+sendButton.addEventListener('click', sendMessage);
+
+// INVIO CON ENTER
+messageInput.addEventListener('keydown', function (event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    sendMessage();
+  }
+});
+
+// MICROFONO STABILE
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if (SpeechRecognition) {
+  const recognition = new SpeechRecognition();
+  recognition.lang = 'it-IT';
+  recognition.interimResults = false;
+  recognition.continuous = true;
+
+  micButton.addEventListener('click', () => {
+    recognition.start();
+    micButton.classList.add('active');
+  });
+
+  recognition.onresult = event => {
+    let transcript = event.results[0][0].transcript;
+    transcript = transcript
+      .replace(/\s*virgola\s*/gi, ', ')
+      .replace(/\s*punto\s*/gi, '. ')
+      .replace(/\s+/g, ' ')
+      .replace(/^([a-z])/g, m => m.toUpperCase());
+    messageInput.value = transcript.trim();
   };
 
-  // ===============================
-  // CAMBIO SCHEDA
-  // ===============================
-  tabs.forEach((tab, index) => {
-  tab.addEventListener("click", () => {
-    // Rimuove stato attivo da tutte
-    tabs.forEach(t => t.classList.remove("active"));
-    tab.classList.add("active");
+  recognition.onend = () => micButton.classList.remove('active');
+  recognition.onerror = () => micButton.classList.remove('active');
+}
 
-    // Transizione morbida nella finestra chat
-    chatWindow.style.opacity = "0";
-    setTimeout(() => {
-      state.activeChat = index === 0 ? "clienti" : "marika";
+// INVIO MESSAGGIO
+function sendMessage() {
+  const text = messageInput.value.trim();
+  if (text === '') return;
+
+  const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+  const userBubble = `
+    <div class="message-bubble mine">
+      <p>${text}</p>
+      <span class="timestamp">${time}</span>
+    </div>
+  `;
+
+  const result = interpretCommand(text);
+
+  const botBubble = `
+    <div class="message-bubble theirs">
+      <p>${result}</p>
+      <span class="timestamp">${time}</span>
+    </div>
+  `;
+
+  chatStorage[currentTab].push(userBubble, botBubble);
+  messageInput.value = '';
+  renderChat();
+}
+
+// INTERPRETAZIONE COMANDO
+function interpretCommand(text) {
+  const normalized = text.toUpperCase().replace(/\s|\./g, '').replace(/-/g, '').replace(/_/g, '');
+
+  const commands = ['RAE', 'RAS', 'RES', 'REE', 'RVE', 'RVI', 'RVC', 'RVA', 'RVV', 'RV', 'MARIKA'];
+
+  const matched = commands.find(cmd => normalized.includes(cmd));
+
+  if (matched) {
+    // Qui poi chiameremo la funzione corretta (es. processCommand)
+    return `✨ Comando ${matched} riconosciuto. Inizio elaborazione...`;
+  } else {
+    return '✨ Cortesemente mi potresti dire il comando?';
+  }
+}
+
+// RENDER CHAT
+function renderChat() {
+  chatArea.innerHTML = chatStorage[currentTab].join('');
+  chatArea.scrollTop = chatArea.scrollHeight;
+}
+
+// SCHEDE
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('.tab');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      currentTab = tab.getAttribute('data-tab');
+
+      if (chatStorage[currentTab].length === 0) {
+        const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const intro =
+          currentTab === 'marika'
+            ? `<p>Ciao Marika 🌷</p>`
+            : `<p>Benvenuta nello spazio clienti 💼</p>`;
+
+        const introBubble = `
+          <div class="message-bubble theirs">
+            ${intro}
+            <span class="timestamp">${time}</span>
+          </div>
+        `;
+        chatStorage[currentTab].push(introBubble);
+      }
       renderChat();
-      chatWindow.style.opacity = "1";
-    }, 150);
+    });
   });
 });
-  
-  // ===============================
-  // RENDER CHAT
-  // ===============================
-  function renderChat() {
-    chatWindow.innerHTML = "";
-    const messages = state.chats[state.activeChat];
-    messages.forEach(m => appendMessage(m.role, m.text, false));
-  }
-
-  // ===============================
-  // INVIO MESSAGGIO
-  // ===============================
-  function sendMessage() {
-    const text = input.value.trim();
-    if (!text) return;
-
-    appendMessage("user", text);
-    input.value = "";
-
-    // Risposta simulata
-    setTimeout(() => {
-      appendMessage("assistant", `Risposta (${state.activeChat}): ${text}`);
-    }, 600);
-  }
-
-  sendBtn.addEventListener("click", sendMessage);
-
-  input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage();
-    }
-  });
-
-  // ===============================
-  // MICROFONO (Chrome, HTTPS o localhost)
-  // ===============================
-  function setupMic() {
-    const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!Recognition) {
-      micBtn.addEventListener("click", () =>
-        alert("🎤 Il microfono non è supportato su questo browser.")
-      );
-      return;
-    }
-
-    const rec = new Recognition();
-    state.recognition = rec;
-    rec.lang = "it-IT";
-    rec.continuous = false;
-    rec.interimResults = false;
-
-    rec.onstart = () => {
-      state.listening = true;
-      input.placeholder = "🎤 In ascolto...";
-      micBtn.style.opacity = "0.6";
-    };
-
-    rec.onresult = (event) => {
-      const text = Array.from(event.results)
-        .map(r => r[0].transcript)
-        .join(" ");
-      input.value += (input.value ? " " : "") + text;
-    };
-
-    rec.onend = () => {
-      state.listening = false;
-      input.placeholder = "Scrivi un nuovo messaggio...";
-      micBtn.style.opacity = "1";
-    };
-
-    micBtn.addEventListener("click", () => {
-      if (state.listening) rec.stop();
-      else {
-        try {
-          rec.start();
-        } catch {
-          alert("⚠️ Errore microfono. Assicurati di dare il permesso a Chrome.");
-        }
-      }
-    });
-  }
-
-  setupMic();
-
-  // ===============================
-  // VISUALIZZAZIONE MESSAGGI
-  // ===============================
-  function appendMessage(role, text, save = true) {
-    const msgDiv = document.createElement("div");
-    msgDiv.classList.add("message", role);
-
-    const msgText = document.createElement("div");
-    msgText.classList.add("text");
-    msgText.textContent = text;
-
-    const meta = document.createElement("div");
-    meta.classList.add("meta");
-
-    const sep = document.createElement("div");
-    sep.classList.add("meta-sep");
-
-    const time = document.createElement("span");
-    time.textContent = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-
-    const copy = document.createElement("span");
-    copy.classList.add("copy");
-    copy.textContent = "⧉";
-    copy.addEventListener("click", () => navigator.clipboard.writeText(text));
-
-    if (role === "assistant") meta.append(sep, time, copy);
-    else meta.append(sep, copy, time);
-
-    msgDiv.append(msgText, meta);
-    chatWindow.appendChild(msgDiv);
-    chatWindow.scrollTop = chatWindow.scrollHeight;
-
-    if (save) state.chats[state.activeChat].push({ role, text });
-  }
-
-  // Avvio iniziale
-  renderChat();
-})();
