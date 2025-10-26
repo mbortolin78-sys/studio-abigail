@@ -260,8 +260,8 @@ textarea::placeholder {
 
   /* ✨ Testo delle bolle più visibile e leggibile su mobile */
 .text {
-  font-size: 1.10em; /* leggermente più grande */
-  font-weight: 500;  /* più deciso ma non pesante */
+  font-size: 1.25em; /* leggermente più grande */
+  font-weight: 600;  /* più deciso ma non pesante */
   color: #2A1C08;    /* pieno e caldo */
   line-height: 1.6;
 }
@@ -307,9 +307,26 @@ textarea::placeholder {
     background-color: #F4EFE1;
   }
 
-  /* Elimina ogni stacco visivo o ombra */
-  .header {
-    background-color: #F4EFE1;
-    box-shadow: none;
-  }
+/* 🔸 Header perfettamente fuso con lo sfondo del contenitore */
+.header {
+  background-color: #F4EFE1;       /* stesso tono del corpo */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  font-weight: bold;
+  color: #2A1C08;
+  border: none;                    /* elimina ogni bordo visibile */
+  box-shadow: none;                /* elimina la linea d'ombra */
+  position: relative;
+  z-index: 2;
+}
+
+/* 🔸 Elimina completamente la linea di separazione tra header e contenuto */
+.chat-window {
+  background-color: #F4EFE1;       /* uniforme */
+  box-shadow: none;                /* niente bordo interno */
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
 }
