@@ -261,7 +261,7 @@ textarea::placeholder {
   /* ✨ Testo delle bolle più visibile e leggibile su mobile */
 .text {
   font-size: 1.25em; /* leggermente più grande */
-  font-weight: 502;  /* più deciso ma non pesante */
+  font-weight: 500,5;  /* più deciso ma non pesante */
   color: #2A1C08;    /* pieno e caldo */
   line-height: 1.6;
 }
