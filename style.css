@@ -235,68 +235,42 @@ textarea::placeholder {
   gap: 8px;
 }
 
-/* 📱 Miglioramenti solo per schermi piccoli */
+/* 🌸 REGOLAZIONI SOLO PER MOBILE */
 @media (max-width: 768px) {
 
-  /* Bottoni e schede: torna la dimensione originale */
-  .tab, #send-btn, #mic-btn {
-    padding: 8px 14px;
-    font-size: 0.95em;
+  /* 🔹 Sposta le schede a destra */
+  .tabs {
+    margin-left: auto;
   }
 
-  /* Testo più visibile */
-  body, .text, .header-title {
-    font-weight: 500;
-    color: #1e1207; /* leggermente più intenso */
-  }
-
-  /* Placeholder più leggibile */
-  textarea::placeholder {
-    font-size: 0.9em;
-    color: rgba(42, 28, 8, 0.35);
-  }
-
-  /* Chat: un po' più spazio per leggere meglio */
-  .chat-window {
-    padding: 18px;
-  }
-}
-/* 📱 Regolazioni estetiche solo per telefono */
-@media (max-width: 768px) {
-
-  /* 🔹 Nascondi la scritta "Studio Abigail" */
+  /* 🔹 Nascondi titolo Studio Abigail */
   .header-title {
     display: none;
   }
 
-  /* 🔹 Sfondo della barra di stato (zona orologio/batteria) dello stesso colore */
+  /* 🔹 Sfondo barra superiore (ora/batteria) uniformato al box chat */
   body {
+    background-color: #F4EFE1 !important;
+  }
+
+  /* 🔹 Correggi colore intestazione (stesso tono dello sfondo chat) */
+  .header {
     background-color: #F4EFE1;
   }
 
-  /* 🔹 Alza il blocco centrale di 2mm */
+  /* 🔹 Alza il blocco centrale leggermente */
   .app-container {
-    transform: translateY(-2mm);
+    transform: translateY(-3mm);
   }
-}
 
-@media (max-width: 768px) {
-
-  /* 🔹 Testo messaggi e nuovo messaggio più leggibile */
+  /* 🔹 Testo e input più leggibili */
   .text, textarea {
-    font-size: 1.05em;        /* leggermente più grande */
-    color: #1b1106;           /* più contrastato */
-    font-weight: 500;         /* più marcato */
+    font-size: 1.05em;
+    color: #1c1308;
+    font-weight: 500;
   }
 
-  /* 🔹 Placeholder più chiaro e più visibile */
   textarea::placeholder {
-    color: rgba(42, 28, 8, 0.45);  /* più visibile rispetto a prima */
+    color: rgba(42, 28, 8, 0.45);
   }
-}
-
-// 📱 Cambia placeholder solo su telefono
-if (window.innerWidth <= 768) {
-  const input = document.getElementById("message-input");
-  input.setAttribute("placeholder", "Scrivi...");
 }
