@@ -127,3 +127,27 @@ tabs.forEach(tab => {
     addMessage(`✨ Chat ${tab.textContent} aperta.`, "assistant");
   });
 });
+
+// 🌿 Auto-espansione del campo di testo
+input.addEventListener("input", () => {
+  input.style.height = "auto";
+  input.style.height = input.scrollHeight + "px";
+});
+
+// 🔄 Dopo invio torna all’altezza originale
+sendBtn.addEventListener("click", () => {
+  input.style.height = "auto";
+});
+
+// 📋 Copia testo dei messaggi
+chatWindow.addEventListener("click", (e) => {
+  if (e.target.classList.contains("copy")) {
+    const message = e.target.closest(".message").querySelector(".text").textContent;
+    navigator.clipboard.writeText(message)
+      .then(() => {
+        e.target.textContent = "✅";
+        setTimeout(() => e.target.textContent = "📋", 1000);
+      })
+      .catch(() => alert("Errore nella copia"));
+  }
+});
