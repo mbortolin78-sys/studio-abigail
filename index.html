@@ -3,71 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Studio Abigail</title>
+  <title>Studio Abigail ✨</title>
+
+  <!-- Stile generale -->
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Optima:wght@400;700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
   <div class="app-container">
 
-    <!-- Intestazione -->
+    <!-- 🟡 INTESTAZIONE -->
     <header class="header">
-      <div class="header-title"> Studio Abigail</div>
+      <div class="header-title">✨ Studio Abigail</div>
       <div class="tabs">
         <button class="tab">Clienti</button>
         <button class="tab active">Marika</button>
       </div>
     </header>
 
-    <!-- Finestra Chat -->
+    <!-- 💬 FINESTRA CHAT -->
     <main class="chat-window" id="chat-window"></main>
 
-    <!-- Barra di invio -->
+    <!-- 🟠 BARRA DI INVIO -->
     <footer class="input-area">
-      <textarea id="message-input" placeholder="Scrivi un nuovo messaggio..." rows="1"></textarea>
+      <textarea
+        id="message-input"
+        placeholder="Scrivi un nuovo messaggio..."
+        rows="1"
+      ></textarea>
       <div class="input-buttons">
         <button id="send-btn">Invia</button>
         <button id="mic-btn" title="Attiva microfono">🎙️</button>
       </div>
     </footer>
+
   </div>
 
-  <script>
-    const chatWindow = document.getElementById("chat-window");
-    const input = document.getElementById("message-input");
-    const sendBtn = document.getElementById("send-btn");
-
-    function addMessage(text, sender = "user") {
-      const msgDiv = document.createElement("div");
-      msgDiv.classList.add("message", sender);
-      msgDiv.innerHTML = `
-        <div class="text">${text}</div>
-        <div class="meta">
-          ${sender === "user" 
-            ? `<span class="copy">📋</span><span class="time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>`
-            : `<span class="time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span><span class="copy">📋</span>`
-          }
-        </div>`;
-      chatWindow.appendChild(msgDiv);
-      chatWindow.scrollTop = chatWindow.scrollHeight;
-    }
-
-    sendBtn.addEventListener("click", () => {
-      const text = input.value.trim();
-      if (text) {
-        addMessage(text, "user");
-        input.value = "";
-        // simulazione risposta
-        setTimeout(() => addMessage("Ricevuto: " + text, "assistant"), 500);
-      }
-    });
-
-    input.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" && !e.shiftKey) {
-        e.preventDefault();
-        sendBtn.click();
-      }
-    });
-  </script>
+  <!-- 🔧 SCRIPT PRINCIPALE -->
+  <script src="chat.js"></script>
 </body>
 </html>
