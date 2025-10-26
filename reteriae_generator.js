@@ -82,4 +82,4 @@ export async function generaREteriaE(data, ora, luogo, datiTecnici = {}) {
   return { output: testoFinale };
 }
 
-export default generaRAS;
+export default generaRETERIAE;
