@@ -324,20 +324,23 @@ textarea::placeholder {
 @media (max-width: 768px) {
   .text {
     font-size: 1.3em;              /* leggermente più grande */
-    color: #160D03;                /* tono più profondo, caldo ma più visibile */
+    color: #160D03;                /* tono più profondo e caldo */
     -webkit-font-smoothing: antialiased; /* migliora la nitidezza */
     text-rendering: optimizeLegibility;
+    text-shadow: 0.25px 0.25px 0 rgba(0, 0, 0, 0.25); /* spessore ottico delicatissimo */
   }
 
   /* Il testo digitato nel campo Scrivi... */
   textarea {
-    font-size: 1.15em;             /* un filo più grande */
+    font-size: 1.15em;
     color: #160D03;
+    text-shadow: 0.25px 0.25px 0 rgba(0, 0, 0, 0.25);
   }
 
   textarea::placeholder {
-    color: rgba(22, 13, 3, 0.45);  /* più contrastato ma sempre morbido */
+    color: rgba(22, 13, 3, 0.45);
   }
+}
 }
   /* 🔹 Pulsanti più visibili e proporzionati */
   .tab {
