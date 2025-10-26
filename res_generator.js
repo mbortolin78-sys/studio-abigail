@@ -86,4 +86,4 @@ export async function generaRES(data, ora, luogo, datiTecnici = {}, opts = {}) {
   return { output: testoFinale };
 }
 
-export default { generaRES };
+export default generaRAS;
