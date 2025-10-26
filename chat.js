@@ -105,7 +105,7 @@ if ("webkitSpeechRecognition" in window) {
   };
 
   recognition.onend = () => {
-    input.placeholder = "Scrivi un nuovo messaggio...";
+    input.placeholder = "Scrivi...";
   };
 
   recognition.onresult = (event) => {
@@ -142,9 +142,9 @@ input.addEventListener("input", () => {
 sendBtn.addEventListener("click", () => {
   input.style.height = "auto";
   if (window.innerWidth <= 768) {
-    input.placeholder = "Scrivi…"; // mantiene il placeholder breve su mobile
+    input.placeholder = "Scrivi..."; // mantiene il placeholder breve su mobile
   } else {
-    input.placeholder = "Scrivi un nuovo messaggio..."; // desktop
+    input.placeholder = "Scrivi..."; // desktop
   }
 });
 
