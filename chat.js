@@ -1,99 +1,129 @@
+// ================================
+// ✨ Studio Abigail - Chat Engine
+// ================================
+
+// Selettori base
 const chatWindow = document.getElementById("chat-window");
 const input = document.getElementById("message-input");
 const sendBtn = document.getElementById("send-btn");
 const micBtn = document.getElementById("mic-btn");
 const tabs = document.querySelectorAll(".tab");
 
-let currentTab = "marika";
-const chatStorage = { marika: [], clienti: [] };
+// ================================
+// 🔸 RICONOSCIMENTO COMANDI
+// ================================
+const commands = [
+  // RAE
+  "RAE", "R A E", "R-A-E", "R.A.E.", "rae", "r a e", "r-a-e", "r.a.e",
+  // RAS
+  "RAS", "R A S", "R-A-S", "R.A.S.", "ras", "r a s", "r-a-s", "r.a.s",
+  // REE
+  "REE", "R E E", "R-E-E", "R.E.E.", "ree", "r e e", "r-e-e", "r.e.e",
+  // RES
+  "RES", "R E S", "R-E-S", "R.E.S.", "res", "r e s", "r-e-s", "r.e.s",
+  // RVE
+  "RVE", "R V E", "R-V-E", "R.V.E.", "rve", "r v e", "r-v-e", "r.v.e",
+  // RVS
+  "RVS", "R V S", "R-V-S", "R.V.S.", "rvs", "r v s", "r-v-s", "r.v.s",
+  // RVC
+  "RVC", "R V C", "R-V-C", "R.V.C.", "rvc", "r v c", "r-v-c", "r.v.c",
+  // RVA
+  "RVA", "R V A", "R-V-A", "R.V.A.", "rva", "r v a", "r-v-a", "r.v.a",
+  // RVV
+  "RVV", "R V V", "R-V-V", "R.V.V.", "rvv", "r v v", "r-v-v", "r.v.v",
+  // RVI
+  "RVI", "R V I", "R-V-I", "R.V.I.", "rvi", "r v i", "r-v-i", "r.v.i",
+  // RETERIAE + varianti vocali
+  "RETERIAE", "RETERIAS", "RETERIA", "RETERIE", "RETERIAE", "RETERIA E", "RETERIA S", "RETERIA AE",
+  "reteriae", "reterias", "reteria", "reterie", "reteria e", "reteria s", "reteria ae",
+  // RVETERIA
+  "RVETERIA", "R VETERIA", "R-VETERIA", "R.VETERIA", "rveteria", "r veteria", "r-veteria", "r.veteria"
+];
 
-// --- Gestione invio messaggi ---
-sendBtn.addEventListener("click", sendMessage);
-input.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && !e.shiftKey) {
-    e.preventDefault();
-    sendMessage();
-  }
-});
+function detectCommand(text) {
+  return commands.find(cmd => text.trim().toLowerCase() === cmd.toLowerCase());
+}
 
-function sendMessage() {
+// ================================
+// 💬 GESTIONE MESSAGGI
+// ================================
+function addMessage(text, sender = "user") {
+  const msgDiv = document.createElement("div");
+  msgDiv.classList.add("message", sender);
+  msgDiv.innerHTML = `
+    <div class="text">${text}</div>
+    <div class="meta">
+      ${sender === "user"
+        ? `<span class="copy">📋</span><span class="time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>`
+        : `<span class="time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span><span class="copy">📋</span>`}
+    </div>`;
+  chatWindow.appendChild(msgDiv);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+// ================================
+// 📨 INVIO MESSAGGIO
+// ================================
+sendBtn.addEventListener("click", () => {
   const text = input.value.trim();
   if (!text) return;
 
-  const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
-  const userMessage = `
-    <div class="message user">
-      <div class="text">${text}</div>
-      <div class="meta"><span class="time">${time}</span></div>
-    </div>
-  `;
-
-  const responseText = interpretCommand(text);
-  const assistantMessage = `
-    <div class="message assistant">
-      <div class="text">${responseText}</div>
-      <div class="meta"><span class="time">${time}</span></div>
-    </div>
-  `;
-
-  chatStorage[currentTab].push(userMessage, assistantMessage);
+  addMessage(text, "user");
   input.value = "";
-  renderChat();
-}
 
-// --- Riconoscimento vocale ---
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const foundCommand = detectCommand(text);
+  if (foundCommand) {
+    setTimeout(() => addMessage(`✨ Comando ${foundCommand.toUpperCase()} riconosciuto. Inizio elaborazione...`, "assistant"), 300);
+  } else {
+    setTimeout(() => addMessage("✨ Cortesemente mi potresti dire il comando?", "assistant"), 300);
+  }
+});
 
-if (SpeechRecognition) {
-  const recognition = new SpeechRecognition();
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault();
+    sendBtn.click();
+  }
+});
+
+// ================================
+// 🎙️ MICROFONO (riconoscimento vocale)
+// ================================
+let recognition;
+if ("webkitSpeechRecognition" in window) {
+  recognition = new webkitSpeechRecognition();
   recognition.lang = "it-IT";
+  recognition.continuous = false;
   recognition.interimResults = false;
 
-  micBtn.addEventListener("click", () => {
-    recognition.start();
-    micBtn.classList.add("active");
-  });
-
-  recognition.onresult = (event) => {
-    let transcript = event.results[0][0].transcript;
-    input.value = transcript.trim();
+  recognition.onstart = () => {
+    input.placeholder = "🎧 Sto ascoltando...";
   };
 
-  recognition.onend = () => micBtn.classList.remove("active");
-  recognition.onerror = () => micBtn.classList.remove("active");
+  recognition.onend = () => {
+    input.placeholder = "Scrivi un nuovo messaggio...";
+  };
+
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript.trim();
+    input.value = transcript;
+    sendBtn.click();
+  };
 }
 
-// --- Interpretazione comandi ---
-function interpretCommand(text) {
-  const normalized = text.toUpperCase().replace(/\s|\./g, "").replace(/-|_/g, "");
+micBtn.addEventListener("click", () => {
+  if (recognition) recognition.start();
+  else addMessage("⚠️ Il microfono non è supportato su questo browser.", "assistant");
+});
 
-  const commands = [
-    "RAE", "RAS", "REE", "RES", "RVE", "RVS", "RETERIAE", "RETERIAS", "RVC", "RVA", "RVV", "RVETERIA", "RVI"
-  ];
-
-  const matched = commands.find(cmd => normalized.includes(cmd));
-
-  if (matched) {
-    return `✨ Comando ${matched} riconosciuto. Inizio elaborazione...`;
-  } else {
-    return "✨ Cortesemente mi potresti dire il comando?";
-  }
-}
-
-// --- Cambio scheda ---
-tabs.forEach((tab, index) => {
+// ================================
+// 🗂️ GESTIONE SCHEDE (Clienti / Marika)
+// ================================
+tabs.forEach(tab => {
   tab.addEventListener("click", () => {
     tabs.forEach(t => t.classList.remove("active"));
     tab.classList.add("active");
-
-    currentTab = index === 0 ? "clienti" : "marika";
-    renderChat();
+    chatWindow.innerHTML = "";
+    addMessage(`✨ Chat ${tab.textContent} aperta.`, "assistant");
   });
 });
-
-// --- Rendering chat ---
-function renderChat() {
-  chatWindow.innerHTML = chatStorage[currentTab].join("");
-  chatWindow.scrollTop = chatWindow.scrollHeight;
-}
