@@ -1,26 +1,23 @@
 {
   "name": "Studio Abigail",
   "short_name": "Abigail",
-  "start_url": "/",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#F4EFE1",
-  "theme_color": "#D8C9B4",
-  "description": "Gestionale Studio Abigail — elegante, caldo e intuitivo.",
+  "theme_color": "#F4EFE1",
+  "description": "Interfaccia Studio Abigail — Chat energetica di Marika",
   "icons": [
     {
-      "src": "icon-180.png",
+      "src": "icons/icon-180.png",
       "sizes": "180x180",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "icon-512.png",
+      "src": "icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "icon-1024.png",
-      "sizes": "1024x1024",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
