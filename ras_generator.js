@@ -6,7 +6,7 @@
 // ======================================================
 
 import { generaReportTecnico } from './scrittura_tecnica.js';  // tabella tecnica (oraria, galassie, ecc.)
-import { invocaScritturaViva } from './llama_bridge.js';       // ponte verso il modello di scrittura
+import { generaNarrativa } from './llama_bridge.js';           // ponte verso il modello di scrittura
 
 /**
  * Genera la RAS (Sintetica) per Auroria.
@@ -22,7 +22,6 @@ export async function generaRAS(data, ora, luogo, datiTecnici = {}, opts = {}) {
   const struttura = {
     modello: 'Auroria',
     tipo: 'RAS',
-    // l’ordine dei blocchi guida Llama ma non impone frasi fisse
     blocchi: [
       'Apertura rapida di campo',
       'Centro/immagine dominante',
@@ -32,13 +31,11 @@ export async function generaRAS(data, ora, luogo, datiTecnici = {}, opts = {}) {
     ],
     voce: 'chiara, essenziale, empatica, non ripetitiva',
     protocollo: 'Scrittura Sintetica — Legge Universale art. 7.8',
-    // vincoli di lunghezza richiesti dal metodo: ~100 parole + ~30 parole
     vincoli: {
       target_words_main: 100,
       target_words_synthesis: 30,
-      tolleranza: 0.15 // ±15%
+      tolleranza: 0.15
     },
-    // segnali importanti per evitare ripetizioni fra letture ravvicinate
     antiRipetizione: {
       vieta_frasi_template: true,
       varia_soggetti: true,
@@ -47,25 +44,26 @@ export async function generaRAS(data, ora, luogo, datiTecnici = {}, opts = {}) {
     }
   };
 
-  // 2) Chiamata al motore di scrittura (narrazione viva, zero boilerplate)
+  // 2) Chiamata al motore di scrittura (narrazione viva)
   let narrazione = '';
   try {
-    narrazione = await invocaScritturaViva({
-      struttura,
-      datiTecnici,
-      contesto: { data, ora, luogo },
-      stile: { lingua: 'it', formale: false, seconda_persona: true, ritmo: 'scorrevole' },
-      // suggeriamo le “ancore” ma non imponiamo il testo
-      ancore: {
-        oraria: true,            // usa i punti salienti dell’oraria
-        galassie: true,          // cita solo le stelle/galassie rilevanti
-        carte: true,             // se presenti nel datiTecnici (per Auroria: sibille)
-        saltoQuantico: true,     // se presente
-        aldebaran: true          // se presente
-      }
-    });
+    narrazione = await generaNarrativa(
+      {
+        struttura,
+        datiTecnici,
+        contesto: { data, ora, luogo },
+        stile: { lingua: 'it', formale: false, seconda_persona: true, ritmo: 'scorrevole' },
+        ancore: {
+          oraria: true,
+          galassie: true,
+          carte: true,
+          saltoQuantico: true,
+          aldebaran: true
+        }
+      },
+      "RAS - Lettura Energetica Sintetica"
+    );
   } catch (err) {
-    // Fallback sobrio: non blocchiamo la UI
     console.error('❌ Llama non disponibile per RAS:', err);
     narrazione = [
       'Apertura rapida del campo. Osservo la linea e sintetizzo l’immagine dominante.',
@@ -75,7 +73,7 @@ export async function generaRAS(data, ora, luogo, datiTecnici = {}, opts = {}) {
     ].join(' ');
   }
 
-  // 3) Tabella tecnica dei calcoli (sempre in coda)
+  // 3) Tabella tecnica dei calcoli
   const tabella = await generaReportTecnico(datiTecnici);
 
   // 4) Composizione finale
