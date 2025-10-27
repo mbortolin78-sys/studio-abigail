@@ -4,7 +4,7 @@
 // ======================================================
 
 import { generaReportTecnico } from './scrittura_tecnica.js';  // tabella finale dei calcoli
-import { invocaScritturaViva } from './llama_bridge.js';       // narrativa viva (dinamica, non fissa)
+import { generaNarrativa } from './llama_bridge.js';           // narrativa viva (dinamica, non fissa)
 
 /**
  * Genera la Scrittura Sintetica per il Modello Echo (RES)
@@ -36,24 +36,27 @@ export async function generaRES(data, ora, luogo, datiTecnici = {}, opts = {}) {
   // 2️⃣ Narrazione viva generata da Llama
   let narrazione = '';
   try {
-    narrazione = await invocaScritturaViva({
-      struttura,
-      datiTecnici,
-      contesto: { data, ora, luogo },
-      stile: {
-        lingua: 'it',
-        ritmo: 'morbido',
-        tono: 'emotivo',
-        voce: 'Marika',
-        registro: 'naturale'
+    narrazione = await generaNarrativa(
+      {
+        struttura,
+        datiTecnici,
+        contesto: { data, ora, luogo },
+        stile: {
+          lingua: 'it',
+          ritmo: 'morbido',
+          tono: 'emotivo',
+          voce: 'Marika',
+          registro: 'naturale'
+        },
+        ancore: {
+          oraria: true,
+          galassie: true,
+          sibille: true,
+          echo: true
+        }
       },
-      ancore: {
-        oraria: true,
-        galassie: true,
-        sibille: true,
-        echo: true
-      }
-    });
+      "RES - Scrittura Sintetica Echo"
+    );
   } catch (err) {
     console.error('⚠️ Scrittura viva non disponibile per RES:', err);
     // fallback sobrio
