@@ -114,3 +114,36 @@ export async function generaScrittura(modulo, tipo, dati) {
 }
 
 export default { generaScrittura, generaReportTecnico };
+
+// ==============================
+// 🌙 Collegamento a Ollama (Scrittura Viva)
+// ==============================
+export async function invocaScritturaViva(payload) {
+  try {
+    const response = await fetch("http://localhost:11434/api/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "marika:latest", // modello Ollama locale
+        prompt: `
+${payload.struttura?.modello || 'Generico'} — ${payload.struttura?.tipo || 'R'}
+Contesto: ${JSON.stringify(payload.contesto, null, 2)}
+Dati tecnici: ${JSON.stringify(payload.datiTecnici, null, 2)}
+
+Scrivi una narrazione coerente, secondo il Metodo Marika:
+- Linguaggio empatico e simbolico.
+- No elenchi o termini tecnici.
+- 100% coerenza energetica.
+- Voce: ${payload.struttura?.voce || 'Marika'}.
+        `.trim(),
+        stream: false
+      })
+    });
+
+    const data = await response.json();
+    return data.response || "(nessuna risposta da Ollama)";
+  } catch (err) {
+    console.error("❌ Errore nella connessione a Ollama:", err);
+    return "(⚠️ Scrittura viva non disponibile in questo momento)";
+  }
+}
