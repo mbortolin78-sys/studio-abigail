@@ -34,7 +34,7 @@ const commands = [
 ];
 
 function detectCommand(text) {
-  return commands.find(cmd => text.trim().toLowerCase() === cmd.toLowerCase());
+return commands.find(cmd => text.toLowerCase().startsWith(cmd.toLowerCase()));
 }
 
 // ================================
