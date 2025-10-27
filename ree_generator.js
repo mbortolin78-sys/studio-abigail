@@ -4,7 +4,7 @@
 // ======================================================
 
 import { generaReportTecnico } from './scrittura_tecnica.js';  // tabella finale con calcoli
-import { invocaScritturaViva } from './llama_bridge.js';       // narrativa viva (dinamica, non fissa)
+import { generaNarrativa } from './llama_bridge.js';           // narrativa viva (dinamica, non fissa)
 
 /**
  * Genera la Scrittura Estesa del Modello Echo (REE)
@@ -45,18 +45,21 @@ export async function generaREE(data, ora, luogo, datiTecnici = {}, opts = {}) {
   // 2️⃣ Narrazione viva (tramite Llama)
   let narrazione = '';
   try {
-    narrazione = await invocaScritturaViva({
-      struttura,
-      datiTecnici,
-      contesto: { data, ora, luogo },
-      stile: { lingua: 'it', ritmo: 'fluido', tono: 'intimo', voce: 'Marika' },
-      ancore: {
-        oraria: true,
-        galassie: true,
-        sibille: true,
-        echo: true
-      }
-    });
+    narrazione = await generaNarrativa(
+      {
+        struttura,
+        datiTecnici,
+        contesto: { data, ora, luogo },
+        stile: { lingua: 'it', ritmo: 'fluido', tono: 'intimo', voce: 'Marika' },
+        ancore: {
+          oraria: true,
+          galassie: true,
+          sibille: true,
+          echo: true
+        }
+      },
+      "REE - Scrittura Estesa Echo"
+    );
   } catch (err) {
     console.error('⚠️ Scrittura viva non disponibile per REE:', err);
     narrazione = [
