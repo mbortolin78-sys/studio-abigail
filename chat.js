@@ -1,4 +1,4 @@
-// ================================
+
 // ✨ Studio Abigail - Chat Engine
 // ================================
 
@@ -84,11 +84,15 @@ sendBtn.addEventListener("click", () => {
   }
 
   // 🎙️ Disattiva automaticamente il microfono dopo l'invio
-  if (recognition && recognition.stop) {
+if (recognition) {
+  try {
     recognition.stop();
-    console.log("🎤 Microfono disattivato automaticamente dopo l'invio");
+    recognition.abort(); // forza chiusura su Safari iOS
+    console.log("🎤 Microfono disattivato automaticamente dopo l'invio (forzato su iOS)");
+  } catch (err) {
+    console.warn("Errore nella disattivazione microfono:", err);
   }
-});
+}
 
 // ================================
 // 🎙️ MICROFONO (riconoscimento vocale)
