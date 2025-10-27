@@ -1,0 +1,20 @@
+{
+  "name": "studio-abigail-main",
+  "version": "1.0.0",
+  "description": "Studio Abigail è un’interfaccia di comunicazione tra Marika e il sistema Abigail, concepita come uno spazio sensibile, estetico e funzionale, dove testo, voce e grafica lavorano in armonia.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "Marika Bortolin",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2",
+    "vite": "^5.0.0"
+  }
+}
