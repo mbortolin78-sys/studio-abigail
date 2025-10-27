@@ -122,12 +122,22 @@ if ("webkitSpeechRecognition" in window) {
   input.value = transcript;
   handleSend();
 
-  // 🔇 chiude sempre il microfono dopo l'invio
+  // 🔇 chiude subito il microfono
   try {
     recognition.stop();
     recognition.abort();
   } catch {}
 
+  // ⏳ sicurezza extra per Safari: spegne tutto dopo 5 secondi
+  setTimeout(() => {
+    try {
+      recognition.stop();
+      recognition.abort();
+    } catch {}
+    input.placeholder = "Scrivi...";
+  }, 5000);
+};
+  
   // 💡 su iPhone serve un piccolo delay per disattivarlo davvero
   if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
     setTimeout(() => {
