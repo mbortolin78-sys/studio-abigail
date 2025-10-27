@@ -4,7 +4,7 @@
 // ======================================================
 
 import { generaReportTecnico } from './scrittura_tecnica.js';  // genera la tabella finale
-import { invocaScritturaViva } from './llama_bridge.js';       // invoca la narrativa viva
+import { generaNarrativa } from './llama_bridge.js';           // invoca la narrativa viva
 
 export async function generaRAE(data, ora, luogo, datiTecnici = {}) {
   // 1️⃣ Prepara i blocchi strutturali
@@ -17,11 +17,14 @@ export async function generaRAE(data, ora, luogo, datiTecnici = {}) {
   };
 
   // 2️⃣ Esegue la narrazione viva tramite Llama
-  const narrazione = await invocaScritturaViva({
-    struttura,
-    datiTecnici,
-    contesto: { data, ora, luogo }
-  });
+  const narrazione = await generaNarrativa(
+    {
+      struttura,
+      datiTecnici,
+      contesto: { data, ora, luogo }
+    },
+    "RAE - Lettura Energetica Estesa"
+  );
 
   // 3️⃣ Tabella tecnica dei calcoli
   const tabella = await generaReportTecnico(datiTecnici);
@@ -35,7 +38,7 @@ export async function generaRAE(data, ora, luogo, datiTecnici = {}) {
   ].join('\n\n');
 
   console.log('✅ Scrittura Estesa (RAE) generata correttamente.');
-return { output: testoFinale };
+  return { output: testoFinale };
 }
 
 export default generaRAE;
