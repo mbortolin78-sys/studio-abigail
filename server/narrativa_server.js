@@ -32,7 +32,7 @@ app.post("/narrativa", async (req, res) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        model: "llama3.2", // o il modello che usi
+        model: "llama3.2", // puoi cambiare qui il modello se serve
         prompt: prompt,
         stream: false,
       }),
