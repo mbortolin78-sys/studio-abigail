@@ -1,12 +1,12 @@
 // ======================================================
-// ♀️ RVE — Generatore di Scrittura Estesa (Venere Eteria Purificata 2025)
+// ♀️ RVEteria — Generatore di Scrittura Estesa (Venere Eteria Purificata 2025)
 // Metodo Marika — conforme a Legge Universale e Protocollo Scrittura
 // ======================================================
 
 import { generaReportTecnico } from './scrittura_tecnica.js';
 import { invocaScritturaViva } from './llama_bridge.js';  // motore narrativo dinamico
 
-export async function generaRVE(data, ora, luogo, datiTecnici = {}) {
+export async function generaRVEteria(data, ora, luogo, datiTecnici = {}) {
 
   // ===== BLOCCO 1 — TEMA NATALE =====
   const temaNatale = await invocaScritturaViva({
@@ -82,8 +82,8 @@ export async function generaRVE(data, ora, luogo, datiTecnici = {}) {
     finale,
   ].join('\n');
 
-  console.log('✅ Scrittura RVE (Venere Eteria) generata correttamente');
+  console.log('✅ Scrittura RVEteria (Venere Eteria) generata correttamente');
   return { output: testoFinale };
 }
 
-export default generaRVETERIA;
+export default generaRVEteria;
