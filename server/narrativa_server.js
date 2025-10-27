@@ -1,8 +1,3 @@
-// ==============================================
-// ✦ NARRATIVA SERVER — Metodo Marika, Studio Abigail
-// Versione finale funzionante — con ritorno garantito al frontend
-// ==============================================
-
 import express from "express";
 import cors from "cors";
 import fetch from "node-fetch";
@@ -13,14 +8,12 @@ app.use(express.json());
 
 const PORT = 3210;
 
-// Test
 app.get("/", (req, res) => {
   res.send("🌙 Narrativa Server attivo e funzionante ✅");
 });
 
 app.post("/api/comando", async (req, res) => {
   console.log("🪶 Richiesta ricevuta da /api/comando");
-
   const { comando, testo, prompt } = req.body;
   const contenuto = prompt || testo || comando || "Nessun testo ricevuto";
 
@@ -36,19 +29,19 @@ app.post("/api/comando", async (req, res) => {
     });
 
     const data = await response.json();
-    console.log("🔍 Risposta Ollama:", data);
+    console.log("🔍 Risposta completa di Ollama:", data);
 
-    // se Ollama non risponde
-    if (!data || !data.response) {
-      console.warn("⚠️ Nessuna risposta valida ricevuta da Ollama");
-      return res.json({
-        text: "⚠️ Nessuna risposta dal modello. Forse sta pensando troppo a te 😉",
-      });
-    }
+    // Gestione universale del campo di testo
+    const testoRisposta =
+      data.response || data.output || data.text || JSON.stringify(data);
 
-    // se Ollama risponde
-    console.log("✨ Risposta ricevuta e inviata al frontend");
-    res.json({ text: data.response });
+    res.json({
+      text:
+        testoRisposta ||
+        "⚠️ Nessuna risposta leggibile dal modello (forse è rimasto a riflettere troppo).",
+    });
+
+    console.log("✨ Risposta inviata al frontend");
   } catch (err) {
     console.error("❌ Errore nel server narrativo:", err);
     res.status(500).json({
