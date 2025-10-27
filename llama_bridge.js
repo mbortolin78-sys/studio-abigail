@@ -1,13 +1,18 @@
 // ==============================
-// 🌙 Studio Abigail - Llama Bridge
+// 🌙 Studio Abigail - Llama Bridge (versione con Narrativa Server)
 // ==============================
 //
 // Questo modulo gestisce la comunicazione tra i generatori tecnici
-// e il modello narrativo Ollama (es. marika:latest).
-// È totalmente autonomo e può essere richiamato da qualunque generatore.
+// e il server narrativo locale (che a sua volta parla con Ollama).
 //
 
-export async function invocaScritturaViva({ struttura = {}, datiTecnici = {}, contesto = {}, stile = {}, ancore = {} }) {
+export async function invocaScritturaViva({
+  struttura = {},
+  datiTecnici = {},
+  contesto = {},
+  stile = {},
+  ancore = {}
+}) {
   try {
     // 🧠 Costruzione del prompt coerente con il Metodo Marika
     const prompt = `
@@ -37,21 +42,23 @@ Richiedi:
 - Rispetta i vincoli di lunghezza richiesti dalla struttura.
     `.trim();
 
-    // 🔗 Invocazione del modello Ollama locale
-    const response = await fetch("http://localhost:11434/api/generate", {
+    // 🔗 Invocazione del server narrativo locale (NON direttamente Ollama)
+    const response = await fetch("http://localhost:3210/api/comando", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: "marika:latest", // modello Ollama locale
-        prompt,
-        stream: false
-      })
+      body: JSON.stringify({ prompt })
     });
 
     const data = await response.json();
-    return data.response?.trim() || "(⚠️ Nessuna risposta ricevuta da Ollama)";
+
+    if (!data.text) {
+      console.warn("⚠️ Nessuna risposta ricevuta dal server narrativo.");
+      return "(⚠️ Nessuna risposta ricevuta dal sistema narrativo)";
+    }
+
+    return data.text.trim();
   } catch (err) {
-    console.error("❌ Errore nella connessione a Ollama:", err);
+    console.error("❌ Errore nella connessione al server narrativo:", err);
     return "(⚠️ Scrittura viva non disponibile in questo momento)";
   }
 }
