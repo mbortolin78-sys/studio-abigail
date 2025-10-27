@@ -1,47 +1,48 @@
-
-// ✨ Studio Abigail - Chat Engine
+// ================================
+// ✨ Studio Abigail - Chat Engine (versione stabile)
 // ================================
 
 // Selettori base
 const chatWindow = document.getElementById("chat-window");
 const input = document.getElementById("message-input");
 const sendBtn = document.getElementById("send-btn");
-// 📱 Accorcia solo il testo del placeholder su mobile
-if (window.innerWidth <= 768) {
-  document.getElementById("message-input").placeholder = "Scrivi...";
-}
 const micBtn = document.getElementById("mic-btn");
 const tabs = document.querySelectorAll(".tab");
+
+// Placeholder breve solo su mobile
+if (window.innerWidth <= 768) {
+  input.placeholder = "Scrivi...";
+}
 
 // ================================
 // 🔸 RICONOSCIMENTO COMANDI
 // ================================
 const commands = [
   // RAE
-  "RAE", "R A E", "R-A-E", "R.A.E.", "rae", "r a e", "r-a-e", "r.a.e",
+  "RAE","R A E","R-A-E","R.A.E.","rae","r a e","r-a-e","r.a.e",
   // RAS
-  "RAS", "R A S", "R-A-S", "R.A.S.", "ras", "r a s", "r-a-s", "r.a.s",
+  "RAS","R A S","R-A-S","R.A.S.","ras","r a s","r-a-s","r.a.s",
   // REE
-  "REE", "R E E", "R-E-E", "R.E.E.", "ree", "r e e", "r-e-e", "r.e.e",
+  "REE","R E E","R-E-E","R.E.E.","ree","r e e","r-e-e","r.e.e",
   // RES
-  "RES", "R E S", "R-E-S", "R.E.S.", "res", "r e s", "r-e-s", "r.e.s",
+  "RES","R E S","R-E-S","R.E.S.","res","r e s","r-e-s","r.e.s",
   // RVE
-  "RVE", "R V E", "R-V-E", "R.V.E.", "rve", "r v e", "r-v-e", "r.v.e",
+  "RVE","R V E","R-V-E","R.V.E.","rve","r v e","r-v-e","r.v.e",
   // RVS
-  "RVS", "R V S", "R-V-S", "R.V.S.", "rvs", "r v s", "r-v-s", "r.v.s",
+  "RVS","R V S","R-V-S","R.V.S.","rvs","r v s","r-v-s","r.v.s",
   // RVC
-  "RVC", "R V C", "R-V-C", "R.V.C.", "rvc", "r v c", "r-v-c", "r.v.c",
+  "RVC","R V C","R-V-C","R.V.C.","rvc","r v c","r-v-c","r.v.c",
   // RVA
-  "RVA", "R V A", "R-V-A", "R.V.A.", "rva", "r v a", "r-v-a", "r.v.a",
+  "RVA","R V A","R-V-A","R.V.A.","rva","r v a","r-v-a","r.v.a",
   // RVV
-  "RVV", "R V V", "R-V-V", "R.V.V.", "rvv", "r v v", "r-v-v", "r.v.v",
+  "RVV","R V V","R-V-V","R.V.V.","rvv","r v v","r-v-v","r.v.v",
   // RVI
-  "RVI", "R V I", "R-V-I", "R.V.I.", "rvi", "r v i", "r-v-i", "r.v.i",
-  // RETERIAE + varianti vocali
-  "RETERIAE", "RETERIAS", "RETERIA", "RETERIE", "RETERIAE", "RETERIA E", "RETERIA S", "RETERIA AE",
-  "reteriae", "reterias", "reteria", "reterie", "reteria e", "reteria s", "reteria ae",
+  "RVI","R V I","R-V-I","R.V.I.","rvi","r v i","r-v-i","r.v.i",
+  // RETERIAE / RETERIAS
+  "RETERIAE","RETERIAS","RETERIA","RETERIE","RETERIA E","RETERIA S","RETERIA AE",
+  "reteriae","reterias","reteria","reterie","reteria e","reteria s","reteria ae",
   // RVETERIA
-  "RVETERIA", "R VETERIA", "R-VETERIA", "R.VETERIA", "rveteria", "r veteria", "r-veteria", "r.veteria"
+  "RVETERIA","R VETERIA","R-VETERIA","R.VETERIA","rveteria","r veteria","r-veteria","r.veteria"
 ];
 
 function detectCommand(text) {
@@ -66,10 +67,9 @@ function addMessage(text, sender = "user") {
 }
 
 // ================================
-// ================================
 // 📨 INVIO MESSAGGIO
 // ================================
-sendBtn.addEventListener("click", () => {
+function handleSend() {
   const text = input.value.trim();
   if (!text) return;
 
@@ -83,28 +83,31 @@ sendBtn.addEventListener("click", () => {
     setTimeout(() => addMessage("✨ Cortesemente mi potresti dire il comando?", "assistant"), 300);
   }
 
-  // 🎙️ Disattiva automaticamente il microfono dopo l'invio
-if (recognition) {
-  try {
-    recognition.stop();
-    recognition.abort(); // forza chiusura su Safari iOS
-    console.log("🎤 Microfono disattivato automaticamente dopo l'invio (forzato su iOS)");
-  } catch (err) {
-    console.warn("Errore nella disattivazione microfono:", err);
-  }
+  // ripristina altezza e placeholder
+  input.style.height = "auto";
+  input.placeholder = (window.innerWidth <= 768) ? "Scrivi..." : "Scrivi...";
 }
 
-// ================================
-// 🎙️ MICROFONO (riconoscimento vocale compatibile iPhone + desktop)
-// ================================
-let recognition;
+sendBtn.addEventListener("click", handleSend);
 
-function initRecognition() {
-  if (!("webkitSpeechRecognition" in window)) {
-    recognition = null;
-    return;
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault();
+    handleSend();
   }
+});
 
+// Auto-espansione del campo di testo
+input.addEventListener("input", () => {
+  input.style.height = "auto";
+  input.style.height = input.scrollHeight + "px";
+});
+
+// ================================
+// 🎙️ MICROFONO (versione semplice, stabile)
+// ================================
+let recognition = null;
+if ("webkitSpeechRecognition" in window) {
   recognition = new webkitSpeechRecognition();
   recognition.lang = "it-IT";
   recognition.continuous = false;
@@ -117,43 +120,30 @@ function initRecognition() {
   recognition.onresult = (event) => {
     const transcript = event.results[0][0].transcript.trim();
     input.value = transcript;
-    sendBtn.click();
-
-    // Spegne automaticamente dopo l’invio (forzato per iPhone)
-    setTimeout(() => {
-      try {
-        recognition.stop();
-        recognition.abort();
-        input.placeholder = "Scrivi...";
-        console.log("🎤 Microfono disattivato automaticamente");
-      } catch (err) {
-        console.warn("Errore durante la chiusura del microfono:", err);
-      }
-    }, /iPhone|iPad|iPod/i.test(navigator.userAgent) ? 1500 : 300);
+    handleSend();
+    // sicurezza: prova a spegnere subito dopo il risultato
+    try { recognition.stop(); } catch {}
   };
 
   recognition.onend = () => {
-    input.placeholder = "Scrivi...";
+    input.placeholder = (window.innerWidth <= 768) ? "Scrivi..." : "Scrivi...";
   };
 }
-
-initRecognition();
 
 micBtn.addEventListener("click", () => {
   if (!recognition) {
     addMessage("⚠️ Il microfono non è supportato su questo browser.", "assistant");
     return;
   }
-
   try {
     recognition.start();
-  } catch (err) {
-    // Alcuni browser richiedono una ricreazione dell’istanza dopo stop()
-    console.log("⚙️ Ricreo istanza microfono dopo stop...");
-    initRecognition();
-    recognition.start();
+  } catch {
+    // se era già in ascolto o ha dato errore, lo fermo e riprovo
+    try { recognition.stop(); } catch {}
+    setTimeout(() => { try { recognition.start(); } catch {} }, 150);
   }
 });
+
 // ================================
 // 🗂️ GESTIONE SCHEDE (Clienti / Marika)
 // ================================
@@ -164,22 +154,6 @@ tabs.forEach(tab => {
     chatWindow.innerHTML = "";
     addMessage(`✨ Chat ${tab.textContent} aperta.`, "assistant");
   });
-});
-
-// 🌿 Auto-espansione del campo di testo
-input.addEventListener("input", () => {
-  input.style.height = "auto";
-  input.style.height = input.scrollHeight + "px";
-});
-
-// ✉️ Dopo invio torna all’altezza originale e mantiene il placeholder corretto
-sendBtn.addEventListener("click", () => {
-  input.style.height = "auto";
-  if (window.innerWidth <= 768) {
-    input.placeholder = "Scrivi..."; // mantiene il placeholder breve su mobile
-  } else {
-    input.placeholder = "Scrivi..."; // desktop
-  }
 });
 
 // 📋 Copia testo dei messaggi
