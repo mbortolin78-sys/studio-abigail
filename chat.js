@@ -15,6 +15,11 @@ if (window.innerWidth <= 768) {
 }
 
 // ================================
+// 🔌 Collegamento al Motore Narrativo locale
+// ================================
+import { invocaScritturaViva } from "./src/ai/narrativa_engine.js";
+
+// ================================
 // 🔸 RICONOSCIMENTO COMANDI
 // ================================
 const commands = [
@@ -28,13 +33,22 @@ const commands = [
   "RVA", "R V A", "R-V-A", "R.V.A.", "rva", "r v a", "r-v-a", "r.v.a",
   "RVV", "R V V", "R-V-V", "R.V.V.", "rvv", "r v v", "r-v-v", "r.v.v",
   "RVI", "R V I", "R-V-I", "R.V.I.", "rvi", "r v i", "r-v-i", "r.v.i",
-  "RETERIAE", "RETERIAS", "RETERIA", "RETERIE", "RETERIAE", "RETERIA E", "RETERIA S", "RETERIA AE",
+  "RETERIAE", "RETERIAS", "RETERIA", "RETERIE", "RETERIA E", "RETERIA S", "RETERIA AE",
   "reteriae", "reterias", "reteria", "reterie", "reteria e", "reteria s", "reteria ae",
   "RVETERIA", "R VETERIA", "R-VETERIA", "R.VETERIA", "rveteria", "r veteria", "r-veteria", "r.veteria"
 ];
 
+// restituisce la prima “parola comando” trovata
 function detectCommand(text) {
-return commands.find(cmd => text.toLowerCase().startsWith(cmd.toLowerCase()));
+  return commands.find(cmd => text.toLowerCase().startsWith(cmd.toLowerCase()));
+}
+
+// normalizza in soli caratteri A–Z, poi prende le prime tre lettere (es. “R-A-E” → “RAE”)
+function normalizeCmd(cmd) {
+  return (cmd || "")
+    .replace(/[^a-zA-Z]/g, "")
+    .slice(0, 3)
+    .toUpperCase();
 }
 
 // ================================
@@ -55,7 +69,7 @@ function addMessage(text, sender = "user") {
 }
 
 // ================================
-// 📨 INVIO MESSAGGIO + NARRATIVA
+/* 📨 INVIO MESSAGGIO + NARRATIVA (via server locale su :3210) */
 // ================================
 async function handleSend() {
   const text = input.value.trim();
@@ -64,34 +78,38 @@ async function handleSend() {
   addMessage(text, "user");
   input.value = "";
 
-  const foundCommand = detectCommand(text);
-  if (foundCommand) {
-    addMessage(`✨ Comando ${foundCommand.toUpperCase()} riconosciuto. Attendi l'elaborazione...`, "assistant");
+  const found = detectCommand(text);
+
+  if (found) {
+    const cmdNorm = normalizeCmd(found); // es. "RAE"
+    addMessage(`✨ Comando ${cmdNorm} riconosciuto. Attendi l'elaborazione...`, "assistant");
 
     try {
-      const module = await import(`./${foundCommand.toLowerCase()}_generator.js`);
+      // carica il generatore corrispondente (file in root: rae_generator.js, rve_generator.js, …)
+      const module = await import(`./${cmdNorm.toLowerCase()}_generator.js`);
+
+      // contesto di base
       const now = new Date();
-      const data = now.toLocaleDateString('it-IT');
-      const ora = now.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+      const data = now.toLocaleDateString("it-IT");
+      const ora = now.toLocaleTimeString("it-IT", { hour: "2-digit", minute: "2-digit" });
       const luogo = "Montebelluna";
 
-      const result = await module[`genera${foundCommand.toUpperCase()}`](data, ora, luogo, {});
-      const narrativa = await fetch("http://188.213.168.151:11434/api/generate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          model: "marika:latest",
-          prompt: `Trasforma questi dati tecnici in un testo narrativo coerente con il Metodo Marika:\n\n${result.output}\n\nUsa tono empatico, energetico e chiaro.`,
-          stream: false
-        })
-      });
+      // chiama la funzione genera<COMANDO> (es. generaRAE)
+      const result = await module[`genera${cmdNorm}`](data, ora, luogo, {});
 
-      const dataNarra = await narrativa.json();
-      const testoFinale = dataNarra.response || "(nessuna risposta da Ollama)";
+      // invia al Motore Narrativo locale (che a sua volta usa Ollama)
+      const testoFinale = await invocaScritturaViva(
+        `Trasforma questi dati tecnici in un testo narrativo coerente con il Metodo Marika:
+
+${result.output}
+
+Usa tono empatico, energetico e chiaro.`
+      );
+
       addMessage(testoFinale, "assistant");
     } catch (err) {
-      console.error(`Errore durante l'elaborazione di ${foundCommand}:`, err);
-      addMessage(`⚠️ Errore nell'elaborazione del comando ${foundCommand}.`, "assistant");
+      console.error(`Errore durante l'elaborazione di ${found}:`, err);
+      addMessage(`⚠️ Errore nell'elaborazione del comando ${cmdNorm}.`, "assistant");
     }
   } else {
     addMessage("✨ Cortesemente mi potresti dire il comando?", "assistant");
@@ -117,13 +135,8 @@ if ("webkitSpeechRecognition" in window) {
   recognition.continuous = false;
   recognition.interimResults = false;
 
-  recognition.onstart = () => {
-    input.placeholder = "🎧 Sto ascoltando...";
-  };
-
-  recognition.onend = () => {
-    input.placeholder = "Scrivi...";
-  };
+  recognition.onstart = () => { input.placeholder = "🎧 Sto ascoltando..."; };
+  recognition.onend = () => { input.placeholder = "Scrivi..."; };
 
   recognition.onresult = (event) => {
     const transcript = event.results[0][0].transcript.trim();
@@ -162,7 +175,7 @@ chatWindow.addEventListener("click", (e) => {
     navigator.clipboard.writeText(message)
       .then(() => {
         e.target.textContent = "✅";
-        setTimeout(() => e.target.textContent = "📋", 1000);
+        setTimeout(() => (e.target.textContent = "📋"), 1000);
       })
       .catch(() => alert("Errore nella copia"));
   }
