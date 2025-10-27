@@ -66,6 +66,7 @@ function addMessage(text, sender = "user") {
 }
 
 // ================================
+// ================================
 // 📨 INVIO MESSAGGIO
 // ================================
 sendBtn.addEventListener("click", () => {
@@ -81,12 +82,11 @@ sendBtn.addEventListener("click", () => {
   } else {
     setTimeout(() => addMessage("✨ Cortesemente mi potresti dire il comando?", "assistant"), 300);
   }
-});
 
-input.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && !e.shiftKey) {
-    e.preventDefault();
-    sendBtn.click();
+  // 🎙️ Disattiva automaticamente il microfono dopo l'invio
+  if (recognition && recognition.stop) {
+    recognition.stop();
+    console.log("🎤 Microfono disattivato automaticamente dopo l'invio");
   }
 });
 
