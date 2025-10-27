@@ -3,16 +3,21 @@
 // Metodo Marika — Studio Abigail
 // ==============================================
 
-export async function invocaScritturaViva(testo) {
+export async function invocaScritturaViva(payload) {
   try {
+    console.log("📤 Invio al server narrativo:", payload);
+
     const res = await fetch('http://localhost:3210/narrativa', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prompt: testo }),
+      body: JSON.stringify(payload),
     });
 
+    console.log("📥 Risposta ricevuta:", res.status);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
     const data = await res.json();
+    console.log("📜 Dati dal server:", data);
 
     return data.text || '⚠️ Nessuna risposta dal motore narrativo.';
   } catch (err) {
