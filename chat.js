@@ -1,5 +1,5 @@
 // ================================
-// ✨ Studio Abigail - Chat Engine (versione stabile)
+// ✨ Studio Abigail - Chat Engine
 // ================================
 
 // Selettori base
@@ -9,7 +9,7 @@ const sendBtn = document.getElementById("send-btn");
 const micBtn = document.getElementById("mic-btn");
 const tabs = document.querySelectorAll(".tab");
 
-// Placeholder breve solo su mobile
+// 📱 Accorcia solo il testo del placeholder su mobile
 if (window.innerWidth <= 768) {
   input.placeholder = "Scrivi...";
 }
@@ -18,31 +18,19 @@ if (window.innerWidth <= 768) {
 // 🔸 RICONOSCIMENTO COMANDI
 // ================================
 const commands = [
-  // RAE
-  "RAE","R A E","R-A-E","R.A.E.","rae","r a e","r-a-e","r.a.e",
-  // RAS
-  "RAS","R A S","R-A-S","R.A.S.","ras","r a s","r-a-s","r.a.s",
-  // REE
-  "REE","R E E","R-E-E","R.E.E.","ree","r e e","r-e-e","r.e.e",
-  // RES
-  "RES","R E S","R-E-S","R.E.S.","res","r e s","r-e-s","r.e.s",
-  // RVE
-  "RVE","R V E","R-V-E","R.V.E.","rve","r v e","r-v-e","r.v.e",
-  // RVS
-  "RVS","R V S","R-V-S","R.V.S.","rvs","r v s","r-v-s","r.v.s",
-  // RVC
-  "RVC","R V C","R-V-C","R.V.C.","rvc","r v c","r-v-c","r.v.c",
-  // RVA
-  "RVA","R V A","R-V-A","R.V.A.","rva","r v a","r-v-a","r.v.a",
-  // RVV
-  "RVV","R V V","R-V-V","R.V.V.","rvv","r v v","r-v-v","r.v.v",
-  // RVI
-  "RVI","R V I","R-V-I","R.V.I.","rvi","r v i","r-v-i","r.v.i",
-  // RETERIAE / RETERIAS
-  "RETERIAE","RETERIAS","RETERIA","RETERIE","RETERIA E","RETERIA S","RETERIA AE",
-  "reteriae","reterias","reteria","reterie","reteria e","reteria s","reteria ae",
-  // RVETERIA
-  "RVETERIA","R VETERIA","R-VETERIA","R.VETERIA","rveteria","r veteria","r-veteria","r.veteria"
+  "RAE", "R A E", "R-A-E", "R.A.E.", "rae", "r a e", "r-a-e", "r.a.e",
+  "RAS", "R A S", "R-A-S", "R.A.S.", "ras", "r a s", "r-a-s", "r.a.s",
+  "REE", "R E E", "R-E-E", "R.E.E.", "ree", "r e e", "r-e-e", "r.e.e",
+  "RES", "R E S", "R-E-S", "R.E.S.", "res", "r e s", "r-e-s", "r.e.s",
+  "RVE", "R V E", "R-V-E", "R.V.E.", "rve", "r v e", "r-v-e", "r.v.e",
+  "RVS", "R V S", "R-V-S", "R.V.S.", "rvs", "r v s", "r-v-s", "r.v.s",
+  "RVC", "R V C", "R-V-C", "R.V.C.", "rvc", "r v c", "r-v-c", "r.v.c",
+  "RVA", "R V A", "R-V-A", "R.V.A.", "rva", "r v a", "r-v-a", "r.v.a",
+  "RVV", "R V V", "R-V-V", "R.V.V.", "rvv", "r v v", "r-v-v", "r.v.v",
+  "RVI", "R V I", "R-V-I", "R.V.I.", "rvi", "r v i", "r-v-i", "r.v.i",
+  "RETERIAE", "RETERIAS", "RETERIA", "RETERIE", "RETERIAE", "RETERIA E", "RETERIA S", "RETERIA AE",
+  "reteriae", "reterias", "reteria", "reterie", "reteria e", "reteria s", "reteria ae",
+  "RVETERIA", "R VETERIA", "R-VETERIA", "R.VETERIA", "rveteria", "r veteria", "r-veteria", "r.veteria"
 ];
 
 function detectCommand(text) {
@@ -82,10 +70,6 @@ function handleSend() {
   } else {
     setTimeout(() => addMessage("✨ Cortesemente mi potresti dire il comando?", "assistant"), 300);
   }
-
-  // ripristina altezza e placeholder
-  input.style.height = "auto";
-  input.placeholder = (window.innerWidth <= 768) ? "Scrivi..." : "Scrivi...";
 }
 
 sendBtn.addEventListener("click", handleSend);
@@ -97,16 +81,10 @@ input.addEventListener("keydown", (e) => {
   }
 });
 
-// Auto-espansione del campo di testo
-input.addEventListener("input", () => {
-  input.style.height = "auto";
-  input.style.height = input.scrollHeight + "px";
-});
-
 // ================================
-// 🎙️ MICROFONO (versione semplice, stabile)
+// 🎙️ MICROFONO
 // ================================
-let recognition = null;
+let recognition;
 if ("webkitSpeechRecognition" in window) {
   recognition = new webkitSpeechRecognition();
   recognition.lang = "it-IT";
@@ -117,60 +95,24 @@ if ("webkitSpeechRecognition" in window) {
     input.placeholder = "🎧 Sto ascoltando...";
   };
 
- recognition.onresult = (event) => {
-  const transcript = event.results[0][0].transcript.trim();
-  input.value = transcript;
-  handleSend();
-
-  // 🔇 chiude subito il microfono
-  try {
-    recognition.stop();
-    recognition.abort();
-  } catch {}
-
-  // ⏳ sicurezza extra per Safari: spegne tutto dopo 5 secondi
-  setTimeout(() => {
-    try {
-      recognition.stop();
-      recognition.abort();
-    } catch {}
-    input.placeholder = "Scrivi...";
-  }, 5000);
-};
-  
-  // 💡 su iPhone serve un piccolo delay per disattivarlo davvero
-  if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-    setTimeout(() => {
-      try {
-        recognition.stop();
-        recognition.abort();
-      } catch {}
-      input.placeholder = "Scrivi...";
-    }, 1000);
-  }
-};
-
   recognition.onend = () => {
-    input.placeholder = (window.innerWidth <= 768) ? "Scrivi..." : "Scrivi...";
+    input.placeholder = window.innerWidth <= 768 ? "Scrivi..." : "Scrivi...";
+  };
+
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript.trim();
+    input.value = transcript;
+    handleSend();
   };
 }
 
 micBtn.addEventListener("click", () => {
-  if (!recognition) {
-    addMessage("⚠️ Il microfono non è supportato su questo browser.", "assistant");
-    return;
-  }
-  try {
-    recognition.start();
-  } catch {
-    // se era già in ascolto o ha dato errore, lo fermo e riprovo
-    try { recognition.stop(); } catch {}
-    setTimeout(() => { try { recognition.start(); } catch {} }, 150);
-  }
+  if (recognition) recognition.start();
+  else addMessage("⚠️ Il microfono non è supportato su questo browser.", "assistant");
 });
 
 // ================================
-// 🗂️ GESTIONE SCHEDE (Clienti / Marika)
+// 🗂️ GESTIONE SCHEDE
 // ================================
 tabs.forEach(tab => {
   tab.addEventListener("click", () => {
@@ -179,6 +121,12 @@ tabs.forEach(tab => {
     chatWindow.innerHTML = "";
     addMessage(`✨ Chat ${tab.textContent} aperta.`, "assistant");
   });
+});
+
+// 🌿 Auto-espansione del campo testo
+input.addEventListener("input", () => {
+  input.style.height = "auto";
+  input.style.height = input.scrollHeight + "px";
 });
 
 // 📋 Copia testo dei messaggi
