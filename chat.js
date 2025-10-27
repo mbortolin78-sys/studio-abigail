@@ -76,7 +76,7 @@ async function handleSend() {
       const luogo = "Montebelluna";
 
       const result = await module[`genera${foundCommand.toUpperCase()}`](data, ora, luogo, {});
-      const narrativa = await fetch("http://localhost:11434/api/generate", {
+     const narrativa = await fetch("http://188.213.168.151:11434/api/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
