@@ -1,58 +1,35 @@
 // ==============================================
-// ✦ NARRATIVA SERVER — Metodo Marika, Studio Abigail
-// Gestisce le richieste dal frontend e comunica con Ollama
+// ✦ NARRATIVA ENGINE — Connessione a Ollama via Server Locale
+// Metodo Marika — Studio Abigail
 // ==============================================
 
-import express from "express";
-import cors from "cors";
-import fetch from "node-fetch";
-
-const app = express();
-app.use(cors());
-app.use(express.json());
-
-const PORT = 3210;
-
-// Log di avvio
-console.log(`🌙 Narrativa Server attivo su http://localhost:${PORT}`);
-
-// Rotta principale
-app.post("/narrativa", async (req, res) => {
-  console.log("🪶 Richiesta ricevuta da /narrativa");
-  const { prompt } = req.body;
-
-  if (!prompt) {
-    console.warn("⚠️ Nessun prompt ricevuto");
-    return res.status(400).json({ text: "Nessun testo fornito." });
-  }
+export async function invocaScritturaViva(payload) {
+  const backendUrl = "http://localhost:3210/narrativa";
 
   try {
-    // Invio la richiesta al modello Ollama
-    const response = await fetch("http://localhost:11434/api/generate", {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30000); // 30s timeout
+
+    const response = await fetch(backendUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: "llama3.2", // o il modello che usi
-        prompt: prompt,
-        stream: false,
-      }),
+      body: JSON.stringify(payload),
+      signal: controller.signal,
     });
 
-    const data = await response.json();
+    clearTimeout(timeout);
 
-    if (!data.response) {
-      throw new Error("Nessuna risposta da Ollama.");
+    if (!response.ok) {
+      throw new Error(`Errore HTTP ${response.status}`);
     }
 
-    console.log("✨ Risposta ricevuta da Ollama");
-    res.json({ text: data.response });
+    const data = await response.json();
+    return data.text || "⚠️ Nessuna risposta dal motore narrativo.";
   } catch (err) {
-    console.error("❌ Errore nel server narrativo:", err);
-    res.status(500).json({
-      text: "⚠️ Errore nella generazione. Assicurati che Ollama sia in esecuzione.",
-    });
+    console.error("❌ Errore nella comunicazione con il server narrativo:", err);
+    if (err.name === "AbortError") {
+      return "⚠️ Timeout di connessione: il motore narrativo non ha risposto in tempo.";
+    }
+    return "⚠️ Il motore narrativo non è raggiungibile. Assicurati che “narrativa_server.js” sia in esecuzione.";
   }
-});
-
-// Avvio server
-app.listen(PORT);
+}
