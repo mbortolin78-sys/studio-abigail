@@ -95,10 +95,16 @@ if (recognition) {
 }
 
 // ================================
-// 🎙️ MICROFONO (riconoscimento vocale)
+// 🎙️ MICROFONO (riconoscimento vocale compatibile iPhone + desktop)
 // ================================
 let recognition;
-if ("webkitSpeechRecognition" in window) {
+
+function initRecognition() {
+  if (!("webkitSpeechRecognition" in window)) {
+    recognition = null;
+    return;
+  }
+
   recognition = new webkitSpeechRecognition();
   recognition.lang = "it-IT";
   recognition.continuous = false;
@@ -108,22 +114,46 @@ if ("webkitSpeechRecognition" in window) {
     input.placeholder = "🎧 Sto ascoltando...";
   };
 
-  recognition.onend = () => {
-    input.placeholder = "Scrivi...";
-  };
-
   recognition.onresult = (event) => {
     const transcript = event.results[0][0].transcript.trim();
     input.value = transcript;
     sendBtn.click();
+
+    // Spegne automaticamente dopo l’invio (forzato per iPhone)
+    setTimeout(() => {
+      try {
+        recognition.stop();
+        recognition.abort();
+        input.placeholder = "Scrivi...";
+        console.log("🎤 Microfono disattivato automaticamente");
+      } catch (err) {
+        console.warn("Errore durante la chiusura del microfono:", err);
+      }
+    }, /iPhone|iPad|iPod/i.test(navigator.userAgent) ? 1500 : 300);
+  };
+
+  recognition.onend = () => {
+    input.placeholder = "Scrivi...";
   };
 }
 
-micBtn.addEventListener("click", () => {
-  if (recognition) recognition.start();
-  else addMessage("⚠️ Il microfono non è supportato su questo browser.", "assistant");
-});
+initRecognition();
 
+micBtn.addEventListener("click", () => {
+  if (!recognition) {
+    addMessage("⚠️ Il microfono non è supportato su questo browser.", "assistant");
+    return;
+  }
+
+  try {
+    recognition.start();
+  } catch (err) {
+    // Alcuni browser richiedono una ricreazione dell’istanza dopo stop()
+    console.log("⚙️ Ricreo istanza microfono dopo stop...");
+    initRecognition();
+    recognition.start();
+  }
+});
 // ================================
 // 🗂️ GESTIONE SCHEDE (Clienti / Marika)
 // ================================
