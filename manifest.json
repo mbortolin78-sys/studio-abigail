@@ -7,10 +7,17 @@
   "theme_color": "#F4EFE1",
   "description": "Interfaccia Studio Abigail — Chat energetica di Marika",
   "icons": [
-  {
-    "src": "icons/icon-180.png",
-    "sizes": "180x180",
-    "type": "image/png",
-    "purpose": "any maskable"
-  }
-]
+    {
+      "src": "icons/icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
