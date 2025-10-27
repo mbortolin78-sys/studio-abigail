@@ -9,7 +9,7 @@ const sendBtn = document.getElementById("send-btn");
 const micBtn = document.getElementById("mic-btn");
 const tabs = document.querySelectorAll(".tab");
 
-// 📱 Accorcia solo il testo del placeholder su mobile
+// 📱 Placeholder abbreviato su mobile
 if (window.innerWidth <= 768) {
   input.placeholder = "Scrivi...";
 }
@@ -55,9 +55,9 @@ function addMessage(text, sender = "user") {
 }
 
 // ================================
-// 📨 INVIO MESSAGGIO
+// 📨 INVIO MESSAGGIO + NARRATIVA
 // ================================
-function handleSend() {
+async function handleSend() {
   const text = input.value.trim();
   if (!text) return;
 
@@ -66,9 +66,35 @@ function handleSend() {
 
   const foundCommand = detectCommand(text);
   if (foundCommand) {
-    setTimeout(() => addMessage(`✨ Comando ${foundCommand.toUpperCase()} riconosciuto. Inizio elaborazione...`, "assistant"), 300);
+    addMessage(`✨ Comando ${foundCommand.toUpperCase()} riconosciuto. Attendi l'elaborazione...`, "assistant");
+
+    try {
+      const module = await import(`./${foundCommand.toLowerCase()}_generator.js`);
+      const now = new Date();
+      const data = now.toLocaleDateString('it-IT');
+      const ora = now.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+      const luogo = "Montebelluna";
+
+      const result = await module[`genera${foundCommand.toUpperCase()}`](data, ora, luogo, {});
+      const narrativa = await fetch("http://localhost:11434/api/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "marika:latest",
+          prompt: `Trasforma questi dati tecnici in un testo narrativo coerente con il Metodo Marika:\n\n${result.output}\n\nUsa tono empatico, energetico e chiaro.`,
+          stream: false
+        })
+      });
+
+      const dataNarra = await narrativa.json();
+      const testoFinale = dataNarra.response || "(nessuna risposta da Ollama)";
+      addMessage(testoFinale, "assistant");
+    } catch (err) {
+      console.error(`Errore durante l'elaborazione di ${foundCommand}:`, err);
+      addMessage(`⚠️ Errore nell'elaborazione del comando ${foundCommand}.`, "assistant");
+    }
   } else {
-    setTimeout(() => addMessage("✨ Cortesemente mi potresti dire il comando?", "assistant"), 300);
+    addMessage("✨ Cortesemente mi potresti dire il comando?", "assistant");
   }
 }
 
@@ -96,7 +122,7 @@ if ("webkitSpeechRecognition" in window) {
   };
 
   recognition.onend = () => {
-    input.placeholder = window.innerWidth <= 768 ? "Scrivi..." : "Scrivi...";
+    input.placeholder = "Scrivi...";
   };
 
   recognition.onresult = (event) => {
