@@ -377,9 +377,9 @@ textarea::placeholder {
   }
 }
 
-/* 🌸 Layout aperto e linea di separazione solo su iPhone / mobile */
+/* 🌸 Layout uniforme e vellutato solo su iPhone / mobile */
 @media (max-width: 768px) {
-  /* 🔹 Contenitore senza cornici laterali */
+  /* 🔹 Contenitore senza cornici né ombre */
   .app-container {
     width: 100%;
     height: 100vh;
@@ -392,15 +392,15 @@ textarea::placeholder {
     overflow: hidden;
   }
 
-  /* 🔹 Header fuso ma con linea sottile di separazione sotto */
+  /* 🔹 Header fuso con la parte superiore, stessa tinta del footer */
   .header {
-    background-color: #F4EFE1;
+    background-color: #F1E8DA; /* identico al footer */
     border: none;
-    border-bottom: 1px solid rgba(138, 97, 45, 0.25);
+    border-bottom: 1px solid rgba(150, 110, 60, 0.28); /* linea calda e morbida */
     box-shadow: none;
   }
 
-  /* 🔹 Area chat più ampia e ariosa */
+  /* 🔹 Area chat ariosa */
   .chat-window {
     flex: 1;
     overflow-y: auto;
@@ -408,9 +408,10 @@ textarea::placeholder {
     background-color: #F8F4EA;
   }
 
-  /* 🔹 Footer in continuità con la chat */
+  /* 🔹 Footer identico all’header */
   .input-area {
-    border-top: 1px solid rgba(138, 97, 45, 0.25);
+    background-color: #F1E8DA;
+    border-top: 1px solid rgba(150, 110, 60, 0.28); /* stessa linea calda */
     border-radius: 0;
     box-shadow: none;
   }
