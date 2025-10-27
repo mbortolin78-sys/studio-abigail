@@ -117,13 +117,28 @@ if ("webkitSpeechRecognition" in window) {
     input.placeholder = "🎧 Sto ascoltando...";
   };
 
-  recognition.onresult = (event) => {
-    const transcript = event.results[0][0].transcript.trim();
-    input.value = transcript;
-    handleSend();
-    // sicurezza: prova a spegnere subito dopo il risultato
-    try { recognition.stop(); } catch {}
-  };
+ recognition.onresult = (event) => {
+  const transcript = event.results[0][0].transcript.trim();
+  input.value = transcript;
+  handleSend();
+
+  // 🔇 chiude sempre il microfono dopo l'invio
+  try {
+    recognition.stop();
+    recognition.abort();
+  } catch {}
+
+  // 💡 su iPhone serve un piccolo delay per disattivarlo davvero
+  if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    setTimeout(() => {
+      try {
+        recognition.stop();
+        recognition.abort();
+      } catch {}
+      input.placeholder = "Scrivi...";
+    }, 1000);
+  }
+};
 
   recognition.onend = () => {
     input.placeholder = (window.innerWidth <= 768) ? "Scrivi..." : "Scrivi...";
