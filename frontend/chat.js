@@ -85,8 +85,8 @@ async function handleSend() {
     addMessage(`✨ Comando ${cmdNorm} riconosciuto. Attendi l'elaborazione...`, "assistant");
 
     try {
-      // carica il generatore corrispondente (file in root: rae_generator.js, rve_generator.js, …)
-      const module = await import(`./${cmdNorm.toLowerCase()}_generator.js`);
+     // carica il generatore corrispondente dal frontend (es. /frontend/rae_generator.js)
+const module = await import(`/frontend/${cmdNorm.toLowerCase()}_generator.js`);
 
       // contesto di base
       const now = new Date();
