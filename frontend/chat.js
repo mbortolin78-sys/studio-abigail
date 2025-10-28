@@ -15,11 +15,6 @@ if (window.innerWidth <= 768) {
 }
 
 // ================================
-// 🔌 Collegamento al Motore Narrativo locale
-// ================================
-import { invocaScritturaViva } from "./server/narrativa_engine.js";
-
-// ================================
 // 🔸 RICONOSCIMENTO COMANDI
 // ================================
 const commands = [
@@ -38,12 +33,10 @@ const commands = [
   "RVETERIA", "R VETERIA", "R-VETERIA", "R.VETERIA", "rveteria", "r veteria", "r-veteria", "r.veteria"
 ];
 
-// restituisce la prima “parola comando” trovata
 function detectCommand(text) {
   return commands.find(cmd => text.toLowerCase().startsWith(cmd.toLowerCase()));
 }
 
-// normalizza in soli caratteri A–Z, poi prende le prime tre lettere (es. “R-A-E” → “RAE”)
 function normalizeCmd(cmd) {
   return (cmd || "")
     .replace(/[^a-zA-Z]/g, "")
@@ -69,7 +62,7 @@ function addMessage(text, sender = "user") {
 }
 
 // ================================
-/* 📨 INVIO MESSAGGIO + NARRATIVA (via server locale su :3210) */
+// 📨 INVIO MESSAGGIO + CHIAMATA BACKEND
 // ================================
 async function handleSend() {
   const text = input.value.trim();
@@ -85,32 +78,25 @@ async function handleSend() {
     addMessage(`✨ Comando ${cmdNorm} riconosciuto. Attendi l'elaborazione...`, "assistant");
 
     try {
-      // ✅ Import corretto del generatore
-      const module = await import(`./${cmdNorm.toLowerCase()}_generator.js`);
+      const response = await fetch("http://localhost:3000/api/rae", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          comando: cmdNorm,
+          input: text.replace(found, "").trim()
+        })
+      });
 
-      // contesto di base
-      const now = new Date();
-      const data = now.toLocaleDateString("it-IT");
-      const ora = now.toLocaleTimeString("it-IT", { hour: "2-digit", minute: "2-digit" });
-      const luogo = "Montebelluna";
+      const data = await response.json();
+      addMessage(`🧮 Risultato: ${data.risultato}`, "assistant");
 
-      // chiama la funzione genera<COMANDO> (es. generaRAE)
-      const result = await module[`genera${cmdNorm}`](data, ora, luogo, {});
-
-      // invia al Motore Narrativo locale (che a sua volta usa Ollama)
-      const testoFinale = await invocaScritturaViva(
-        `Trasforma questi dati tecnici in un testo narrativo coerente con il Metodo Marika:
-
-${result.output}
-
-Usa tono empatico, energetico e chiaro.`
-      );
-
-      addMessage(testoFinale, "assistant");
     } catch (err) {
-      console.error(`Errore durante l'elaborazione di ${found}:`, err);
-      addMessage(`⚠️ Errore nell'elaborazione del comando ${cmdNorm}.`, "assistant");
+      console.error(`Errore durante la chiamata al backend:`, err);
+      addMessage(`⚠️ Errore nel contatto con il server.`, "assistant");
     }
+
   } else {
     addMessage("✨ Cortesemente mi potresti dire il comando?", "assistant");
   }
@@ -166,8 +152,4 @@ chatWindow.addEventListener("click", (e) => {
     navigator.clipboard.writeText(message)
       .then(() => {
         e.target.textContent = "✅";
-        setTimeout(() => (e.target.textContent = "📋"), 1000);
-      })
-      .catch(() => alert("Errore nella copia"));
-  }
-});
+        setTimeout(() => (e.target
