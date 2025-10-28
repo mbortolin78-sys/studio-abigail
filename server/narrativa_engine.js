@@ -1,30 +1,29 @@
-// ==============================================
-// ✦ NARRATIVA ENGINE — Connessione a Ollama via Server Aruba
-// Metodo Marika — Studio Abigail
-// ==============================================
+// ================================
+// ✨ Studio Abigail - Frontend → Server Narrativo (Aruba)
+// ================================
 
-export async function invocaScritturaViva(payload) {
+export async function invocaScritturaViva(prompt) {
+  console.log("💫 Invio al server narrativo:", prompt);
+
   try {
-        console.log("📤 Invio al server narrativo:", payload);
+    const res = await fetch('http://188.213.168.151:3210/api/comando', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt })
+    });
 
-    const response = await fetch(
-  `${import.meta.env.NARRATIVA_API_URL}`,
-  {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  }
-);
-
-    console.log("📥 Risposta ricevuta:", res.status);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    if (!res.ok) {
+      console.error("❌ Errore HTTP:", res.status, res.statusText);
+      throw new Error(`HTTP ${res.status}`);
+    }
 
     const data = await res.json();
-    console.log("📜 Dati dal server:", data);
+    console.log("📩 Risposta ricevuta:", data);
 
-    return data.text || '⚠️ Nessuna risposta dal motore narrativo.';
+    // Se il backend risponde con { output: "..." }
+    return data.output || "⚠️ Nessuna risposta testuale dal motore narrativo.";
   } catch (err) {
-    console.error('❌ Errore nella comunicazione con il server narrativo:', err);
-    return '⚠️ Il motore narrativo non è raggiungibile. Verifica che “narrativa_server.js” sia in esecuzione sul VPS Aruba.';
+    console.error("🚫 Errore durante la comunicazione con il server narrativo:", err);
+    return "⚠️ Il motore narrativo non è raggiungibile o ha restituito un errore.";
   }
 }
