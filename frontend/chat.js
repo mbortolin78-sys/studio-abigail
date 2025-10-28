@@ -17,7 +17,7 @@ if (window.innerWidth <= 768) {
 // ================================
 // 🔌 Collegamento al Motore Narrativo locale
 // ================================
-import { invocaScritturaViva } from "./src/ai/narrativa_engine.js";
+import { invocaScritturaViva } from "./server/narrativa_engine.js";
 
 // ================================
 // 🔸 RICONOSCIMENTO COMANDI
