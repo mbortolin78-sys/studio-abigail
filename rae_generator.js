@@ -4,7 +4,7 @@
 // ======================================================
 
 import { generaReportTecnico } from './scrittura_tecnica.js';  // genera la tabella finale
-import { generaNarrativa } from './llama_bridge.js';           // invoca la narrativa viva
+import { generaNarrativa } from './server/ollama_bridge.js';
 
 // ✦ Funzione principale per generare la RAE
 export async function generaRAE(data, ora, luogo, datiTecnici = {}) {
