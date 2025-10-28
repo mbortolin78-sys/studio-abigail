@@ -5,7 +5,7 @@
 
 export async function invocaScritturaViva(payload) {
   try {
-    console.log("📤 Invio al server narrativo:", payload);
+        console.log("📤 Invio al server narrativo:", payload);
 
     // 🔗 collegamento al server remoto Aruba
     const res = await fetch('http://188.213.168.151:3210/api/comando', {
