@@ -1,7 +1,5 @@
 /*
   Access-Control-Allow-Origin: *
   Access-Control-Allow-Methods: GET, POST, OPTIONS
-  Access-Control-Allow-Headers: Content-Type
+  Access-Control-Allow-Headers: *
 
-/rae_generator.js  Content-Type: application/javascript
-/ras_generator.js  Content-Type: application/javascript
