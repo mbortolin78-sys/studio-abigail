@@ -33,10 +33,12 @@ const commands = [
   "RVETERIA", "R VETERIA", "R-VETERIA", "R.VETERIA", "rveteria", "r veteria", "r-veteria", "r.veteria"
 ];
 
+// Rileva il comando nella frase
 function detectCommand(text) {
   return commands.find(cmd => text.toLowerCase().startsWith(cmd.toLowerCase()));
 }
 
+// Normalizza (es. "r.a.e" → "RAE")
 function normalizeCmd(cmd) {
   return (cmd || "")
     .replace(/[^a-zA-Z]/g, "")
@@ -62,7 +64,7 @@ function addMessage(text, sender = "user") {
 }
 
 // ================================
-// 📨 INVIO MESSAGGIO + CHIAMATA BACKEND
+// 📨 INVIO MESSAGGIO + NARRATIVA
 // ================================
 async function handleSend() {
   const text = input.value.trim();
@@ -74,29 +76,36 @@ async function handleSend() {
   const found = detectCommand(text);
 
   if (found) {
-    const cmdNorm = normalizeCmd(found); // es. "RAE"
+    const cmdNorm = normalizeCmd(found);
     addMessage(`✨ Comando ${cmdNorm} riconosciuto. Attendi l'elaborazione...`, "assistant");
 
     try {
-      fetch("http://188.213.166.181:3000/api/rae", {
+      // ✅ Importa il generatore giusto dal frontend
+      const module = await import(`./frontend/${cmdNorm.toLowerCase()}_generator.js`);
+
+      // Dati di base
+      const now = new Date();
+      const data = now.toLocaleDateString("it-IT");
+      const ora = now.toLocaleTimeString("it-IT", { hour: "2-digit", minute: "2-digit" });
+      const luogo = "Montebelluna";
+
+      // Esegui la funzione specifica
+      const result = await module[`genera${cmdNorm}`](data, ora, luogo, {});
+
+      // ✅ Invia i dati al motore narrativo su Aruba
+      const response = await fetch("http://188.213.168.151:3210/api/comando", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          comando: cmdNorm,
-          input: text.replace(found, "").trim()
-        })
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ comando: cmdNorm, input: result.output })
       });
 
-      const data = await response.json();
-      addMessage(`🧮 Risultato: ${data.risultato}`, "assistant");
+      const dataResponse = await response.json();
+      addMessage(dataResponse.testo || "✨ Elaborazione completata!", "assistant");
 
     } catch (err) {
-      console.error(`Errore durante la chiamata al backend:`, err);
-      addMessage(`⚠️ Errore nel contatto con il server.`, "assistant");
+      console.error(`Errore durante l'elaborazione di ${found}:`, err);
+      addMessage(`⚠️ Errore nell'elaborazione del comando ${cmdNorm}.`, "assistant");
     }
-
   } else {
     addMessage("✨ Cortesemente mi potresti dire il comando?", "assistant");
   }
@@ -152,4 +161,8 @@ chatWindow.addEventListener("click", (e) => {
     navigator.clipboard.writeText(message)
       .then(() => {
         e.target.textContent = "✅";
-        setTimeout(() => (e.target
+        setTimeout(() => (e.target.textContent = "📋"), 1000);
+      })
+      .catch(() => alert("Errore nella copia"));
+  }
+});
