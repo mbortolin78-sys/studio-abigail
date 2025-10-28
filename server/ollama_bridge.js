@@ -7,16 +7,15 @@
 
 import fetch from "node-fetch";
 
-// funzione base di connessione
-export async function generaNarrativa(payload, titolo = "Scrittura Viva") {
+async function chiediAollama(prompt) {
   try {
     console.log("📤 Invio richiesta a Ollama...");
     const response = await fetch("http://127.0.0.1:11434/api/generate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        model: "llama3.1", // puoi cambiare in "marika:latest" se lo hai
-        prompt: costruisciPrompt(payload, titolo),
+        model: "llama3.1", // oppure "marika:latest" se lo hai creato
+        prompt,
         stream: false,
       }),
     });
@@ -30,10 +29,5 @@ export async function generaNarrativa(payload, titolo = "Scrittura Viva") {
   }
 }
 
-// helper per costruire il prompt da payload
-function costruisciPrompt(payload, titolo) {
-  const contesto = payload?.contesto
-    ? `📅 ${payload.contesto.data} — 🕰️ ${payload.contesto.ora} — 📍 ${payload.contesto.luogo}`
-    : "";
-  return `🜂 ${titolo}\n\n${contesto}\n\nStruttura: ${JSON.stringify(payload.struttura, null, 2)}\n\nDati tecnici: ${JSON.stringify(payload.datiTecnici, null, 2)}\n\nRispondi con linguaggio empatico e simbolico, in italiano.`;
-}
+// 👇 questa è la parte mancante che serve al server
+export default chiediAollama;
