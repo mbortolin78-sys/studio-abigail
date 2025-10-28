@@ -84,7 +84,12 @@ export async function generaRAS(data, ora, luogo, datiTecnici = {}, opts = {}) {
     tabella
   ].join('\n\n');
 
+  console.log('✅ Scrittura Sintetica (RAS) generata correttamente.');
   return { output: testoFinale };
 }
 
+// ✦ Esportazioni principali
 export default generaRAS;
+
+// ✦ Alias compatibilità (necessario per moduli più vecchi)
+export const generaStesuraRAS = generaRAS;
