@@ -6,7 +6,7 @@
 // ======================================================
 
 import { generaReportTecnico } from './scrittura_tecnica.js';  // tabella tecnica (oraria, galassie, ecc.)
-import { generaNarrativa } from './llama_bridge.js';           // ponte verso il modello di scrittura
+import { generaNarrativa } from './server/ollama_bridge.js';        // ponte verso il modello di scrittura
 
 /**
  * Genera la RAS (Sintetica) per Auroria.
