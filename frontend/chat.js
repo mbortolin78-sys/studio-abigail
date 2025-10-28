@@ -85,8 +85,8 @@ async function handleSend() {
     addMessage(`✨ Comando ${cmdNorm} riconosciuto. Attendi l'elaborazione...`, "assistant");
 
     try {
-     // carica il generatore corrispondente dal frontend (es. /frontend/rae_generator.js)
-const module = await import(`/frontend/${cmdNorm.toLowerCase()}_generator.js`);
+      // ✅ Import corretto del generatore
+      const module = await import(`./${cmdNorm.toLowerCase()}_generator.js`);
 
       // contesto di base
       const now = new Date();
@@ -115,15 +115,6 @@ Usa tono empatico, energetico e chiaro.`
     addMessage("✨ Cortesemente mi potresti dire il comando?", "assistant");
   }
 }
-
-sendBtn.addEventListener("click", handleSend);
-
-input.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && !e.shiftKey) {
-    e.preventDefault();
-    handleSend();
-  }
-});
 
 // ================================
 // 🎙️ MICROFONO
