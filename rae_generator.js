@@ -6,6 +6,7 @@
 import { generaReportTecnico } from './scrittura_tecnica.js';  // genera la tabella finale
 import { generaNarrativa } from './llama_bridge.js';           // invoca la narrativa viva
 
+// ✦ Funzione principale per generare la RAE
 export async function generaRAE(data, ora, luogo, datiTecnici = {}) {
   // 1️⃣ Prepara i blocchi strutturali
   const struttura = {
@@ -41,4 +42,9 @@ export async function generaRAE(data, ora, luogo, datiTecnici = {}) {
   return { output: testoFinale };
 }
 
+// ✦ Export principali
 export default generaRAE;
+
+// ✦ Alias per compatibilità con moduli precedenti
+// (serve perché alcuni file più vecchi cercano ancora “generaStesuraRAE”)
+export const generaStesuraRAE = generaRAE;
