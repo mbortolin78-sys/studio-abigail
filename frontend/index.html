@@ -34,35 +34,7 @@
     </footer>
   </div>
 
-  <!-- 🔧 SCRIPT PRINCIPALE -->
-  <script>
-    document.getElementById('send-btn').addEventListener('click', () => {
-      const input = document.getElementById('message-input').value.trim();
-      if (!input) return;
-
-      // Mostra il messaggio nella chat
-      const chatWindow = document.getElementById('chat-window');
-      const userMessage = document.createElement('div');
-      userMessage.textContent = `✨ Comando RAE riconosciuto. Attendi l’elaborazione…`;
-      chatWindow.appendChild(userMessage);
-
-      // Invia il comando al backend
-      fetch('http://185.137.233.121:3000/api/rae', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ comando: 'rae', input })
-      })
-      .then(res => res.json())
-      .then(data => {
-        const response = document.createElement('div');
-        response.textContent = `🧠 Risposta: ${data.risultato || 'Nessuna risposta ricevuta'}`;
-        chatWindow.appendChild(response);
-      })
-      .catch(err => {
-        const error = document.createElement('div');
-        error.textContent = `⚠️ Errore nell’elaborazione del comando RAE.`;
-        chatWindow.appendChild(error);
-        console.error('Errore fetch:', err);
-      });
-    });
-  </script>
+  <!-- 🔧 Collegamento al motore della chat -->
+  <script type="module" src="./frontend/chat.js"></script>
+</body>
+</html>
