@@ -78,7 +78,7 @@ async function handleSend() {
     addMessage(`✨ Comando ${cmdNorm} riconosciuto. Attendi l'elaborazione...`, "assistant");
 
     try {
-      const response = await fetch("http://localhost:3000/api/rae", {
+      fetch("http://188.213.166.181:3000/api/rae", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
