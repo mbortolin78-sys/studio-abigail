@@ -5,7 +5,7 @@
 
 import express from "express";
 import cors from "cors";
-import { chiediAollama } from "./ollama_bridge.js"; // 🔗 Connessione a Ollama
+import { generaNarrativa } from './ollama_bridge.js';
 
 const app = express();
 app.use(cors());
