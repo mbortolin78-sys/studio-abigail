@@ -8,6 +8,10 @@ import cors from "cors";
 import chiediAollama from './ollama_bridge.js';
 
 const app = express();
+// Rotta di salute — verifica che il server risponde
+app.get('/health', (req, res) => {
+  res.status(200).send('✅ Studio Abigail Narrative Engine is alive');
+});
 app.use(cors());
 app.use(express.json());
 
