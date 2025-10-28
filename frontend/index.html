@@ -6,21 +6,15 @@
   <title>Studio Abigail</title>
   <meta name="theme-color" content="#F4EFE1" />
   <link rel="shortcut icon" href="./favicon-32.png" type="image/png">
-  
-  <!-- 🟢 Manifest e icona app -->
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icon-180.png">
   <meta name="theme-color" content="#D8C9B4" />
-
-  <!-- 🟤 Stile generale -->
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Optima:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 
 <body>
   <div class="app-container">
-
-    <!-- 🟡 INTESTAZIONE -->
     <header class="header">
       <div class="header-title">Studio Abigail</div>
       <div class="tabs">
@@ -29,16 +23,10 @@
       </div>
     </header>
 
-    <!-- 💬 FINESTRA CHAT -->
     <main class="chat-window" id="chat-window"></main>
 
-    <!-- 🟠 BARRA DI INVIO -->
     <footer class="input-area">
-      <textarea
-        id="message-input"
-        placeholder="Scrivi..."
-        rows="1"
-      ></textarea>
+      <textarea id="message-input" placeholder="Scrivi..." rows="1"></textarea>
       <div class="input-buttons">
         <button id="send-btn">Invia</button>
         <button id="mic-btn" title="Attiva microfono">🎙️</button>
@@ -47,15 +35,34 @@
   </div>
 
   <!-- 🔧 SCRIPT PRINCIPALE -->
- <script type="module" src="./chat.js"></script>
-
-  <!-- 🌀 Registrazione del Service Worker -->
   <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(() => console.log('✅ Service Worker registrato con successo'))
-        .catch(err => console.log('❌ Errore registrazione SW:', err));
-    }
+    document.getElementById('send-btn').addEventListener('click', () => {
+      const input = document.getElementById('message-input').value.trim();
+      if (!input) return;
+
+      // Mostra il messaggio nella chat
+      const chatWindow = document.getElementById('chat-window');
+      const userMessage = document.createElement('div');
+      userMessage.textContent = `✨ Comando RAE riconosciuto. Attendi l’elaborazione…`;
+      chatWindow.appendChild(userMessage);
+
+      // Invia il comando al backend
+      fetch('http://185.137.233.121:3000/api/rae', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ comando: 'rae', input })
+      })
+      .then(res => res.json())
+      .then(data => {
+        const response = document.createElement('div');
+        response.textContent = `🧠 Risposta: ${data.risultato || 'Nessuna risposta ricevuta'}`;
+        chatWindow.appendChild(response);
+      })
+      .catch(err => {
+        const error = document.createElement('div');
+        error.textContent = `⚠️ Errore nell’elaborazione del comando RAE.`;
+        chatWindow.appendChild(error);
+        console.error('Errore fetch:', err);
+      });
+    });
   </script>
-</body>
-</html>
