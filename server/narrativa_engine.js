@@ -6,7 +6,7 @@ export async function invocaScritturaViva(prompt) {
   console.log("💫 Invio al server narrativo:", prompt);
 
   try {
-    const res = await fetch('http://188.213.168.151:3210/api/comando', {
+    const res = await fetch('http://31.14.131.80:3210/api/comando', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ prompt })
