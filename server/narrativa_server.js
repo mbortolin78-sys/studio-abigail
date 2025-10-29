@@ -3,15 +3,17 @@
 // Metodo Marika — Connessione diretta con Ollama
 // ==============================================
 
-import express from "express";
-import cors from "cors";
-import chiediAollama from './ollama_bridge.js';
+const express = require("express");
+const cors = require("cors");
+const chiediAollama = require("./ollama_bridge.js");
 
 const app = express();
+
 // Rotta di salute — verifica che il server risponde
 app.get('/health', (req, res) => {
   res.status(200).send('✅ Studio Abigail Narrative Engine is alive');
 });
+
 app.use(cors());
 app.use(express.json());
 
@@ -30,20 +32,13 @@ app.post("/api/comando", async (req, res) => {
   const contenuto = prompt || testo || comando || "Nessun testo ricevuto";
 
   try {
-    // 🔮 Invoca il modello Ollama attraverso il bridge
     const testoRisposta = await chiediAollama(contenuto);
-
-    // 🔁 Invia la risposta al frontend
-    res.json({
-      text: testoRisposta || "⚠️ Nessuna risposta leggibile da Ollama.",
-    });
-
+    res.json({ text: testoRisposta || "⚠️ Nessuna risposta leggibile da Ollama." });
     console.log("✅ Risposta inviata al frontend.");
   } catch (err) {
     console.error("❌ Errore nel server narrativo:", err);
     res.status(500).json({
-      text:
-        "⚠️ Errore nella generazione. Assicurati che Ollama sia aperto e il modello caricato.",
+      text: "⚠️ Errore nella generazione. Assicurati che Ollama sia aperto e il modello caricato."
     });
   }
 });
