@@ -92,12 +92,16 @@ async function handleSend() {
       // Esegui la funzione specifica
       const result = await module[`genera${cmdNorm}`](data, ora, luogo, {});
 
-      // ✅ Invia i dati al motore narrativo su Aruba
-      const response = await fetch("http://188.213.168.151:3210/api/comando", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ comando: cmdNorm, input: result.output })
-      });
+     fetch("http://31.14.131.80:3000/api/rae", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    comando: cmdNorm,
+    input: text.replace(found, "").trim()
+  })
+});
 
       const dataResponse = await response.json();
       addMessage(dataResponse.testo || "✨ Elaborazione completata!", "assistant");
