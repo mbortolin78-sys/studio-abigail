@@ -92,29 +92,30 @@ async function handleSend() {
       // Esegui la funzione specifica
       const result = await module[`genera${cmdNorm}`](data, ora, luogo, {});
 
-     fetch("http://31.14.131.80:3000/api/rae", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    comando: cmdNorm,
-    input: text.replace(found, "").trim()
-  })
-});
+    // 🌐 Invio al server narrativo principale
+try {
+  const response = await fetch("http://31.14.131.80:3210/api/comando", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      comando: cmdNorm,
+      prompt: text.replace(found, "").trim()
+    })
+  });
 
-      const dataResponse = await response.json();
-      addMessage(dataResponse.testo || "✨ Elaborazione completata!", "assistant");
+  const dataResponse = await response.json();
 
-    } catch (err) {
-      console.error(`Errore durante l'elaborazione di ${found}:`, err);
-      addMessage(`⚠️ Errore nell'elaborazione del comando ${cmdNorm}.`, "assistant");
-    }
-  } else {
-    addMessage("✨ Cortesemente mi potresti dire il comando?", "assistant");
-  }
+  addMessage(
+    dataResponse.text || dataResponse.risposta || "✨ Elaborazione completata!",
+    "assistant"
+  );
+} catch (error) {
+  console.error("Errore durante la comunicazione col server:", error);
+  addMessage("⚠️ Errore di comunicazione con il server narrativo.", "assistant");
 }
-
+      
 // ================================
 // 🎙️ MICROFONO
 // ================================
